@@ -1,0 +1,6 @@
+framework module GiniTariffSDK {
+  umbrella header "GiniTariffSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

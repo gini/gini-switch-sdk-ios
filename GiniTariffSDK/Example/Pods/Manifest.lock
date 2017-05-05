@@ -1,0 +1,23 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - GiniTariffSDK (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - GiniTariffSDK (from `../`)
+
+EXTERNAL SOURCES:
+  GiniTariffSDK:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  GiniTariffSDK: 9260174d7a629959cc1729db44de0d6e8fd464fb
+
+PODFILE CHECKSUM: b7937df4cab0e4fae36f4ba15c24d2fd5733a08e
+
+COCOAPODS: 1.2.1

@@ -1,0 +1,22 @@
+{
+  "name": "GiniTariffSDK",
+  "version": "0.1.0",
+  "summary": "A short description of GiniTariffSDK.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Gini GmbH/GiniTariffSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Gini GmbH": "nikola@gini.net"
+  },
+  "source": {
+    "git": "https://github.com/Gini GmbH/GiniTariffSDK.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "GiniTariffSDK/Classes/**/*"
+}
