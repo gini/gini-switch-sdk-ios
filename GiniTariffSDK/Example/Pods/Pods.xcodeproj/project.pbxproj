@@ -14,6 +14,15 @@
 		19E9B2E352F343AF4DFC5A76683090E6 /* Pods-GiniTariffSDK_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BDBC7238D1A8DEB2847A2030550E0B /* Pods-GiniTariffSDK_Tests-dummy.m */; };
 		1AB7934C16CE49DE196FFC7BE7278287 /* SwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97545C39C4A5EE2631DD9FFECE76A40 /* SwiftSupport.swift */; };
 		1E8A7584520737945B40C78E957EC305 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E88A450A84E3957158B3B3459740AA /* Foundation.framework */; };
+		231026E31EC0A7A900920F40 /* TariffConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231026E21EC0A7A900920F40 /* TariffConfiguration.swift */; };
+		231026E51EC0A91300920F40 /* TariffLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231026E41EC0A91300920F40 /* TariffLogger.swift */; };
+		231026E71EC0AB4100920F40 /* TariffConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231026E61EC0AB4100920F40 /* TariffConsoleLogger.swift */; };
+		231026EB1EC0BA1500920F40 /* TariffAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231026EA1EC0BA1500920F40 /* TariffAppearance.swift */; };
+		231026ED1EC0BA6300920F40 /* TariffOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231026EC1EC0BA6300920F40 /* TariffOnboarding.swift */; };
+		231026EF1EC0BAC700920F40 /* TariffAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231026EE1EC0BAC700920F40 /* TariffAnalytics.swift */; };
+		231026F11EC0BBCA00920F40 /* TariffNopAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231026F01EC0BBCA00920F40 /* TariffNopAnalytics.swift */; };
+		23EB01801EC06602000AB2D9 /* TariffSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB017F1EC06602000AB2D9 /* TariffSdk.swift */; };
+		23EB01841EC070D1000AB2D9 /* TariffUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */; };
 		2F485B69F51E4F723A38410F31F08550 /* FBSnapshotTestController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1374B79237CAC07693E99442FBED1F15 /* FBSnapshotTestController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3496CC16AF41362D96538FACFF564326 /* GiniTariffSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A4573FEA117D5CE7BD14A347AA55F946 /* GiniTariffSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		35DD05FD595A6FE7F5A0692D12E319DC /* UIImage+Diff.m in Sources */ = {isa = PBXBuildFile; fileRef = B9CEF7D6C5E08AB80E58DABC75D882BC /* UIImage+Diff.m */; };
@@ -37,7 +46,6 @@
 		CAFA5E486BCE117A7D8C0FBF9DA6666B /* UIImage+Compare.h in Headers */ = {isa = PBXBuildFile; fileRef = 432938111B6FF0189EFFEDF2F845B308 /* UIImage+Compare.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		D391BABF6417EC34D788FCDC7A92936D /* Pods-GiniTariffSDK_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C4992BF50EC47ECC20467C41CA015BEC /* Pods-GiniTariffSDK_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DB7A106243AC974FC7EBEB00B506C786 /* FBSnapshotTestCasePlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A2557E7CE20AACCD1B28B1CD1F920D /* FBSnapshotTestCasePlatform.m */; };
-		E8696F4D4DCBE90820F82E8937657729 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB13987D6E4BA1831C34C2FE92C615B6 /* ReplaceMe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +70,15 @@
 		0B161931541BFE46DFEA2092EDDDA815 /* UIImage+Snapshot.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Snapshot.h"; path = "FBSnapshotTestCase/Categories/UIImage+Snapshot.h"; sourceTree = "<group>"; };
 		1374B79237CAC07693E99442FBED1F15 /* FBSnapshotTestController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestController.h; path = FBSnapshotTestCase/FBSnapshotTestController.h; sourceTree = "<group>"; };
 		13E9B47E0977D77E575DF4C57049677C /* GiniTariffSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GiniTariffSDK.xcconfig; sourceTree = "<group>"; };
+		231026E21EC0A7A900920F40 /* TariffConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffConfiguration.swift; path = Classes/TariffConfiguration.swift; sourceTree = "<group>"; };
+		231026E41EC0A91300920F40 /* TariffLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffLogger.swift; path = Classes/TariffLogger.swift; sourceTree = "<group>"; };
+		231026E61EC0AB4100920F40 /* TariffConsoleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffConsoleLogger.swift; path = Classes/TariffConsoleLogger.swift; sourceTree = "<group>"; };
+		231026EA1EC0BA1500920F40 /* TariffAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffAppearance.swift; path = Classes/TariffAppearance.swift; sourceTree = "<group>"; };
+		231026EC1EC0BA6300920F40 /* TariffOnboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffOnboarding.swift; path = Classes/TariffOnboarding.swift; sourceTree = "<group>"; };
+		231026EE1EC0BAC700920F40 /* TariffAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffAnalytics.swift; path = Classes/TariffAnalytics.swift; sourceTree = "<group>"; };
+		231026F01EC0BBCA00920F40 /* TariffNopAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffNopAnalytics.swift; path = Classes/TariffNopAnalytics.swift; sourceTree = "<group>"; };
+		23EB017F1EC06602000AB2D9 /* TariffSdk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffSdk.swift; path = Classes/TariffSdk.swift; sourceTree = "<group>"; };
+		23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffUserInterface.swift; path = Classes/TariffUserInterface.swift; sourceTree = "<group>"; };
 		2EECE81A9AEC1ED1057A9C3C88DBCEBE /* UIApplication+StrictKeyWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+StrictKeyWindow.m"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.m"; sourceTree = "<group>"; };
 		355952367005A8E00FB162C120751AD3 /* Pods-GiniTariffSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GiniTariffSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		39577E2B806B8B2D019998DE60728F63 /* FBSnapshotTestCase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestCase.m; path = FBSnapshotTestCase/FBSnapshotTestCase.m; sourceTree = "<group>"; };
@@ -75,31 +92,30 @@
 		58A2557E7CE20AACCD1B28B1CD1F920D /* FBSnapshotTestCasePlatform.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestCasePlatform.m; path = FBSnapshotTestCase/FBSnapshotTestCasePlatform.m; sourceTree = "<group>"; };
 		59F4DBD4D02E19E1D20A2E7E645B1676 /* Pods-GiniTariffSDK_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GiniTariffSDK_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		5BDDA6F29512DFC7DE0FA7AB5AD9E5CB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6338E260A8754FCCDE96ACCC8AC2AB8E /* GiniTariffSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GiniTariffSDK.framework; path = GiniTariffSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6338E260A8754FCCDE96ACCC8AC2AB8E /* GiniTariffSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GiniTariffSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		649359CFD49B753370C2FE321F5A5FEF /* Pods-GiniTariffSDK_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GiniTariffSDK_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		668B4B89759699A72B7A95D2021D63CA /* Pods-GiniTariffSDK_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GiniTariffSDK_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		6E66B4218824CF8160D93713DDBEEA82 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73D037B3C804B9E1BB70538E342E5104 /* FBSnapshotTestCase-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSnapshotTestCase-umbrella.h"; sourceTree = "<group>"; };
-		75CBBE9A1049295AE1A3795F44FD38FF /* Pods_GiniTariffSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GiniTariffSDK_Example.framework; path = "Pods-GiniTariffSDK_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		75CBBE9A1049295AE1A3795F44FD38FF /* Pods_GiniTariffSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniTariffSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A42B135B337FF4B03D2F4F4826F194A /* Pods-GiniTariffSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GiniTariffSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		7C113C4C624E1CEEF1FA3FE99E311452 /* Pods-GiniTariffSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GiniTariffSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		7E3DB4D092B985E76E227F7F313C6981 /* FBSnapshotTestCasePlatform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestCasePlatform.h; path = FBSnapshotTestCase/FBSnapshotTestCasePlatform.h; sourceTree = "<group>"; };
-		823558E8AC8EB39D028DB5FBBEA227A3 /* FBSnapshotTestCase.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FBSnapshotTestCase.modulemap; sourceTree = "<group>"; };
+		823558E8AC8EB39D028DB5FBBEA227A3 /* FBSnapshotTestCase.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FBSnapshotTestCase.modulemap; sourceTree = "<group>"; };
 		8534514794027C5F7109B5EA9CE4FAB6 /* Pods-GiniTariffSDK_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GiniTariffSDK_Example-dummy.m"; sourceTree = "<group>"; };
 		85E250EF19C5B5671AEC10BEB508D087 /* UIImage+Diff.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Diff.h"; path = "FBSnapshotTestCase/Categories/UIImage+Diff.h"; sourceTree = "<group>"; };
 		87889B6FDF2D2296EA6AFF7F37A6D944 /* Pods-GiniTariffSDK_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GiniTariffSDK_Example-frameworks.sh"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A27810809BAD71E4022600B21251449F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		A4573FEA117D5CE7BD14A347AA55F946 /* GiniTariffSDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GiniTariffSDK-umbrella.h"; sourceTree = "<group>"; };
 		AA323C90663942983643D7A4D1F697C8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		B9109B8B333B5A1A3E92EFC09EDC10AC /* UIApplication+StrictKeyWindow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIApplication+StrictKeyWindow.h"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.h"; sourceTree = "<group>"; };
 		B9CEF7D6C5E08AB80E58DABC75D882BC /* UIImage+Diff.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Diff.m"; path = "FBSnapshotTestCase/Categories/UIImage+Diff.m"; sourceTree = "<group>"; };
-		BB13987D6E4BA1831C34C2FE92C615B6 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReplaceMe.swift; sourceTree = "<group>"; };
 		C4992BF50EC47ECC20467C41CA015BEC /* Pods-GiniTariffSDK_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GiniTariffSDK_Example-umbrella.h"; sourceTree = "<group>"; };
 		C6E88A450A84E3957158B3B3459740AA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		CB489EEF98364DD4FF71A7E549AF9DB8 /* Pods-GiniTariffSDK_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GiniTariffSDK_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		CC12BCFA3FC0B8C307F5B38C673EDD12 /* FBSnapshotTestCase-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSnapshotTestCase-prefix.pch"; sourceTree = "<group>"; };
-		CCDF5C9DB23A61BEAE36D3DD617F62EE /* Pods-GiniTariffSDK_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-GiniTariffSDK_Example.modulemap"; sourceTree = "<group>"; };
+		CCDF5C9DB23A61BEAE36D3DD617F62EE /* Pods-GiniTariffSDK_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GiniTariffSDK_Example.modulemap"; sourceTree = "<group>"; };
 		D01B94A5DD4CFC2F62BC59DCAADEEBD5 /* Pods-GiniTariffSDK_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GiniTariffSDK_Tests-resources.sh"; sourceTree = "<group>"; };
 		D0BDBC7238D1A8DEB2847A2030550E0B /* Pods-GiniTariffSDK_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GiniTariffSDK_Tests-dummy.m"; sourceTree = "<group>"; };
 		D66CB953CE31457AC90F497FED13B7E3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -109,10 +125,10 @@
 		E37899BD4B349060AA147E2A3721D3A2 /* FBSnapshotTestCase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestCase.h; path = FBSnapshotTestCase/FBSnapshotTestCase.h; sourceTree = "<group>"; };
 		EB990A57D3C419E43EA893ED4096C7FD /* GiniTariffSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GiniTariffSDK-prefix.pch"; sourceTree = "<group>"; };
 		EDE1F1B74AE283F6A844C26E79CC2BCB /* GiniTariffSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GiniTariffSDK-dummy.m"; sourceTree = "<group>"; };
-		F47180B4EF645660D094BD49DBC9C051 /* FBSnapshotTestCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FBSnapshotTestCase.framework; path = FBSnapshotTestCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F6F44FA2231D94CA54A36C215C3C60EF /* Pods-GiniTariffSDK_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-GiniTariffSDK_Tests.modulemap"; sourceTree = "<group>"; };
-		FD5E0714D2A6A1D41BE010088A2700F3 /* Pods_GiniTariffSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GiniTariffSDK_Tests.framework; path = "Pods-GiniTariffSDK_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE82A07437D4AC53BB00D2227AACFF82 /* GiniTariffSDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = GiniTariffSDK.modulemap; sourceTree = "<group>"; };
+		F47180B4EF645660D094BD49DBC9C051 /* FBSnapshotTestCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FBSnapshotTestCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6F44FA2231D94CA54A36C215C3C60EF /* Pods-GiniTariffSDK_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GiniTariffSDK_Tests.modulemap"; sourceTree = "<group>"; };
+		FD5E0714D2A6A1D41BE010088A2700F3 /* Pods_GiniTariffSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniTariffSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE82A07437D4AC53BB00D2227AACFF82 /* GiniTariffSDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = GiniTariffSDK.modulemap; sourceTree = "<group>"; };
 		FEFE52ACE197B2945F3CD6DFE02D6701 /* Pods-GiniTariffSDK_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GiniTariffSDK_Tests-umbrella.h"; sourceTree = "<group>"; };
 		FF1EECA4A47F47A42D0EB3A625312617 /* Pods-GiniTariffSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GiniTariffSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,8 +201,21 @@
 				1549F91FCD089822594C1F5DB8AB9E8F /* Support Files */,
 				99E46DD4AB2256791F111C718CB0EEF8 /* SwiftSupport */,
 			);
-			name = FBSnapshotTestCase;
 			path = FBSnapshotTestCase;
+			sourceTree = "<group>";
+		};
+		231026E11EC0A77900920F40 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				231026E21EC0A7A900920F40 /* TariffConfiguration.swift */,
+				231026E41EC0A91300920F40 /* TariffLogger.swift */,
+				231026E61EC0AB4100920F40 /* TariffConsoleLogger.swift */,
+				231026EA1EC0BA1500920F40 /* TariffAppearance.swift */,
+				231026EC1EC0BA6300920F40 /* TariffOnboarding.swift */,
+				231026EE1EC0BAC700920F40 /* TariffAnalytics.swift */,
+				231026F01EC0BBCA00920F40 /* TariffNopAnalytics.swift */,
+			);
+			name = Configuration;
 			sourceTree = "<group>";
 		};
 		2753122D9740DD251BEE70B18A8E209C /* Targets Support Files */ = {
@@ -201,9 +230,7 @@
 		3086A96A69A5E957529080160864BC0D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				BB13987D6E4BA1831C34C2FE92C615B6 /* ReplaceMe.swift */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -265,9 +292,11 @@
 		8D969973EF0DECD51A01B3AEBC5CAF42 /* GiniTariffSDK */ = {
 			isa = PBXGroup;
 			children = (
+				231026E11EC0A77900920F40 /* Configuration */,
 				3086A96A69A5E957529080160864BC0D /* Classes */,
+				23EB017F1EC06602000AB2D9 /* TariffSdk.swift */,
+				23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */,
 			);
-			name = GiniTariffSDK;
 			path = GiniTariffSDK;
 			sourceTree = "<group>";
 		};
@@ -478,6 +507,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					AEB5259DB4F7CC8F0E311D2256027EE9 = {
+						LastSwiftMigration = 0830;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -520,8 +554,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				231026ED1EC0BA6300920F40 /* TariffOnboarding.swift in Sources */,
+				231026E31EC0A7A900920F40 /* TariffConfiguration.swift in Sources */,
+				231026F11EC0BBCA00920F40 /* TariffNopAnalytics.swift in Sources */,
+				231026E51EC0A91300920F40 /* TariffLogger.swift in Sources */,
+				231026EB1EC0BA1500920F40 /* TariffAppearance.swift in Sources */,
+				23EB01801EC06602000AB2D9 /* TariffSdk.swift in Sources */,
+				23EB01841EC070D1000AB2D9 /* TariffUserInterface.swift in Sources */,
+				231026EF1EC0BAC700920F40 /* TariffAnalytics.swift in Sources */,
 				7F101E8CE99B4D0FD46A404B7178AE23 /* GiniTariffSDK-dummy.m in Sources */,
-				E8696F4D4DCBE90820F82E8937657729 /* ReplaceMe.swift in Sources */,
+				231026E71EC0AB4100920F40 /* TariffConsoleLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,6 +643,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13E9B47E0977D77E575DF4C57049677C /* GiniTariffSDK.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -801,6 +844,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13E9B47E0977D77E575DF4C57049677C /* GiniTariffSDK.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
