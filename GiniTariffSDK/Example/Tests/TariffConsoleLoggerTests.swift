@@ -57,4 +57,9 @@ class TariffConsoleLoggerTests: XCTestCase {
         XCTAssertTrue(logger.shouldLog(level: .info) == true, "Should log message if the log level is above the min")
     }
     
+    func testMinLogLevelEquality() {
+        logger.minLogLevel = .warn
+        XCTAssertTrue(logger.shouldLog(level: .warn) == true, "Should log message if the log level is equal to warn")
+    }
+    
 }

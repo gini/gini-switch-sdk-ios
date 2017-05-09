@@ -15,16 +15,6 @@ class TariffSdkTests: XCTestCase {
     let testClientSecret = "myTariffSecret"
     let testDomain = "tarifffun.com"
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
     func testCanInitTariffSdk() {
         let sdk = emptySdk()
         XCTAssertNotNil(sdk, "Should be able to init a TariffSDK without parameters")

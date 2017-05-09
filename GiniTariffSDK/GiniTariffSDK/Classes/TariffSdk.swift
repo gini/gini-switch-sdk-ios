@@ -24,9 +24,9 @@ protocol TariffSdkDelegate: class {
 
 class TariffSdk {
     
-    let clientId: String?
-    let clientSecret: String?
-    let clientDomain: String?
+    let clientId: String
+    let clientSecret: String
+    let clientDomain: String
     
     weak var delegate:TariffSdkDelegate? = nil
     
