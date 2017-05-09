@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		231026E91EC0ADCD00920F40 /* TariffConsoleLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231026E81EC0ADCD00920F40 /* TariffConsoleLoggerTests.swift */; };
+		23EB01821EC066AF000AB2D9 /* TariffSdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01811EC066AF000AB2D9 /* TariffSdkTests.swift */; };
+		23EB01861EC07162000AB2D9 /* TariffUserInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01851EC07162000AB2D9 /* TariffUserInterfaceTests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -28,10 +31,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		219ECBFC9AA80E39726A7754 /* GiniTariffSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = GiniTariffSDK.podspec; path = ../GiniTariffSDK.podspec; sourceTree = "<group>"; };
+		219ECBFC9AA80E39726A7754 /* GiniTariffSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GiniTariffSDK.podspec; path = ../GiniTariffSDK.podspec; sourceTree = "<group>"; };
+		231026E81EC0ADCD00920F40 /* TariffConsoleLoggerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TariffConsoleLoggerTests.swift; sourceTree = "<group>"; };
+		23EB01811EC066AF000AB2D9 /* TariffSdkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TariffSdkTests.swift; sourceTree = "<group>"; };
+		23EB01851EC07162000AB2D9 /* TariffUserInterfaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TariffUserInterfaceTests.swift; sourceTree = "<group>"; };
 		36E73D8BC7FE58332DC0B4DC /* Pods-GiniTariffSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniTariffSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniTariffSDK_Tests/Pods-GiniTariffSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		479D38B1B836C845FC917420 /* Pods_GiniTariffSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniTariffSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		507D93D397E6308AE3280C40 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		507D93D397E6308AE3280C40 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* GiniTariffSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiniTariffSDK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +51,7 @@
 		7A79E6BAB3B5016F9103DB92 /* Pods_GiniTariffSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniTariffSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF3BD5EE7DFDBDF18C313ED /* Pods-GiniTariffSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniTariffSDK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniTariffSDK_Tests/Pods-GiniTariffSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B7315DA6E9491540C8EA66C1 /* Pods-GiniTariffSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniTariffSDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniTariffSDK_Example/Pods-GiniTariffSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		B86004D8E4C3C505D6767EFC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		B86004D8E4C3C505D6767EFC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		DBBE0DF57DCF411A5837179B /* Pods-GiniTariffSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniTariffSDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniTariffSDK_Example/Pods-GiniTariffSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,8 +132,11 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
+				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				23EB01811EC066AF000AB2D9 /* TariffSdkTests.swift */,
+				23EB01851EC07162000AB2D9 /* TariffUserInterfaceTests.swift */,
+				231026E81EC0ADCD00920F40 /* TariffConsoleLoggerTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -370,7 +379,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23EB01821EC066AF000AB2D9 /* TariffSdkTests.swift in Sources */,
+				23EB01861EC07162000AB2D9 /* TariffUserInterfaceTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				231026E91EC0ADCD00920F40 /* TariffConsoleLoggerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +548,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GiniTariffSDK_Example.app/GiniTariffSDK_Example";
 			};
 			name = Debug;
 		};
@@ -552,6 +565,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GiniTariffSDK_Example.app/GiniTariffSDK_Example";
 			};
 			name = Release;
 		};
