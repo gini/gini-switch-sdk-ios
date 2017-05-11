@@ -47,4 +47,10 @@ class TariffUserInterfaceTests: XCTestCase {
         XCTAssertNil(viewController, "TariffUI with navigaiton presentation style should not be embedded in a navigation stack")
     }
     
+    func testReturnsMultiPageScanController() {
+        tariffUI.presentationStyle = .navigation    // otherwise it would be embedded into a navigation controller
+        let viewController = tariffUI.initialViewController as? MultiPageScanViewController
+        XCTAssertNotNil(viewController, "TariffUI should return a MultiPageScanViewController instance")
+    }
+    
 }

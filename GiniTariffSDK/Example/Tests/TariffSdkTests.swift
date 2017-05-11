@@ -46,6 +46,12 @@ class TariffSdkTests: XCTestCase {
         XCTAssertTrue(sdk.delegate === self, "Should be able to set TariffSDK's delegate")
     }
     
+    func testCanInstantiateUi() {
+        let sdk = emptySdk()
+        let initialController = sdk.instantiateTariffViewController()
+        XCTAssertNotNil(initialController, "TariffSdk should be able to generate view controllers for clients")
+    }
+    
 }
 
 // Tariff SDK initialization

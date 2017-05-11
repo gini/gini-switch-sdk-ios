@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import GiniTariffSDK
 
-class ViewController: UIViewController {
+class TariffExampleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,14 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func onStartSdk() {
+        let sdk = TariffSdk(clientId: "TestId", clientSecret: "secret", domain: "gini.net")
+        let tariffController = sdk.instantiateTariffViewController()
+        self.present(tariffController, animated: true) { 
+            // TODO: maybe show a "thank you" note
+        }
     }
 
 }
