@@ -14,12 +14,16 @@
 		231027081EC337E100920F40 /* FakeCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231027071EC337E100920F40 /* FakeCamera.swift */; };
 		2310270A1EC473C100920F40 /* CameraOptionsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231027091EC473C100920F40 /* CameraOptionsViewControllerTests.swift */; };
 		2310270E1EC49BD900920F40 /* PagesCollectionViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310270D1EC49BD900920F40 /* PagesCollectionViewControllerTests.swift */; };
+		232CFB751EC4CB44009D464A /* PageCollectionViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232CFB741EC4CB44009D464A /* PageCollectionViewCellTests.swift */; };
+		232CFB7A1EC9D18E009D464A /* ScanPageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232CFB791EC9D18E009D464A /* ScanPageTests.swift */; };
+		232CFB7E1EC9D4D5009D464A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
+		232CFB7F1EC9D4DB009D464A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
+		233B51A61ECA006400C018B8 /* PageCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B51A51ECA006400C018B8 /* PageCollectionTests.swift */; };
 		23EB01821EC066AF000AB2D9 /* TariffSdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01811EC066AF000AB2D9 /* TariffSdkTests.swift */; };
 		23EB01861EC07162000AB2D9 /* TariffUserInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01851EC07162000AB2D9 /* TariffUserInterfaceTests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* TariffExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* TariffExampleViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
-		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		A9643D32B1A23CCCDBA5001E /* Pods_GiniTariffSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 479D38B1B836C845FC917420 /* Pods_GiniTariffSDK_Tests.framework */; };
@@ -45,6 +49,9 @@
 		231027071EC337E100920F40 /* FakeCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FakeCamera.swift; path = Mocks/FakeCamera.swift; sourceTree = "<group>"; };
 		231027091EC473C100920F40 /* CameraOptionsViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraOptionsViewControllerTests.swift; sourceTree = "<group>"; };
 		2310270D1EC49BD900920F40 /* PagesCollectionViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagesCollectionViewControllerTests.swift; sourceTree = "<group>"; };
+		232CFB741EC4CB44009D464A /* PageCollectionViewCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCellTests.swift; sourceTree = "<group>"; };
+		232CFB791EC9D18E009D464A /* ScanPageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanPageTests.swift; sourceTree = "<group>"; };
+		233B51A51ECA006400C018B8 /* PageCollectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCollectionTests.swift; sourceTree = "<group>"; };
 		23EB01811EC066AF000AB2D9 /* TariffSdkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TariffSdkTests.swift; sourceTree = "<group>"; };
 		23EB01851EC07162000AB2D9 /* TariffUserInterfaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TariffUserInterfaceTests.swift; sourceTree = "<group>"; };
 		36E73D8BC7FE58332DC0B4DC /* Pods-GiniTariffSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniTariffSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniTariffSDK_Tests/Pods-GiniTariffSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -163,6 +170,9 @@
 				231027031EC21E8E00920F40 /* TestUtils.swift */,
 				231027091EC473C100920F40 /* CameraOptionsViewControllerTests.swift */,
 				2310270D1EC49BD900920F40 /* PagesCollectionViewControllerTests.swift */,
+				232CFB741EC4CB44009D464A /* PageCollectionViewCellTests.swift */,
+				232CFB791EC9D18E009D464A /* ScanPageTests.swift */,
+				233B51A51ECA006400C018B8 /* PageCollectionTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -286,9 +296,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				232CFB7F1EC9D4DB009D464A /* Images.xcassets in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
-				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +306,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				232CFB7E1EC9D4D5009D464A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,8 +419,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				232CFB751EC4CB44009D464A /* PageCollectionViewCellTests.swift in Sources */,
 				231026F71EC1F35100920F40 /* MultiPageScanViewControllerTests.swift in Sources */,
+				233B51A61ECA006400C018B8 /* PageCollectionTests.swift in Sources */,
 				2310270A1EC473C100920F40 /* CameraOptionsViewControllerTests.swift in Sources */,
+				232CFB7A1EC9D18E009D464A /* ScanPageTests.swift in Sources */,
 				231026FB1EC21B1E00920F40 /* CameraViewControllerTests.swift in Sources */,
 				23EB01821EC066AF000AB2D9 /* TariffSdkTests.swift in Sources */,
 				231027081EC337E100920F40 /* FakeCamera.swift in Sources */,

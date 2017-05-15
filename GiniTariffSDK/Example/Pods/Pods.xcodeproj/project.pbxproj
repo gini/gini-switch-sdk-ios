@@ -28,6 +28,9 @@
 		231027021EC21E2400920F40 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231027011EC21E2400920F40 /* CameraViewController.swift */; };
 		2310270C1EC4748300920F40 /* CameraOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310270B1EC4748300920F40 /* CameraOptionsViewController.swift */; };
 		231027101EC4B63600920F40 /* PagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310270F1EC4B63600920F40 /* PagesCollectionViewController.swift */; };
+		232CFB781EC4CDFE009D464A /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232CFB761EC4CD4A009D464A /* PageCollectionViewCell.swift */; };
+		232CFB7D1EC9D204009D464A /* ScanPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232CFB7C1EC9D204009D464A /* ScanPage.swift */; };
+		233B51A81ECA01F000C018B8 /* PageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B51A71ECA01F000C018B8 /* PageCollection.swift */; };
 		23EB01801EC06602000AB2D9 /* TariffSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB017F1EC06602000AB2D9 /* TariffSdk.swift */; };
 		23EB01841EC070D1000AB2D9 /* TariffUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */; };
 		2F485B69F51E4F723A38410F31F08550 /* FBSnapshotTestController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1374B79237CAC07693E99442FBED1F15 /* FBSnapshotTestController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -91,6 +94,9 @@
 		231027011EC21E2400920F40 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = Classes/CameraViewController.swift; sourceTree = "<group>"; };
 		2310270B1EC4748300920F40 /* CameraOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraOptionsViewController.swift; path = Classes/CameraOptionsViewController.swift; sourceTree = "<group>"; };
 		2310270F1EC4B63600920F40 /* PagesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PagesCollectionViewController.swift; path = Classes/PagesCollectionViewController.swift; sourceTree = "<group>"; };
+		232CFB761EC4CD4A009D464A /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageCollectionViewCell.swift; path = Classes/PageCollectionViewCell.swift; sourceTree = "<group>"; };
+		232CFB7C1EC9D204009D464A /* ScanPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanPage.swift; path = Classes/ScanPage.swift; sourceTree = "<group>"; };
+		233B51A71ECA01F000C018B8 /* PageCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageCollection.swift; path = Classes/PageCollection.swift; sourceTree = "<group>"; };
 		23EB017F1EC06602000AB2D9 /* TariffSdk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffSdk.swift; path = Classes/TariffSdk.swift; sourceTree = "<group>"; };
 		23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffUserInterface.swift; path = Classes/TariffUserInterface.swift; sourceTree = "<group>"; };
 		2EECE81A9AEC1ED1057A9C3C88DBCEBE /* UIApplication+StrictKeyWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+StrictKeyWindow.m"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.m"; sourceTree = "<group>"; };
@@ -240,6 +246,7 @@
 				231027011EC21E2400920F40 /* CameraViewController.swift */,
 				2310270B1EC4748300920F40 /* CameraOptionsViewController.swift */,
 				2310270F1EC4B63600920F40 /* PagesCollectionViewController.swift */,
+				232CFB761EC4CD4A009D464A /* PageCollectionViewCell.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -251,6 +258,15 @@
 				231026FE1EC21D1500920F40 /* CameraPreviewView.swift */,
 			);
 			name = Camera;
+			sourceTree = "<group>";
+		};
+		232CFB7B1EC9D1E8009D464A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				232CFB7C1EC9D204009D464A /* ScanPage.swift */,
+				233B51A71ECA01F000C018B8 /* PageCollection.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		2753122D9740DD251BEE70B18A8E209C /* Targets Support Files */ = {
@@ -327,6 +343,7 @@
 		8D969973EF0DECD51A01B3AEBC5CAF42 /* GiniTariffSDK */ = {
 			isa = PBXGroup;
 			children = (
+				232CFB7B1EC9D1E8009D464A /* Model */,
 				231026F51EC1F31600920F40 /* UI */,
 				231026E11EC0A77900920F40 /* Configuration */,
 				3086A96A69A5E957529080160864BC0D /* Classes */,
@@ -607,6 +624,8 @@
 				231027101EC4B63600920F40 /* PagesCollectionViewController.swift in Sources */,
 				2310270C1EC4748300920F40 /* CameraOptionsViewController.swift in Sources */,
 				231026ED1EC0BA6300920F40 /* TariffOnboarding.swift in Sources */,
+				233B51A81ECA01F000C018B8 /* PageCollection.swift in Sources */,
+				232CFB781EC4CDFE009D464A /* PageCollectionViewCell.swift in Sources */,
 				231026E31EC0A7A900920F40 /* TariffConfiguration.swift in Sources */,
 				231026F11EC0BBCA00920F40 /* TariffNopAnalytics.swift in Sources */,
 				231026E51EC0A91300920F40 /* TariffLogger.swift in Sources */,
@@ -617,6 +636,7 @@
 				231026EF1EC0BAC700920F40 /* TariffAnalytics.swift in Sources */,
 				231027001EC21D1500920F40 /* CameraPreviewView.swift in Sources */,
 				231027021EC21E2400920F40 /* CameraViewController.swift in Sources */,
+				232CFB7D1EC9D204009D464A /* ScanPage.swift in Sources */,
 				7F101E8CE99B4D0FD46A404B7178AE23 /* GiniTariffSDK-dummy.m in Sources */,
 				231026E71EC0AB4100920F40 /* TariffConsoleLogger.swift in Sources */,
 			);

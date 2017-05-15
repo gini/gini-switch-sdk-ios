@@ -41,4 +41,22 @@ class PagesCollectionViewControllerTests: XCTestCase {
         XCTAssertEqual(pagesController.pagesCollection.backgroundColor, UIColor.clear, "The Pages collection view should have a transparent background")
     }
     
+    func testIsCollectionViewDelegate() {
+        let delegate = pagesController as UICollectionViewDelegate
+        XCTAssertNotNil(delegate, "PagesCollectionViewController needs to be a UICollectionViewDelegate in order to handle cell selection events")
+    }
+    
+    func testIsCollectionViewDataSource() {
+        let delegate = pagesController as UICollectionViewDataSource
+        XCTAssertNotNil(delegate, "PagesCollectionViewController needs to be a UICollectionViewDataSource")
+    }
+    
+    func testIsDelegateSet() {
+        XCTAssertTrue(pagesController.pagesCollection.delegate === pagesController, "PagesCollectionViewController should be its collection view's delegate")
+    }
+    
+    func testIsDataSourceSet() {
+        XCTAssertTrue(pagesController.pagesCollection.dataSource === pagesController, "PagesCollectionViewController should be its collection view's data source")
+    }
+    
 }
