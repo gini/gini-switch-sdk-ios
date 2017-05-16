@@ -59,7 +59,7 @@ internal class Camera {
         }
     }
     
-    func captureStillImage(_ completion: @escaping (_ inner: () throws -> Data) -> ()) {
+    func captureStillImage(_ completion: (Data) -> Void) {
         sessionQueue.async {
             // Connection will be `nil` when there is no valid input device; for example on iOS simulator
 //            guard let connection = self.stillImageOutput?.connection(withMediaType: AVMediaTypeVideo) else {

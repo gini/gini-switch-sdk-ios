@@ -14,15 +14,16 @@ class CameraOptionsViewControllerTests: XCTestCase {
     let storyboard = tariffStoryboard()
     var optionsController:CameraOptionsViewController! = nil
     
+    // delegate variables
+    var didCaptureImage = false
+    var didTapOnDone = false
+    
     override func setUp() {
         super.setUp()
         optionsController = storyboard?.instantiateViewController(withIdentifier: "CameraOptionsViewController") as? CameraOptionsViewController
         _ = optionsController.view
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+        didTapOnDone = false
+        didCaptureImage = false
     }
     
     func testInitializingCameraOptionsController() {
@@ -36,4 +37,33 @@ class CameraOptionsViewControllerTests: XCTestCase {
     func testCameraOptionsControllerHasDoneButton() {
         XCTAssertNotNil(optionsController.doneButton as UIButton, "CameraOptionsViewController should have a done button")
     }
+    
+    func testCameraOptionsControllerHasDelegate() {
+        optionsController.delegate = self
+        XCTAssertTrue(optionsController.delegate === self, "CameraOptionsViewController should have a delegate")
+    }
+    
+    func testCapturingImage() {
+        optionsController.delegate = self
+        optionsController.onCaptureTapped()
+        XCTAssertTrue(didCaptureImage, "The didCaptureImageData: delegate method should be invoked when the capture button is tapped")
+    }
+    
+    func testTappingOnDone() {
+        optionsController.delegate = self
+        optionsController.onDoneTapped()
+        XCTAssertTrue(didTapOnDone, "The cameraControllerIsDone delegate method should be invoked when the done button is tapped")
+    }
+}
+
+extension CameraOptionsViewControllerTests: CameraOptionsViewControllerDelegate {
+    
+    func cameraController(cameraController:CameraOptionsViewController, didCaptureImageData:Data) {
+        didCaptureImage = true
+    }
+    
+    func cameraControllerIsDone(cameraController:CameraOptionsViewController) {
+        didTapOnDone = true
+    }
+    
 }

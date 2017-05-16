@@ -9,11 +9,20 @@
 import UIKit
 import AVFoundation
 
+protocol CameraViewControllerDelegate {
+    
+    func cameraViewController(controller:CameraViewController, didCaptureImage data:Data)
+    func cameraViewController(controller:CameraViewController, didFailWithError error:Error)
+    
+}
+
 class CameraViewController: UIViewController {
     
     @IBOutlet var cameraPreview:CameraPreviewView! = nil
     
     var camera:Camera! = nil
+    
+    var delegate:CameraViewControllerDelegate? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,14 +54,18 @@ class CameraViewController: UIViewController {
 
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         camera?.start()
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         camera?.stop()
+    }
+    
+    public func takePicture() {
+        camera.captureStillImage { (data) in
+            self.delegate?.cameraViewController(controller: self, didCaptureImage: data)
+        }
     }
 
 }

@@ -12,6 +12,7 @@ import UIKit
 class FakeCamera: Camera {
     
     var isStarted = false
+    var hasCaptured = false
     
     override func start() {
         isStarted = true
@@ -19,6 +20,11 @@ class FakeCamera: Camera {
     
     override func stop() {
         isStarted = false
+    }
+    
+    override func captureStillImage(_ completion: (Data) -> Void) {
+        hasCaptured = true
+        completion(Data())
     }
 
 }
