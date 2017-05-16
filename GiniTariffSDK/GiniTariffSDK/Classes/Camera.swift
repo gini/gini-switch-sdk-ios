@@ -59,29 +59,28 @@ internal class Camera {
         }
     }
     
-    func captureStillImage(_ completion: (Data) -> Void) {
+    func captureStillImage(_ completion: @escaping (Data) -> Void) {
         sessionQueue.async {
             // Connection will be `nil` when there is no valid input device; for example on iOS simulator
-//            guard let connection = self.stillImageOutput?.connection(withMediaType: AVMediaTypeVideo) else {
-//                return completion({ _ in throw CameraError.noInputDevice })
-//            }
-//            // Set the orientation accoding to the current orientation of the device
+            guard let connection = self.stillImageOutput?.connection(withMediaType: AVMediaTypeVideo) else {
+                return completion(Data())   // TODO return an error
+            }
+            // Set the orientation accoding to the current orientation of the device
+            // TODO: re-enable orientations
 //            if let orientation = AVCaptureVideoOrientation(self.motionManager.currentOrientation) {
 //                connection.videoOrientation = orientation
 //            } else {
 //                connection.videoOrientation = .portrait
 //            }
-//            self.videoDeviceInput?.device.setFlashModeSecurely(.on)
-//            self.stillImageOutput?.captureStillImageAsynchronously(from: connection) { (imageDataSampleBuffer: CMSampleBuffer?, error: Error?) -> Void in
-//                guard error == nil else { return completion({ _ in throw CameraError.captureFailed }) }
-//                let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
-//                completion({ _ in
-//                    guard let data = imageData else {
-//                        throw CameraError.captureFailed
-//                    }
-//                    return data
-//                })
-//            }
+            self.videoDeviceInput?.device.setFlashModeSecurely(.on)
+            self.stillImageOutput?.captureStillImageAsynchronously(from: connection) { (imageDataSampleBuffer: CMSampleBuffer?, error: Error?) -> Void in
+                guard error == nil else { return completion(Data()) }  // TODO return an error
+                let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
+                guard let data = imageData else {
+                    return completion(Data())   // TODO return an error
+                }
+                return completion(data)
+            }
         }
     }
     
@@ -144,4 +143,16 @@ internal class Camera {
         
         self.session.commitConfiguration()
     }
+}
+
+// TODO: is this the best way?
+internal extension AVCaptureDevice {
+    
+    func setFlashModeSecurely(_ mode: AVCaptureFlashMode) {
+        guard hasFlash && isFlashModeSupported(mode) else { return }
+        guard case .some = try? lockForConfiguration() else { return print("Could not lock device for configuration") }
+        flashMode = mode
+        unlockForConfiguration()
+    }
+    
 }

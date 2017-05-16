@@ -13,16 +13,6 @@ class ScanPageTests: XCTestCase {
     
     var page:ScanPage! = nil
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
     func testScanPageDefaultInit() {
         XCTAssertNotNil(ScanPage(), "ScanPage should have a default initializer")
     }
@@ -73,12 +63,4 @@ class ScanPageTests: XCTestCase {
         XCTAssertEqual(page.status, testStatus, "The status doesn't match the one specified in the init")
     }
     
-}
-
-extension ScanPageTests {
-    
-    func testImageData() -> Data {
-        let testImage = UIImage(named: "testDocument")
-        return UIImageJPEGRepresentation(testImage!, 0.1)!
-    }
 }

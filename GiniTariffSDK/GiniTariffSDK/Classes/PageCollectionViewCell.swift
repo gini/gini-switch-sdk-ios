@@ -8,12 +8,6 @@
 
 import UIKit
 
-enum PageStatus {
-    case none
-    case failed
-    case ok
-}
-
 class PageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var pagePreview:UIImageView! = nil
@@ -26,6 +20,18 @@ class PageCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    var status:PageStatus = .none
+    var page:ScanPage? = nil {
+        didSet {
+            guard let data = page?.imageData,
+            let pageStatus = page?.status else {
+                // TODO log error
+                return
+            }
+            image = UIImage(data: data)
+            status = pageStatus
+        }
+    }
+    
+    var status:ScanPageStatus = .none
     
 }

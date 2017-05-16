@@ -13,6 +13,7 @@ class FakeCamera: Camera {
     
     var isStarted = false
     var hasCaptured = false
+    var hardCodedImageData:Data? = nil
     
     override func start() {
         isStarted = true
@@ -22,9 +23,9 @@ class FakeCamera: Camera {
         isStarted = false
     }
     
-    override func captureStillImage(_ completion: (Data) -> Void) {
+    override func captureStillImage(_ completion: @escaping (Data) -> Void) {
         hasCaptured = true
-        completion(Data())
+        completion(hardCodedImageData ?? Data())
     }
 
 }
