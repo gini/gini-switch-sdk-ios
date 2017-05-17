@@ -73,7 +73,7 @@ class CameraViewControllerTests: XCTestCase {
         cameraController.viewDidAppear(false)
         cameraController.delegate = self
         cameraController.takePicture()
-        XCTAssertTrue(fakeCamera.hasCaptured && didTakePicture, "Invoking takePicture would ask the Camera to capture a still image")
+        XCTAssertTrue(didTakePicture, "Invoking takePicture would ask the Camera to capture a still image")
     }
 }
 

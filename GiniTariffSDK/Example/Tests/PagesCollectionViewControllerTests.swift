@@ -20,11 +20,6 @@ class PagesCollectionViewControllerTests: XCTestCase {
         _ = pagesController.view
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
     func testPagesCollectionViewControllerFromStoryboard() {
         XCTAssertNotNil(pagesController, "Should be able to initialize PagesCollectionViewController from the storyboard")
     }

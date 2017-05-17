@@ -31,7 +31,7 @@ class ScanPageTests: XCTestCase {
         let data = testImageData()
         page = ScanPage(imageData: data)
         XCTAssertEqual(page.imageData, data, "The imageData property should hold the original data, the page was initialized with")
-    }
+    }   
     
     func testDefaultInitValues() {
         page = ScanPage()
