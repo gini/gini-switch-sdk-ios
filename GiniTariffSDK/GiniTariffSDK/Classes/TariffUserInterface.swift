@@ -30,7 +30,8 @@ struct TariffUserInterface {
     }
     
     private var contentViewController:UIViewController {
-        return UIViewController()
+        let storyboard = UIStoryboard(name: "Tariff", bundle: Bundle(identifier:"org.cocoapods.GiniTariffSDK"))    // TODO: duplication with TestUtils
+        return storyboard.instantiateInitialViewController()!
     }
 
 }

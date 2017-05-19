@@ -22,7 +22,7 @@ protocol TariffSdkDelegate: class {
     
 }
 
-class TariffSdk {
+public class TariffSdk {
     
     let clientId: String
     let clientSecret: String
@@ -30,16 +30,22 @@ class TariffSdk {
     
     weak var delegate:TariffSdkDelegate? = nil
     
-    init() {
+    let userInterface = TariffUserInterface()
+    
+    public init() {
         clientId = ""
         clientSecret = ""
         clientDomain = ""
     }
     
-    init(clientId: String, clientSecret: String, domain: String) {
+    public init(clientId: String, clientSecret: String, domain: String) {
         self.clientId = clientId
         self.clientSecret = clientSecret
         self.clientDomain = domain
+    }
+    
+    public func instantiateTariffViewController() -> UIViewController {
+        return userInterface.initialViewController
     }
 
 }
