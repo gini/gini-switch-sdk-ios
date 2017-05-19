@@ -48,7 +48,7 @@ class MultiPageScanViewControllerTests: XCTestCase {
     func testPresentingViewControllerViaDelegate() {
         let testController = UIViewController()
         _ = multiPageController.view
-        // the view controller needs to be added to a window, otehrwise presenting will fail
+        // the view controller needs to be added to a window, otherwise presenting will fail
         UIApplication.shared.keyWindow?.rootViewController = multiPageController
         multiPageController.multiPageCoordinator(multiPageController.coordinator, requestedShowingController: testController)
         XCTAssertNotNil(multiPageController.presentedViewController, "MultiPageScanViewController should present view controllers provided via the multiPageCoordinator(requestedShowingController:) method")

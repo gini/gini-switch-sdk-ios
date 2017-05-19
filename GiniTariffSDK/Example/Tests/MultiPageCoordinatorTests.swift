@@ -46,7 +46,7 @@ class MultiPageCoordinatorTests: XCTestCase {
     
     func testHasDelegate() {
         coordinator.delegate = self
-        XCTAssertNotNil(coordinator.delegate, "MultiPageCoordinator should hve a delegate")
+        XCTAssertNotNil(coordinator.delegate, "MultiPageCoordinator should have a delegate")
     }
     
     func testTakingPictureAfterCaptureButtonIsTapped() {

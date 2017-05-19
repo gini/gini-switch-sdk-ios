@@ -63,7 +63,7 @@ class ReviewViewControllerTests: XCTestCase {
     }
     
     func testSettingPagePopulatesThePreviewView() {
-        // For simplicity, we will assume that the image set is the corrent one
+        // For simplicity, we will assume that the image set is the current one
         XCTAssertNotNil(reviewController.previewImageView.image, "Setting the page on a ReviewViewController should also set the preview image view's contents")
     }
     
