@@ -19,6 +19,7 @@
 		232CFB7E1EC9D4D5009D464A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		232CFB7F1EC9D4DB009D464A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		233B51A61ECA006400C018B8 /* PageCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B51A51ECA006400C018B8 /* PageCollectionTests.swift */; };
+		2383D19D1ECC449400FF91FD /* ReviewViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2383D19C1ECC449400FF91FD /* ReviewViewControllerTests.swift */; };
 		23A2DCC61ECB3A5B006093E2 /* MultiPageCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A2DCC51ECB3A5B006093E2 /* MultiPageCoordinatorTests.swift */; };
 		23EB01821EC066AF000AB2D9 /* TariffSdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01811EC066AF000AB2D9 /* TariffSdkTests.swift */; };
 		23EB01861EC07162000AB2D9 /* TariffUserInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01851EC07162000AB2D9 /* TariffUserInterfaceTests.swift */; };
@@ -26,7 +27,6 @@
 		607FACD81AFB9204008FA782 /* TariffExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* TariffExampleViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		A9643D32B1A23CCCDBA5001E /* Pods_GiniTariffSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 479D38B1B836C845FC917420 /* Pods_GiniTariffSDK_Tests.framework */; };
 		CE77BD9C7C81B11836980A91 /* Pods_GiniTariffSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A79E6BAB3B5016F9103DB92 /* Pods_GiniTariffSDK_Example.framework */; };
 /* End PBXBuildFile section */
@@ -53,6 +53,7 @@
 		232CFB741EC4CB44009D464A /* PageCollectionViewCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCellTests.swift; sourceTree = "<group>"; };
 		232CFB791EC9D18E009D464A /* ScanPageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanPageTests.swift; sourceTree = "<group>"; };
 		233B51A51ECA006400C018B8 /* PageCollectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCollectionTests.swift; sourceTree = "<group>"; };
+		2383D19C1ECC449400FF91FD /* ReviewViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewControllerTests.swift; sourceTree = "<group>"; };
 		23A2DCC51ECB3A5B006093E2 /* MultiPageCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiPageCoordinatorTests.swift; sourceTree = "<group>"; };
 		23EB01811EC066AF000AB2D9 /* TariffSdkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TariffSdkTests.swift; sourceTree = "<group>"; };
 		23EB01851EC07162000AB2D9 /* TariffUserInterfaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TariffUserInterfaceTests.swift; sourceTree = "<group>"; };
@@ -68,7 +69,6 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* GiniTariffSDK_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiniTariffSDK_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		7A79E6BAB3B5016F9103DB92 /* Pods_GiniTariffSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniTariffSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF3BD5EE7DFDBDF18C313ED /* Pods-GiniTariffSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniTariffSDK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiniTariffSDK_Tests/Pods-GiniTariffSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B7315DA6E9491540C8EA66C1 /* Pods-GiniTariffSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniTariffSDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniTariffSDK_Example/Pods-GiniTariffSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -163,7 +163,6 @@
 			children = (
 				231027061EC337A600920F40 /* Mocks */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				23EB01811EC066AF000AB2D9 /* TariffSdkTests.swift */,
 				23EB01851EC07162000AB2D9 /* TariffUserInterfaceTests.swift */,
 				231026E81EC0ADCD00920F40 /* TariffConsoleLoggerTests.swift */,
@@ -176,6 +175,7 @@
 				232CFB791EC9D18E009D464A /* ScanPageTests.swift */,
 				233B51A51ECA006400C018B8 /* PageCollectionTests.swift */,
 				23A2DCC51ECB3A5B006093E2 /* MultiPageCoordinatorTests.swift */,
+				2383D19C1ECC449400FF91FD /* ReviewViewControllerTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -433,7 +433,7 @@
 				231027081EC337E100920F40 /* FakeCamera.swift in Sources */,
 				23EB01861EC07162000AB2D9 /* TariffUserInterfaceTests.swift in Sources */,
 				231027051EC21F2500920F40 /* TestUtils.swift in Sources */,
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				2383D19D1ECC449400FF91FD /* ReviewViewControllerTests.swift in Sources */,
 				231026E91EC0ADCD00920F40 /* TariffConsoleLoggerTests.swift in Sources */,
 				2310270E1EC49BD900920F40 /* PagesCollectionViewControllerTests.swift in Sources */,
 			);

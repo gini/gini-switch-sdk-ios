@@ -39,6 +39,13 @@ class PageCollection {
         }
         self.pages.remove(at: index)
     }
+    
+    func remove(_ element:ScanPage?) {
+        guard let page = element,
+        let index = pages.index(of: page) else { return }
+        // TODO: maybe there is a better way than searching for the index?
+        pages.remove(at: index)
+    }
 
 }
 

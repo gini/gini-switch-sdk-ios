@@ -11,7 +11,7 @@ import XCTest
 
 class PagesCollectionViewControllerTests: XCTestCase {
     
-    let storyboard = tariffStoryboard()
+    let storyboard = UIStoryboard.tariffStoryboard()
     var pagesController:PagesCollectionViewController! = nil
     
     override func setUp() {
@@ -33,7 +33,7 @@ class PagesCollectionViewControllerTests: XCTestCase {
     }
     
     func testPagesCollectionViewIsTransparent() {
-        XCTAssertEqual(pagesController.pagesCollection.backgroundColor, UIColor.clear, "The Pages collection view should have a transparent background")
+        XCTAssertEqual(pagesController.pagesCollection?.backgroundColor, UIColor.clear, "The Pages collection view should have a transparent background")
     }
     
     func testIsCollectionViewDelegate() {
@@ -47,11 +47,11 @@ class PagesCollectionViewControllerTests: XCTestCase {
     }
     
     func testIsDelegateSet() {
-        XCTAssertTrue(pagesController.pagesCollection.delegate === pagesController, "PagesCollectionViewController should be its collection view's delegate")
+        XCTAssertTrue(pagesController.pagesCollection?.delegate === pagesController, "PagesCollectionViewController should be its collection view's delegate")
     }
     
     func testIsDataSourceSet() {
-        XCTAssertTrue(pagesController.pagesCollection.dataSource === pagesController, "PagesCollectionViewController should be its collection view's data source")
+        XCTAssertTrue(pagesController.pagesCollection?.dataSource === pagesController, "PagesCollectionViewController should be its collection view's data source")
     }
     
     func testHasPageCollection() {
@@ -66,16 +66,28 @@ class PagesCollectionViewControllerTests: XCTestCase {
         let page2 = ScanPage()
         let collection = PageCollection(pages: [page1, page2])
         pagesController.pages = collection
-        XCTAssertEqual(pagesController.collectionView(pagesController.pagesCollection, numberOfItemsInSection: 0), collection.count, "In the first section, the number of rows should be the same as the number of pages in the pages colleciton")
+        XCTAssertEqual(pagesController.collectionView(pagesController.pagesCollection!, numberOfItemsInSection: 0), collection.count, "In the first section, the number of rows should be the same as the number of pages in the pages colleciton")
+    }
+    
+    func testHasOneRowForSecondSection() {
+        XCTAssertEqual(pagesController.collectionView(pagesController.pagesCollection!, numberOfItemsInSection: 1), 1, "In the second section, the number of rows should be 1 - the add page cell")
+    }
+    
+    func testAlwaysHasOneCellInSectionTwo() {
+        let page1 = ScanPage()
+        let page2 = ScanPage()
+        let collection = PageCollection(pages: [page1, page2])
+        pagesController.pages = collection
+        XCTAssertEqual(pagesController.collectionView(pagesController.pagesCollection!, numberOfItemsInSection: 1), 1, "In the second section, the number of rows should be 1, despite the added pages")
     }
     
     func testHavingTwoSections() {
-        let sectionsNum = pagesController.numberOfSections(in: pagesController.pagesCollection)
+        let sectionsNum = pagesController.numberOfSections(in: pagesController.pagesCollection!)
         XCTAssertEqual(sectionsNum, 2, "PagesCollectionViewController should have two sections - one for pages and one for the add page cell")
     }
     
     func testStartingWithZeroPages() {
-        let rowsNum = pagesController.collectionView(pagesController.pagesCollection, numberOfItemsInSection: 0)
+        let rowsNum = pagesController.collectionView(pagesController.pagesCollection!, numberOfItemsInSection: 0)
         XCTAssertEqual(rowsNum, 0, "By default PagesCollectionViewController should start with zero pages")
     }
 }

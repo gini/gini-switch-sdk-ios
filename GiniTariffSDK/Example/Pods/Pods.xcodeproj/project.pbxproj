@@ -31,7 +31,9 @@
 		232CFB781EC4CDFE009D464A /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232CFB761EC4CD4A009D464A /* PageCollectionViewCell.swift */; };
 		232CFB7D1EC9D204009D464A /* ScanPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232CFB7C1EC9D204009D464A /* ScanPage.swift */; };
 		233B51A81ECA01F000C018B8 /* PageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B51A71ECA01F000C018B8 /* PageCollection.swift */; };
-		23A2DCC81ECB3E25006093E2 /* MultiPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A2DCC71ECB3E25006093E2 /* MultiPageCoordinator.swift */; };
+		2383D19F1ECC46AA00FF91FD /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2383D19E1ECC46AA00FF91FD /* ReviewViewController.swift */; };
+		2383D1A11ECC46ED00FF91FD /* MultiPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2383D1A01ECC46ED00FF91FD /* MultiPageCoordinator.swift */; };
+		2383D1A31ECC69AE00FF91FD /* UIStoryboard+Tariff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2383D1A21ECC69AE00FF91FD /* UIStoryboard+Tariff.swift */; };
 		23EB01801EC06602000AB2D9 /* TariffSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB017F1EC06602000AB2D9 /* TariffSdk.swift */; };
 		23EB01841EC070D1000AB2D9 /* TariffUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */; };
 		2F485B69F51E4F723A38410F31F08550 /* FBSnapshotTestController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1374B79237CAC07693E99442FBED1F15 /* FBSnapshotTestController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -98,7 +100,9 @@
 		232CFB761EC4CD4A009D464A /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageCollectionViewCell.swift; path = Classes/PageCollectionViewCell.swift; sourceTree = "<group>"; };
 		232CFB7C1EC9D204009D464A /* ScanPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanPage.swift; path = Classes/ScanPage.swift; sourceTree = "<group>"; };
 		233B51A71ECA01F000C018B8 /* PageCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageCollection.swift; path = Classes/PageCollection.swift; sourceTree = "<group>"; };
-		23A2DCC71ECB3E25006093E2 /* MultiPageCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiPageCoordinator.swift; sourceTree = "<group>"; };
+		2383D19E1ECC46AA00FF91FD /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReviewViewController.swift; path = Classes/ReviewViewController.swift; sourceTree = "<group>"; };
+		2383D1A01ECC46ED00FF91FD /* MultiPageCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultiPageCoordinator.swift; path = Classes/MultiPageCoordinator.swift; sourceTree = "<group>"; };
+		2383D1A21ECC69AE00FF91FD /* UIStoryboard+Tariff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIStoryboard+Tariff.swift"; path = "Classes/UIStoryboard+Tariff.swift"; sourceTree = "<group>"; };
 		23EB017F1EC06602000AB2D9 /* TariffSdk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffSdk.swift; path = Classes/TariffSdk.swift; sourceTree = "<group>"; };
 		23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffUserInterface.swift; path = Classes/TariffUserInterface.swift; sourceTree = "<group>"; };
 		2EECE81A9AEC1ED1057A9C3C88DBCEBE /* UIApplication+StrictKeyWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+StrictKeyWindow.m"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.m"; sourceTree = "<group>"; };
@@ -249,7 +253,8 @@
 				2310270B1EC4748300920F40 /* CameraOptionsViewController.swift */,
 				2310270F1EC4B63600920F40 /* PagesCollectionViewController.swift */,
 				232CFB761EC4CD4A009D464A /* PageCollectionViewCell.swift */,
-				23A2DCC71ECB3E25006093E2 /* MultiPageCoordinator.swift */,
+				2383D1A01ECC46ED00FF91FD /* MultiPageCoordinator.swift */,
+				2383D1A21ECC69AE00FF91FD /* UIStoryboard+Tariff.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 				23EB017F1EC06602000AB2D9 /* TariffSdk.swift */,
 				23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */,
 				231026F21EC1EB3A00920F40 /* Tariff.storyboard */,
+				2383D19E1ECC46AA00FF91FD /* ReviewViewController.swift */,
 			);
 			path = GiniTariffSDK;
 			sourceTree = "<group>";
@@ -625,10 +631,11 @@
 			files = (
 				231026F41EC1F29F00920F40 /* MultiPageScanViewController.swift in Sources */,
 				231027101EC4B63600920F40 /* PagesCollectionViewController.swift in Sources */,
+				2383D1A31ECC69AE00FF91FD /* UIStoryboard+Tariff.swift in Sources */,
+				2383D19F1ECC46AA00FF91FD /* ReviewViewController.swift in Sources */,
 				2310270C1EC4748300920F40 /* CameraOptionsViewController.swift in Sources */,
 				231026ED1EC0BA6300920F40 /* TariffOnboarding.swift in Sources */,
 				233B51A81ECA01F000C018B8 /* PageCollection.swift in Sources */,
-				23A2DCC81ECB3E25006093E2 /* MultiPageCoordinator.swift in Sources */,
 				232CFB781EC4CDFE009D464A /* PageCollectionViewCell.swift in Sources */,
 				231026E31EC0A7A900920F40 /* TariffConfiguration.swift in Sources */,
 				231026F11EC0BBCA00920F40 /* TariffNopAnalytics.swift in Sources */,
@@ -637,6 +644,7 @@
 				23EB01801EC06602000AB2D9 /* TariffSdk.swift in Sources */,
 				23EB01841EC070D1000AB2D9 /* TariffUserInterface.swift in Sources */,
 				231026FF1EC21D1500920F40 /* Camera.swift in Sources */,
+				2383D1A11ECC46ED00FF91FD /* MultiPageCoordinator.swift in Sources */,
 				231026EF1EC0BAC700920F40 /* TariffAnalytics.swift in Sources */,
 				231027001EC21D1500920F40 /* CameraPreviewView.swift in Sources */,
 				231027021EC21E2400920F40 /* CameraViewController.swift in Sources */,

@@ -28,7 +28,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLp-EP-i0R">
                                 <rect key="frame" x="0.0" y="100" width="375" height="487"/>
                                 <connections>
-                                    <segue destination="1I9-D2-Sdm" kind="embed" id="1r1-BM-raN"/>
+                                    <segue destination="1I9-D2-Sdm" kind="embed" identifier="CameraViewControllerEmbed" id="1r1-BM-raN"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ztP-Ti-0ye">
@@ -37,7 +37,7 @@
                                     <constraint firstAttribute="height" constant="80" id="Rzg-ii-Os5"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="dNZ-QG-XPN" kind="embed" id="1CW-Tv-tTZ"/>
+                                    <segue destination="dNZ-QG-XPN" kind="embed" identifier="CameraOptionsViewControllerEmbed" id="1CW-Tv-tTZ"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHm-Kf-HpV">
@@ -46,7 +46,7 @@
                                     <constraint firstAttribute="height" constant="100" id="k01-wd-JZ3"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="wsJ-W1-lRM" kind="embed" id="sGZ-IJ-UDG"/>
+                                    <segue destination="wsJ-W1-lRM" kind="embed" identifier="PagesCollectionViewControllerEmbed" id="sGZ-IJ-UDG"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -102,10 +102,10 @@
             </objects>
             <point key="canvasLocation" x="393" y="166"/>
         </scene>
-        <!--View Controller-->
+        <!--Review View Controller-->
         <scene sceneID="5Nc-zy-j3Z">
             <objects>
-                <viewController id="CtN-U7-Tym" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReviewViewController" id="CtN-U7-Tym" customClass="ReviewViewController" customModule="GiniTariffSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7DL-jz-J1n"/>
                         <viewControllerLayoutGuide type="bottom" id="uG4-Nv-2ZO"/>
@@ -115,15 +115,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgY-vc-JHF">
-                                <rect key="frame" x="137" y="617" width="222" height="30"/>
+                                <rect key="frame" x="137" y="603" width="222" height="44"/>
                                 <state key="normal" title="Ja, verwenden"/>
+                                <connections>
+                                    <action selector="useButtonTapped" destination="CtN-U7-Tym" eventType="touchUpInside" id="oEg-6B-AbG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVs-E1-4Ny">
-                                <rect key="frame" x="16" y="617" width="74" height="30"/>
+                                <rect key="frame" x="16" y="603" width="74" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="UIx-cF-gdD"/>
+                                </constraints>
                                 <state key="normal" title="Neues Bild"/>
+                                <connections>
+                                    <action selector="rejectButtonTapped" destination="CtN-U7-Tym" eventType="touchUpInside" id="Qdq-Qf-tae"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LxA-dd-mkA">
-                                <rect key="frame" x="0.0" y="100" width="375" height="509"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="495"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vHu-9x-IEq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -151,7 +160,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1IE-zQ-TSB">
-                                <rect key="frame" x="164.5" y="571" width="45" height="30"/>
+                                <rect key="frame" x="164.5" y="557" width="45" height="30"/>
                                 <state key="normal" title="Rotate"/>
                             </button>
                         </subviews>
@@ -167,6 +176,7 @@
                             <constraint firstItem="1IE-zQ-TSB" firstAttribute="bottom" secondItem="LxA-dd-mkA" secondAttribute="bottom" constant="-8" id="Tsp-qY-0xT"/>
                             <constraint firstAttribute="trailing" secondItem="vHu-9x-IEq" secondAttribute="trailing" id="c1E-d2-Whj"/>
                             <constraint firstItem="1IE-zQ-TSB" firstAttribute="centerX" secondItem="LxA-dd-mkA" secondAttribute="centerX" id="fLE-vu-Rny"/>
+                            <constraint firstItem="pgY-vc-JHF" firstAttribute="height" secondItem="wVs-E1-4Ny" secondAttribute="height" id="fyW-vA-DKc"/>
                             <constraint firstItem="pgY-vc-JHF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wVs-E1-4Ny" secondAttribute="trailing" constant="10" id="iG8-Yj-a5w"/>
                             <constraint firstItem="LxA-dd-mkA" firstAttribute="top" secondItem="vHu-9x-IEq" secondAttribute="bottom" id="uaY-Cy-OMm"/>
                             <constraint firstItem="wVs-E1-4Ny" firstAttribute="top" secondItem="LxA-dd-mkA" secondAttribute="bottom" constant="8" id="yac-6C-oD5"/>
@@ -174,6 +184,14 @@
                             <constraint firstItem="pgY-vc-JHF" firstAttribute="trailing" secondItem="M9p-eo-5ii" secondAttribute="trailingMargin" id="zfs-gq-1oG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="hintLabel" destination="4en-Sd-IAS" id="uvh-JJ-rs1"/>
+                        <outlet property="moreButton" destination="uD9-DF-Tcd" id="gEs-u2-5FY"/>
+                        <outlet property="previewImageView" destination="LxA-dd-mkA" id="8Kx-Bc-wPc"/>
+                        <outlet property="retakeButton" destination="wVs-E1-4Ny" id="EsZ-HL-jbA"/>
+                        <outlet property="rotateButton" destination="1IE-zQ-TSB" id="fBv-Hs-RAf"/>
+                        <outlet property="useButton" destination="pgY-vc-JHF" id="k8E-mz-ax2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sel-3V-d1q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -236,6 +254,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcL-36-dcE">
                                 <rect key="frame" x="159.5" y="25" width="55" height="30"/>
                                 <state key="normal" title="Capture"/>
+                                <connections>
+                                    <action selector="onCaptureTapped" destination="dNZ-QG-XPN" eventType="touchUpInside" id="zOj-8Z-a0T"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0DX-1E-Iip">
                                 <rect key="frame" x="295" y="0.0" width="80" height="80"/>
@@ -243,6 +264,9 @@
                                     <constraint firstAttribute="width" secondItem="0DX-1E-Iip" secondAttribute="height" multiplier="1:1" id="zGw-ZY-CiV"/>
                                 </constraints>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="onDoneTapped" destination="dNZ-QG-XPN" eventType="touchUpInside" id="nSP-sf-uAz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>

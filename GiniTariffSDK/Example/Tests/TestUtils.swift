@@ -8,12 +8,17 @@
 
 import Foundation
 import UIKit
+@testable import GiniTariffSDK
 
 func tariffStoryboard() -> UIStoryboard? {
-    return UIStoryboard(name: "Tariff", bundle: Bundle(identifier: "org.cocoapods.GiniTariffSDK"))
+    return UIStoryboard.tariffStoryboard()
 }
 
 func testImageData() -> Data {
     let testImage = UIImage(named: "testDocument")
     return UIImageJPEGRepresentation(testImage!, 0.1)!
+}
+
+func testImageScanPage() -> ScanPage {
+    return ScanPage(imageData: testImageData())
 }

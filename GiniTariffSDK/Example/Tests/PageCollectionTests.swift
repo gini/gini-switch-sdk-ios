@@ -62,6 +62,18 @@ class PageCollectionTests: XCTestCase {
         XCTAssertEqual(pages.count, 0, "Removing an element from an empty collection should silently fail")
     }
     
+    func testRemovingByReference() {
+        let elements = [ScanPage(imageData: Data(), id:"1"),
+                        ScanPage(imageData: Data(), id:"2"),
+                        ScanPage(imageData: Data(), id:"3")]
+        pages = PageCollection(pages:elements)
+        let numPages = pages.count
+        let secondElement = pages.pages[1]
+        pages.remove(secondElement)
+        XCTAssertEqual(pages.count, numPages - 1, "Removing an element should result in the count decreasing")
+        XCTAssertFalse(pages.pages.contains(secondElement), "The pages array shouls no longer contain the removed element")
+    }
+    
 }
 
 extension PageCollectionTests {

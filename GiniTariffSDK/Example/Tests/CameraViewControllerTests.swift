@@ -11,7 +11,7 @@ import XCTest
 
 class CameraViewControllerTests: XCTestCase {
   
-    let storyboard = tariffStoryboard()
+    let storyboard = UIStoryboard.tariffStoryboard()
     var cameraController:CameraViewController! = nil
     var fakeCamera:FakeCamera! = nil
     

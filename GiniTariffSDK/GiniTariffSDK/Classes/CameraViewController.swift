@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-protocol CameraViewControllerDelegate {
+protocol CameraViewControllerDelegate: class {
     
     func cameraViewController(controller:CameraViewController, didCaptureImage data:Data)
     func cameraViewController(controller:CameraViewController, didFailWithError error:Error)
@@ -22,7 +22,7 @@ class CameraViewController: UIViewController {
     
     var camera:Camera! = nil
     
-    var delegate:CameraViewControllerDelegate? = nil
+    weak var delegate:CameraViewControllerDelegate? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()

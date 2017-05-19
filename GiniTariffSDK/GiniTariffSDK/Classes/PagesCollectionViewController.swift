@@ -11,10 +11,10 @@ import UIKit
 class PagesCollectionViewController: UIViewController {
     
     @IBOutlet var optionsButton:UIButton! = nil
-    @IBOutlet var pagesCollection:UICollectionView! = nil {
+    @IBOutlet var pagesCollection:UICollectionView? = nil {
         didSet {
-            pagesCollection.delegate = self
-            pagesCollection.dataSource = self
+            pagesCollection?.delegate = self
+            pagesCollection?.dataSource = self
         }
     }
     
@@ -36,7 +36,14 @@ class PagesCollectionViewController: UIViewController {
 extension PagesCollectionViewController: UICollectionViewDataSource {
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pages?.count ?? 0
+        switch section {
+        case 0:
+            return pages?.count ?? 0
+        case 1:
+            return 1
+        default:
+            return 0
+        }
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -51,7 +58,6 @@ extension PagesCollectionViewController: UICollectionViewDataSource {
         default:
             assert(false, "Unknown section encountered \(indexPath.section)")
         }
-        cell.page = self.pages?.pages[indexPath.row]
         return cell
     }
     

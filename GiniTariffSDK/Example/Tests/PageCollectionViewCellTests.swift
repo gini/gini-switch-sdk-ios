@@ -11,7 +11,7 @@ import XCTest
 
 class PageCollectionViewCellTests: XCTestCase {
     
-    let storyboard = tariffStoryboard()
+    let storyboard = UIStoryboard.tariffStoryboard()
     var pageCell:PageCollectionViewCell! = nil
     
     override func setUp() {
@@ -92,6 +92,6 @@ extension PageCollectionViewCellTests {
         else {
             pagesController.pages = PageCollection(pages:[ScanPage()])
         }
-        return pagesController.collectionView(pagesController.pagesCollection, cellForItemAt: indexPath) as! PageCollectionViewCell
+        return pagesController.collectionView(pagesController.pagesCollection!, cellForItemAt: indexPath) as! PageCollectionViewCell
     }
 }
