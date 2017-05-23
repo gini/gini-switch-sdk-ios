@@ -72,10 +72,10 @@ extension PagesCollectionViewController: UICollectionViewDataSource {
     
     private func setupAddCell(_ cell:PageCollectionViewCell) {
         cell.pagePreview.image = nil
-        cell.pagePreview.backgroundColor = UIColor.gray // TODO: don't hardcode?
+        //cell.pagePreview.backgroundColor = UIColor.gray // TODO: don't hardcode?
         cell.pageStatusUnderlineView.image = nil
         cell.pageStatusUnderlineView.backgroundColor = UIColor.clear
-        // TODO: add image
+        cell.addPageLabel.isHidden = false
     }
     
 }

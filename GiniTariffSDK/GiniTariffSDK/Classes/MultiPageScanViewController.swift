@@ -49,12 +49,34 @@ class MultiPageScanViewController: UIViewController {
 
 extension MultiPageScanViewController: MultiPageCoordinatorDelegate {
     
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedShowingController:UIViewController) {
-        self.present(requestedShowingController, animated: true, completion: nil)
+    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedShowingController:UIViewController, presentationStyle:PresentationStyle) {
+        switch presentationStyle {
+        case .modal:
+            self.present(requestedShowingController, animated: true, completion: nil)
+        case .navigation:
+            self.navigationController?.pushViewController(requestedShowingController, animated: true)
+        }
     }
     
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController) {
-        self.dismiss(animated: true, completion: nil)
+    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController, presentationStyle:PresentationStyle) {
+        switch presentationStyle {
+        case .modal:
+            self.dismiss(animated: true, completion: nil)
+        case .navigation:
+            if self.navigationController?.topViewController == requestedDismissingController {
+                self.navigationController?.popViewController(animated: true)
+            }
+            else {
+                let requestedIndex = self.navigationController?.viewControllers.index(of: requestedDismissingController)
+                guard let index = requestedIndex,
+                let prevIndex = self.navigationController?.viewControllers.index(before: index),
+                let prevController = self.navigationController?.viewControllers[prevIndex] else {
+                    return
+                }
+                self.navigationController?.popToViewController(prevController, animated: true)
+            }
+        }
+        
     }
     
 }

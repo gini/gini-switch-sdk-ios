@@ -35,6 +35,14 @@ class PageCollectionViewCellTests: XCTestCase {
         XCTAssertNotNil(pageCell.pageStatusUnderlineView, "PageCollectionViewCell should have an inderline, showing page status")
     }
     
+    func testHasAddLabel() {
+        XCTAssertNotNil(pageCell.addPageLabel, "PageCollectionViewCell should have an add page label")
+    }
+    
+    func testAddLabelHiddenByDefault() {
+        XCTAssertTrue(pageCell.addPageLabel.isHidden, "The Add page label should be hidden normally")
+    }
+    
     func testCanShowPreview() {
         let dummyImage = UIImage()
         pageCell.image = dummyImage
@@ -71,7 +79,7 @@ class PageCollectionViewCellTests: XCTestCase {
         // it would be a cell from the second section in the collection view
         pageCell = initializeCellFromStoryboard(pageCollection: nil, indexPath: IndexPath(row:0, section:1))
         XCTAssertEqual(pageCell.image, nil, "The add picture button should have an image")
-        XCTAssertEqual(pageCell.pagePreview.backgroundColor, UIColor.gray, "The add picture button should have a gray background")
+        XCTAssertFalse(pageCell.addPageLabel.isHidden, "The add page label should NOT be hidden")
         XCTAssertEqual(pageCell.pageStatusUnderlineView.backgroundColor, UIColor.clear, "The add picture button shouldn't have an underline")
         // TODO: maybe check the image view also?
     }

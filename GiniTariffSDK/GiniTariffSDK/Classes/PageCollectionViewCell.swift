@@ -13,6 +13,7 @@ class PageCollectionViewCell: UICollectionViewCell {
     @IBOutlet var pagePreview:UIImageView! = nil
     @IBOutlet var pageStatusView:UIImageView! = nil
     @IBOutlet var pageStatusUnderlineView:UIImageView! = nil
+    @IBOutlet var addPageLabel:UILabel! = nil
     
     var image:UIImage? = nil {
         didSet {
@@ -29,6 +30,7 @@ class PageCollectionViewCell: UICollectionViewCell {
             }
             image = UIImage(data: data)
             status = pageStatus
+            addPageLabel.isHidden = true
         }
     }
     

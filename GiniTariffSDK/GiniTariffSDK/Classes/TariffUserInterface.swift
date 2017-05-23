@@ -8,14 +8,9 @@
 
 import UIKit
 
-enum TariffPresentationStyle {
-    case modal
-    case navigation
-}
-
 struct TariffUserInterface {
     
-    var presentationStyle = TariffPresentationStyle.modal
+    var presentationStyle = PresentationStyle.modal
     
     var initialViewController:UIViewController {
         var initialController:UIViewController? = nil

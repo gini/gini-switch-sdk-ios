@@ -18,6 +18,7 @@ class MultiPageCoordinatorTests: XCTestCase {
     var didRequestReviewScreen = false
     var didRequestReviewDismiss = false
     var requestedReviewScreen:ReviewViewController? = nil
+    var requestedExtractionScreen:ExtractionsViewController? = nil
     
     override func setUp() {
         super.setUp()
@@ -82,16 +83,22 @@ class MultiPageCoordinatorTests: XCTestCase {
         let pagesNumAfterReject = coordinator.pageCollectionController.pages?.count
         XCTAssertEqual(pagesNum! - 1, pagesNumAfterReject, "If an image is rejected, it has to be removed from the list")
     }
+    
+    func testGoingToExtractions() {
+        coordinator.cameraOptionsController.onDoneTapped()
+        XCTAssertNotNil(requestedExtractionScreen, "Tapping on the done button should result in the extractions being shown")
+    }
 }
 
 extension MultiPageCoordinatorTests: MultiPageCoordinatorDelegate {
     
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedShowingController:UIViewController) {
+    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedShowingController:UIViewController, presentationStyle:PresentationStyle) {
         didRequestReviewScreen = true
         requestedReviewScreen = requestedShowingController as? ReviewViewController
+        requestedExtractionScreen = requestedShowingController as? ExtractionsViewController
     }
     
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController) {
+    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController, presentationStyle:PresentationStyle) {
         didRequestReviewDismiss = true
     }
     
