@@ -23,11 +23,6 @@ class MultiPageScanViewController: UIViewController {
         coordinator = MultiPageCoordinator(camera: cameraController, cameraOptions: cameraOptionsController, pagesCollection: pagesCollectionController)
         coordinator.delegate = self
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // TODO: it would be nice if the following switch is only executed on "embed" segues

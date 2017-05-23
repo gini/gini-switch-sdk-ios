@@ -29,6 +29,7 @@ class MultiPageCoordinator {
         
         cameraOptionsController.delegate = self
         cameraController.delegate = self
+        pagesCollection.delegate = self
     }
     
     func showReviewScreen(withPage page:ScanPage) {
@@ -65,6 +66,27 @@ extension MultiPageCoordinator: CameraViewControllerDelegate {
     }
     
     func cameraViewController(controller:CameraViewController, didFailWithError error:Error) {
+        
+    }
+}
+
+extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
+    
+    func pageCollectionControllerDidRequestOptions(_ pageController:PagesCollectionViewController) {
+         // show an action sheet with all possible action
+        let actionSheet = UIAlertController(title: NSLocalizedString("Gini Switch verlassen", comment: "Leave SDK actionsheet title"), message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Abbrechen", comment: "Leave SDK actionsheet cancel title"), style: .cancel) { (action) in
+            
+        }
+        let leaveAction = UIAlertAction(title: NSLocalizedString("Verlassen", comment: "Leave SDK actionsheet leave title"), style: .destructive) { (action) in
+            
+        }
+        actionSheet.addAction(cancelAction)
+        actionSheet.addAction(leaveAction)
+        self.delegate?.multiPageCoordinator(self, requestedShowingController: actionSheet, presentationStyle: .modal)
+    }
+    
+    func pageCollectionController(_ pageController:PagesCollectionViewController, didSelectPage:ScanPage) {
         
     }
 }
