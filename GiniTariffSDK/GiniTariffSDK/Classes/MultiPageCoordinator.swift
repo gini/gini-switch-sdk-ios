@@ -10,8 +10,8 @@ import UIKit
 
 protocol MultiPageCoordinatorDelegate:class {
     
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedShowingController:UIViewController)
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController)
+    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedShowingController:UIViewController, presentationStyle:PresentationStyle)
+    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController, presentationStyle:PresentationStyle)
 }
 
 class MultiPageCoordinator {
@@ -29,13 +29,14 @@ class MultiPageCoordinator {
         
         cameraOptionsController.delegate = self
         cameraController.delegate = self
+        pagesCollection.delegate = self
     }
     
     func showReviewScreen(withPage page:ScanPage) {
         let reviewController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
         reviewController.page = page
         reviewController.delegate = self
-        delegate?.multiPageCoordinator(self, requestedShowingController: reviewController)
+        delegate?.multiPageCoordinator(self, requestedShowingController: reviewController, presentationStyle: .modal)
     }
 }
 
@@ -46,7 +47,12 @@ extension MultiPageCoordinator: CameraOptionsViewControllerDelegate {
     }
     
     func cameraControllerIsDone(cameraController:CameraOptionsViewController) {
-        
+        let extractionsController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "ExtractionsViewController") as! ExtractionsViewController
+        // TODO: these are hardcoded extractions for test purposes. In the future, they should come from the API
+        let extractions = ["Name": "Holger", "Adresse": "Sonnenstr.", "Ort": "München", "Zählernummer": "439057928376"]
+        let collection = ExtractionCollection(dictionary: extractions)
+        extractionsController.extractionsCollection = collection
+        delegate?.multiPageCoordinator(self, requestedShowingController: extractionsController, presentationStyle: .navigation)
     }
 }
 
@@ -64,17 +70,38 @@ extension MultiPageCoordinator: CameraViewControllerDelegate {
     }
 }
 
+extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
+    
+    func pageCollectionControllerDidRequestOptions(_ pageController:PagesCollectionViewController) {
+         // show an action sheet with all possible action
+        let actionSheet = UIAlertController(title: NSLocalizedString("Gini Switch verlassen", comment: "Leave SDK actionsheet title"), message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Abbrechen", comment: "Leave SDK actionsheet cancel title"), style: .cancel) { (action) in
+            
+        }
+        let leaveAction = UIAlertAction(title: NSLocalizedString("Verlassen", comment: "Leave SDK actionsheet leave title"), style: .destructive) { (action) in
+            
+        }
+        actionSheet.addAction(cancelAction)
+        actionSheet.addAction(leaveAction)
+        self.delegate?.multiPageCoordinator(self, requestedShowingController: actionSheet, presentationStyle: .modal)
+    }
+    
+    func pageCollectionController(_ pageController:PagesCollectionViewController, didSelectPage:ScanPage) {
+        
+    }
+}
+
 extension MultiPageCoordinator: ReviewViewControllerDelegate {
     
     func reviewController(_ controller:ReviewViewController, didAcceptPage page:ScanPage) {
-        self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller)
+        self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .modal)
         self.pageCollectionController.pagesCollection?.reloadData()
     }
     
     func reviewController(_ controller:ReviewViewController, didRejectPage page:ScanPage) {
         pageCollectionController.pages?.remove(page)
         self.pageCollectionController.pagesCollection?.reloadData()
-        self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller)
+        self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .modal)
     }
     
 }

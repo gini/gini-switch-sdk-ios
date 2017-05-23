@@ -18,6 +18,8 @@ class MultiPageCoordinatorTests: XCTestCase {
     var didRequestReviewScreen = false
     var didRequestReviewDismiss = false
     var requestedReviewScreen:ReviewViewController? = nil
+    var requestedExtractionScreen:ExtractionsViewController? = nil
+    var exitActionSheet:UIAlertController? = nil
     
     override func setUp() {
         super.setUp()
@@ -30,6 +32,8 @@ class MultiPageCoordinatorTests: XCTestCase {
         didRequestReviewScreen = false
         didRequestReviewDismiss = false
         requestedReviewScreen = nil
+        requestedExtractionScreen = nil
+        exitActionSheet = nil
     }
     
     func testHasCameraOptionsController() {
@@ -82,16 +86,28 @@ class MultiPageCoordinatorTests: XCTestCase {
         let pagesNumAfterReject = coordinator.pageCollectionController.pages?.count
         XCTAssertEqual(pagesNum! - 1, pagesNumAfterReject, "If an image is rejected, it has to be removed from the list")
     }
+    
+    func testGoingToExtractions() {
+        coordinator.cameraOptionsController.onDoneTapped()
+        XCTAssertNotNil(requestedExtractionScreen, "Tapping on the done button should result in the extractions being shown")
+    }
+    
+    func testExitSDKActionsSheet() {
+        coordinator.pageCollectionController.onOptionsTapped()
+        XCTAssertNotNil(exitActionSheet, "Tapping on the options button should result in an action sheet confirming exiting being shown")
+    }
 }
 
 extension MultiPageCoordinatorTests: MultiPageCoordinatorDelegate {
     
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedShowingController:UIViewController) {
+    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedShowingController:UIViewController, presentationStyle:PresentationStyle) {
         didRequestReviewScreen = true
         requestedReviewScreen = requestedShowingController as? ReviewViewController
+        requestedExtractionScreen = requestedShowingController as? ExtractionsViewController
+        exitActionSheet = requestedShowingController as? UIAlertController
     }
     
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController) {
+    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController, presentationStyle:PresentationStyle) {
         didRequestReviewDismiss = true
     }
     

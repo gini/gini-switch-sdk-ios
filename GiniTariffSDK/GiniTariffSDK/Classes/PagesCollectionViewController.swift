@@ -8,6 +8,13 @@
 
 import UIKit
 
+protocol PagesCollectionViewControllerDelegate:class {
+    
+    func pageCollectionControllerDidRequestOptions(_ pageController:PagesCollectionViewController)
+    func pageCollectionController(_ pageController:PagesCollectionViewController, didSelectPage:ScanPage)
+    
+}
+
 class PagesCollectionViewController: UIViewController {
     
     @IBOutlet var optionsButton:UIButton! = nil
@@ -19,16 +26,10 @@ class PagesCollectionViewController: UIViewController {
     }
     
     var pages:PageCollection? = PageCollection()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    weak var delegate:PagesCollectionViewControllerDelegate? = nil
+    
+    @IBAction func onOptionsTapped() {
+        self.delegate?.pageCollectionControllerDidRequestOptions(self)
     }
 
 }
@@ -72,14 +73,28 @@ extension PagesCollectionViewController: UICollectionViewDataSource {
     
     private func setupAddCell(_ cell:PageCollectionViewCell) {
         cell.pagePreview.image = nil
-        cell.pagePreview.backgroundColor = UIColor.gray // TODO: don't hardcode?
         cell.pageStatusUnderlineView.image = nil
         cell.pageStatusUnderlineView.backgroundColor = UIColor.clear
-        // TODO: add image
+        cell.addPageLabel.isHidden = false
     }
     
 }
 
 extension PagesCollectionViewController: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            // a page has been selected
+            if let selectedPage = self.pages?.pages[indexPath.row] {
+                self.delegate?.pageCollectionController(self, didSelectPage: selectedPage)
+            }
+        case 1:
+            // the add page button is selected
+            // TODO: handle the add page tap event
+            break
+        default: break
+            
+        }
+    }
 }

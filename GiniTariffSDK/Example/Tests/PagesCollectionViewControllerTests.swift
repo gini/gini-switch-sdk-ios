@@ -14,10 +14,15 @@ class PagesCollectionViewControllerTests: XCTestCase {
     let storyboard = UIStoryboard.tariffStoryboard()
     var pagesController:PagesCollectionViewController! = nil
     
+    var didRequestOptions = false
+    var selectedPage:ScanPage? = nil
+    
     override func setUp() {
         super.setUp()
         pagesController = storyboard?.instantiateViewController(withIdentifier: "PagesCollectionViewController") as! PagesCollectionViewController
         _ = pagesController.view
+        didRequestOptions = false
+        selectedPage = nil
     }
     
     func testPagesCollectionViewControllerFromStoryboard() {
@@ -52,6 +57,11 @@ class PagesCollectionViewControllerTests: XCTestCase {
     
     func testIsDataSourceSet() {
         XCTAssertTrue(pagesController.pagesCollection?.dataSource === pagesController, "PagesCollectionViewController should be its collection view's data source")
+    }
+    
+    func testHasDelegate() {
+        pagesController.delegate = self
+        XCTAssertTrue(pagesController.delegate === self, "PagesCollectionViewController should have a delegate")
     }
     
     func testHasPageCollection() {
@@ -90,4 +100,40 @@ class PagesCollectionViewControllerTests: XCTestCase {
         let rowsNum = pagesController.collectionView(pagesController.pagesCollection!, numberOfItemsInSection: 0)
         XCTAssertEqual(rowsNum, 0, "By default PagesCollectionViewController should start with zero pages")
     }
+    
+    func testTappingOnOptions() {
+        pagesController.delegate = self
+        pagesController.onOptionsTapped()
+        XCTAssertTrue(didRequestOptions, "When the options button is tapped, the delegate needs to be notified")
+    }
+    
+    func testSelectingPage() {
+        let page1 = ScanPage()
+        let collection = PageCollection(pages: [page1])
+        pagesController.pages = collection
+        pagesController.delegate = self
+        pagesController.collectionView(pagesController.pagesCollection!, didSelectItemAt: IndexPath(row:0, section:0))
+        XCTAssertEqual(selectedPage, page1, "When a page from the collection view is selected, the delegate needs to be notified")
+    }
+    
+    func testSelectingAddPageNotInvokingDidSelectItem() {
+        let page1 = ScanPage()
+        let collection = PageCollection(pages: [page1])
+        pagesController.pages = collection
+        pagesController.delegate = self
+        pagesController.collectionView(pagesController.pagesCollection!, didSelectItemAt: IndexPath(row:0, section:1))
+        XCTAssertNil(selectedPage, "When the add page cell from the collection view is selected, the delegate shouldn't be notified about a selected page")
+    }
+}
+
+extension PagesCollectionViewControllerTests: PagesCollectionViewControllerDelegate {
+    
+    func pageCollectionControllerDidRequestOptions(_ pageController:PagesCollectionViewController) {
+        didRequestOptions = true
+    }
+    
+    func pageCollectionController(_ pageController:PagesCollectionViewController, didSelectPage:ScanPage) {
+        selectedPage = didSelectPage
+    }
+    
 }
