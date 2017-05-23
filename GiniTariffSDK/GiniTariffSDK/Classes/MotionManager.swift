@@ -22,6 +22,9 @@ internal class MotionManager {
     fileprivate var motionManager: CMMotionManager?
     fileprivate var operationQueue: OperationQueue?
     
+    let maxAccelerationX = 0.5
+    let maxAccelerationY = 0.35
+    
     init() {
         let manager = CMMotionManager()
         guard manager.isAccelerometerAvailable else { return }
@@ -48,13 +51,13 @@ internal class MotionManager {
         let orientationNew: UIDeviceOrientation
         let acceleration = data.acceleration
         
-        if (acceleration.x >= 0.5) {
+        if (acceleration.x >= maxAccelerationX) {
             orientationNew = .landscapeRight
-        } else if (acceleration.x <= -0.5) {
+        } else if (acceleration.x <= -maxAccelerationX) {
             orientationNew = .landscapeLeft
-        } else if (acceleration.y <= -0.35) {
+        } else if (acceleration.y <= -maxAccelerationY) {
             orientationNew = .portrait
-        } else if (acceleration.y >= 0.35) {
+        } else if (acceleration.y >= maxAccelerationY) {
             orientationNew = .portraitUpsideDown
         } else {
             return

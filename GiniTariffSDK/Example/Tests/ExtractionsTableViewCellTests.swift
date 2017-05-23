@@ -21,11 +21,6 @@ class ExtractionsTableViewCellTests: XCTestCase {
         extractionCell = initializeCellFromStoryboard(extractionCollection: ExtractionCollection(dictionary:[testField:testValue]))
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
     func testHasNameLabel() {
         XCTAssertNotNil(extractionCell.nameLabel, "ExtractionsTableViewCell should have a name label")
     }
