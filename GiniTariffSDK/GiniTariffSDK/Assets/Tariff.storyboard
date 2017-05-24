@@ -202,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sel-3V-d1q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1362.4000000000001" y="139.880059970015"/>
+            <point key="canvasLocation" x="2113" y="140"/>
         </scene>
         <!--Extractions View Controller-->
         <scene sceneID="hsB-Zx-Q2Y">
@@ -225,6 +225,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLj-V8-HUP">
                                 <rect key="frame" x="16" y="553" width="343" height="30"/>
                                 <state key="normal" title="Jetzt Stromanbieter wechseln"/>
+                                <connections>
+                                    <action selector="onSwitchTapped" destination="Tcw-tt-dPw" eventType="touchUpInside" id="YJ3-87-bRa"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="agV-Ao-7bG">
                                 <rect key="frame" x="16" y="65" width="343" height="472"/>
@@ -303,7 +306,7 @@
         <!--View Controller-->
         <scene sceneID="btW-mp-ZP9">
             <objects>
-                <viewController id="xqs-uQ-KM6" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ExtractionsCompletedViewController" id="xqs-uQ-KM6" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tQC-sx-OyZ"/>
                         <viewControllerLayoutGuide type="bottom" id="kxe-FB-M4R"/>
