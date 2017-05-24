@@ -9,4 +9,5 @@
 enum PresentationStyle {
     case modal
     case navigation
+    case embed
 }

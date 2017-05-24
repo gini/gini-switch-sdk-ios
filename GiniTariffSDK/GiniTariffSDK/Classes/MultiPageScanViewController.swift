@@ -15,6 +15,12 @@ class MultiPageScanViewController: UIViewController {
     var cameraController:CameraViewController! = nil
     var cameraOptionsController:CameraOptionsViewController! = nil
     var pagesCollectionController:PagesCollectionViewController! = nil
+    var embeddedViewController:UIViewController? = nil
+    @IBOutlet var embedView:UIView! = nil
+    @IBOutlet var cameraContainerView:UIView! = nil
+    @IBOutlet var pageCollectionContainerView:UIView! = nil
+    @IBOutlet var cameraOptionsContainerView:UIView! = nil
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +45,28 @@ class MultiPageScanViewController: UIViewController {
             break
         }
     }
+    
+    func setInEmbedView(_ childController:UIViewController) {
+        if embeddedViewController != nil {
+            dismissEmbeddedController(embeddedViewController!)
+        }
+        self.addChildViewController(childController)
+        childController.view.frame = embedView.bounds
+        childController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        embedView.addSubview(childController.view)
+        childController.didMove(toParentViewController: self)
+        embedView.isHidden = false
+        cameraContainerView.isHidden = true
+        cameraOptionsContainerView.isHidden = true
+    }
+    
+    func dismissEmbeddedController(_ controller:UIViewController) {
+        controller.removeFromParentViewController()
+        controller.view.removeFromSuperview()
+        embedView.isHidden = true
+        cameraContainerView.isHidden = false
+        cameraOptionsContainerView.isHidden = false
+    }
 
 }
 
@@ -50,6 +78,9 @@ extension MultiPageScanViewController: MultiPageCoordinatorDelegate {
             self.present(requestedShowingController, animated: true, completion: nil)
         case .navigation:
             self.navigationController?.pushViewController(requestedShowingController, animated: true)
+        case .embed:
+            setInEmbedView(requestedShowingController)
+            break
         }
     }
     
@@ -70,6 +101,8 @@ extension MultiPageScanViewController: MultiPageCoordinatorDelegate {
                 }
                 self.navigationController?.popToViewController(prevController, animated: true)
             }
+        case .embed:
+            dismissEmbeddedController(requestedDismissingController)
         }
         
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230B0A2E1ED59ADB00892467 /* PreviewViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B0A2D1ED59ADB00892467 /* PreviewViewControllerTests.swift */; };
 		231026E91EC0ADCD00920F40 /* TariffConsoleLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231026E81EC0ADCD00920F40 /* TariffConsoleLoggerTests.swift */; };
 		231026F71EC1F35100920F40 /* MultiPageScanViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231026F61EC1F35100920F40 /* MultiPageScanViewControllerTests.swift */; };
 		231026FB1EC21B1E00920F40 /* CameraViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231026FA1EC21B1E00920F40 /* CameraViewControllerTests.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		219ECBFC9AA80E39726A7754 /* GiniTariffSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GiniTariffSDK.podspec; path = ../GiniTariffSDK.podspec; sourceTree = "<group>"; };
+		230B0A2D1ED59ADB00892467 /* PreviewViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewControllerTests.swift; sourceTree = "<group>"; };
 		231026E81EC0ADCD00920F40 /* TariffConsoleLoggerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TariffConsoleLoggerTests.swift; sourceTree = "<group>"; };
 		231026F61EC1F35100920F40 /* MultiPageScanViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiPageScanViewControllerTests.swift; sourceTree = "<group>"; };
 		231026FA1EC21B1E00920F40 /* CameraViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewControllerTests.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				2399D88B1ED3341D0006D523 /* ExtractionTests.swift */,
 				2399D88F1ED336C50006D523 /* ExtractionCollectionTests.swift */,
 				2399D8931ED340490006D523 /* ExtractionsTableViewCellTests.swift */,
+				230B0A2D1ED59ADB00892467 /* PreviewViewControllerTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				231026FB1EC21B1E00920F40 /* CameraViewControllerTests.swift in Sources */,
 				23EB01821EC066AF000AB2D9 /* TariffSdkTests.swift in Sources */,
 				231027081EC337E100920F40 /* FakeCamera.swift in Sources */,
+				230B0A2E1ED59ADB00892467 /* PreviewViewControllerTests.swift in Sources */,
 				23EB01861EC07162000AB2D9 /* TariffUserInterfaceTests.swift in Sources */,
 				231027051EC21F2500920F40 /* TestUtils.swift in Sources */,
 				2383D19D1ECC449400FF91FD /* ReviewViewControllerTests.swift in Sources */,

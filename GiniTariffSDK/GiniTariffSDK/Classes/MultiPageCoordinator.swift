@@ -87,7 +87,10 @@ extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
     }
     
     func pageCollectionController(_ pageController:PagesCollectionViewController, didSelectPage:ScanPage) {
-        
+        let previewController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "PreviewViewController") as! PreviewViewController
+        previewController.page = didSelectPage
+        previewController.delegate = self
+        delegate?.multiPageCoordinator(self, requestedShowingController: previewController, presentationStyle: .embed)
     }
 }
 
@@ -104,4 +107,20 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
         self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .modal)
     }
     
+}
+
+extension MultiPageCoordinator: PreviewViewControllerDelegate {
+    
+    func previewController(previewController:PreviewViewController, didDeletePage page:ScanPage) {
+        pageCollectionController.pages?.remove(page)
+        self.pageCollectionController.pagesCollection?.reloadData()
+        self.delegate?.multiPageCoordinator(self, requestedDismissingController: previewController, presentationStyle: .embed)
+    }
+    
+    func previewController(previewController:PreviewViewController, didRequestRetake page:ScanPage) {
+        // TODO: now it's the same as deleting the image. Figure out a way to retake
+        pageCollectionController.pages?.remove(page)
+        self.pageCollectionController.pagesCollection?.reloadData()
+        self.delegate?.multiPageCoordinator(self, requestedDismissingController: previewController, presentationStyle: .embed)
+    }
 }

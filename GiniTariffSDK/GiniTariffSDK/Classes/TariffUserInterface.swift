@@ -20,6 +20,8 @@ struct TariffUserInterface {
             initialController = navController
         case .navigation:
             initialController = contentViewController
+        case .embed:
+            assertionFailure("Embedding is not yet supported")
         }
         return initialController!
     }
