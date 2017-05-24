@@ -31,6 +31,10 @@ class ExtractionsViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.isNavigationBarHidden = true
     }
+    
+    @IBAction func onSwitchTapped() {
+        TariffSdkStorage.activeTariffSdk?.delegate?.tariffSdkDidExtractionsComplete(sdk: TariffSdkStorage.activeTariffSdk!)
+    }
 
 }
 

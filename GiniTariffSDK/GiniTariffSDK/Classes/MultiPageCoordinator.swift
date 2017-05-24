@@ -79,7 +79,7 @@ extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
             
         }
         let leaveAction = UIAlertAction(title: NSLocalizedString("Verlassen", comment: "Leave SDK actionsheet leave title"), style: .destructive) { (action) in
-            
+            TariffSdkStorage.activeTariffSdk?.delegate?.tariffSdkDidCancel(sdk: TariffSdkStorage.activeTariffSdk!)
         }
         actionSheet.addAction(cancelAction)
         actionSheet.addAction(leaveAction)

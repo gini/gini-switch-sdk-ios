@@ -100,4 +100,8 @@ extension TariffSdkTests: TariffSdkDelegate {
         
     }
     
+    func tariffSdkDidCancel(sdk: TariffSdk) {
+        
+    }
+    
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TariffSdkDelegate: class {
+public protocol TariffSdkDelegate: class {
     
     // TODO: make methods optional
     func tariffSdkDidStart(sdk:TariffSdk)
@@ -19,16 +19,17 @@ protocol TariffSdkDelegate: class {
     func tariffSdk(sdk:TariffSdk, didExtractInfo info:NSData)  // TODO: replace info with a real object
     func tariffSdk(sdk:TariffSdk, didReceiveError error:Error)
     func tariffSdk(sdk:TariffSdk, didFailWithError error:Error)
+    func tariffSdkDidCancel(sdk:TariffSdk)
     
 }
 
 public class TariffSdk {
     
-    let clientId: String
-    let clientSecret: String
-    let clientDomain: String
+    public let clientId: String
+    public let clientSecret: String
+    public let clientDomain: String
     
-    weak var delegate:TariffSdkDelegate? = nil
+    public weak var delegate:TariffSdkDelegate? = nil
     
     let userInterface = TariffUserInterface()
     
@@ -42,6 +43,7 @@ public class TariffSdk {
         self.clientId = clientId
         self.clientSecret = clientSecret
         self.clientDomain = domain
+        TariffSdkStorage.activeTariffSdk = self     // TODO: Don't use TariffSdkStorage - find a better solution
     }
     
     public func instantiateTariffViewController() -> UIViewController {
