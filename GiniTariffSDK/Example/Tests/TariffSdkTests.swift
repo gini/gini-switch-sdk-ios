@@ -52,6 +52,21 @@ class TariffSdkTests: XCTestCase {
         XCTAssertNotNil(initialController, "TariffSdk should be able to generate view controllers for clients")
     }
     
+    func testHasUserInterface() {
+        let sdk = emptySdk()
+        XCTAssertNotNil(sdk.userInterface, "TariffSdk should have a TariffUserInterface object")
+    }
+    
+    func testHasConfiguration() {
+        let sdk = emptySdk()
+        XCTAssertNotNil(sdk.configuration, "TariffSdk should have a TariffConfiguration object")
+    }
+    
+    func testHasAppearance() {
+        let sdk = emptySdk()
+        XCTAssertNotNil(sdk.appearance, "TariffSdk should have a TariffAppearance object")
+    }
+    
 }
 
 // Tariff SDK initialization

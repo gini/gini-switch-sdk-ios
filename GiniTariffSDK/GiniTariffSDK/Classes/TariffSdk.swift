@@ -32,6 +32,14 @@ public class TariffSdk {
     public weak var delegate:TariffSdkDelegate? = nil
     
     let userInterface = TariffUserInterface()
+    let configuration = TariffConfiguration()
+    
+    /*
+     * Convenience getter for the appearance object in the configuration
+     */
+    var appearance:TariffAppearance {
+        return configuration.appearance
+    }
     
     public init() {
         clientId = ""
