@@ -451,6 +451,9 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcL-36-dcE">
                                 <rect key="frame" x="153" y="6" width="68" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gcL-36-dcE" secondAttribute="height" multiplier="1:1" id="GIu-8j-cJJ"/>
+                                </constraints>
                                 <state key="normal" image="cameraCaptureButton"/>
                                 <state key="highlighted" image="cameraCaptureButtonActive"/>
                                 <connections>
