@@ -15,6 +15,7 @@ class PagesCollectionViewControllerTests: XCTestCase {
     var pagesController:PagesCollectionViewController! = nil
     
     var didRequestOptions = false
+    var didRequestAddPage = false
     var selectedPage:ScanPage? = nil
     
     override func setUp() {
@@ -22,6 +23,7 @@ class PagesCollectionViewControllerTests: XCTestCase {
         pagesController = storyboard?.instantiateViewController(withIdentifier: "PagesCollectionViewController") as! PagesCollectionViewController
         _ = pagesController.view
         didRequestOptions = false
+        didRequestAddPage = false
         selectedPage = nil
     }
     
@@ -124,6 +126,14 @@ class PagesCollectionViewControllerTests: XCTestCase {
         pagesController.collectionView(pagesController.pagesCollection!, didSelectItemAt: IndexPath(row:0, section:1))
         XCTAssertNil(selectedPage, "When the add page cell from the collection view is selected, the delegate shouldn't be notified about a selected page")
     }
+    
+    func testSelectingAddPageInvokingAddPageMethod() {
+        let page1 = ScanPage()
+        let collection = PageCollection(pages: [page1])
+        pagesController.pages = collection
+        pagesController.delegate = self
+        pagesController.collectionView(pagesController.pagesCollection!, didSelectItemAt: IndexPath(row:0, section:1))
+    }
 }
 
 extension PagesCollectionViewControllerTests: PagesCollectionViewControllerDelegate {
@@ -134,6 +144,10 @@ extension PagesCollectionViewControllerTests: PagesCollectionViewControllerDeleg
     
     func pageCollectionController(_ pageController:PagesCollectionViewController, didSelectPage:ScanPage) {
         selectedPage = didSelectPage
+    }
+    
+    func pageCollectionControllerDidRequestAddPage(_ pageController:PagesCollectionViewController) {
+        didRequestAddPage = true
     }
     
 }

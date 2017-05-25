@@ -19,6 +19,7 @@ class MultiPageCoordinator {
     let cameraOptionsController:CameraOptionsViewController
     let cameraController:CameraViewController
     let pageCollectionController:PagesCollectionViewController
+    var embeddedController:UIViewController? = nil
     
     weak var delegate:MultiPageCoordinatorDelegate? = nil
     
@@ -90,7 +91,15 @@ extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
         let previewController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "PreviewViewController") as! PreviewViewController
         previewController.page = didSelectPage
         previewController.delegate = self
+        embeddedController = previewController
         delegate?.multiPageCoordinator(self, requestedShowingController: previewController, presentationStyle: .embed)
+    }
+    
+    func pageCollectionControllerDidRequestAddPage(_ pageController:PagesCollectionViewController) {
+        guard let controller = self.embeddedController else {
+            return
+        }
+        self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .embed)
     }
 }
 
