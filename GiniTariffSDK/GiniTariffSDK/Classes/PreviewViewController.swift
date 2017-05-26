@@ -25,7 +25,7 @@ class PreviewViewController: UIViewController {
     weak var delegate:PreviewViewControllerDelegate? = nil
     
     //titles
-    let analysedPageTitle = NSLocalizedString("Sehr gut, wir könnten alle Daten aus diesem Fot erfolgreich analysieren.", comment: "Preview screen title - analysed document")
+    let analysedPageTitle = NSLocalizedString("Sehr gut, wir könnten alle Daten aus diesem Foto erfolgreich analysieren.", comment: "Preview screen title - analysed document")
     let failedPageTitle = NSLocalizedString("Leider ist die Qualität dieser Seite nicht ausreichend. Bitte fotografiere diese Seite nochmal neu.", comment: "Preview screen title - failed document")
     
     var page:ScanPage? = nil {
