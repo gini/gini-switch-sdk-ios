@@ -16,6 +16,7 @@
 		1E8A7584520737945B40C78E957EC305 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E88A450A84E3957158B3B3459740AA /* Foundation.framework */; };
 		230B0A2A1ED48D1400892467 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B0A281ED48D1100892467 /* MotionManager.swift */; };
 		230B0A2C1ED4914800892467 /* TariffSdkStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B0A2B1ED4914800892467 /* TariffSdkStorage.swift */; };
+		230B0A301ED59BC900892467 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230B0A2F1ED59BC900892467 /* PreviewViewController.swift */; };
 		231026E31EC0A7A900920F40 /* TariffConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231026E21EC0A7A900920F40 /* TariffConfiguration.swift */; };
 		231026E51EC0A91300920F40 /* TariffLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231026E41EC0A91300920F40 /* TariffLogger.swift */; };
 		231026E71EC0AB4100920F40 /* TariffConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231026E61EC0AB4100920F40 /* TariffConsoleLogger.swift */; };
@@ -93,6 +94,7 @@
 		13E9B47E0977D77E575DF4C57049677C /* GiniTariffSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GiniTariffSDK.xcconfig; sourceTree = "<group>"; };
 		230B0A281ED48D1100892467 /* MotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MotionManager.swift; path = Classes/MotionManager.swift; sourceTree = "<group>"; };
 		230B0A2B1ED4914800892467 /* TariffSdkStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffSdkStorage.swift; path = Classes/TariffSdkStorage.swift; sourceTree = "<group>"; };
+		230B0A2F1ED59BC900892467 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreviewViewController.swift; path = Classes/PreviewViewController.swift; sourceTree = "<group>"; };
 		231026E21EC0A7A900920F40 /* TariffConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffConfiguration.swift; path = Classes/TariffConfiguration.swift; sourceTree = "<group>"; };
 		231026E41EC0A91300920F40 /* TariffLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffLogger.swift; path = Classes/TariffLogger.swift; sourceTree = "<group>"; };
 		231026E61EC0AB4100920F40 /* TariffConsoleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffConsoleLogger.swift; path = Classes/TariffConsoleLogger.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				2383D19E1ECC46AA00FF91FD /* ReviewViewController.swift */,
 				2399D8891ED32FC40006D523 /* ExtractionsViewController.swift */,
 				2399D8951ED3411D0006D523 /* ExtractionsTableViewCell.swift */,
+				230B0A2F1ED59BC900892467 /* PreviewViewController.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -677,6 +680,7 @@
 				231026FF1EC21D1500920F40 /* Camera.swift in Sources */,
 				2383D1A11ECC46ED00FF91FD /* MultiPageCoordinator.swift in Sources */,
 				231026EF1EC0BAC700920F40 /* TariffAnalytics.swift in Sources */,
+				230B0A301ED59BC900892467 /* PreviewViewController.swift in Sources */,
 				231027001EC21D1500920F40 /* CameraPreviewView.swift in Sources */,
 				231027021EC21E2400920F40 /* CameraViewController.swift in Sources */,
 				2399D8961ED3411D0006D523 /* ExtractionsTableViewCell.swift in Sources */,

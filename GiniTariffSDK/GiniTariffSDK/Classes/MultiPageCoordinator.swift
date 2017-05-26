@@ -19,6 +19,7 @@ class MultiPageCoordinator {
     let cameraOptionsController:CameraOptionsViewController
     let cameraController:CameraViewController
     let pageCollectionController:PagesCollectionViewController
+    var embeddedController:UIViewController? = nil
     
     weak var delegate:MultiPageCoordinatorDelegate? = nil
     
@@ -87,7 +88,18 @@ extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
     }
     
     func pageCollectionController(_ pageController:PagesCollectionViewController, didSelectPage:ScanPage) {
-        
+        let previewController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "PreviewViewController") as! PreviewViewController
+        previewController.page = didSelectPage
+        previewController.delegate = self
+        embeddedController = previewController
+        delegate?.multiPageCoordinator(self, requestedShowingController: previewController, presentationStyle: .embed)
+    }
+    
+    func pageCollectionControllerDidRequestAddPage(_ pageController:PagesCollectionViewController) {
+        guard let controller = self.embeddedController else {
+            return
+        }
+        self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .embed)
     }
 }
 
@@ -104,4 +116,20 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
         self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .modal)
     }
     
+}
+
+extension MultiPageCoordinator: PreviewViewControllerDelegate {
+    
+    func previewController(previewController:PreviewViewController, didDeletePage page:ScanPage) {
+        pageCollectionController.pages?.remove(page)
+        self.pageCollectionController.pagesCollection?.reloadData()
+        self.delegate?.multiPageCoordinator(self, requestedDismissingController: previewController, presentationStyle: .embed)
+    }
+    
+    func previewController(previewController:PreviewViewController, didRequestRetake page:ScanPage) {
+        // TODO: now it's the same as deleting the image. Figure out a way to retake
+        pageCollectionController.pages?.remove(page)
+        self.pageCollectionController.pagesCollection?.reloadData()
+        self.delegate?.multiPageCoordinator(self, requestedDismissingController: previewController, presentationStyle: .embed)
+    }
 }

@@ -11,6 +11,7 @@ import UIKit
 protocol PagesCollectionViewControllerDelegate:class {
     
     func pageCollectionControllerDidRequestOptions(_ pageController:PagesCollectionViewController)
+    func pageCollectionControllerDidRequestAddPage(_ pageController:PagesCollectionViewController)
     func pageCollectionController(_ pageController:PagesCollectionViewController, didSelectPage:ScanPage)
     
 }
@@ -91,7 +92,7 @@ extension PagesCollectionViewController: UICollectionViewDelegate {
             }
         case 1:
             // the add page button is selected
-            // TODO: handle the add page tap event
+            self.delegate?.pageCollectionControllerDidRequestAddPage(self)
             break
         default: break
             
