@@ -75,7 +75,7 @@ extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
     
     func pageCollectionControllerDidRequestOptions(_ pageController:PagesCollectionViewController) {
          // show an action sheet with all possible action
-        let actionSheet = UIAlertController(title: NSLocalizedString("Gini Switch verlassen", comment: "Leave SDK actionsheet title"), message: nil, preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: currentTariffAppearance().exitActionSheetTitle, message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: NSLocalizedString("Abbrechen", comment: "Leave SDK actionsheet cancel title"), style: .cancel) { (action) in
             
         }

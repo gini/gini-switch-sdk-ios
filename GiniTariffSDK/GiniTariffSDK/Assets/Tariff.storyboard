@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kZJ-ii-hOy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kZJ-ii-hOy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,7 +21,7 @@
                         <viewControllerLayoutGuide type="top" id="h69-L6-Y1H"/>
                         <viewControllerLayoutGuide type="bottom" id="nfz-Bl-l5b"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="T1f-IY-wNz">
+                    <view key="view" contentMode="scaleToFill" id="T1f-IY-wNz" customClass="TariffBackgroundView" customModule="GiniTariffSDK" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -54,7 +54,6 @@
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="VLp-EP-i0R" secondAttribute="trailing" id="0PT-51-We4"/>
                             <constraint firstItem="VLp-EP-i0R" firstAttribute="leading" secondItem="T1f-IY-wNz" secondAttribute="leading" id="9YQ-mq-Bqa"/>
@@ -133,7 +132,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2e-hW-1NF">
                                 <rect key="frame" x="24" y="607" width="79.5" height="44"/>
-                                <color key="backgroundColor" red="0.89015811680000001" green="0.042145691809999997" blue="0.36638969179999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.12941176470588234" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="cus-xD-ViW"/>
                                 </constraints>
@@ -147,7 +146,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wgb-N6-LLu">
                                 <rect key="frame" x="113.5" y="607" width="237.5" height="44"/>
-                                <color key="backgroundColor" red="0.128389746" green="0.72788512709999997" blue="0.65097540620000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.12549019607843137" green="0.72941176470588232" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Neu aufnehmen">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
