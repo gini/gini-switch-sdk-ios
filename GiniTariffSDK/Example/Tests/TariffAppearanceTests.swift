@@ -28,9 +28,9 @@ class TariffAppearanceTests: XCTestCase {
 //        XCTAssertEqual(viewController?.view.backgroundColor, testColor, "TariffAppearance should use UIAppearance to change the SDK view controller's background")
 //    }
 
-    func testDefaultScreenBackground() {
-        XCTAssertEqual(appearance.screenBackgroundColor, UIColor.black, "The default screen background should be black")
-    }
+//    func testDefaultScreenBackground() {
+//        XCTAssertEqual(appearance.screenBackgroundColor, UIColor.black, "The default screen background should be black")
+//    }
     
 //    func testPositiveColor() {
 //        appearance.resetDefaults()
