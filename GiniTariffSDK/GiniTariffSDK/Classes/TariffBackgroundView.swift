@@ -8,6 +8,11 @@
 
 import UIKit
 
+/*
+ * TariffBackgroundView is an empty UIView class created for UIAppearance purposes.
+ * All view controller parent views should be TariffBackgroundViews so the styling for
+ * background views is applied
+ */
 class TariffBackgroundView: UIView {
 
 
