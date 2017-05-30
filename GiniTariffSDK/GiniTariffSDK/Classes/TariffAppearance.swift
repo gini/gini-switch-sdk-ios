@@ -14,7 +14,7 @@ import UIKit
  * The TariffAppearance class contains resources, texts and colors used for customizing the
  * SDKs UI to match the hosting app it is used with.
  */
-class TariffAppearance {
+public class TariffAppearance {
     
     /**
      * The positive color is a color that will show up at many places throughout the SDK.
