@@ -261,8 +261,14 @@
                                     <constraint firstAttribute="height" constant="100" id="pF8-DC-dPT"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1IE-zQ-TSB">
-                                <rect key="frame" x="171" y="555" width="32" height="32"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1IE-zQ-TSB">
+                                <rect key="frame" x="162" y="537" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="T7S-FM-tN7"/>
+                                    <constraint firstAttribute="height" constant="50" id="zmB-YL-3x5"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="8" minY="7" maxX="8" maxY="9"/>
                                 <state key="normal" image="rotateImage"/>
                             </button>
                         </subviews>
