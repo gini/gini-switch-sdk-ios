@@ -39,12 +39,17 @@ class MultiPageCoordinator {
         reviewController.delegate = self
         delegate?.multiPageCoordinator(self, requestedShowingController: reviewController, presentationStyle: .modal)
     }
+    
+    func toggleCaptureButton(onOrOff:Bool) {
+        cameraOptionsController.captureButton.isEnabled = onOrOff
+    }
 }
 
 extension MultiPageCoordinator: CameraOptionsViewControllerDelegate {
     
     func cameraController(cameraController:CameraOptionsViewController, didCaptureImageData:Data) {
         self.cameraController.takePicture()
+        toggleCaptureButton(onOrOff: false)
     }
     
     func cameraControllerIsDone(cameraController:CameraOptionsViewController) {
@@ -64,10 +69,11 @@ extension MultiPageCoordinator: CameraViewControllerDelegate {
         let newPage = ScanPage(imageData: data, id: nil, status: .taken)
         self.pageCollectionController.pages?.add(element: newPage)
         showReviewScreen(withPage:newPage)
+        toggleCaptureButton(onOrOff: true)
     }
     
     func cameraViewController(controller:CameraViewController, didFailWithError error:Error) {
-        
+        toggleCaptureButton(onOrOff: true)
     }
 }
 
