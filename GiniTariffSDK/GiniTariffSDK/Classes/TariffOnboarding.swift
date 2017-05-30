@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct TariffOnboarding {
+public struct TariffOnboarding {
 
     // TODO: add properties, using which users can customize their TariffOnboarding
     // Most likely text and images for onboarding pages
