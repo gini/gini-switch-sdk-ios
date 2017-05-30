@@ -75,6 +75,14 @@ class PageCollectionViewCellTests: XCTestCase {
         XCTAssertEqual(pageCell.page, page, "The cell should be initialized with the right page from the collection from the data source methods")
     }
     
+    func testPageStatusAnalysed() {
+        TariffSdkStorage.activeTariffSdk = TariffSdk()
+        let page = ScanPage(imageData: testImageData(), id: "test", status: .analysed)
+        pageCell = initializeCellFromStoryboard(pageCollection:PageCollection(pages:[page]))
+        let positiveColor = UIColor(colorLiteralRed: 32.0 / 255.0, green: 186.0 / 255.0, blue: 167.0 / 255.0, alpha: 1.0)       // TODO: get dynamically
+        XCTAssertEqual(pageCell.pageStatusUnderlineView.backgroundColor, positiveColor, "Successfully analysed images should have an underline having the positive color for the app ")
+    }
+    
     func testAddPhotoCell() {
         // it would be a cell from the second section in the collection view
         pageCell = initializeCellFromStoryboard(pageCollection: nil, indexPath: IndexPath(row:0, section:1))
