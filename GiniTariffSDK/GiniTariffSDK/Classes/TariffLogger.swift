@@ -6,7 +6,7 @@
 //
 //
 
-enum LogLevel : Int {
+public enum LogLevel : Int {
     case verbose = 0
     case debug
     case info
@@ -14,7 +14,7 @@ enum LogLevel : Int {
     case error
 }
 
-protocol TariffLogger {
+public protocol TariffLogger {
     
     func log(level:LogLevel, message:String)
     func logVerbose(message:String)

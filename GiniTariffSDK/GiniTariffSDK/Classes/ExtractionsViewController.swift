@@ -20,6 +20,8 @@ class ExtractionsViewController: UIViewController {
         super.viewDidLoad()
         extractionsTable.dataSource = self
         extractionsTable.delegate = self
+        titleHintLabel.text = currentTariffAppearance().extractionsScreenTitleText
+        switchButton.setTitle(currentTariffAppearance().extractionsButtonText, for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +59,11 @@ extension ExtractionsViewController: UITableViewDataSource {
         let extraction = extractionsCollection?.extractions[indexPath.row]
         cell.nameLabel.text = extraction?.name ?? ""
         cell.valueTextField.text = extraction?.value ?? ""
+        cell.nameLabel.textColor = currentTariffAppearance().extractionTitleTextColor
+        cell.valueTextField.textColor = currentTariffAppearance().extractionsTextFieldTextColor
+        cell.valueTextField.layer.borderColor = currentTariffAppearance().extractionsTextFieldBorderColor?.cgColor
+        cell.valueTextField.backgroundColor = currentTariffAppearance().extractionsTextFieldBackgroundColor
+        
         return cell
     }
     

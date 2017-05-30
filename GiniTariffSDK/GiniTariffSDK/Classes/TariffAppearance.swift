@@ -14,85 +14,92 @@ import UIKit
  * The TariffAppearance class contains resources, texts and colors used for customizing the
  * SDKs UI to match the hosting app it is used with.
  */
-class TariffAppearance {
+public class TariffAppearance {
     
     /**
      * The positive color is a color that will show up at many places throughout the SDK.
-     * It is used every time a component wants to indicate a succes or a positive state in
+     * It is used every time a component wants to indicate a success or a positive state in
      * any way. For instance - a successful upload, analysis completion, correct extractions.
      */
-    var positiveColor:UIColor? = nil
+    public var positiveColor:UIColor? = UIColor(colorLiteralRed: 32.0 / 255.0, green: 186.0 / 255.0, blue: 167.0 / 255.0, alpha: 1.0)
     
     /**
      * The positive color is a color that will show up at many places throughout the SDK.
      * It is used every time a component wants to indicate a failure or error state in
      * any way. For instance - a failed upload, incorrect extractions.
      */
-    var negativeColor:UIColor? = nil
+    public var negativeColor:UIColor? = UIColor(colorLiteralRed: 204.0 / 255.0, green: 33.0 / 255.0, blue: 102.0 / 255.0, alpha: 1.0)
     
     /**
      * The background color most view controllers are going to use throughout the SDK.
      */
-    var screenBackgroundColor:UIColor? = nil
+    public var screenBackgroundColor:UIColor? = UIColor.black {
+        didSet {
+            guard let color = screenBackgroundColor else {
+                return
+            }
+            TariffBackgroundView.appearance().backgroundColor = color
+        }
+    }
     
     /**
      * Image for the Analysing Completed Screen.
      */
-    var analyzedImage:UIImage? = nil
+    public var analyzedImage:UIImage? = nil
     
     /**
      * Text for the Analysing Completed Screen.
      */
-    var analyzedText:String? = nil
+    public var analyzedText:String? = NSLocalizedString("Wir haben Alles was wir für deinen Strom Anbieter Wechseln benötigen.", comment: "Text for the Analysing Completed Screen")
     
     /**
      * Text color for the Analysing Completed Screen.
      */
-    var analyzedTextColor:UIColor? = nil
+    public var analyzedTextColor:UIColor? = UIColor.white
     
     /**
      * Text size for the Analysing Completed Screen.
      */
-    var analyzedTextSize:CGFloat? = nil
+    public var analyzedTextSize:CGFloat? = 21.0
     
     /**
      * Use this to set a custom title for the cancel dialog.
      */
-    var exitActionSheetTitle:String? = nil
+    public var exitActionSheetTitle:String? = NSLocalizedString("Gini Switch verlassen", comment: "Leave SDK actionsheet title")
     
     /**
      * Text for the button in the extractions screen
      */
-    var extractionsButtonText:String? = nil
+    public var extractionsButtonText:String? = NSLocalizedString("Jetzt Stromanbieter wechseln", comment: "Extraction screen switch provider title")
     
     /**
      * The background for text fields used in the extractions screen
      */
-    var extractionsTextFieldBackgroundColor:UIColor? = nil
+    public var extractionsTextFieldBackgroundColor:UIColor? = UIColor.gray
     
     /**
      * The text color used for text fields in the extractions screen
      */
-    var extractionsTextFieldTextColor:UIColor? = nil
+    public var extractionsTextFieldTextColor:UIColor? = UIColor.white
     
     /**
      * The color used for the borders if the text fields in the extractions screen
      */
-    var extractionsTextFieldBorderColor:UIColor? = nil
+    public var extractionsTextFieldBorderColor:UIColor? = nil
     
     /**
      * The text color used for the labels that appear above each text field in the extractions
      * screen indicating the extracted field's name
      */
-    var extractionTitleTextColor:UIColor? = nil
+    public var extractionTitleTextColor:UIColor? = UIColor.white
     
     /**
      * The text showing on top of the extractions table in the extractions screen.
      * @note The title doesn't appear in a navigation bar so it can be longer - even several lines
      */
-    var extractionsScreenTitleText:String? = nil
+    public var extractionsScreenTitleText:String? = NSLocalizedString("Fast geschafft. Bitte prüfe noch kurz ob alle Deine Daten korrekt ausgelesen wurden.", comment: "Extraction screen title")
     
-    init () {
+    public init () {
         
     }
 

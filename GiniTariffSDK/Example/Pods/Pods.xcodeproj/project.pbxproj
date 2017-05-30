@@ -43,6 +43,7 @@
 		2399D8921ED337210006D523 /* ExtractionCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399D8911ED337210006D523 /* ExtractionCollection.swift */; };
 		2399D8961ED3411D0006D523 /* ExtractionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399D8951ED3411D0006D523 /* ExtractionsTableViewCell.swift */; };
 		2399D8981ED43F790006D523 /* PresentationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399D8971ED43F790006D523 /* PresentationStyle.swift */; };
+		23A533741ED83B9E00EB2229 /* TariffBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533731ED83B9E00EB2229 /* TariffBackgroundView.swift */; };
 		23EB01801EC06602000AB2D9 /* TariffSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB017F1EC06602000AB2D9 /* TariffSdk.swift */; };
 		23EB01841EC070D1000AB2D9 /* TariffUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */; };
 		2F485B69F51E4F723A38410F31F08550 /* FBSnapshotTestController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1374B79237CAC07693E99442FBED1F15 /* FBSnapshotTestController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -121,6 +122,7 @@
 		2399D8911ED337210006D523 /* ExtractionCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtractionCollection.swift; path = Classes/ExtractionCollection.swift; sourceTree = "<group>"; };
 		2399D8951ED3411D0006D523 /* ExtractionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtractionsTableViewCell.swift; path = Classes/ExtractionsTableViewCell.swift; sourceTree = "<group>"; };
 		2399D8971ED43F790006D523 /* PresentationStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PresentationStyle.swift; path = Classes/PresentationStyle.swift; sourceTree = "<group>"; };
+		23A533731ED83B9E00EB2229 /* TariffBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffBackgroundView.swift; path = Classes/TariffBackgroundView.swift; sourceTree = "<group>"; };
 		23EB017F1EC06602000AB2D9 /* TariffSdk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffSdk.swift; path = Classes/TariffSdk.swift; sourceTree = "<group>"; };
 		23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffUserInterface.swift; path = Classes/TariffUserInterface.swift; sourceTree = "<group>"; };
 		2EECE81A9AEC1ED1057A9C3C88DBCEBE /* UIApplication+StrictKeyWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+StrictKeyWindow.m"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.m"; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 		231026F51EC1F31600920F40 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				23A533721ED83B7B00EB2229 /* UIAppearance */,
 				231026FC1EC21C9300920F40 /* Camera */,
 				231026F31EC1F29F00920F40 /* MultiPageScanViewController.swift */,
 				231027011EC21E2400920F40 /* CameraViewController.swift */,
@@ -300,6 +303,14 @@
 				2399D8911ED337210006D523 /* ExtractionCollection.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		23A533721ED83B7B00EB2229 /* UIAppearance */ = {
+			isa = PBXGroup;
+			children = (
+				23A533731ED83B9E00EB2229 /* TariffBackgroundView.swift */,
+			);
+			name = UIAppearance;
 			sourceTree = "<group>";
 		};
 		2753122D9740DD251BEE70B18A8E209C /* Targets Support Files */ = {
@@ -682,6 +693,7 @@
 				231026EF1EC0BAC700920F40 /* TariffAnalytics.swift in Sources */,
 				230B0A301ED59BC900892467 /* PreviewViewController.swift in Sources */,
 				231027001EC21D1500920F40 /* CameraPreviewView.swift in Sources */,
+				23A533741ED83B9E00EB2229 /* TariffBackgroundView.swift in Sources */,
 				231027021EC21E2400920F40 /* CameraViewController.swift in Sources */,
 				2399D8961ED3411D0006D523 /* ExtractionsTableViewCell.swift in Sources */,
 				232CFB7D1EC9D204009D464A /* ScanPage.swift in Sources */,

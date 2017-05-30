@@ -43,6 +43,7 @@ class ReviewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        makeRotateButtonRound()
         populateWith(page: self.page)
     }
 
@@ -58,4 +59,7 @@ class ReviewViewController: UIViewController {
         preview.image = UIImage(data: data)
     }
 
+    private func makeRotateButtonRound() {
+        rotateButton.layer.cornerRadius = rotateButton.frame.size.width / 2.0
+    }
 }

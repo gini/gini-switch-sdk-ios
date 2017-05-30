@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kZJ-ii-hOy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kZJ-ii-hOy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,7 +21,7 @@
                         <viewControllerLayoutGuide type="top" id="h69-L6-Y1H"/>
                         <viewControllerLayoutGuide type="bottom" id="nfz-Bl-l5b"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="T1f-IY-wNz">
+                    <view key="view" contentMode="scaleToFill" id="T1f-IY-wNz" customClass="TariffBackgroundView" customModule="GiniTariffSDK" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -54,7 +54,6 @@
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="VLp-EP-i0R" secondAttribute="trailing" id="0PT-51-We4"/>
                             <constraint firstItem="VLp-EP-i0R" firstAttribute="leading" secondItem="T1f-IY-wNz" secondAttribute="leading" id="9YQ-mq-Bqa"/>
@@ -94,10 +93,10 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eb6-Ws-DUK" customClass="CameraPreviewView" customModule="GiniTariffSDK" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="467"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Eb6-Ws-DUK" secondAttribute="trailing" id="1FY-mS-lQH"/>
                             <constraint firstItem="Eb6-Ws-DUK" firstAttribute="top" secondItem="R7e-uW-Tlw" secondAttribute="top" id="7iY-6J-YAW"/>
@@ -121,7 +120,7 @@
                         <viewControllerLayoutGuide type="top" id="yE2-D0-Lt9"/>
                         <viewControllerLayoutGuide type="bottom" id="oPa-e9-tmO"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="eJS-Cf-TPR">
+                    <view key="view" contentMode="scaleToFill" id="eJS-Cf-TPR" customClass="TariffBackgroundView" customModule="GiniTariffSDK" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -133,7 +132,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2e-hW-1NF">
                                 <rect key="frame" x="24" y="607" width="79.5" height="44"/>
-                                <color key="backgroundColor" red="0.89015811680000001" green="0.042145691809999997" blue="0.36638969179999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.12941176470588234" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="cus-xD-ViW"/>
                                 </constraints>
@@ -147,7 +146,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wgb-N6-LLu">
                                 <rect key="frame" x="113.5" y="607" width="237.5" height="44"/>
-                                <color key="backgroundColor" red="0.128389746" green="0.72788512709999997" blue="0.65097540620000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.12549019607843137" green="0.72941176470588232" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Neu aufnehmen">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -203,7 +202,7 @@
                         <viewControllerLayoutGuide type="top" id="7DL-jz-J1n"/>
                         <viewControllerLayoutGuide type="bottom" id="uG4-Nv-2ZO"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="M9p-eo-5ii">
+                    <view key="view" contentMode="scaleToFill" id="M9p-eo-5ii" customClass="TariffBackgroundView" customModule="GiniTariffSDK" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -237,29 +236,39 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Ist die Seite vollständig und in Leserichtung fotografiert?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4en-Sd-IAS">
-                                        <rect key="frame" x="8" y="8" width="311" height="84"/>
+                                        <rect key="frame" x="8" y="8" width="309" height="84"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uD9-DF-Tcd">
-                                        <rect key="frame" x="329" y="35" width="30" height="30"/>
-                                        <state key="normal" title=":"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uD9-DF-Tcd">
+                                        <rect key="frame" x="327" y="8" width="40" height="84"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="f65-g4-1Qz"/>
+                                        </constraints>
+                                        <state key="normal" image="overflowButton"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="4en-Sd-IAS" firstAttribute="leading" secondItem="vHu-9x-IEq" secondAttribute="leading" constant="8" id="4MR-Vf-lxW"/>
                                     <constraint firstItem="4en-Sd-IAS" firstAttribute="top" secondItem="vHu-9x-IEq" secondAttribute="top" constant="8" id="9N7-lL-NwM"/>
                                     <constraint firstAttribute="bottom" secondItem="4en-Sd-IAS" secondAttribute="bottom" constant="8" id="Dfo-Ty-Aco"/>
-                                    <constraint firstItem="uD9-DF-Tcd" firstAttribute="centerY" secondItem="vHu-9x-IEq" secondAttribute="centerY" id="cvw-zl-uRr"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="uD9-DF-Tcd" secondAttribute="trailing" constant="8" id="f4a-IE-d9x"/>
+                                    <constraint firstItem="uD9-DF-Tcd" firstAttribute="top" secondItem="vHu-9x-IEq" secondAttribute="topMargin" id="JKU-X0-dia"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="uD9-DF-Tcd" secondAttribute="trailing" id="f4a-IE-d9x"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="uD9-DF-Tcd" secondAttribute="bottom" id="hQ2-4z-MsV"/>
                                     <constraint firstItem="uD9-DF-Tcd" firstAttribute="leading" secondItem="4en-Sd-IAS" secondAttribute="trailing" constant="10" id="iit-vk-ywy"/>
                                     <constraint firstAttribute="height" constant="100" id="pF8-DC-dPT"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1IE-zQ-TSB">
-                                <rect key="frame" x="171" y="555" width="32" height="32"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1IE-zQ-TSB">
+                                <rect key="frame" x="162" y="537" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="T7S-FM-tN7"/>
+                                    <constraint firstAttribute="height" constant="50" id="zmB-YL-3x5"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="8" minY="7" maxX="8" maxY="9"/>
                                 <state key="normal" image="rotateImage"/>
                             </button>
                         </subviews>
@@ -304,7 +313,7 @@
                         <viewControllerLayoutGuide type="top" id="YbD-d4-a4t"/>
                         <viewControllerLayoutGuide type="bottom" id="zcP-Ve-nqb"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0S8-lR-b1J">
+                    <view key="view" contentMode="scaleToFill" id="0S8-lR-b1J" customClass="TariffBackgroundView" customModule="GiniTariffSDK" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -473,7 +482,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0DX-1E-Iip" firstAttribute="centerY" secondItem="yRJ-bz-abf" secondAttribute="centerY" id="Dok-SE-e08"/>
                             <constraint firstItem="6Ef-8D-pEV" firstAttribute="top" secondItem="gcL-36-dcE" secondAttribute="bottom" constant="6" id="Ut1-MG-qaA"/>
@@ -581,7 +590,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="swo-Zi-749" firstAttribute="top" secondItem="AvA-or-wpf" secondAttribute="bottom" id="7HR-Jf-iOh"/>
                             <constraint firstItem="AvA-or-wpf" firstAttribute="leading" secondItem="y4E-OJ-DnV" secondAttribute="leading" id="8cC-d5-qS9"/>

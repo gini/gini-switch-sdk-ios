@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct TariffConfiguration {
+public struct TariffConfiguration {
     
     /*
      * TariffAppearance can be used to change some visual components of the SDK like
@@ -24,7 +24,7 @@ struct TariffConfiguration {
      * and also have a basic support for log levels. Clients are free to replace that with their
      * own implementation using the TariffLogger protocol.
      */
-    var logging:TariffLogger = TariffConsoleLogger()
+    public var logging:TariffLogger = TariffConsoleLogger()
     
     /*
      * By default, the Tariff SDK doesn't send analytics events. You can change that by implementing
@@ -36,6 +36,6 @@ struct TariffConfiguration {
      * During the SDK's first run, an onboarding sequence will be shown. While a default content is
      * provided, clients can override that and use their own data using a TariffOnboarding object
      */
-    let onboarding = TariffOnboarding()
+    public let onboarding = TariffOnboarding()
     
 }

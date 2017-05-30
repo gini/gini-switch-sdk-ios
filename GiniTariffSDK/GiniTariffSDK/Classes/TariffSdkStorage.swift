@@ -15,3 +15,8 @@ class TariffSdkStorage {
     static var activeTariffSdk:TariffSdk? = nil
     
 }
+
+/// Convenience method for getting the currently active appearance object
+func currentTariffAppearance() -> TariffAppearance {
+    return TariffSdkStorage.activeTariffSdk?.appearance ?? TariffAppearance()   // TODO: is returning an empty object ok?
+}

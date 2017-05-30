@@ -82,6 +82,10 @@ class ReviewViewControllerTests: XCTestCase {
         XCTAssertTrue(didRejectPicture, "Tapping on the rejectButton should result in the reviewController:didRejectPage: method being called")
     }
     
+    func testRotateButtonIsRound() {
+        XCTAssertEqual(reviewController.rotateButton.layer.cornerRadius, reviewController.rotateButton.frame.width / 2.0, "The rotate button should be round")
+    }
+
 }
 
 extension ReviewViewControllerTests: ReviewViewControllerDelegate {
