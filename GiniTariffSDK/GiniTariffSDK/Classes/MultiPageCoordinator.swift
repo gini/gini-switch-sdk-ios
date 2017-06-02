@@ -41,7 +41,10 @@ class MultiPageCoordinator {
     }
     
     func enableCaptureButton(_ enabled:Bool) {
-        cameraOptionsController.captureButton.isEnabled = enabled
+        guard let button = cameraOptionsController.captureButton else {
+            return
+        }
+        button.isEnabled = enabled
     }
 }
 

@@ -44,6 +44,12 @@
 		2399D8961ED3411D0006D523 /* ExtractionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399D8951ED3411D0006D523 /* ExtractionsTableViewCell.swift */; };
 		2399D8981ED43F790006D523 /* PresentationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399D8971ED43F790006D523 /* PresentationStyle.swift */; };
 		23A533741ED83B9E00EB2229 /* TariffBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533731ED83B9E00EB2229 /* TariffBackgroundView.swift */; };
+		23A533B51EDDB49300EB2229 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533B41EDDB49300EB2229 /* User.swift */; };
+		23A533B91EDDBE9700EB2229 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533B81EDDBE9700EB2229 /* Token.swift */; };
+		23A533BC1EDDCC7C00EB2229 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533BB1EDDCC7C00EB2229 /* WebService.swift */; };
+		23A533BF1EDEC4A000EB2229 /* CredentialsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533BE1EDEC4A000EB2229 /* CredentialsStore.swift */; };
+		23A533C11EDF02E100EB2229 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533C01EDF02E100EB2229 /* UserManager.swift */; };
+		23A533C51EE03E7800EB2229 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533C41EE03E7800EB2229 /* Authenticator.swift */; };
 		23EB01801EC06602000AB2D9 /* TariffSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB017F1EC06602000AB2D9 /* TariffSdk.swift */; };
 		23EB01841EC070D1000AB2D9 /* TariffUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */; };
 		2F485B69F51E4F723A38410F31F08550 /* FBSnapshotTestController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1374B79237CAC07693E99442FBED1F15 /* FBSnapshotTestController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -123,6 +129,12 @@
 		2399D8951ED3411D0006D523 /* ExtractionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtractionsTableViewCell.swift; path = Classes/ExtractionsTableViewCell.swift; sourceTree = "<group>"; };
 		2399D8971ED43F790006D523 /* PresentationStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PresentationStyle.swift; path = Classes/PresentationStyle.swift; sourceTree = "<group>"; };
 		23A533731ED83B9E00EB2229 /* TariffBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffBackgroundView.swift; path = Classes/TariffBackgroundView.swift; sourceTree = "<group>"; };
+		23A533B41EDDB49300EB2229 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Classes/User.swift; sourceTree = "<group>"; };
+		23A533B81EDDBE9700EB2229 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Token.swift; path = Classes/Token.swift; sourceTree = "<group>"; };
+		23A533BB1EDDCC7C00EB2229 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebService.swift; path = Classes/WebService.swift; sourceTree = "<group>"; };
+		23A533BE1EDEC4A000EB2229 /* CredentialsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CredentialsStore.swift; path = Classes/CredentialsStore.swift; sourceTree = "<group>"; };
+		23A533C01EDF02E100EB2229 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Classes/UserManager.swift; sourceTree = "<group>"; };
+		23A533C41EE03E7800EB2229 /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Authenticator.swift; path = Classes/Authenticator.swift; sourceTree = "<group>"; };
 		23EB017F1EC06602000AB2D9 /* TariffSdk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffSdk.swift; path = Classes/TariffSdk.swift; sourceTree = "<group>"; };
 		23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffUserInterface.swift; path = Classes/TariffUserInterface.swift; sourceTree = "<group>"; };
 		2EECE81A9AEC1ED1057A9C3C88DBCEBE /* UIApplication+StrictKeyWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+StrictKeyWindow.m"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.m"; sourceTree = "<group>"; };
@@ -301,6 +313,8 @@
 				233B51A71ECA01F000C018B8 /* PageCollection.swift */,
 				2399D88D1ED334480006D523 /* Extraction.swift */,
 				2399D8911ED337210006D523 /* ExtractionCollection.swift */,
+				23A533B41EDDB49300EB2229 /* User.swift */,
+				23A533B81EDDBE9700EB2229 /* Token.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -311,6 +325,24 @@
 				23A533731ED83B9E00EB2229 /* TariffBackgroundView.swift */,
 			);
 			name = UIAppearance;
+			sourceTree = "<group>";
+		};
+		23A533BA1EDDCC4E00EB2229 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				23A533BB1EDDCC7C00EB2229 /* WebService.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		23A533BD1EDEC41300EB2229 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				23A533BE1EDEC4A000EB2229 /* CredentialsStore.swift */,
+				23A533C01EDF02E100EB2229 /* UserManager.swift */,
+				23A533C41EE03E7800EB2229 /* Authenticator.swift */,
+			);
+			name = Authentication;
 			sourceTree = "<group>";
 		};
 		2753122D9740DD251BEE70B18A8E209C /* Targets Support Files */ = {
@@ -388,6 +420,8 @@
 		8D969973EF0DECD51A01B3AEBC5CAF42 /* GiniTariffSDK */ = {
 			isa = PBXGroup;
 			children = (
+				23A533BD1EDEC41300EB2229 /* Authentication */,
+				23A533BA1EDDCC4E00EB2229 /* Network */,
 				232CFB7B1EC9D1E8009D464A /* Model */,
 				231026F51EC1F31600920F40 /* UI */,
 				231026E11EC0A77900920F40 /* Configuration */,
@@ -672,6 +706,8 @@
 				2399D8921ED337210006D523 /* ExtractionCollection.swift in Sources */,
 				231027101EC4B63600920F40 /* PagesCollectionViewController.swift in Sources */,
 				2383D1A31ECC69AE00FF91FD /* UIStoryboard+Tariff.swift in Sources */,
+				23A533BC1EDDCC7C00EB2229 /* WebService.swift in Sources */,
+				23A533B51EDDB49300EB2229 /* User.swift in Sources */,
 				230B0A2C1ED4914800892467 /* TariffSdkStorage.swift in Sources */,
 				2383D19F1ECC46AA00FF91FD /* ReviewViewController.swift in Sources */,
 				2399D88E1ED334480006D523 /* Extraction.swift in Sources */,
@@ -684,9 +720,12 @@
 				231026E31EC0A7A900920F40 /* TariffConfiguration.swift in Sources */,
 				231026F11EC0BBCA00920F40 /* TariffNopAnalytics.swift in Sources */,
 				231026E51EC0A91300920F40 /* TariffLogger.swift in Sources */,
+				23A533C11EDF02E100EB2229 /* UserManager.swift in Sources */,
 				230B0A2A1ED48D1400892467 /* MotionManager.swift in Sources */,
+				23A533B91EDDBE9700EB2229 /* Token.swift in Sources */,
 				231026EB1EC0BA1500920F40 /* TariffAppearance.swift in Sources */,
 				23EB01801EC06602000AB2D9 /* TariffSdk.swift in Sources */,
+				23A533BF1EDEC4A000EB2229 /* CredentialsStore.swift in Sources */,
 				23EB01841EC070D1000AB2D9 /* TariffUserInterface.swift in Sources */,
 				231026FF1EC21D1500920F40 /* Camera.swift in Sources */,
 				2383D1A11ECC46ED00FF91FD /* MultiPageCoordinator.swift in Sources */,
@@ -696,6 +735,7 @@
 				23A533741ED83B9E00EB2229 /* TariffBackgroundView.swift in Sources */,
 				231027021EC21E2400920F40 /* CameraViewController.swift in Sources */,
 				2399D8961ED3411D0006D523 /* ExtractionsTableViewCell.swift in Sources */,
+				23A533C51EE03E7800EB2229 /* Authenticator.swift in Sources */,
 				232CFB7D1EC9D204009D464A /* ScanPage.swift in Sources */,
 				7F101E8CE99B4D0FD46A404B7178AE23 /* GiniTariffSDK-dummy.m in Sources */,
 				231026E71EC0AB4100920F40 /* TariffConsoleLogger.swift in Sources */,
