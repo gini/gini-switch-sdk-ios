@@ -22,7 +22,7 @@ class TariffExampleViewController: UIViewController {
     }
     
     @IBAction func onStartSdk() {
-        let sdk = TariffSdk(clientId: "TestId", clientSecret: "secret", domain: "gini.net")
+        let sdk = SdkBuilder.customizedTariffSdk()
         sdk.delegate = self
         let tariffController = sdk.instantiateTariffViewController()
         self.present(tariffController, animated: true) { 
