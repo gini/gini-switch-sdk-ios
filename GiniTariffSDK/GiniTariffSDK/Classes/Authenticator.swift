@@ -25,6 +25,7 @@ class Authenticator {
     // input
     var clientId:String? = nil
     var clientSecret:String? = nil
+    var clientDomain:String? = nil
     var user:User? = nil
     var clientToken:String? = nil
     var userToken:String? = nil
@@ -32,6 +33,7 @@ class Authenticator {
     
     var authState = AuthenticatorState.none
     let webService = WebService()
+    var userManager = UserManager()
 
     var createClientToken:Resource<Token> {
         assert(clientId != nil, "Attempted to authenticate without a client ID")
@@ -59,10 +61,14 @@ class Authenticator {
     
     var createUser:Resource<Bool> {
         assert(clientToken != nil, "Attempting to create user without a client token")
+        user = userManager.user
+        assert(user != nil, "Attempting to create user without credentials")
         let fullUrlString = "\(baseUrl)\(createUserUrlExtension)"
         let fullUrl = URL(string: fullUrlString)!
         let authHeaders = bearerAuthHeadersDictWith(token: clientToken!)
-        return Resource<Bool>(url: fullUrl, headers: authHeaders, method: "POST", body: nil, parseJSON: { json in
+        user = userManager.user
+        let body = userCredentialsJsonString(for: user!)
+        return Resource<Bool>(url: fullUrl, headers: authHeaders, method: "POST", body: body, parseJSON: { json in
             guard let _ = json as? JSONDictionary else { return nil }
             // TODO: check for errors
             return true
@@ -74,15 +80,17 @@ class Authenticator {
         importCredentials()
     }
     
-    convenience init(clientId:String, secret:String, credentials:CredentialsStore) {
+    convenience init(clientId:String, secret:String, domain: String, credentials:CredentialsStore) {
         self.init(credentials: credentials)
         self.clientId = clientId
         self.clientSecret = secret
+        self.clientDomain = domain
+        self.userManager = UserManager(clientId: clientId, clientSecret: clientSecret, clientDomain: domain)
     }
     
     func importCredentials() {
         userToken = credentials.accessToken
-        if userToken != nil {
+        if userToken?.isEmpty != true {
             authState = .userToken
             return
         }
@@ -90,6 +98,9 @@ class Authenticator {
         if user != nil {
             authState = .userCredentials
             return
+        }
+        else {
+            
         }
         // No check for a client token. It is not saved. If the client previously had one,
         // a new one will be requested nevertheless
@@ -163,13 +174,20 @@ extension Authenticator {
     }
     
     func bearerAuthHeadersDictWith(token:String) -> [String: String] {
-        return ["Authorization": bearerAuthHeaderWith(token: token)]
+        return ["Authorization": bearerAuthHeaderWith(token: token), "Content-Type": "application/json"]
     }
 }
 
+// User
 extension Authenticator {
     
     func userCredentialsPayloadFor(user:User) -> String {
         return "username=\(user.email ?? "")&password=\(user.password ?? "")"
+    }
+    
+    func userCredentialsJsonString(for user:User) -> String {
+        let userDict = ["email": user.email, "password": user.password]
+        let jsonData = try? JSONSerialization.data(withJSONObject: userDict, options: .prettyPrinted)
+        return String(data: jsonData ?? Data(), encoding: .utf8)!
     }
 }
