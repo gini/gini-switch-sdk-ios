@@ -27,6 +27,7 @@
 		2399D8941ED340490006D523 /* ExtractionsTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2399D8931ED340490006D523 /* ExtractionsTableViewCellTests.swift */; };
 		23A2DCC61ECB3A5B006093E2 /* MultiPageCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A2DCC51ECB3A5B006093E2 /* MultiPageCoordinatorTests.swift */; };
 		23A533711ED8389200EB2229 /* TariffAppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533701ED8389200EB2229 /* TariffAppearanceTests.swift */; };
+		23A533C71EE6D58D00EB2229 /* SdkBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533C61EE6D58D00EB2229 /* SdkBuilder.swift */; };
 		23EB01821EC066AF000AB2D9 /* TariffSdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01811EC066AF000AB2D9 /* TariffSdkTests.swift */; };
 		23EB01861EC07162000AB2D9 /* TariffUserInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01851EC07162000AB2D9 /* TariffUserInterfaceTests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -67,6 +68,7 @@
 		2399D8931ED340490006D523 /* ExtractionsTableViewCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtractionsTableViewCellTests.swift; sourceTree = "<group>"; };
 		23A2DCC51ECB3A5B006093E2 /* MultiPageCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiPageCoordinatorTests.swift; sourceTree = "<group>"; };
 		23A533701ED8389200EB2229 /* TariffAppearanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TariffAppearanceTests.swift; sourceTree = "<group>"; };
+		23A533C61EE6D58D00EB2229 /* SdkBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SdkBuilder.swift; sourceTree = "<group>"; };
 		23EB01811EC066AF000AB2D9 /* TariffSdkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TariffSdkTests.swift; sourceTree = "<group>"; };
 		23EB01851EC07162000AB2D9 /* TariffUserInterfaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TariffUserInterfaceTests.swift; sourceTree = "<group>"; };
 		36E73D8BC7FE58332DC0B4DC /* Pods-GiniTariffSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniTariffSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniTariffSDK_Tests/Pods-GiniTariffSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* TariffExampleViewController.swift */,
+				23A533C61EE6D58D00EB2229 /* SdkBuilder.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -432,6 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23A533C71EE6D58D00EB2229 /* SdkBuilder.swift in Sources */,
 				607FACD81AFB9204008FA782 /* TariffExampleViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
