@@ -22,10 +22,10 @@ struct Token {
     
     init?(_ dictionary:JSONDictionary) {
         guard let access = dictionary["access_token"] as? String,
-            let refresh = dictionary["refresh_token"] as? String,
             let expirationTime = dictionary["expires_in"] as? Int else {
                 return nil
         }
+        let refresh = dictionary["refresh_token"] as? String    // the refresh token is not mandatory
         self.init(accessToken: access, refreshToken: refresh, expiration: expirationTime)
     }
     
