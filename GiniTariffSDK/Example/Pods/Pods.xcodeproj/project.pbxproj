@@ -50,6 +50,7 @@
 		23A533BF1EDEC4A000EB2229 /* CredentialsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533BE1EDEC4A000EB2229 /* CredentialsStore.swift */; };
 		23A533C11EDF02E100EB2229 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533C01EDF02E100EB2229 /* UserManager.swift */; };
 		23A533C51EE03E7800EB2229 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533C41EE03E7800EB2229 /* Authenticator.swift */; };
+		23A533CF1EE8472400EB2229 /* URL+QueryParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533CE1EE8472400EB2229 /* URL+QueryParameters.swift */; };
 		23EB01801EC06602000AB2D9 /* TariffSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB017F1EC06602000AB2D9 /* TariffSdk.swift */; };
 		23EB01841EC070D1000AB2D9 /* TariffUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */; };
 		2F485B69F51E4F723A38410F31F08550 /* FBSnapshotTestController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1374B79237CAC07693E99442FBED1F15 /* FBSnapshotTestController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -135,6 +136,7 @@
 		23A533BE1EDEC4A000EB2229 /* CredentialsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CredentialsStore.swift; path = Classes/CredentialsStore.swift; sourceTree = "<group>"; };
 		23A533C01EDF02E100EB2229 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Classes/UserManager.swift; sourceTree = "<group>"; };
 		23A533C41EE03E7800EB2229 /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Authenticator.swift; path = Classes/Authenticator.swift; sourceTree = "<group>"; };
+		23A533CE1EE8472400EB2229 /* URL+QueryParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "URL+QueryParameters.swift"; path = "Classes/URL+QueryParameters.swift"; sourceTree = "<group>"; };
 		23EB017F1EC06602000AB2D9 /* TariffSdk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffSdk.swift; path = Classes/TariffSdk.swift; sourceTree = "<group>"; };
 		23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffUserInterface.swift; path = Classes/TariffUserInterface.swift; sourceTree = "<group>"; };
 		2EECE81A9AEC1ED1057A9C3C88DBCEBE /* UIApplication+StrictKeyWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+StrictKeyWindow.m"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.m"; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				23A533BB1EDDCC7C00EB2229 /* WebService.swift */,
+				23A533CE1EE8472400EB2229 /* URL+QueryParameters.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 				23A533C51EE03E7800EB2229 /* Authenticator.swift in Sources */,
 				232CFB7D1EC9D204009D464A /* ScanPage.swift in Sources */,
 				7F101E8CE99B4D0FD46A404B7178AE23 /* GiniTariffSDK-dummy.m in Sources */,
+				23A533CF1EE8472400EB2229 /* URL+QueryParameters.swift in Sources */,
 				231026E71EC0AB4100920F40 /* TariffConsoleLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,10 +17,16 @@ enum AuthenticatorState {
 
 class Authenticator {
     
+    // urls
     let baseUrl = URL(string:"https://user.gini.net")!
-    let clientTokenUrlExtension = "/oauth/token?grant_type=client_credentials"
+    let authUrlExtension = "/oauth/token"
     let userLoginUrlExtension = "/oauth/token?grant_type=password"
     let createUserUrlExtension = "/api/users"
+    
+    // url parameters
+    let loginTypeParameter = "grant_type"
+    let loginTypeClientSecret = "client_credentials"
+    let loginTypePassword = "password"
     
     // input
     var clientId:String? = nil
@@ -38,8 +44,8 @@ class Authenticator {
     var createClientToken:Resource<Token> {
         assert(clientId != nil, "Attempted to authenticate without a client ID")
         assert(clientSecret != nil, "Attempted to authenticate without a client secret")
-        let fullUrlString = "\(baseUrl)\(clientTokenUrlExtension)"
-        let fullUrl = URL(string: fullUrlString)!
+        var fullUrl = baseUrl.appendingPathComponent(authUrlExtension)
+        fullUrl = fullUrl.appendingQueryParameter(name: loginTypeParameter, value: loginTypeClientSecret)!
 
         let authHeaders = basicAuthHeadersDictFor(user: clientId!, pass: clientSecret!)
         return Resource<Token>(url: fullUrl, headers: authHeaders, method: "GET", body: nil, parseJSON: { json in
@@ -50,8 +56,8 @@ class Authenticator {
     
     var userLogin:Resource<Token> {
         assert(user != nil, "Attempting to login without user credentials")
-        let fullUrlString = "\(baseUrl)\(userLoginUrlExtension)"
-        let fullUrl = URL(string: fullUrlString)!
+        var fullUrl = baseUrl.appendingPathComponent(authUrlExtension)
+        fullUrl = fullUrl.appendingQueryParameter(name: loginTypeParameter, value: loginTypePassword)!
         let authHeaders = basicAuthHeadersDictFor(user: clientId!, pass: clientSecret!)
         let payload = userCredentialsPayloadFor(user:user!)
         return Resource<Token>(url: fullUrl, headers: authHeaders, method: "POST", body: payload, parseJSON: { json in
@@ -64,8 +70,7 @@ class Authenticator {
         assert(clientToken != nil, "Attempting to create user without a client token")
         user = userManager.user
         assert(user != nil, "Attempting to create user without credentials")
-        let fullUrlString = "\(baseUrl)\(createUserUrlExtension)"
-        let fullUrl = URL(string: fullUrlString)!
+        let fullUrl = baseUrl.appendingPathComponent(createUserUrlExtension)
         let authHeaders = bearerAuthHeadersDictWith(token: clientToken!)
         user = userManager.user
         let body = userCredentialsJsonString(for: user!)
