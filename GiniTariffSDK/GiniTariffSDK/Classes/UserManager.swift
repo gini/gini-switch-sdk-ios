@@ -13,7 +13,7 @@ struct UserManager {
     var clientId:String? = nil
     var clientSecret:String? = nil
     var clientDomain:String? = nil
-    var credentials = CredentialsStore()
+    var credentials = KeychainCredentialsStore()
     
     init() {
         self.init(clientId: nil, clientSecret: nil, clientDomain: nil)

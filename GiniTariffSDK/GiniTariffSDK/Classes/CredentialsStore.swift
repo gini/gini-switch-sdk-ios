@@ -8,7 +8,18 @@
 
 import UIKit
 
-struct CredentialsStore {
+protocol CredentialsStore {
+    
+    var accessToken:String? {get set}
+    
+    var refreshToken:String? {get set}
+    
+    var expirationPeriod:Int? {get set}
+    
+    var user:User? {get set}
+}
+
+class KeychainCredentialsStore : CredentialsStore {
     
     let accessTokenService = "AccessToken"
     let refreshTokenService = "RefreshToken"

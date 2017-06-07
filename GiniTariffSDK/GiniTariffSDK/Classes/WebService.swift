@@ -45,7 +45,14 @@ extension Resource {
 /*
  * A networking layer inspired by objc.io and their Swift Talk episode (https://github.com/objcio/S01E01-networking/blob/master/Networking.playground/Contents.swift)
  */
-final class WebService {
+
+protocol WebService {
+    
+    func load<A>(resource: Resource<A>, completion: @escaping (A?) -> ())
+}
+
+final class UrlSessionWebService : WebService {
+    
     func load<A>(resource: Resource<A>, completion: @escaping (A?) -> ()) {
         var request = URLRequest(url: resource.url)
         if let method = resource.method {

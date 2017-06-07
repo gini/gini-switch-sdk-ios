@@ -17,7 +17,7 @@ enum AuthenticatorState {
 
 class Authenticator {
     
-    let baseUrl = "https://user.gini.net"
+    let baseUrl = URL(string:"https://user.gini.net")!
     let clientTokenUrlExtension = "/oauth/token?grant_type=client_credentials"
     let userLoginUrlExtension = "/oauth/token?grant_type=password"
     let createUserUrlExtension = "/api/users"
@@ -32,7 +32,7 @@ class Authenticator {
     var credentials:CredentialsStore
     
     var authState = AuthenticatorState.none
-    let webService = WebService()
+    var webService:WebService = UrlSessionWebService()     // should be a var to allow injection
     var userManager = UserManager()
 
     var createClientToken:Resource<Token> {
@@ -40,6 +40,7 @@ class Authenticator {
         assert(clientSecret != nil, "Attempted to authenticate without a client secret")
         let fullUrlString = "\(baseUrl)\(clientTokenUrlExtension)"
         let fullUrl = URL(string: fullUrlString)!
+
         let authHeaders = basicAuthHeadersDictFor(user: clientId!, pass: clientSecret!)
         return Resource<Token>(url: fullUrl, headers: authHeaders, method: "GET", body: nil, parseJSON: { json in
             guard let dictionary = json as? JSONDictionary else { return nil }

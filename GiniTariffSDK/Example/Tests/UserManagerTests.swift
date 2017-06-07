@@ -21,11 +21,6 @@ class UserManagerTests: XCTestCase {
         manager = UserManager(clientId:id, clientSecret:secret, clientDomain:domain)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
     func testCreatingUserManager() {
         XCTAssertNotNil(UserManager(), "Should be able to create a UserManager without parameters")
     }
