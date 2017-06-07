@@ -28,6 +28,12 @@
 		23A2DCC61ECB3A5B006093E2 /* MultiPageCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A2DCC51ECB3A5B006093E2 /* MultiPageCoordinatorTests.swift */; };
 		23A533711ED8389200EB2229 /* TariffAppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533701ED8389200EB2229 /* TariffAppearanceTests.swift */; };
 		23A533C71EE6D58D00EB2229 /* SdkBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533C61EE6D58D00EB2229 /* SdkBuilder.swift */; };
+		23A533B31EDDB46B00EB2229 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533B21EDDB46B00EB2229 /* UserTests.swift */; };
+		23A533B71EDDBA5300EB2229 /* TokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533B61EDDBA5300EB2229 /* TokenTests.swift */; };
+		23A533C31EDF035900EB2229 /* UserManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533C21EDF035900EB2229 /* UserManagerTests.swift */; };
+		23A533C91EE82EAF00EB2229 /* AuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533C81EE82EAF00EB2229 /* AuthenticatorTests.swift */; };
+		23A533CB1EE831BF00EB2229 /* NoOpWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533CA1EE831BF00EB2229 /* NoOpWebService.swift */; };
+		23A533CD1EE8354400EB2229 /* MemoryCredentialsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533CC1EE8354400EB2229 /* MemoryCredentialsStore.swift */; };
 		23EB01821EC066AF000AB2D9 /* TariffSdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01811EC066AF000AB2D9 /* TariffSdkTests.swift */; };
 		23EB01861EC07162000AB2D9 /* TariffUserInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01851EC07162000AB2D9 /* TariffUserInterfaceTests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -69,6 +75,12 @@
 		23A2DCC51ECB3A5B006093E2 /* MultiPageCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiPageCoordinatorTests.swift; sourceTree = "<group>"; };
 		23A533701ED8389200EB2229 /* TariffAppearanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TariffAppearanceTests.swift; sourceTree = "<group>"; };
 		23A533C61EE6D58D00EB2229 /* SdkBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SdkBuilder.swift; sourceTree = "<group>"; };
+		23A533B21EDDB46B00EB2229 /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
+		23A533B61EDDBA5300EB2229 /* TokenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenTests.swift; sourceTree = "<group>"; };
+		23A533C21EDF035900EB2229 /* UserManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManagerTests.swift; sourceTree = "<group>"; };
+		23A533C81EE82EAF00EB2229 /* AuthenticatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatorTests.swift; sourceTree = "<group>"; };
+		23A533CA1EE831BF00EB2229 /* NoOpWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoOpWebService.swift; path = Mocks/NoOpWebService.swift; sourceTree = "<group>"; };
+		23A533CC1EE8354400EB2229 /* MemoryCredentialsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemoryCredentialsStore.swift; path = Mocks/MemoryCredentialsStore.swift; sourceTree = "<group>"; };
 		23EB01811EC066AF000AB2D9 /* TariffSdkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TariffSdkTests.swift; sourceTree = "<group>"; };
 		23EB01851EC07162000AB2D9 /* TariffUserInterfaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TariffUserInterfaceTests.swift; sourceTree = "<group>"; };
 		36E73D8BC7FE58332DC0B4DC /* Pods-GiniTariffSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniTariffSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniTariffSDK_Tests/Pods-GiniTariffSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -114,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				231027071EC337E100920F40 /* FakeCamera.swift */,
+				23A533CA1EE831BF00EB2229 /* NoOpWebService.swift */,
+				23A533CC1EE8354400EB2229 /* MemoryCredentialsStore.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -197,6 +211,10 @@
 				2399D8931ED340490006D523 /* ExtractionsTableViewCellTests.swift */,
 				230B0A2D1ED59ADB00892467 /* PreviewViewControllerTests.swift */,
 				23A533701ED8389200EB2229 /* TariffAppearanceTests.swift */,
+				23A533B21EDDB46B00EB2229 /* UserTests.swift */,
+				23A533B61EDDBA5300EB2229 /* TokenTests.swift */,
+				23A533C21EDF035900EB2229 /* UserManagerTests.swift */,
+				23A533C81EE82EAF00EB2229 /* AuthenticatorTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -448,17 +466,23 @@
 				232CFB751EC4CB44009D464A /* PageCollectionViewCellTests.swift in Sources */,
 				23A533711ED8389200EB2229 /* TariffAppearanceTests.swift in Sources */,
 				231026F71EC1F35100920F40 /* MultiPageScanViewControllerTests.swift in Sources */,
+				23A533B71EDDBA5300EB2229 /* TokenTests.swift in Sources */,
+				23A533B31EDDB46B00EB2229 /* UserTests.swift in Sources */,
 				233B51A61ECA006400C018B8 /* PageCollectionTests.swift in Sources */,
 				2310270A1EC473C100920F40 /* CameraOptionsViewControllerTests.swift in Sources */,
 				2399D88C1ED3341D0006D523 /* ExtractionTests.swift in Sources */,
 				2399D8901ED336C50006D523 /* ExtractionCollectionTests.swift in Sources */,
+				23A533CB1EE831BF00EB2229 /* NoOpWebService.swift in Sources */,
 				23A2DCC61ECB3A5B006093E2 /* MultiPageCoordinatorTests.swift in Sources */,
 				232CFB7A1EC9D18E009D464A /* ScanPageTests.swift in Sources */,
 				2399D8881ED32FAC0006D523 /* ExtractionsViewControllerTests.swift in Sources */,
+				23A533C31EDF035900EB2229 /* UserManagerTests.swift in Sources */,
 				231026FB1EC21B1E00920F40 /* CameraViewControllerTests.swift in Sources */,
 				23EB01821EC066AF000AB2D9 /* TariffSdkTests.swift in Sources */,
 				231027081EC337E100920F40 /* FakeCamera.swift in Sources */,
+				23A533CD1EE8354400EB2229 /* MemoryCredentialsStore.swift in Sources */,
 				230B0A2E1ED59ADB00892467 /* PreviewViewControllerTests.swift in Sources */,
+				23A533C91EE82EAF00EB2229 /* AuthenticatorTests.swift in Sources */,
 				23EB01861EC07162000AB2D9 /* TariffUserInterfaceTests.swift in Sources */,
 				231027051EC21F2500920F40 /* TestUtils.swift in Sources */,
 				2383D19D1ECC449400FF91FD /* ReviewViewControllerTests.swift in Sources */,
