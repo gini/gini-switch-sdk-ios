@@ -71,7 +71,7 @@ class Authenticator {
         user = userManager.user
         assert(user != nil, "Attempting to create user without credentials")
         let fullUrl = baseUrl.appendingPathComponent(createUserUrlExtension)
-        let authHeaders = bearerAuthHeadersDictWith(token: clientToken!)
+        let authHeaders = Token.bearerAuthHeadersDictWith(token:clientToken!)
         user = userManager.user
         let body = userCredentialsJsonString(for: user!)
         return Resource<Bool>(url: fullUrl, headers: authHeaders, method: "POST", body: body, parseJSON: { json in
@@ -170,18 +170,6 @@ extension Authenticator {
         return ["Authorization": basicAuth]
     }
 
-}
-
-// Bearer tokens
-extension Authenticator {
-    
-    func bearerAuthHeaderWith(token:String) -> String {
-        return "Bearer \(token)"
-    }
-    
-    func bearerAuthHeadersDictWith(token:String) -> [String: String] {
-        return ["Authorization": bearerAuthHeaderWith(token: token), "Content-Type": "application/json"]
-    }
 }
 
 // User

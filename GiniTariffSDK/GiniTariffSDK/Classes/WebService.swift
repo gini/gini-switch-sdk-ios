@@ -42,6 +42,13 @@ extension Resource {
     }
 }
 
+extension Resource: Equatable {
+    
+    static func ==(lhs: Resource, rhs: Resource) -> Bool {
+        return (lhs.url == rhs.url) && (lhs.headers == rhs.headers) && (lhs.method == rhs.method) && (lhs.body == rhs.body)
+    }
+}
+
 /*
  * A networking layer inspired by objc.io and their Swift Talk episode (https://github.com/objcio/S01E01-networking/blob/master/Networking.playground/Contents.swift)
  */
