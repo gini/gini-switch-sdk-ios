@@ -26,20 +26,23 @@ class ExtractionResources {
         self.token = token
     }
     
-    var createExtractionOrder:Resource<Bool> {
+    var createExtractionOrder:Resource<CreateOrderResponse> {
         let fullUrl = baseUrl.appendingPathComponent(extractionOrderUrlExtension)
         let authHeaders = Token.bearerAuthHeadersDictWith(token: token)
-        return Resource<Bool>(url: fullUrl, headers: authHeaders, method: "POST", body: nil, parseJSON: { json in
-            guard let _ = json as? JSONDictionary else { return nil }
-            // TODO: check for errors
-            return true
+        return Resource<CreateOrderResponse>(url: fullUrl, headers: authHeaders, method: "POST", body: nil, parseJSON: { json in
+            guard let orderDict = json as? JSONDictionary else { return nil }
+            let orderResponse = CreateOrderResponse(dict:orderDict)
+            return orderResponse
         })
     }
     
-    func addPage(imageData:Data, toOrder extractionOrder:String) -> Resource<Bool> {
-        var fullUrl = baseUrl.appendingPathComponent(extractionOrderUrlExtension)
-        fullUrl = fullUrl.appendingPathComponent(extractionOrder)
-        fullUrl = fullUrl.appendingPathComponent(addPageExtension)
+    func addPage(imageData:Data, toOrder orderUrl:String) -> Resource<Bool> {
+        // TODO: Figure out how to return a failing Resource
+//        guard let fullUrl = URL(string:orderUrl) else {
+//            // TODO: return error
+//            assertionFailure("Encountered a malformed url")
+//        }
+        let fullUrl = URL(string:orderUrl)!
         var authHeaders = Token.bearerAuthHeadersDictWith(token: token)
         authHeaders["Content-Type"] = "image/jpeg"
         let body = imageData
@@ -49,20 +52,28 @@ class ExtractionResources {
         })
     }
     
-    func statusFor(order:String) -> Resource<AnyObject> {
-        var fullUrl = baseUrl.appendingPathComponent(extractionOrderUrlExtension)
-        fullUrl = fullUrl.appendingPathComponent(order)
+    func statusFor(orderUrl:String) -> Resource<ExtractionStatusResponse> {
+        // TODO: Figure out how to return a failing Resource
+//        guard let fullUrl = URL(string:orderUrl) else {
+//            // TODO: return error
+//            assertionFailure("Encountered a malformed url")
+//        }
+        let fullUrl = URL(string:orderUrl)!
         let authHeaders = Token.bearerAuthHeadersDictWith(token: token)
-        return Resource<AnyObject>(url: fullUrl, headers: authHeaders, method: "GET", body: nil, parseJSON: { (json) -> AnyObject? in
-            // TODO: check for errors
-            return nil
+        return Resource<ExtractionStatusResponse>(url: fullUrl, headers: authHeaders, method: "GET", body: nil, parseJSON: { (json) in
+            guard let statusDict = json as? JSONDictionary else { return nil }
+            let statusResponse = ExtractionStatusResponse(dict:statusDict)
+            return statusResponse
         })
     }
     
-    func deletePageWith(id:String, order:String) -> Resource<Bool> {
-        var fullUrl = baseUrl.appendingPathComponent(extractionOrderUrlExtension)
-        fullUrl = fullUrl.appendingPathComponent(order)
-        fullUrl = fullUrl.appendingPathComponent(addPageExtension)
+    func deletePageWith(id:String, orderUrl:String) -> Resource<Bool> {
+        // TODO: Figure out how to return a failing Resource
+//        guard let fullUrl = URL(string:orderUrl) else {
+//            // TODO: return error
+//            assertionFailure("Encountered a malformed url")
+//        }
+        var fullUrl = URL(string:orderUrl)!
         fullUrl = fullUrl.appendingPathComponent(id)
         let authHeaders = Token.bearerAuthHeadersDictWith(token: token)
         return Resource<Bool>(url: fullUrl, headers: authHeaders, method: "DELETE", body: nil, parseJSON: { (json) -> Bool? in
