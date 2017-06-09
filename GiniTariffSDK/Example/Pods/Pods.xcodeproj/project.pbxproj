@@ -54,6 +54,11 @@
 		23A533D31EE945B000EB2229 /* ExtractionResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533D21EE945B000EB2229 /* ExtractionResources.swift */; };
 		23A533D51EE9725200EB2229 /* TokenUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533D41EE9725200EB2229 /* TokenUtils.swift */; };
 		23A533DA1EE9A38D00EB2229 /* ExtractionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533D91EE9A38D00EB2229 /* ExtractionService.swift */; };
+		23A533DC1EEA918900EB2229 /* BaseApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533DB1EEA918900EB2229 /* BaseApiResponse.swift */; };
+		23A533E01EEA9C1200EB2229 /* PagesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533DF1EEA9C1200EB2229 /* PagesResponse.swift */; };
+		23A533E51EEA9FF400EB2229 /* CreateOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533E41EEA9FF400EB2229 /* CreateOrderResponse.swift */; };
+		23A533E91EEAA30100EB2229 /* AddPageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533E81EEAA30100EB2229 /* AddPageResponse.swift */; };
+		23A533EF1EEAC72A00EB2229 /* ExtractionStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533EE1EEAC72A00EB2229 /* ExtractionStatusResponse.swift */; };
 		23EB01801EC06602000AB2D9 /* TariffSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB017F1EC06602000AB2D9 /* TariffSdk.swift */; };
 		23EB01841EC070D1000AB2D9 /* TariffUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */; };
 		2F485B69F51E4F723A38410F31F08550 /* FBSnapshotTestController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1374B79237CAC07693E99442FBED1F15 /* FBSnapshotTestController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -143,6 +148,11 @@
 		23A533D21EE945B000EB2229 /* ExtractionResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtractionResources.swift; path = Classes/ExtractionResources.swift; sourceTree = "<group>"; };
 		23A533D41EE9725200EB2229 /* TokenUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenUtils.swift; path = Classes/TokenUtils.swift; sourceTree = "<group>"; };
 		23A533D91EE9A38D00EB2229 /* ExtractionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtractionService.swift; path = Classes/ExtractionService.swift; sourceTree = "<group>"; };
+		23A533DB1EEA918900EB2229 /* BaseApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseApiResponse.swift; path = Classes/BaseApiResponse.swift; sourceTree = "<group>"; };
+		23A533DF1EEA9C1200EB2229 /* PagesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PagesResponse.swift; path = Classes/PagesResponse.swift; sourceTree = "<group>"; };
+		23A533E41EEA9FF400EB2229 /* CreateOrderResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateOrderResponse.swift; path = Classes/CreateOrderResponse.swift; sourceTree = "<group>"; };
+		23A533E81EEAA30100EB2229 /* AddPageResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPageResponse.swift; path = Classes/AddPageResponse.swift; sourceTree = "<group>"; };
+		23A533EE1EEAC72A00EB2229 /* ExtractionStatusResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtractionStatusResponse.swift; path = Classes/ExtractionStatusResponse.swift; sourceTree = "<group>"; };
 		23EB017F1EC06602000AB2D9 /* TariffSdk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffSdk.swift; path = Classes/TariffSdk.swift; sourceTree = "<group>"; };
 		23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffUserInterface.swift; path = Classes/TariffUserInterface.swift; sourceTree = "<group>"; };
 		2EECE81A9AEC1ED1057A9C3C88DBCEBE /* UIApplication+StrictKeyWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+StrictKeyWindow.m"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.m"; sourceTree = "<group>"; };
@@ -317,6 +327,7 @@
 		232CFB7B1EC9D1E8009D464A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				23A533E31EEA9E7700EB2229 /* Responses */,
 				232CFB7C1EC9D204009D464A /* ScanPage.swift */,
 				233B51A71ECA01F000C018B8 /* PageCollection.swift */,
 				2399D88D1ED334480006D523 /* Extraction.swift */,
@@ -362,6 +373,18 @@
 				23A533D91EE9A38D00EB2229 /* ExtractionService.swift */,
 			);
 			name = Extractions;
+			sourceTree = "<group>";
+		};
+		23A533E31EEA9E7700EB2229 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				23A533DB1EEA918900EB2229 /* BaseApiResponse.swift */,
+				23A533DF1EEA9C1200EB2229 /* PagesResponse.swift */,
+				23A533E41EEA9FF400EB2229 /* CreateOrderResponse.swift */,
+				23A533E81EEAA30100EB2229 /* AddPageResponse.swift */,
+				23A533EE1EEAC72A00EB2229 /* ExtractionStatusResponse.swift */,
+			);
+			name = Responses;
 			sourceTree = "<group>";
 		};
 		2753122D9740DD251BEE70B18A8E209C /* Targets Support Files */ = {
@@ -725,6 +748,7 @@
 				231026F41EC1F29F00920F40 /* MultiPageScanViewController.swift in Sources */,
 				2399D8921ED337210006D523 /* ExtractionCollection.swift in Sources */,
 				231027101EC4B63600920F40 /* PagesCollectionViewController.swift in Sources */,
+				23A533E51EEA9FF400EB2229 /* CreateOrderResponse.swift in Sources */,
 				2383D1A31ECC69AE00FF91FD /* UIStoryboard+Tariff.swift in Sources */,
 				23A533BC1EDDCC7C00EB2229 /* WebService.swift in Sources */,
 				23A533D51EE9725200EB2229 /* TokenUtils.swift in Sources */,
@@ -736,10 +760,14 @@
 				2310270C1EC4748300920F40 /* CameraOptionsViewController.swift in Sources */,
 				231026ED1EC0BA6300920F40 /* TariffOnboarding.swift in Sources */,
 				2399D8981ED43F790006D523 /* PresentationStyle.swift in Sources */,
+				23A533DC1EEA918900EB2229 /* BaseApiResponse.swift in Sources */,
 				233B51A81ECA01F000C018B8 /* PageCollection.swift in Sources */,
 				2399D88A1ED32FC40006D523 /* ExtractionsViewController.swift in Sources */,
+				23A533E01EEA9C1200EB2229 /* PagesResponse.swift in Sources */,
+				23A533EF1EEAC72A00EB2229 /* ExtractionStatusResponse.swift in Sources */,
 				232CFB781EC4CDFE009D464A /* PageCollectionViewCell.swift in Sources */,
 				231026E31EC0A7A900920F40 /* TariffConfiguration.swift in Sources */,
+				23A533E91EEAA30100EB2229 /* AddPageResponse.swift in Sources */,
 				231026F11EC0BBCA00920F40 /* TariffNopAnalytics.swift in Sources */,
 				23A533D31EE945B000EB2229 /* ExtractionResources.swift in Sources */,
 				231026E51EC0A91300920F40 /* TariffLogger.swift in Sources */,
