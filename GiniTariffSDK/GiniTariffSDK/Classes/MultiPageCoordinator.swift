@@ -21,6 +21,8 @@ class MultiPageCoordinator {
     let pageCollectionController:PagesCollectionViewController
     var embeddedController:UIViewController? = nil
     
+    let extractionsManager = ExtractionsManager()
+    
     weak var delegate:MultiPageCoordinatorDelegate? = nil
     
     init(camera:CameraViewController, cameraOptions:CameraOptionsViewController, pagesCollection:PagesCollectionViewController) {

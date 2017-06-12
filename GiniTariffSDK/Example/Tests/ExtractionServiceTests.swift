@@ -17,9 +17,32 @@ class ExtractionServiceTests: XCTestCase {
     var service:ExtractionService! = nil
     var stubWebService:NoOpWebService! = nil
     
+    // callbacks
+    var orderCallBack:ExtractionServiceOrderCallback!
+    var pageCallBack:ExtractionServicePageCallback!
+    var statusCallback:ExtractionServiceStatusCallback!
+    
+    // callback params
+    var returnedError:Error? = nil
+    var returnedId:String? = nil
+    var returnedStatus:ExtractionStatusResponse? = nil
+    
     override func setUp() {
         super.setUp()
         service = ExtractionService(token: token)
+        
+        orderCallBack = { [weak self](url, error) -> Void in
+            self?.returnedId = url
+            self?.returnedError = error
+        }
+        pageCallBack = { [weak self](url, error) -> Void in
+            self?.returnedId = url
+            self?.returnedError = error
+        }
+        statusCallback = { [weak self](status, error) -> Void in
+            self?.returnedStatus = status
+            self?.returnedError = error
+        }
     }
     
     func testExtractionServiceInit() {
@@ -45,14 +68,14 @@ class ExtractionServiceTests: XCTestCase {
     
     func testCreateExtractionOrder() {
         injectWebService()
-        service.createOrder()
+        service.createOrder(completion: orderCallBack)
         XCTAssertEqual(stubWebService.resource as! Resource, service.resources.createExtractionOrder, "Creating an order should try to send the createExtractionOrder resource to the web service")
     }
     
     func testNotUploadingPictureWithoutOrderId() {
         injectWebService()
         let newPage = testImageData()
-        service.addPage(data:newPage)
+        service.addPage(data:newPage, completion: pageCallBack)
         XCTAssertNil(stubWebService.resource, "Without a created order, pages shouldn't be sent to the web service")
     }
     
@@ -60,27 +83,27 @@ class ExtractionServiceTests: XCTestCase {
         injectWebService()
         let newPage = testImageData()
         service.orderUrl = testOrderUrl
-        service.addPage(data:newPage)
+        service.addPage(data:newPage, completion: pageCallBack)
         XCTAssertEqual(stubWebService.resource as! Resource, service.resources.addPage(imageData: newPage, toOrder: service.orderUrl!), "ExtractionService should try to send the picture to the web service")
     }
     
     func testNotDeletingPictureWithoutOrderId() {
         injectWebService()
-        service.deletePage(id:testPageId)
+        service.deletePage(id:testPageId, completion: pageCallBack)
         XCTAssertNil(stubWebService.resource, "Without a created order, pages shouldn't be deleted from the web service")
     }
     
     func testDeletingPicture() {
         injectWebService()
         service.orderUrl = testOrderUrl
-        service.deletePage(id: testPageId)
+        service.deletePage(id: testPageId, completion: pageCallBack)
         XCTAssertEqual(stubWebService.resource as! Resource, service.resources.deletePageWith(id: testPageId, orderUrl: testOrderUrl), "ExtractionService should try to delete the picture from the web service")
     }
     
     func testRetrievingExtractionStatus() {
         injectWebService()
         service.orderUrl = testOrderUrl
-        service.fetchExtractionStatus()
+        service.fetchExtractionStatus(completion: statusCallback)
         XCTAssertEqual(stubWebService.resource as! Resource, service.resources.statusFor(orderUrl: testOrderUrl), "ExtractionService should try to retrieve the processing status from the web service")
     }
     

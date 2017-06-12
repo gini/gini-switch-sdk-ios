@@ -36,7 +36,7 @@ class ExtractionResources {
         })
     }
     
-    func addPage(imageData:Data, toOrder orderUrl:String) -> Resource<Bool> {
+    func addPage(imageData:Data, toOrder orderUrl:String) -> Resource<AddPageResponse> {
         // TODO: Figure out how to return a failing Resource
 //        guard let fullUrl = URL(string:orderUrl) else {
 //            // TODO: return error
@@ -46,9 +46,10 @@ class ExtractionResources {
         var authHeaders = Token.bearerAuthHeadersDictWith(token: token)
         authHeaders["Content-Type"] = "image/jpeg"
         let body = imageData
-        return Resource<Bool>(url: fullUrl, headers: authHeaders, method: "POST", body: String(data: body, encoding: .utf8), parseJSON: { (json) -> Bool? in
-            // TODO: check for errors
-            return true
+        return Resource<AddPageResponse>(url: fullUrl, headers: authHeaders, method: "POST", body: String(data: body, encoding: .utf8), parseJSON: { (json) -> AddPageResponse? in
+            guard let pageDict = json as? JSONDictionary else { return nil }
+            let pageResponse = AddPageResponse(dict:pageDict)
+            return pageResponse
         })
     }
     

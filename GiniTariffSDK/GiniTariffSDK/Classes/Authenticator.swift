@@ -81,6 +81,10 @@ class Authenticator {
         })
     }
     
+    var isLoggedIn:Bool {
+        return (authState == .userToken)
+    }
+    
     init(credentials:CredentialsStore) {
         self.credentials = credentials
         importCredentials()
