@@ -12,7 +12,7 @@ import XCTest
 class ExtractionServiceTests: XCTestCase {
     
     let token = "testToken"
-    let testOrderId = "testOrder"
+    let testOrderUrl = "https://switch.gini.net/extractionOrders/201be303-a693-44ac-b96f-31b03313ab22"
     let testPageId = "testPage"
     var service:ExtractionService! = nil
     var stubWebService:NoOpWebService! = nil
@@ -39,8 +39,8 @@ class ExtractionServiceTests: XCTestCase {
     }
     
     func testCanSetOrderId() {
-        service.orderId = testOrderId
-        XCTAssertEqual(service.orderId, testOrderId, "Should be able to set the orderId")
+        service.orderUrl = testOrderUrl
+        XCTAssertEqual(service.orderUrl, testOrderUrl, "Should be able to set the order Url")
     }
     
     func testCreateExtractionOrder() {
@@ -59,9 +59,9 @@ class ExtractionServiceTests: XCTestCase {
     func testUploadingPicture() {
         injectWebService()
         let newPage = testImageData()
-        service.orderId = testOrderId
+        service.orderUrl = testOrderUrl
         service.addPage(data:newPage)
-        XCTAssertEqual(stubWebService.resource as! Resource, service.resources.addPage(imageData: newPage, toOrder: service.orderId!), "ExtractionService should try to send the picture to the web service")
+        XCTAssertEqual(stubWebService.resource as! Resource, service.resources.addPage(imageData: newPage, toOrder: service.orderUrl!), "ExtractionService should try to send the picture to the web service")
     }
     
     func testNotDeletingPictureWithoutOrderId() {
@@ -72,16 +72,16 @@ class ExtractionServiceTests: XCTestCase {
     
     func testDeletingPicture() {
         injectWebService()
-        service.orderId = testOrderId
+        service.orderUrl = testOrderUrl
         service.deletePage(id: testPageId)
-        XCTAssertEqual(stubWebService.resource as! Resource, service.resources.deletePageWith(id: testPageId, order: testOrderId), "ExtractionService should try to delete the picture from the web service")
+        XCTAssertEqual(stubWebService.resource as! Resource, service.resources.deletePageWith(id: testPageId, orderUrl: testOrderUrl), "ExtractionService should try to delete the picture from the web service")
     }
     
     func testRetrievingExtractionStatus() {
         injectWebService()
-        service.orderId = testOrderId
+        service.orderUrl = testOrderUrl
         service.fetchExtractionStatus()
-        XCTAssertEqual(stubWebService.resource as! Resource, service.resources.statusFor(order: testOrderId), "ExtractionService should try to retrieve the processing status from the web service")
+        XCTAssertEqual(stubWebService.resource as! Resource, service.resources.statusFor(orderUrl: testOrderUrl), "ExtractionService should try to retrieve the processing status from the web service")
     }
     
 }

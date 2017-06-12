@@ -36,6 +36,11 @@
 		23A533CD1EE8354400EB2229 /* MemoryCredentialsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533CC1EE8354400EB2229 /* MemoryCredentialsStore.swift */; };
 		23A533D11EE944DA00EB2229 /* ExtractionResourcesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533D01EE944DA00EB2229 /* ExtractionResourcesTests.swift */; };
 		23A533D71EE9A2F000EB2229 /* ExtractionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533D61EE9A2F000EB2229 /* ExtractionServiceTests.swift */; };
+		23A533DE1EEA95BD00EB2229 /* BaseApiResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533DD1EEA95BD00EB2229 /* BaseApiResponseTests.swift */; };
+		23A533E21EEA9CB900EB2229 /* PagesResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533E11EEA9CB900EB2229 /* PagesResponseTests.swift */; };
+		23A533E71EEAA06900EB2229 /* CreateOrderResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533E61EEAA06900EB2229 /* CreateOrderResponseTests.swift */; };
+		23A533ED1EEAC13A00EB2229 /* AddPageResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533EC1EEAC13A00EB2229 /* AddPageResponseTests.swift */; };
+		23A533F11EEAD01400EB2229 /* ExtractionStatusResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533F01EEAD01400EB2229 /* ExtractionStatusResponseTests.swift */; };
 		23EB01821EC066AF000AB2D9 /* TariffSdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01811EC066AF000AB2D9 /* TariffSdkTests.swift */; };
 		23EB01861EC07162000AB2D9 /* TariffUserInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01851EC07162000AB2D9 /* TariffUserInterfaceTests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -85,6 +90,11 @@
 		23A533CC1EE8354400EB2229 /* MemoryCredentialsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemoryCredentialsStore.swift; path = Mocks/MemoryCredentialsStore.swift; sourceTree = "<group>"; };
 		23A533D01EE944DA00EB2229 /* ExtractionResourcesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtractionResourcesTests.swift; sourceTree = "<group>"; };
 		23A533D61EE9A2F000EB2229 /* ExtractionServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtractionServiceTests.swift; sourceTree = "<group>"; };
+		23A533DD1EEA95BD00EB2229 /* BaseApiResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseApiResponseTests.swift; sourceTree = "<group>"; };
+		23A533E11EEA9CB900EB2229 /* PagesResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagesResponseTests.swift; sourceTree = "<group>"; };
+		23A533E61EEAA06900EB2229 /* CreateOrderResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateOrderResponseTests.swift; sourceTree = "<group>"; };
+		23A533EC1EEAC13A00EB2229 /* AddPageResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPageResponseTests.swift; sourceTree = "<group>"; };
+		23A533F01EEAD01400EB2229 /* ExtractionStatusResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtractionStatusResponseTests.swift; sourceTree = "<group>"; };
 		23EB01811EC066AF000AB2D9 /* TariffSdkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TariffSdkTests.swift; sourceTree = "<group>"; };
 		23EB01851EC07162000AB2D9 /* TariffUserInterfaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TariffUserInterfaceTests.swift; sourceTree = "<group>"; };
 		36E73D8BC7FE58332DC0B4DC /* Pods-GiniTariffSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniTariffSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniTariffSDK_Tests/Pods-GiniTariffSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -221,6 +231,11 @@
 				23A533C81EE82EAF00EB2229 /* AuthenticatorTests.swift */,
 				23A533D01EE944DA00EB2229 /* ExtractionResourcesTests.swift */,
 				23A533D61EE9A2F000EB2229 /* ExtractionServiceTests.swift */,
+				23A533DD1EEA95BD00EB2229 /* BaseApiResponseTests.swift */,
+				23A533E11EEA9CB900EB2229 /* PagesResponseTests.swift */,
+				23A533E61EEAA06900EB2229 /* CreateOrderResponseTests.swift */,
+				23A533EC1EEAC13A00EB2229 /* AddPageResponseTests.swift */,
+				23A533F01EEAD01400EB2229 /* ExtractionStatusResponseTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -478,6 +493,9 @@
 				233B51A61ECA006400C018B8 /* PageCollectionTests.swift in Sources */,
 				2310270A1EC473C100920F40 /* CameraOptionsViewControllerTests.swift in Sources */,
 				2399D88C1ED3341D0006D523 /* ExtractionTests.swift in Sources */,
+				23A533E21EEA9CB900EB2229 /* PagesResponseTests.swift in Sources */,
+				23A533DE1EEA95BD00EB2229 /* BaseApiResponseTests.swift in Sources */,
+				23A533F11EEAD01400EB2229 /* ExtractionStatusResponseTests.swift in Sources */,
 				2399D8901ED336C50006D523 /* ExtractionCollectionTests.swift in Sources */,
 				23A533CB1EE831BF00EB2229 /* NoOpWebService.swift in Sources */,
 				23A2DCC61ECB3A5B006093E2 /* MultiPageCoordinatorTests.swift in Sources */,
@@ -489,12 +507,14 @@
 				23EB01821EC066AF000AB2D9 /* TariffSdkTests.swift in Sources */,
 				231027081EC337E100920F40 /* FakeCamera.swift in Sources */,
 				23A533CD1EE8354400EB2229 /* MemoryCredentialsStore.swift in Sources */,
+				23A533E71EEAA06900EB2229 /* CreateOrderResponseTests.swift in Sources */,
 				230B0A2E1ED59ADB00892467 /* PreviewViewControllerTests.swift in Sources */,
 				23A533C91EE82EAF00EB2229 /* AuthenticatorTests.swift in Sources */,
 				23EB01861EC07162000AB2D9 /* TariffUserInterfaceTests.swift in Sources */,
 				231027051EC21F2500920F40 /* TestUtils.swift in Sources */,
 				2383D19D1ECC449400FF91FD /* ReviewViewControllerTests.swift in Sources */,
 				231026E91EC0ADCD00920F40 /* TariffConsoleLoggerTests.swift in Sources */,
+				23A533ED1EEAC13A00EB2229 /* AddPageResponseTests.swift in Sources */,
 				2399D8941ED340490006D523 /* ExtractionsTableViewCellTests.swift in Sources */,
 				2310270E1EC49BD900920F40 /* PagesCollectionViewControllerTests.swift in Sources */,
 			);

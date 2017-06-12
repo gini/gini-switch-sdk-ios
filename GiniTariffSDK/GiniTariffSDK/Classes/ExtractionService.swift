@@ -13,7 +13,7 @@ class ExtractionService {
     let token:String
     let resources:ExtractionResources
     var resourceLoader:WebService       // var so a new object can be injected
-    var orderId:String? = nil
+    var orderUrl:String? = nil
     
     init(token:String) {
         self.token = token
@@ -22,40 +22,41 @@ class ExtractionService {
     }
     
     func createOrder() {
-        resourceLoader.load(resource: resources.createExtractionOrder) { (_) in
-            // TODO: get the order id
+        resourceLoader.load(resource: resources.createExtractionOrder) { [weak self](response) in
+            self?.orderUrl = response?.href
         }
     }
     
     func addPage(data:Data) {
-        guard let order = orderId else {
+        guard let order = orderUrl else {
             // no extraction order yet
             // TODO: maybe return an error
             return
         }
-        resourceLoader.load(resource: resources.addPage(imageData: data, toOrder: order)) { (_) in
+        resourceLoader.load(resource: resources.addPage(imageData: data, toOrder: order)) { (response) in
             // TODO: check for errors
+            // TODO: notify page uploaded
         }
     }
     
     func deletePage(id:String) {
-        guard let order = orderId else {
+        guard let order = orderUrl else {
             // no extraction order yet
             // TODO: maybe return an error
             return
         }
-        resourceLoader.load(resource: resources.deletePageWith(id: id, order: order)) { (_) in
+        resourceLoader.load(resource: resources.deletePageWith(id: id, orderUrl: order)) { (_) in
             // TODO: check for errors
         }
     }
     
     func fetchExtractionStatus() {
-        guard let order = orderId else {
+        guard let order = orderUrl else {
             // no extraction order yet
             // TODO: maybe return an error
             return
         }
-        resourceLoader.load(resource: resources.statusFor(order: order)) { (_) in
+        resourceLoader.load(resource: resources.statusFor(orderUrl: order)) { (status) in
             // TODO: check for errors
         }
     }
