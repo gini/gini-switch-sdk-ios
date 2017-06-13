@@ -18,7 +18,7 @@ enum AuthenticatorState {
 class Authenticator {
     
     // urls
-    let baseUrl = URL(string:"https://user.gini.net")!
+    let baseUrl = URL(string:"https://user.stage.gini.net")!
     let authUrlExtension = "/oauth/token"
     let userLoginUrlExtension = "/oauth/token?grant_type=password"
     let createUserUrlExtension = "/api/users"
@@ -72,8 +72,7 @@ class Authenticator {
         assert(user != nil, "Attempting to create user without credentials")
         let fullUrl = baseUrl.appendingPathComponent(createUserUrlExtension)
         let authHeaders = Token.bearerAuthHeadersDictWith(token:clientToken!)
-        user = userManager.user
-        let body = userCredentialsJsonString(for: user!)
+        let body = userCredentialsJsonData(for: user!)
         return Resource<Bool>(url: fullUrl, headers: authHeaders, method: "POST", body: body, parseJSON: { json in
             guard let _ = json as? JSONDictionary else { return nil }
             // TODO: check for errors
@@ -179,13 +178,14 @@ extension Authenticator {
 // User
 extension Authenticator {
     
-    func userCredentialsPayloadFor(user:User) -> String {
-        return "username=\(user.email ?? "")&password=\(user.password ?? "")"
+    func userCredentialsPayloadFor(user:User) -> Data {
+        let stringValue = "username=\(user.email ?? "")&password=\(user.password ?? "")"
+        return stringValue.data(using: .utf8) ?? Data()
     }
     
-    func userCredentialsJsonString(for user:User) -> String {
+    func userCredentialsJsonData(for user:User) -> Data {
         let userDict = ["email": user.email, "password": user.password]
         let jsonData = try? JSONSerialization.data(withJSONObject: userDict, options: .prettyPrinted)
-        return String(data: jsonData ?? Data(), encoding: .utf8)!
+        return jsonData ?? Data()
     }
 }

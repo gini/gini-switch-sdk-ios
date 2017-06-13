@@ -12,7 +12,7 @@ class ExtractionResources {
 
     var token:String = ""
     
-    let baseUrl = URL(string:"https://switch.gini.net")!
+    let baseUrl = URL(string:"https://switch-api.stage.gini.net")!
     
     // paths
     let extractionOrderUrlExtension = "extractionOrders"
@@ -29,7 +29,9 @@ class ExtractionResources {
     var createExtractionOrder:Resource<CreateOrderResponse> {
         let fullUrl = baseUrl.appendingPathComponent(extractionOrderUrlExtension)
         let authHeaders = Token.bearerAuthHeadersDictWith(token: token)
-        return Resource<CreateOrderResponse>(url: fullUrl, headers: authHeaders, method: "POST", body: nil, parseJSON: { json in
+        // currently the API doesn't accept empty bodies. Just add an empty json
+        let body = try! JSONSerialization.data(withJSONObject: [:], options: .prettyPrinted)
+        return Resource<CreateOrderResponse>(url: fullUrl, headers: authHeaders, method: "POST", body: body, parseJSON: { json in
             guard let orderDict = json as? JSONDictionary else { return nil }
             let orderResponse = CreateOrderResponse(dict:orderDict)
             return orderResponse
@@ -42,11 +44,12 @@ class ExtractionResources {
 //            // TODO: return error
 //            assertionFailure("Encountered a malformed url")
 //        }
-        let fullUrl = URL(string:orderUrl)!
+        var fullUrl = URL(string:orderUrl)!
+        fullUrl = fullUrl.appendingPathComponent(addPageExtension)  // TODO: We might consider getting the full url as parameter
         var authHeaders = Token.bearerAuthHeadersDictWith(token: token)
         authHeaders["Content-Type"] = "image/jpeg"
         let body = imageData
-        return Resource<AddPageResponse>(url: fullUrl, headers: authHeaders, method: "POST", body: String(data: body, encoding: .utf8), parseJSON: { (json) -> AddPageResponse? in
+        return Resource<AddPageResponse>(url: fullUrl, headers: authHeaders, method: "POST", body: body, parseJSON: { (json) -> AddPageResponse? in
             guard let pageDict = json as? JSONDictionary else { return nil }
             let pageResponse = AddPageResponse(dict:pageDict)
             return pageResponse

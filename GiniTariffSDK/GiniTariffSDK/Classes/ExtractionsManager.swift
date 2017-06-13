@@ -37,10 +37,6 @@ class ExtractionsManager {
     }
     
     func authenticate() {
-        guard authenticator?.isLoggedIn == false else {
-            // already logged in
-            return
-        }
         guard authenticator == nil else {
             // assume already trying too log in
             return
@@ -57,10 +53,6 @@ class ExtractionsManager {
         let token = authenticator?.userToken else {
             // not logged in
             // TODO: queue this request
-            return
-        }
-        guard uploadService?.hasExtractionOrder == false else {
-            // already has an order
             return
         }
         guard uploadService == nil else {

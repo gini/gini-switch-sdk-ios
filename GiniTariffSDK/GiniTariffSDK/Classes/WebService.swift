@@ -14,7 +14,7 @@ struct Resource<A> {
     let url: URL
     let headers: Dictionary<String, String>
     let method:String?
-    let body:String?
+    let body:Data?
     let parse: (Data) -> A?
 }
 
@@ -30,7 +30,7 @@ extension Resource {
         }
     }
     
-    init(url: URL, headers: Dictionary<String, String>, method: String?, body: String?, parseJSON: @escaping (Any) -> A?) {
+    init(url: URL, headers: Dictionary<String, String>, method: String?, body: Data?, parseJSON: @escaping (Any) -> A?) {
         self.url = url
         self.headers = headers
         self.method = method
@@ -65,7 +65,7 @@ final class UrlSessionWebService : WebService {
         if let method = resource.method {
             request.httpMethod = method
         }
-        request.httpBody = resource.body?.data(using: .utf8)
+        request.httpBody = resource.body
         for (header, value) in resource.headers {
             request.setValue(value, forHTTPHeaderField: header)
         }
