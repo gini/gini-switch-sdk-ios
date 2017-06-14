@@ -29,6 +29,10 @@ class ExtractionsManager {
     
     var delegate:ExtractionsManagerDelegate? = nil
     
+    // if the create extraction order call comes before the client is authenticated
+    // it needs to be queued. shouldRequestOrder is used for that
+    var shouldRequestOrder = false
+    
     var hasActiveSession:Bool {
         return (authenticator?.isLoggedIn ?? false) &&
             (uploadService?.hasExtractionOrder ?? false)
@@ -52,38 +56,49 @@ class ExtractionsManager {
             return
         }
         authenticator = Authenticator(clientId: clientId, secret: clientSecret, domain: clientDomain, credentials: KeychainCredentialsStore())
-        authenticator?.authenticate()
+        authenticator?.authenticate(success: { [weak self] () in
+            if self?.shouldRequestOrder == true {
+                self?.createExtractionOrder()
+            }
+        }, failure: { (error) in
+            // TODO: handle error
+        })
     }
     
     func createExtractionOrder() {
         guard authenticator?.isLoggedIn == true,
         let token = authenticator?.userToken else {
             // not logged in
-            // TODO: queue this request
+            shouldRequestOrder = true
             return
         }
         guard uploadService == nil else {
             return
         }
+        shouldRequestOrder = false
         uploadService = ExtractionService(token: token)
-        uploadService?.createOrder(completion: { (orderUrl, error) in
+        uploadService?.createOrder(completion: { [weak self](orderUrl, error) in
             // TODO: check error
+            if error == nil {
+                self?.startQueuedUploads()
+            }
         })
     }
     
     func add(page: ScanPage) {
         // adding locally
-        page.status = .uploading
+        page.status = .taken
         scannedPages.add(element: page)
         notifyCollectionChanged()
         guard hasActiveSession else {
-            // TODO: queue the request
+            // Queue the request. After the session is active, the uploads will be started
             return
         }
         guard let image = page.imageData else {
             // TODO: imageData should probably not be an optional
             return
         }
+        page.status = .uploading
         uploadService?.addPage(data: image, completion: { [weak self](pageUrl, error) in
             if let _ = error {
                 // TODO: handle error
@@ -156,5 +171,16 @@ class ExtractionsManager {
     
     fileprivate func notifyCollectionChanged() {
         self.delegate?.extractionsManager(self, didChangePageCollection: scannedPages)
+    }
+    
+    fileprivate func startQueuedUploads() {
+        queuedPages().forEach { (page) in
+            add(page: page)
+        }
+    }
+    
+    fileprivate func queuedPages() -> [ScanPage] {
+        let queued = scannedPages.pages.filter { $0.status == .taken }
+        return queued
     }
 }
