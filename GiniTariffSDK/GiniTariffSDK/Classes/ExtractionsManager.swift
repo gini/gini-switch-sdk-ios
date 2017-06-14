@@ -12,14 +12,16 @@ protocol ExtractionsManagerDelegate {
     
     func extractionsManager(_ manager:ExtractionsManager, didEncounterError error:Error)
     func extractionsManager(_ manager:ExtractionsManager, didChangePageCollection collection:PageCollection)
+    func extractionsManagerDidAuthenticate(_ manager:ExtractionsManager)
+    func extractionsManagerDidCreateOrder(_ manager:ExtractionsManager)
     
 }
 
 class ExtractionsManager {
     
-    var clientId:String?
-    var clientSecret:String?
-    var clientDomain:String?
+    var clientId:String = ""
+    var clientSecret:String = ""
+    var clientDomain:String = ""
 
     var scannedPages = PageCollection()
     var authenticator:Authenticator? = nil
@@ -32,19 +34,24 @@ class ExtractionsManager {
             (uploadService?.hasExtractionOrder ?? false)
     }
     
+    var hasCredentials:Bool {
+        return (!clientId.isEmpty && !clientSecret.isEmpty && !clientDomain.isEmpty)
+    }
+    
     init() {
         importCredentials()
     }
     
     func authenticate() {
+        guard hasCredentials else {
+            // no credentials - cannot login
+            return
+        }
         guard authenticator == nil else {
             // assume already trying too log in
             return
         }
-        assert(clientId != nil, "Attemptimg to authenticate without a client ID")
-        assert(clientSecret != nil, "Attemptimg to authenticate without a client secret")
-        assert(clientDomain != nil, "Attemptimg to authenticate without a client domain")
-        authenticator = Authenticator(clientId: clientId!, secret: clientSecret!, domain: clientDomain!, credentials: KeychainCredentialsStore())
+        authenticator = Authenticator(clientId: clientId, secret: clientSecret, domain: clientDomain, credentials: KeychainCredentialsStore())
         authenticator?.authenticate()
     }
     
@@ -126,9 +133,9 @@ class ExtractionsManager {
     
     fileprivate func importCredentials() {
         let sdk = TariffSdkStorage.activeTariffSdk
-        clientId = sdk?.clientId
-        clientSecret = sdk?.clientSecret
-        clientDomain = sdk?.clientDomain
+        clientId = sdk?.clientId ?? ""
+        clientSecret = sdk?.clientSecret ?? ""
+        clientDomain = sdk?.clientDomain ?? ""
     }
     
     fileprivate func parseStatus(_ status:ExtractionStatusResponse?) {

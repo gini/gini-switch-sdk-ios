@@ -21,7 +21,7 @@ class MultiPageCoordinator {
     let pageCollectionController:PagesCollectionViewController
     var embeddedController:UIViewController? = nil
     
-    let extractionsManager = ExtractionsManager()
+    var extractionsManager = ExtractionsManager()       // should be able to inject another one
     
     weak var delegate:MultiPageCoordinatorDelegate? = nil
     
@@ -34,12 +34,12 @@ class MultiPageCoordinator {
         cameraController.delegate = self
         pagesCollection.delegate = self
         
-        // TODO: maybe not the best place?
-//        extractionsManager.authenticate()
-//        let deadlineTime = DispatchTime.now() + .seconds(5)
-//        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-//            self.extractionsManager.createExtractionOrder()
-//        }
+        // TODO: remove this 5 sec waiting once queueing is done 
+        extractionsManager.authenticate()
+        let deadlineTime = DispatchTime.now() + .seconds(5)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            self.extractionsManager.createExtractionOrder()
+        }
     }
     
     func showReviewScreen(withPage page:ScanPage) {
