@@ -59,6 +59,7 @@
 		23A533E51EEA9FF400EB2229 /* CreateOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533E41EEA9FF400EB2229 /* CreateOrderResponse.swift */; };
 		23A533E91EEAA30100EB2229 /* AddPageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533E81EEAA30100EB2229 /* AddPageResponse.swift */; };
 		23A533EF1EEAC72A00EB2229 /* ExtractionStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533EE1EEAC72A00EB2229 /* ExtractionStatusResponse.swift */; };
+		23A533F51EEED06800EB2229 /* ExtractionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533F41EEED06800EB2229 /* ExtractionsManager.swift */; };
 		23EB01801EC06602000AB2D9 /* TariffSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB017F1EC06602000AB2D9 /* TariffSdk.swift */; };
 		23EB01841EC070D1000AB2D9 /* TariffUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */; };
 		2F485B69F51E4F723A38410F31F08550 /* FBSnapshotTestController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1374B79237CAC07693E99442FBED1F15 /* FBSnapshotTestController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -153,6 +154,7 @@
 		23A533E41EEA9FF400EB2229 /* CreateOrderResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateOrderResponse.swift; path = Classes/CreateOrderResponse.swift; sourceTree = "<group>"; };
 		23A533E81EEAA30100EB2229 /* AddPageResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddPageResponse.swift; path = Classes/AddPageResponse.swift; sourceTree = "<group>"; };
 		23A533EE1EEAC72A00EB2229 /* ExtractionStatusResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtractionStatusResponse.swift; path = Classes/ExtractionStatusResponse.swift; sourceTree = "<group>"; };
+		23A533F41EEED06800EB2229 /* ExtractionsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtractionsManager.swift; path = Classes/ExtractionsManager.swift; sourceTree = "<group>"; };
 		23EB017F1EC06602000AB2D9 /* TariffSdk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffSdk.swift; path = Classes/TariffSdk.swift; sourceTree = "<group>"; };
 		23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffUserInterface.swift; path = Classes/TariffUserInterface.swift; sourceTree = "<group>"; };
 		2EECE81A9AEC1ED1057A9C3C88DBCEBE /* UIApplication+StrictKeyWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+StrictKeyWindow.m"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.m"; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 			children = (
 				23A533D21EE945B000EB2229 /* ExtractionResources.swift */,
 				23A533D91EE9A38D00EB2229 /* ExtractionService.swift */,
+				23A533F41EEED06800EB2229 /* ExtractionsManager.swift */,
 			);
 			name = Extractions;
 			sourceTree = "<group>";
@@ -747,6 +750,7 @@
 			files = (
 				231026F41EC1F29F00920F40 /* MultiPageScanViewController.swift in Sources */,
 				2399D8921ED337210006D523 /* ExtractionCollection.swift in Sources */,
+				23A533F51EEED06800EB2229 /* ExtractionsManager.swift in Sources */,
 				231027101EC4B63600920F40 /* PagesCollectionViewController.swift in Sources */,
 				23A533E51EEA9FF400EB2229 /* CreateOrderResponse.swift in Sources */,
 				2383D1A31ECC69AE00FF91FD /* UIStoryboard+Tariff.swift in Sources */,

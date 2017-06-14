@@ -37,9 +37,9 @@ class ExtractionResourcesTests: XCTestCase {
     func testCreatingExtractionOrder() {
         service.token = token
         let orderResource = service.createExtractionOrder
-        XCTAssertEqual(orderResource.url, URL(string: "https://switch.gini.net/extractionOrders"), "The create extraction order request URL doesn't match")
+        XCTAssertEqual(orderResource.url, URL(string: "\(service.baseUrl)/extractionOrders"), "The create extraction order request URL doesn't match")
         XCTAssertEqual(orderResource.method, "POST", "The create extraction order request method doesn't match")
-        XCTAssertNil(orderResource.body, "The extraction order request shouldn't have a body")
+        XCTAssertEqual(String(data: orderResource.body!, encoding: .utf8), "{\n\n}", "The extraction order request should have an empty body")
         XCTAssertEqual(orderResource.headers["Authorization"], "Bearer \(token)", "The extraction order request should have a bearer authentication header")
     }
     
@@ -47,11 +47,11 @@ class ExtractionResourcesTests: XCTestCase {
         service.token = token
         let imageData = testImageData()
         let testOrderId = "testId"
-        let testOrder = "https://switch.gini.net/extractionOrders/\(testOrderId)/pages"
+        let testOrder = "\(service.baseUrl)/extractionOrders/\(testOrderId)"
         let pageResource = service.addPage(imageData: imageData, toOrder: testOrder)
-        XCTAssertEqual(pageResource.url, URL(string:testOrder)!, "The add page request URL doesn't match")
+        XCTAssertEqual(pageResource.url, URL(string:testOrder)!.appendingPathComponent("pages"), "The add page request URL doesn't match")
         XCTAssertEqual(pageResource.method, "POST", "The add page request method doesn't match")
-        XCTAssertEqual(pageResource.body, String(data: imageData, encoding: .utf8), "The add page request should have the image data as body")
+        XCTAssertEqual(pageResource.body, imageData, "The add page request should have the image data as body")
         XCTAssertEqual(pageResource.headers["Authorization"], "Bearer \(token)", "The add page request should have a bearer authentication header")
         XCTAssertEqual(pageResource.headers["Content-Type"], "image/jpeg", "The add page request should have a content type header")
     }

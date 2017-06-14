@@ -46,6 +46,13 @@ class PageCollection {
         // TODO: maybe there is a better way than searching for the index?
         pages.remove(at: index)
     }
+    
+    func page(for url:String) -> ScanPage? {
+        let pageMatches = pages.filter { (page) -> Bool in
+            return page.id == url
+        }
+        return pageMatches.first    // there should be only one
+    }
 
 }
 

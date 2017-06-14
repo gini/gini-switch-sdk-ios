@@ -21,6 +21,8 @@ class MultiPageCoordinator {
     let pageCollectionController:PagesCollectionViewController
     var embeddedController:UIViewController? = nil
     
+    var extractionsManager = ExtractionsManager()       // should be able to inject another one
+    
     weak var delegate:MultiPageCoordinatorDelegate? = nil
     
     init(camera:CameraViewController, cameraOptions:CameraOptionsViewController, pagesCollection:PagesCollectionViewController) {
@@ -31,6 +33,13 @@ class MultiPageCoordinator {
         cameraOptionsController.delegate = self
         cameraController.delegate = self
         pagesCollection.delegate = self
+        
+        // TODO: remove this 5 sec waiting once queueing is done 
+        extractionsManager.authenticate()
+        let deadlineTime = DispatchTime.now() + .seconds(5)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            self.extractionsManager.createExtractionOrder()
+        }
     }
     
     func showReviewScreen(withPage page:ScanPage) {
@@ -45,6 +54,11 @@ class MultiPageCoordinator {
             return
         }
         button.isEnabled = enabled
+    }
+    
+    func refreshPagesCollectionView() {
+        pageCollectionController.pages = extractionsManager.scannedPages
+        pageCollectionController.pagesCollection?.reloadData()
     }
 }
 
@@ -115,8 +129,9 @@ extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
 extension MultiPageCoordinator: ReviewViewControllerDelegate {
     
     func reviewController(_ controller:ReviewViewController, didAcceptPage page:ScanPage) {
-        self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .modal)
-        self.pageCollectionController.pagesCollection?.reloadData()
+        delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .modal)
+        extractionsManager.add(page: page)
+        refreshPagesCollectionView()
     }
     
     func reviewController(_ controller:ReviewViewController, didRejectPage page:ScanPage) {
@@ -130,15 +145,15 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
 extension MultiPageCoordinator: PreviewViewControllerDelegate {
     
     func previewController(previewController:PreviewViewController, didDeletePage page:ScanPage) {
-        pageCollectionController.pages?.remove(page)
-        self.pageCollectionController.pagesCollection?.reloadData()
+        extractionsManager.delete(page: page)
+        refreshPagesCollectionView()
         self.delegate?.multiPageCoordinator(self, requestedDismissingController: previewController, presentationStyle: .embed)
     }
     
     func previewController(previewController:PreviewViewController, didRequestRetake page:ScanPage) {
         // TODO: now it's the same as deleting the image. Figure out a way to retake
-        pageCollectionController.pages?.remove(page)
-        self.pageCollectionController.pagesCollection?.reloadData()
+        extractionsManager.delete(page: page)
+        refreshPagesCollectionView()
         self.delegate?.multiPageCoordinator(self, requestedDismissingController: previewController, presentationStyle: .embed)
     }
 }
