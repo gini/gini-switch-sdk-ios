@@ -15,6 +15,9 @@ enum AuthenticatorState {
     case userToken
 }
 
+typealias AuthenticatorSuccessCallback = () -> Void
+typealias AuthenticatorErrorCallback = (_ error:Error) -> Void
+
 class Authenticator {
     
     // urls
@@ -36,6 +39,8 @@ class Authenticator {
     var clientToken:String? = nil
     var userToken:String? = nil
     var credentials:CredentialsStore
+    var completionCallback:AuthenticatorSuccessCallback? = nil
+    var failureCallback:AuthenticatorErrorCallback? = nil
     
     var authState = AuthenticatorState.none
     var webService:WebService = UrlSessionWebService()     // should be a var to allow injection
@@ -127,10 +132,19 @@ class Authenticator {
         proceedWithAuthentication()
     }
     
+    public func authenticate(success:@escaping AuthenticatorSuccessCallback, failure:@escaping AuthenticatorErrorCallback) {
+        completionCallback = success
+        failureCallback = failure
+        authenticate()
+    }
+    
     func proceedWithAuthentication() {
         switch authState {
         case .none:
             webService.load(resource: createClientToken, completion: { [weak self] (token) in
+                if token == nil {
+                    // TODO: actually a failure
+                }
                 self?.authState = .clientToken
                 self?.clientToken = token?.accessToken
                 self?.proceedWithAuthentication()
@@ -151,6 +165,7 @@ class Authenticator {
             // already logged in
             // if the token has expired, the next request is going to fail with an authentication
             // error and login will be done again
+            completionCallback?()
             break
         }
         saveCredentials()
