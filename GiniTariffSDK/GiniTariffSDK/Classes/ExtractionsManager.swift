@@ -180,9 +180,7 @@ class ExtractionsManager {
     }
     
     fileprivate func queuedPages() -> [ScanPage] {
-        let queued = scannedPages.pages.filter { (page) -> Bool in
-            return (page.status == .taken)
-        }
+        let queued = scannedPages.pages.filter { $0.status == .taken }
         return queued
     }
 }
