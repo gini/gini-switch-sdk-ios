@@ -8,22 +8,36 @@
 
 import UIKit
 
-struct ExtractionCollection {
+class ExtractionCollection:BaseApiResponse {
 
-    var extractions:[Extraction] = []
+    let extractions:[Extraction]
     
     init() {
-        
+        extractions = []
+        super.init(href: "")
     }
     
-    init?(dictionary:[String:String]?) {
-        guard let dict = dictionary else {
-            return nil
-        }
+    init(collection:[Extraction]) {
+        extractions = collection
+        super.init(href: "")
+    }
+    
+    init?(dictionary:JSONDictionary) {
+        extractions = dictionary.keys.map { (name) -> Extraction in
+            let extractionDict = dictionary[name] as? JSONDictionary ?? [:]
+            return Extraction(name: name, dict: extractionDict)
+        }.filter({ (extraction) -> Bool in
+            return !extraction.value.valueString.isEmpty    // filter empty extractions
+        })
+        super.init(dict: dictionary)
+    }
+    
+}
 
-        for (name, value) in dict {
-            extractions.append(Extraction(name:name, value:value))
-        }
+extension ExtractionCollection:Equatable {
+    
+    static func ==(lhs: ExtractionCollection, rhs: ExtractionCollection) -> Bool {
+        return lhs.extractions == rhs.extractions
     }
     
 }

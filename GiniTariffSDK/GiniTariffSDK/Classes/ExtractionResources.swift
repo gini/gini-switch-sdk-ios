@@ -17,6 +17,7 @@ class ExtractionResources {
     // paths
     let extractionOrderUrlExtension = "extractionOrders"
     let addPageExtension = "pages"  // NOTE: not the complete path - the order id needs to be added before this
+    let extractionsExtension = "extractions"
     
     init() {
         
@@ -68,6 +69,22 @@ class ExtractionResources {
             guard let statusDict = json as? JSONDictionary else { return nil }
             let statusResponse = ExtractionStatusResponse(dict:statusDict)
             return statusResponse
+        })
+    }
+    
+    func extractionsFor(orderUrl:String) -> Resource<ExtractionCollection> {
+        // TODO: Figure out how to return a failing Resource
+        //        guard let fullUrl = URL(string:orderUrl) else {
+        //            // TODO: return error
+        //            assertionFailure("Encountered a malformed url")
+        //        }
+        var fullUrl = URL(string:orderUrl)!
+        fullUrl = fullUrl.appendingPathComponent(extractionsExtension)
+        let authHeaders = Token.bearerAuthHeadersDictWith(token: token)
+        return Resource<ExtractionCollection>(url: fullUrl, headers: authHeaders, method: "GET", body: nil, parseJSON: { (json) in
+            guard let extractionsDict = json as? JSONDictionary else { return nil }
+            let extractionsResponse = ExtractionCollection(dictionary: extractionsDict)
+            return extractionsResponse
         })
     }
     

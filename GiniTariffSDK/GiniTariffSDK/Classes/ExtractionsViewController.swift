@@ -58,7 +58,7 @@ extension ExtractionsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExtractionsTableViewCell", for: indexPath) as! ExtractionsTableViewCell
         let extraction = extractionsCollection?.extractions[indexPath.row]
         cell.nameLabel.text = extraction?.name ?? ""
-        cell.valueTextField.text = extraction?.value ?? ""
+        cell.valueTextField.text = extraction?.valueString ?? ""
         cell.nameLabel.textColor = currentTariffAppearance().extractionTitleTextColor
         cell.valueTextField.textColor = currentTariffAppearance().extractionsTextFieldTextColor
         cell.valueTextField.layer.borderColor = currentTariffAppearance().extractionsTextFieldBorderColor?.cgColor

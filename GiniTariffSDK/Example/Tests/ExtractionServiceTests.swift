@@ -21,11 +21,13 @@ class ExtractionServiceTests: XCTestCase {
     var orderCallBack:ExtractionServiceOrderCallback!
     var pageCallBack:ExtractionServicePageCallback!
     var statusCallback:ExtractionServiceStatusCallback!
+    var extractionsCallback:ExtractionServiceExtractionsCallback!
     
     // callback params
     var returnedError:Error? = nil
     var returnedId:String? = nil
     var returnedStatus:ExtractionStatusResponse? = nil
+    var returnedExtractions:ExtractionCollection? = nil
     
     override func setUp() {
         super.setUp()
@@ -41,6 +43,10 @@ class ExtractionServiceTests: XCTestCase {
         }
         statusCallback = { [weak self](status, error) -> Void in
             self?.returnedStatus = status
+            self?.returnedError = error
+        }
+        extractionsCallback = { [weak self](collection, error) -> Void in
+            self?.returnedExtractions = collection
             self?.returnedError = error
         }
     }
@@ -100,11 +106,18 @@ class ExtractionServiceTests: XCTestCase {
         XCTAssertEqual(stubWebService.resource as! Resource, service.resources.deletePageWith(id: testPageId, orderUrl: testOrderUrl), "ExtractionService should try to delete the picture from the web service")
     }
     
-    func testRetrievingExtractionStatus() {
+    func testRetrievingOrderStatus() {
         injectWebService()
         service.orderUrl = testOrderUrl
-        service.fetchExtractionStatus(completion: statusCallback)
+        service.fetchOrderStatus(completion: statusCallback)
         XCTAssertEqual(stubWebService.resource as! Resource, service.resources.statusFor(orderUrl: testOrderUrl), "ExtractionService should try to retrieve the processing status from the web service")
+    }
+    
+    func testRetrievingExtractions() {
+        injectWebService()
+        service.orderUrl = testOrderUrl
+        service.fetchExtractions(completion: extractionsCallback)
+        XCTAssertEqual(stubWebService.resource as! Resource, service.resources.extractionsFor(orderUrl: testOrderUrl), "ExtractionService should try to retrieve the extractions from the web service")
     }
     
 }

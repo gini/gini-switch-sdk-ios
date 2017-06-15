@@ -53,8 +53,7 @@ class ExtractionsViewControllerTests: XCTestCase {
     }
     
     func testHasRightNumberOfCells() {
-        var collection = ExtractionCollection()
-        collection.extractions = [Extraction(), Extraction(), Extraction(), Extraction()]
+        let collection = ExtractionCollection(collection:[Extraction(), Extraction(), Extraction(), Extraction()])
         extractionsController.extractionsCollection = collection
         XCTAssertEqual(extractionsController.tableView(extractionsController.extractionsTable, numberOfRowsInSection: 0), 4, "Four extractions should show up as four cells in the ExtractionsViewController")
     }

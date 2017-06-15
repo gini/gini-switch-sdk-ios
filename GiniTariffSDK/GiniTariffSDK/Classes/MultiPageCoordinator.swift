@@ -68,10 +68,8 @@ extension MultiPageCoordinator: CameraOptionsViewControllerDelegate {
     
     func cameraControllerIsDone(cameraController:CameraOptionsViewController) {
         let extractionsController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "ExtractionsViewController") as! ExtractionsViewController
-        // TODO: these are hardcoded extractions for test purposes. In the future, they should come from the API
-        let extractions = ["Name": "Holger", "Adresse": "Sonnenstr.", "Ort": "München", "Zählernummer": "439057928376"]
-        let collection = ExtractionCollection(dictionary: extractions)
-        extractionsController.extractionsCollection = collection
+        extractionsController.extractionsCollection = extractionsManager.extractions
+        extractionsManager.pollExtractions()
         delegate?.multiPageCoordinator(self, requestedShowingController: extractionsController, presentationStyle: .navigation)
     }
 }
@@ -81,7 +79,6 @@ extension MultiPageCoordinator: CameraViewControllerDelegate {
     func cameraViewController(controller:CameraViewController, didCaptureImage data:Data) {
         // create a new scan page
         let newPage = ScanPage(imageData: data, id: nil, status: .taken)
-        self.pageCollectionController.pages?.add(element: newPage)
         showReviewScreen(withPage:newPage)
         enableCaptureButton(true)
     }
@@ -132,8 +129,6 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
     }
     
     func reviewController(_ controller:ReviewViewController, didRejectPage page:ScanPage) {
-        pageCollectionController.pages?.remove(page)
-        self.pageCollectionController.pagesCollection?.reloadData()
         self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .modal)
     }
     
