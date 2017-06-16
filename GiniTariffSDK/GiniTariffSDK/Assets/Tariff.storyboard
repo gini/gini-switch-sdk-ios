@@ -95,22 +95,45 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="467"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWE-22-XBD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="467"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Um Dokumente zu fotografieren, erlaube Gini Pay den Zugriff auf die Kamera." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msR-yi-mcd">
+                                        <rect key="frame" x="30" y="213.5" width="316.5" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="msR-yi-mcd" secondAttribute="trailing" constant="20" id="2w7-c9-Lhw"/>
+                                    <constraint firstItem="msR-yi-mcd" firstAttribute="centerY" secondItem="NWE-22-XBD" secondAttribute="centerY" id="600-ps-GE9"/>
+                                    <constraint firstItem="msR-yi-mcd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NWE-22-XBD" secondAttribute="leading" constant="20" id="6RA-Lq-Dob"/>
+                                    <constraint firstItem="msR-yi-mcd" firstAttribute="centerX" secondItem="NWE-22-XBD" secondAttribute="centerX" id="fyk-Aw-4yh"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Eb6-Ws-DUK" secondAttribute="trailing" id="1FY-mS-lQH"/>
                             <constraint firstItem="Eb6-Ws-DUK" firstAttribute="top" secondItem="R7e-uW-Tlw" secondAttribute="top" id="7iY-6J-YAW"/>
                             <constraint firstItem="Eb6-Ws-DUK" firstAttribute="leading" secondItem="R7e-uW-Tlw" secondAttribute="leading" id="9Sf-tE-at5"/>
+                            <constraint firstItem="NWE-22-XBD" firstAttribute="leading" secondItem="R7e-uW-Tlw" secondAttribute="leading" id="E7Y-tF-WrH"/>
+                            <constraint firstItem="NWE-22-XBD" firstAttribute="top" secondItem="Y9O-6Y-UyB" secondAttribute="bottom" id="FhA-Vc-Unw"/>
                             <constraint firstAttribute="bottom" secondItem="Eb6-Ws-DUK" secondAttribute="bottom" id="RjE-kW-c3S"/>
+                            <constraint firstItem="do6-Qk-TRG" firstAttribute="top" secondItem="NWE-22-XBD" secondAttribute="bottom" id="m53-RP-IPI"/>
+                            <constraint firstAttribute="trailing" secondItem="NWE-22-XBD" secondAttribute="trailing" id="u7f-6t-2jj"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cameraPreview" destination="Eb6-Ws-DUK" id="aj0-mT-oiE"/>
+                        <outlet property="unauthorizedView" destination="NWE-22-XBD" id="dVc-Bp-c0b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="puj-PO-WUI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="393" y="166"/>
+            <point key="canvasLocation" x="392.80000000000001" y="165.06746626686657"/>
         </scene>
         <!--Preview View Controller-->
         <scene sceneID="bEl-hr-L0r">

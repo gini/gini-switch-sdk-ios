@@ -10,6 +10,22 @@ import UIKit
 import AVFoundation
 import Photos
 
+enum CameraError: Int, Error {
+    
+    /// Unknown error during camera use.
+    case unknown = 0
+    
+    /// Camera can not be loaded because the user has denied authorization in the past.
+    case notAuthorizedToUseDevice
+    
+    /// No valid input device could be found for capturing.
+    case noInputDevice
+    
+    /// Capturing could not be completed.
+    case captureFailed
+    
+}
+
 internal class Camera {
     
     // Session management
@@ -18,7 +34,7 @@ internal class Camera {
     var stillImageOutput: AVCaptureStillImageOutput?
     fileprivate lazy var sessionQueue:DispatchQueue = DispatchQueue(label: "session queue", attributes: [])
     
-//    fileprivate lazy var motionManager = MotionManager()
+    fileprivate lazy var motionManager = MotionManager()
     
     init() throws {
         try setupSession()
@@ -28,14 +44,14 @@ internal class Camera {
     func start() {
         sessionQueue.async {
             self.session.startRunning()
-            //self.motionManager.startDetection()
+            self.motionManager.startDetection()
         }
     }
     
     func stop() {
         sessionQueue.async {
             self.session.stopRunning()
-            //self.motionManager.stopDetection()
+            self.motionManager.stopDetection()
         }
     }
     
@@ -66,12 +82,11 @@ internal class Camera {
                 return completion(Data())   // TODO return an error
             }
             // Set the orientation accoding to the current orientation of the device
-            // TODO: re-enable orientations
-//            if let orientation = AVCaptureVideoOrientation(self.motionManager.currentOrientation) {
-//                connection.videoOrientation = orientation
-//            } else {
-//                connection.videoOrientation = .portrait
-//            }
+            if let orientation = AVCaptureVideoOrientation(rawValue: self.motionManager.currentOrientation.rawValue) {
+                connection.videoOrientation = orientation
+            } else {
+                connection.videoOrientation = .portrait
+            }
             self.videoDeviceInput?.device.setFlashModeSecurely(.on)
             self.stillImageOutput?.captureStillImageAsynchronously(from: connection) { (imageDataSampleBuffer: CMSampleBuffer?, error: Error?) -> Void in
                 guard error == nil else { return completion(Data()) }  // TODO return an error
@@ -102,8 +117,7 @@ internal class Camera {
         })
     }
     
-    // MARK: Private methods
-    fileprivate func setupSession() throws {
+    func setupSession() throws {
         // Setup is not performed asynchronously because of KVOs
         func deviceWithMediaType(_ mediaType: String, preferringPosition position: AVCaptureDevicePosition) -> AVCaptureDevice? {
             let devices = AVCaptureDevice.devices(withMediaType: mediaType).filter { ($0 as? AVCaptureDevice)?.position == position }
@@ -116,11 +130,11 @@ internal class Camera {
             self.videoDeviceInput = try AVCaptureDeviceInput(device: videoDevice)
         } catch let error as NSError {
             print("Could not create video device input \(error)")
-//            if error.code == AVError.Code.applicationIsNotAuthorizedToUseDevice.rawValue {
-//                throw CameraError.notAuthorizedToUseDevice
-//            } else {
-//                throw CameraError.unknown
-//            }
+            if error.code == AVError.Code.applicationIsNotAuthorizedToUseDevice.rawValue {
+                throw CameraError.notAuthorizedToUseDevice
+            } else {
+                throw CameraError.unknown
+            }
         }
         
         self.session.beginConfiguration()
