@@ -61,6 +61,7 @@
 		23A533EF1EEAC72A00EB2229 /* ExtractionStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533EE1EEAC72A00EB2229 /* ExtractionStatusResponse.swift */; };
 		23A533F51EEED06800EB2229 /* ExtractionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533F41EEED06800EB2229 /* ExtractionsManager.swift */; };
 		23A533F71EF289CA00EB2229 /* ExtractionValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533F61EF289CA00EB2229 /* ExtractionValue.swift */; };
+		23A533FB1EF3D1D100EB2229 /* PollScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A533FA1EF3D1D100EB2229 /* PollScheduler.swift */; };
 		23EB01801EC06602000AB2D9 /* TariffSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB017F1EC06602000AB2D9 /* TariffSdk.swift */; };
 		23EB01841EC070D1000AB2D9 /* TariffUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */; };
 		2F485B69F51E4F723A38410F31F08550 /* FBSnapshotTestController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1374B79237CAC07693E99442FBED1F15 /* FBSnapshotTestController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -157,6 +158,7 @@
 		23A533EE1EEAC72A00EB2229 /* ExtractionStatusResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtractionStatusResponse.swift; path = Classes/ExtractionStatusResponse.swift; sourceTree = "<group>"; };
 		23A533F41EEED06800EB2229 /* ExtractionsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtractionsManager.swift; path = Classes/ExtractionsManager.swift; sourceTree = "<group>"; };
 		23A533F61EF289CA00EB2229 /* ExtractionValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtractionValue.swift; path = Classes/ExtractionValue.swift; sourceTree = "<group>"; };
+		23A533FA1EF3D1D100EB2229 /* PollScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PollScheduler.swift; path = Classes/PollScheduler.swift; sourceTree = "<group>"; };
 		23EB017F1EC06602000AB2D9 /* TariffSdk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffSdk.swift; path = Classes/TariffSdk.swift; sourceTree = "<group>"; };
 		23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffUserInterface.swift; path = Classes/TariffUserInterface.swift; sourceTree = "<group>"; };
 		2EECE81A9AEC1ED1057A9C3C88DBCEBE /* UIApplication+StrictKeyWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+StrictKeyWindow.m"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.m"; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				23A533D21EE945B000EB2229 /* ExtractionResources.swift */,
 				23A533D91EE9A38D00EB2229 /* ExtractionService.swift */,
 				23A533F41EEED06800EB2229 /* ExtractionsManager.swift */,
+				23A533FA1EF3D1D100EB2229 /* PollScheduler.swift */,
 			);
 			name = Extractions;
 			sourceTree = "<group>";
@@ -765,6 +768,7 @@
 				23A533DA1EE9A38D00EB2229 /* ExtractionService.swift in Sources */,
 				2399D88E1ED334480006D523 /* Extraction.swift in Sources */,
 				2310270C1EC4748300920F40 /* CameraOptionsViewController.swift in Sources */,
+				23A533FB1EF3D1D100EB2229 /* PollScheduler.swift in Sources */,
 				231026ED1EC0BA6300920F40 /* TariffOnboarding.swift in Sources */,
 				2399D8981ED43F790006D523 /* PresentationStyle.swift in Sources */,
 				23A533DC1EEA918900EB2229 /* BaseApiResponse.swift in Sources */,

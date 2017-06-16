@@ -29,6 +29,10 @@ class ExtractionsManager {
     var authenticator:Authenticator? = nil
     var uploadService:ExtractionService? = nil
     
+    // polling
+    var statusScheduler:PollScheduler? = nil
+    var extractionsScheduler:PollScheduler? = nil
+    
     var delegate:ExtractionsManagerDelegate? = nil
     
     // if the create extraction order call comes before the client is authenticated
@@ -46,6 +50,10 @@ class ExtractionsManager {
     
     init() {
         importCredentials()
+    }
+    
+    deinit {
+        stopPolling()
     }
     
     func authenticate() {
@@ -81,7 +89,8 @@ class ExtractionsManager {
         uploadService = ExtractionService(token: token)
         uploadService?.createOrder(completion: { [weak self](orderUrl, error) in
             // TODO: check error
-            if error == nil {
+            if error == nil && orderUrl != nil {
+                self?.startPolling()
                 self?.startQueuedUploads()
             }
         })
@@ -206,6 +215,30 @@ class ExtractionsManager {
         queuedPages().forEach { (page) in
             add(page: page)
         }
+    }
+    
+    fileprivate func startPolling() {
+        statusScheduler = PollScheduler(condition: { [weak self]() -> Bool in
+            return (self?.hasActiveSession == true)
+        }) { [weak self]() in
+            self?.pollStatus()
+        }
+        statusScheduler?.start()
+        extractionsScheduler = PollScheduler(condition: { [weak self]() -> Bool in
+            // only poll if there's an order and at least one uploaded page
+            let uploadedPages = self?.scannedPages.pages.filter {$0.status == .uploaded || $0.status == .analysed}
+            return (self?.hasActiveSession == true) && (uploadedPages?.isEmpty == false)
+        }, action: { [weak self]() in
+            self?.pollExtractions()
+        })
+        extractionsScheduler?.start()
+    }
+    
+    fileprivate func stopPolling() {
+        statusScheduler?.stop()
+        extractionsScheduler?.stop()
+        statusScheduler = nil
+        extractionsScheduler = nil
     }
     
     fileprivate func queuedPages() -> [ScanPage] {
