@@ -18,7 +18,9 @@ class ExtractionsTableViewCellTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        extractionCell = initializeCellFromStoryboard(extractionCollection: ExtractionCollection(dictionary:[testField:testValue]))
+        let extraction = Extraction(name: testField, value: testValue as AnyObject)
+        let collection = ExtractionCollection(collection: [extraction])
+        extractionCell = initializeCellFromStoryboard(extractionCollection: collection)
     }
     
     func testHasNameLabel() {

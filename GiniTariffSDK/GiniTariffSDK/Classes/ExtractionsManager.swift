@@ -12,6 +12,7 @@ protocol ExtractionsManagerDelegate {
     
     func extractionsManager(_ manager:ExtractionsManager, didEncounterError error:Error)
     func extractionsManager(_ manager:ExtractionsManager, didChangePageCollection collection:PageCollection)
+    func extractionsManager(_ manager:ExtractionsManager, didChangeExtractions extractions:ExtractionCollection)
     func extractionsManagerDidAuthenticate(_ manager:ExtractionsManager)
     func extractionsManagerDidCreateOrder(_ manager:ExtractionsManager)
     
@@ -24,6 +25,7 @@ class ExtractionsManager {
     var clientDomain:String = ""
 
     var scannedPages = PageCollection()
+    var extractions = ExtractionCollection()
     var authenticator:Authenticator? = nil
     var uploadService:ExtractionService? = nil
     
@@ -136,12 +138,27 @@ class ExtractionsManager {
             // TODO: queue the request
             return
         }
-        uploadService?.fetchExtractionStatus(completion: { (status, error) in
+        uploadService?.fetchOrderStatus(completion: { (status, error) in
             if let _ = error {
                 
             }
             else if let newStatus = status {
                 parseStatus(newStatus)
+            }
+        })
+    }
+    
+    func pollExtractions() {
+        guard hasActiveSession else {
+            // TODO: queue the request
+            return
+        }
+        uploadService?.fetchExtractions(completion: { [weak self](collection, error) in
+            if let _ = error {
+                
+            }
+            else if let newExtractions = collection {
+                self?.parseExtractions(newExtractions)
             }
         })
     }
@@ -169,8 +186,20 @@ class ExtractionsManager {
         }
     }
     
+    fileprivate func parseExtractions(_ collection:ExtractionCollection) {
+        // see if there's something new and notify if so
+        if extractions != collection {
+            extractions = collection
+            notifyExtractionsChanged()
+        }
+    }
+    
     fileprivate func notifyCollectionChanged() {
         self.delegate?.extractionsManager(self, didChangePageCollection: scannedPages)
+    }
+    
+    fileprivate func notifyExtractionsChanged() {
+        self.delegate?.extractionsManager(self, didChangeExtractions: extractions)
     }
     
     fileprivate func startQueuedUploads() {

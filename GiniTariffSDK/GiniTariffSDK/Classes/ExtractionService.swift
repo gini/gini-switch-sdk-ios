@@ -13,6 +13,7 @@ import UIKit
 typealias ExtractionServiceOrderCallback = (_ url:String?, _ error:Error?) -> Void
 typealias ExtractionServicePageCallback = (_ id:String?, _ error:Error?) -> Void
 typealias ExtractionServiceStatusCallback = (_ status:ExtractionStatusResponse?, _ error:Error?) -> Void    // TODO: should ExtractionStatusResponse be exposed?
+typealias ExtractionServiceExtractionsCallback = (_ collection:ExtractionCollection?, _ error:Error?) -> Void
 
 class ExtractionService {
     
@@ -66,7 +67,7 @@ class ExtractionService {
         }
     }
     
-    func fetchExtractionStatus(completion:ExtractionServiceStatusCallback) {
+    func fetchOrderStatus(completion:ExtractionServiceStatusCallback) {
         guard let order = orderUrl else {
             // no extraction order yet
             // TODO: maybe return an error
@@ -74,6 +75,17 @@ class ExtractionService {
         }
         resourceLoader.load(resource: resources.statusFor(orderUrl: order)) { (status) in
             // TODO: check for errors
+        }
+    }
+    
+    func fetchExtractions(completion:@escaping ExtractionServiceExtractionsCallback) {
+        guard let order = orderUrl else {
+            // no extraction order yet
+            // TODO: maybe return an error
+            return
+        }
+        resourceLoader.load(resource: resources.extractionsFor(orderUrl: order)) { (collection) in
+            completion(collection, nil)
         }
     }
 

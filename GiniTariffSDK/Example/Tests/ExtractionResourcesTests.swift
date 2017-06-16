@@ -56,7 +56,7 @@ class ExtractionResourcesTests: XCTestCase {
         XCTAssertEqual(pageResource.headers["Content-Type"], "image/jpeg", "The add page request should have a content type header")
     }
     
-    func testExtractionsStatus() {
+    func testOrderStatus() {
         service.token = token
         let testOrderId = "testId"
         let testOrder = "https://switch.gini.net/extractionOrders/\(testOrderId)/pages"
@@ -75,6 +75,17 @@ class ExtractionResourcesTests: XCTestCase {
         let deleteResource = service.deletePageWith(id: testPage, orderUrl:testOrder)
         XCTAssertEqual(deleteResource.url, URL(string: "\(testOrder)/\(testPage)"), "The delete page request URL doesn't match")
         XCTAssertEqual(deleteResource.method, "DELETE", "The delete page request method doesn't match")
+        XCTAssertNil(deleteResource.body, "The delete page request shouldn't have a body")
+        XCTAssertEqual(deleteResource.headers["Authorization"], "Bearer \(token)", "The delete page request should have a bearer authentication header")
+    }
+    
+    func testExtractionsStatus() {
+        service.token = token
+        let testOrderId = "testId"
+        let testOrder = "https://switch.gini.net/extractionOrders/\(testOrderId)"
+        let deleteResource = service.extractionsFor(orderUrl: testOrder)
+        XCTAssertEqual(deleteResource.url, URL(string: "\(testOrder)/extractions"), "The delete page request URL doesn't match")
+        XCTAssertEqual(deleteResource.method, "GET", "The delete page request method doesn't match")
         XCTAssertNil(deleteResource.body, "The delete page request shouldn't have a body")
         XCTAssertEqual(deleteResource.headers["Authorization"], "Bearer \(token)", "The delete page request should have a bearer authentication header")
     }

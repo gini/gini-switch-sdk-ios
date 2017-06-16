@@ -58,33 +58,15 @@ class MultiPageCoordinatorTests: XCTestCase {
         XCTAssertTrue(fakeCamera.hasCaptured, "If the capture button on the camera options controller is tapped, MultiPageCoordinator should route that to the camera object")
     }
     
-    func testAddingPageAfterCapture() {
-        coordinator.cameraController.takePicture()
-        XCTAssertEqual(coordinator.pageCollectionController.pages?.count, 1, "After taking the picture, the pages collection controller should have one page")
-    }
-    
     func testGoingToReviewAfterCapture() {
         coordinator.cameraController.takePicture()
         XCTAssertTrue(didRequestReviewScreen, "The multiPageCoordinator:requestedShowingController should be invoked in order for the review screen to be presented")
-    }
-    
-    func testReviewScreenPage() {
-        coordinator.cameraController.takePicture()
-        XCTAssertEqual(coordinator.pageCollectionController.pages?.last, requestedReviewScreen?.page, "The page under review, should be the last one in the collection")
     }
     
     func testReviewControllerDismiss() {
         coordinator.cameraController.takePicture()
         requestedReviewScreen?.rejectButtonTapped()
         XCTAssertTrue(didRequestReviewDismiss, "After the image is rejected, the review screen should be dismissed")
-    }
-    
-    func testRejectingPicture() {
-        coordinator.cameraController.takePicture()
-        let pagesNum = coordinator.pageCollectionController.pages?.count
-        requestedReviewScreen?.rejectButtonTapped()
-        let pagesNumAfterReject = coordinator.pageCollectionController.pages?.count
-        XCTAssertEqual(pagesNum! - 1, pagesNumAfterReject, "If an image is rejected, it has to be removed from the list")
     }
     
     func testGoingToExtractions() {
