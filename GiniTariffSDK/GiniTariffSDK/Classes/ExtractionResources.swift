@@ -16,7 +16,7 @@ class ExtractionResources {
     
     // paths
     let extractionOrderUrlExtension = "extractionOrders"
-    let addPageExtension = "pages"  // NOTE: not the complete path - the order id needs to be added before this
+    let addPageExtension = "pages"
     let extractionsExtension = "extractions"
     
     init() {

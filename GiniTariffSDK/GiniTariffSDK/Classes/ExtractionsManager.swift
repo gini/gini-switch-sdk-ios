@@ -147,12 +147,12 @@ class ExtractionsManager {
             // TODO: queue the request
             return
         }
-        uploadService?.fetchOrderStatus(completion: { (status, error) in
+        uploadService?.fetchOrderStatus(completion: { [weak self](status, error) in
             if let _ = error {
                 
             }
             else if let newStatus = status {
-                parseStatus(newStatus)
+                self?.parseStatus(newStatus)
             }
         })
     }
