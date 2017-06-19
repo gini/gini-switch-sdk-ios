@@ -58,7 +58,9 @@ class PageCollectionViewCell: UICollectionViewCell {
                 uploadingIndicator.isHidden = false
                 uploadingIndicator.startAnimating()
             default:
-                pageStatusUnderlineView.backgroundColor = UIColor.clear
+                pageStatusUnderlineView.isHidden = true
+                pageStatusView.isHidden = true
+                uploadingIndicator.isHidden = true
             }
         }
     }
