@@ -39,6 +39,14 @@ class PageCollectionViewCellTests: XCTestCase {
         XCTAssertNotNil(pageCell.addPageLabel, "PageCollectionViewCell should have an add page label")
     }
     
+    func testHasActivityIndicator() {
+        XCTAssertNotNil(pageCell.uploadingIndicator, "PageCollectionViewCell should have an activity indicator")
+    }
+    
+    func testActivityIndicatorHiddenByDefault() {
+        XCTAssertTrue(pageCell.uploadingIndicator.isHidden, "The activity indocator should be hidden unless specified otherwise")
+    }
+    
     func testAddLabelHiddenByDefault() {
         XCTAssertTrue(pageCell.addPageLabel.isHidden, "The Add page label should be hidden normally")
     }
@@ -80,7 +88,21 @@ class PageCollectionViewCellTests: XCTestCase {
         let page = ScanPage(imageData: testImageData(), id: "test", status: .analysed)
         pageCell = initializeCellFromStoryboard(pageCollection:PageCollection(pages:[page]))
         let positiveColor = UIColor(colorLiteralRed: 32.0 / 255.0, green: 186.0 / 255.0, blue: 167.0 / 255.0, alpha: 1.0)       // TODO: get dynamically
-        XCTAssertEqual(pageCell.pageStatusUnderlineView.backgroundColor, positiveColor, "Successfully analysed images should have an underline having the positive color for the app ")
+        XCTAssertEqual(pageCell.pageStatusUnderlineView.backgroundColor, positiveColor, "Successfully analysed images should have an underline having the positive color for the app")
+    }
+    
+    func testPageStatusUploading() {
+        TariffSdkStorage.activeTariffSdk = TariffSdk()
+        let page = ScanPage(imageData: testImageData(), id: "test", status: .uploading)
+        pageCell = initializeCellFromStoryboard(pageCollection:PageCollection(pages:[page]))
+        XCTAssertFalse(pageCell.uploadingIndicator.isHidden, "Uploading images should show an activity indicator")
+    }
+    
+    func testPageStatusUploaded() {
+        TariffSdkStorage.activeTariffSdk = TariffSdk()
+        let page = ScanPage(imageData: testImageData(), id: "test", status: .uploaded)
+        pageCell = initializeCellFromStoryboard(pageCollection:PageCollection(pages:[page]))
+        XCTAssertFalse(pageCell.uploadingIndicator.isHidden, "Uploaded images should still show an activity indicator. The image still needs to be analysed")
     }
     
     func testAddPhotoCell() {

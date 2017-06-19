@@ -67,7 +67,7 @@ class ExtractionService {
         }
     }
     
-    func fetchOrderStatus(completion:ExtractionServiceStatusCallback) {
+    func fetchOrderStatus(completion:@escaping ExtractionServiceStatusCallback) {
         guard let order = orderUrl else {
             // no extraction order yet
             // TODO: maybe return an error
@@ -75,6 +75,7 @@ class ExtractionService {
         }
         resourceLoader.load(resource: resources.statusFor(orderUrl: order)) { (status) in
             // TODO: check for errors
+            completion(status, nil)
         }
     }
     

@@ -554,17 +554,22 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="e4J-yy-fFN">
+                                                    <rect key="frame" x="20" y="30" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="nL6-sm-15E" secondAttribute="bottom" constant="4" id="0mL-zF-WYL"/>
                                             <constraint firstItem="nL6-sm-15E" firstAttribute="leading" secondItem="Yfb-Z8-Lu1" secondAttribute="leading" id="7Y3-Uh-cBV"/>
+                                            <constraint firstItem="e4J-yy-fFN" firstAttribute="centerY" secondItem="Yfb-Z8-Lu1" secondAttribute="centerY" id="BVz-d1-BTn"/>
                                             <constraint firstAttribute="bottom" secondItem="Cgr-eW-O38" secondAttribute="bottom" constant="4" id="GFS-Cq-Gk2"/>
                                             <constraint firstItem="IyW-JP-acX" firstAttribute="centerY" secondItem="Yfb-Z8-Lu1" secondAttribute="centerY" id="U7c-Wa-mFe"/>
                                             <constraint firstItem="IyW-JP-acX" firstAttribute="centerX" secondItem="Yfb-Z8-Lu1" secondAttribute="centerX" id="f2q-3H-HNO"/>
                                             <constraint firstItem="Cgr-eW-O38" firstAttribute="top" secondItem="Yfb-Z8-Lu1" secondAttribute="top" constant="4" id="h2s-Tk-c7G"/>
                                             <constraint firstItem="Cgr-eW-O38" firstAttribute="leading" secondItem="Yfb-Z8-Lu1" secondAttribute="leading" constant="4" id="j1U-w5-7yw"/>
+                                            <constraint firstItem="e4J-yy-fFN" firstAttribute="centerX" secondItem="Yfb-Z8-Lu1" secondAttribute="centerX" id="oFn-12-gJY"/>
                                             <constraint firstAttribute="trailing" secondItem="Cgr-eW-O38" secondAttribute="trailing" constant="4" id="t4w-hr-nLo"/>
                                             <constraint firstItem="bjv-w2-wAS" firstAttribute="centerY" secondItem="Yfb-Z8-Lu1" secondAttribute="centerY" id="tdA-Lt-764"/>
                                             <constraint firstAttribute="trailing" secondItem="nL6-sm-15E" secondAttribute="trailing" id="u4E-2p-kGy"/>
@@ -575,6 +580,7 @@
                                             <outlet property="pagePreview" destination="Cgr-eW-O38" id="VSv-uf-xXy"/>
                                             <outlet property="pageStatusUnderlineView" destination="nL6-sm-15E" id="EnJ-Xe-xrz"/>
                                             <outlet property="pageStatusView" destination="IyW-JP-acX" id="2vX-0O-enk"/>
+                                            <outlet property="uploadingIndicator" destination="e4J-yy-fFN" id="CEf-Z7-Vf7"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

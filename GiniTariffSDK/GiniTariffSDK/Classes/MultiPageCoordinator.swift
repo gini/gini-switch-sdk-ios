@@ -35,6 +35,7 @@ class MultiPageCoordinator {
         pagesCollection.delegate = self
         
         // TODO: remove this 5 sec waiting once queueing is done 
+        extractionsManager.delegate = self
         extractionsManager.authenticate()
         self.extractionsManager.createExtractionOrder()
     }
@@ -54,8 +55,10 @@ class MultiPageCoordinator {
     }
     
     func refreshPagesCollectionView() {
-        pageCollectionController.pages = extractionsManager.scannedPages
-        pageCollectionController.pagesCollection?.reloadData()
+        DispatchQueue.main.async { [weak self] () in
+            self?.pageCollectionController.pages = self?.extractionsManager.scannedPages
+            self?.pageCollectionController.pagesCollection?.reloadData()
+        }
     }
 }
 
@@ -148,4 +151,28 @@ extension MultiPageCoordinator: PreviewViewControllerDelegate {
         refreshPagesCollectionView()
         self.delegate?.multiPageCoordinator(self, requestedDismissingController: previewController, presentationStyle: .embed)
     }
+}
+
+extension MultiPageCoordinator: ExtractionsManagerDelegate {
+    
+    func extractionsManager(_ manager:ExtractionsManager, didEncounterError error:Error) {
+        
+    }
+    
+    func extractionsManager(_ manager:ExtractionsManager, didChangePageCollection collection:PageCollection) {
+        refreshPagesCollectionView()
+    }
+    
+    func extractionsManager(_ manager:ExtractionsManager, didChangeExtractions extractions:ExtractionCollection) {
+        
+    }
+    
+    func extractionsManagerDidAuthenticate(_ manager:ExtractionsManager) {
+        
+    }
+    
+    func extractionsManagerDidCreateOrder(_ manager:ExtractionsManager) {
+        
+    }
+    
 }
