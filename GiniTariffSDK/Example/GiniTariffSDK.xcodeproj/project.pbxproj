@@ -153,6 +153,7 @@
 		5F56B1F6BDA64C23D7FC5F1E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				8641D7D15DC10B07250D5706 /* Frameworks */,
 				B7315DA6E9491540C8EA66C1 /* Pods-GiniTariffSDK_Example.debug.xcconfig */,
 				DBBE0DF57DCF411A5837179B /* Pods-GiniTariffSDK_Example.release.xcconfig */,
 				36E73D8BC7FE58332DC0B4DC /* Pods-GiniTariffSDK_Tests.debug.xcconfig */,
@@ -169,7 +170,6 @@
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				5F56B1F6BDA64C23D7FC5F1E /* Pods */,
-				8641D7D15DC10B07250D5706 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

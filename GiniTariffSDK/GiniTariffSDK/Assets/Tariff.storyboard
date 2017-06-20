@@ -252,9 +252,20 @@
                                     <action selector="rejectButtonTapped" destination="CtN-U7-Tym" eventType="touchUpInside" id="Qdq-Qf-tae"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LxA-dd-mkA">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beR-sF-2bk">
                                 <rect key="frame" x="0.0" y="100" width="375" height="495"/>
-                            </imageView>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testDocument" translatesAutoresizingMaskIntoConstraints="NO" id="LxA-dd-mkA">
+                                        <rect key="frame" x="0.0" y="0.0" width="888" height="618"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="LxA-dd-mkA" firstAttribute="leading" secondItem="beR-sF-2bk" secondAttribute="leading" id="Dbd-aL-cRd"/>
+                                    <constraint firstAttribute="bottom" secondItem="LxA-dd-mkA" secondAttribute="bottom" id="PRj-8x-YLu"/>
+                                    <constraint firstAttribute="trailing" secondItem="LxA-dd-mkA" secondAttribute="trailing" id="mI4-XW-8WA"/>
+                                    <constraint firstItem="LxA-dd-mkA" firstAttribute="top" secondItem="beR-sF-2bk" secondAttribute="top" id="xq6-dV-2hr"/>
+                                </constraints>
+                            </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vHu-9x-IEq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                 <subviews>
@@ -285,7 +296,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1IE-zQ-TSB">
-                                <rect key="frame" x="162" y="537" width="50" height="50"/>
+                                <rect key="frame" x="162" y="535" width="50" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="T7S-FM-tN7"/>
@@ -301,25 +312,30 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pgY-vc-JHF" firstAttribute="width" secondItem="wVs-E1-4Ny" secondAttribute="width" multiplier="3:1" id="1Zm-BC-zoY"/>
+                            <constraint firstItem="beR-sF-2bk" firstAttribute="leading" secondItem="M9p-eo-5ii" secondAttribute="leading" id="352-N2-3mP"/>
                             <constraint firstItem="vHu-9x-IEq" firstAttribute="top" secondItem="M9p-eo-5ii" secondAttribute="top" id="4uw-K2-BY4"/>
-                            <constraint firstAttribute="trailing" secondItem="LxA-dd-mkA" secondAttribute="trailing" id="5nP-if-ytj"/>
-                            <constraint firstItem="LxA-dd-mkA" firstAttribute="leading" secondItem="M9p-eo-5ii" secondAttribute="leading" id="B8Y-p2-gKQ"/>
+                            <constraint firstAttribute="trailing" secondItem="beR-sF-2bk" secondAttribute="trailing" id="ABK-Yf-5Hq"/>
                             <constraint firstItem="vHu-9x-IEq" firstAttribute="leading" secondItem="M9p-eo-5ii" secondAttribute="leading" id="LXd-tu-uZF"/>
                             <constraint firstItem="wVs-E1-4Ny" firstAttribute="leading" secondItem="M9p-eo-5ii" secondAttribute="leadingMargin" id="S4p-mW-ejK"/>
                             <constraint firstItem="uG4-Nv-2ZO" firstAttribute="top" secondItem="wVs-E1-4Ny" secondAttribute="bottom" constant="20" id="TeF-Au-ZJd"/>
-                            <constraint firstItem="1IE-zQ-TSB" firstAttribute="bottom" secondItem="LxA-dd-mkA" secondAttribute="bottom" constant="-8" id="Tsp-qY-0xT"/>
                             <constraint firstAttribute="trailing" secondItem="vHu-9x-IEq" secondAttribute="trailing" id="c1E-d2-Whj"/>
-                            <constraint firstItem="1IE-zQ-TSB" firstAttribute="centerX" secondItem="LxA-dd-mkA" secondAttribute="centerX" id="fLE-vu-Rny"/>
+                            <constraint firstItem="wVs-E1-4Ny" firstAttribute="top" secondItem="beR-sF-2bk" secondAttribute="bottom" constant="8" id="fQS-56-Y8j"/>
+                            <constraint firstItem="1IE-zQ-TSB" firstAttribute="centerX" secondItem="beR-sF-2bk" secondAttribute="centerX" id="fqK-5v-eaJ"/>
                             <constraint firstItem="pgY-vc-JHF" firstAttribute="height" secondItem="wVs-E1-4Ny" secondAttribute="height" id="fyW-vA-DKc"/>
                             <constraint firstItem="pgY-vc-JHF" firstAttribute="leading" secondItem="wVs-E1-4Ny" secondAttribute="trailing" constant="10" id="iG8-Yj-a5w"/>
-                            <constraint firstItem="LxA-dd-mkA" firstAttribute="top" secondItem="vHu-9x-IEq" secondAttribute="bottom" id="uaY-Cy-OMm"/>
-                            <constraint firstItem="wVs-E1-4Ny" firstAttribute="top" secondItem="LxA-dd-mkA" secondAttribute="bottom" constant="8" id="yac-6C-oD5"/>
+                            <constraint firstItem="1IE-zQ-TSB" firstAttribute="bottom" secondItem="beR-sF-2bk" secondAttribute="bottom" constant="-10" id="lqK-CL-AC8"/>
+                            <constraint firstItem="beR-sF-2bk" firstAttribute="top" secondItem="vHu-9x-IEq" secondAttribute="bottom" id="uM3-KR-X2Y"/>
                             <constraint firstItem="uG4-Nv-2ZO" firstAttribute="top" secondItem="pgY-vc-JHF" secondAttribute="bottom" constant="20" id="yrE-4K-5tX"/>
                             <constraint firstItem="pgY-vc-JHF" firstAttribute="trailing" secondItem="M9p-eo-5ii" secondAttribute="trailingMargin" id="zfs-gq-1oG"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="hintLabel" destination="4en-Sd-IAS" id="uvh-JJ-rs1"/>
+                        <outlet property="imageContainerScrollView" destination="beR-sF-2bk" id="amB-L3-R17"/>
+                        <outlet property="imageViewBottomConstraint" destination="PRj-8x-YLu" id="mJC-Il-AsO"/>
+                        <outlet property="imageViewLeftConstraint" destination="Dbd-aL-cRd" id="n65-hS-0fk"/>
+                        <outlet property="imageViewRightConstraint" destination="mI4-XW-8WA" id="JJ5-bE-WCI"/>
+                        <outlet property="imageViewTopConstraint" destination="xq6-dV-2hr" id="DzF-Xy-yfl"/>
                         <outlet property="moreButton" destination="uD9-DF-Tcd" id="gEs-u2-5FY"/>
                         <outlet property="previewImageView" destination="LxA-dd-mkA" id="8Kx-Bc-wPc"/>
                         <outlet property="retakeButton" destination="wVs-E1-4Ny" id="EsZ-HL-jbA"/>
@@ -329,7 +345,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sel-3V-d1q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2113" y="140"/>
+            <point key="canvasLocation" x="2112.8000000000002" y="139.880059970015"/>
         </scene>
         <!--Extractions View Controller-->
         <scene sceneID="hsB-Zx-Q2Y">
@@ -649,5 +665,6 @@
         <image name="overflowButton" width="4" height="15"/>
         <image name="pageUploadSuccessCheckmark" width="32" height="26"/>
         <image name="rotateImage" width="32" height="32"/>
+        <image name="testDocument" width="888" height="618"/>
     </resources>
 </document>
