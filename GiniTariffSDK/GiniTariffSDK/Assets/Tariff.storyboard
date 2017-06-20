@@ -252,7 +252,7 @@
                                     <action selector="rejectButtonTapped" destination="CtN-U7-Tym" eventType="touchUpInside" id="Qdq-Qf-tae"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LxA-dd-mkA">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LxA-dd-mkA">
                                 <rect key="frame" x="0.0" y="100" width="375" height="495"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vHu-9x-IEq">
@@ -293,6 +293,9 @@
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="8" minY="7" maxX="8" maxY="9"/>
                                 <state key="normal" image="rotateImage"/>
+                                <connections>
+                                    <action selector="rotateTapped" destination="CtN-U7-Tym" eventType="touchUpInside" id="Z27-Hn-706"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

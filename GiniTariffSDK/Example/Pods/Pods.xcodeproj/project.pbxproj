@@ -31,6 +31,7 @@
 		231027021EC21E2400920F40 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231027011EC21E2400920F40 /* CameraViewController.swift */; };
 		2310270C1EC4748300920F40 /* CameraOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310270B1EC4748300920F40 /* CameraOptionsViewController.swift */; };
 		231027101EC4B63600920F40 /* PagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310270F1EC4B63600920F40 /* PagesCollectionViewController.swift */; };
+		23128CF91EF976B6004F2A62 /* ImageMetaInformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23128CF71EF9707F004F2A62 /* ImageMetaInformationManager.swift */; };
 		232CFB781EC4CDFE009D464A /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232CFB761EC4CD4A009D464A /* PageCollectionViewCell.swift */; };
 		232CFB7D1EC9D204009D464A /* ScanPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232CFB7C1EC9D204009D464A /* ScanPage.swift */; };
 		233B51A81ECA01F000C018B8 /* PageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B51A71ECA01F000C018B8 /* PageCollection.swift */; };
@@ -128,6 +129,7 @@
 		231027011EC21E2400920F40 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = Classes/CameraViewController.swift; sourceTree = "<group>"; };
 		2310270B1EC4748300920F40 /* CameraOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraOptionsViewController.swift; path = Classes/CameraOptionsViewController.swift; sourceTree = "<group>"; };
 		2310270F1EC4B63600920F40 /* PagesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PagesCollectionViewController.swift; path = Classes/PagesCollectionViewController.swift; sourceTree = "<group>"; };
+		23128CF71EF9707F004F2A62 /* ImageMetaInformationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageMetaInformationManager.swift; path = Classes/ImageMetaInformationManager.swift; sourceTree = "<group>"; };
 		232CFB761EC4CD4A009D464A /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageCollectionViewCell.swift; path = Classes/PageCollectionViewCell.swift; sourceTree = "<group>"; };
 		232CFB7C1EC9D204009D464A /* ScanPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanPage.swift; path = Classes/ScanPage.swift; sourceTree = "<group>"; };
 		233B51A71ECA01F000C018B8 /* PageCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageCollection.swift; path = Classes/PageCollection.swift; sourceTree = "<group>"; };
@@ -482,6 +484,7 @@
 				23EB01831EC070D1000AB2D9 /* TariffUserInterface.swift */,
 				231026F21EC1EB3A00920F40 /* Tariff.storyboard */,
 				2399D8971ED43F790006D523 /* PresentationStyle.swift */,
+				23128CF71EF9707F004F2A62 /* ImageMetaInformationManager.swift */,
 				230B0A2B1ED4914800892467 /* TariffSdkStorage.swift */,
 			);
 			path = GiniTariffSDK;
@@ -795,6 +798,7 @@
 				231026EF1EC0BAC700920F40 /* TariffAnalytics.swift in Sources */,
 				230B0A301ED59BC900892467 /* PreviewViewController.swift in Sources */,
 				231027001EC21D1500920F40 /* CameraPreviewView.swift in Sources */,
+				23128CF91EF976B6004F2A62 /* ImageMetaInformationManager.swift in Sources */,
 				23A533741ED83B9E00EB2229 /* TariffBackgroundView.swift in Sources */,
 				231027021EC21E2400920F40 /* CameraViewController.swift in Sources */,
 				2399D8961ED3411D0006D523 /* ExtractionsTableViewCell.swift in Sources */,

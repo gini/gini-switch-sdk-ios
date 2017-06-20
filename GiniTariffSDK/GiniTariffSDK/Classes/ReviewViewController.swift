@@ -24,9 +24,14 @@ class ReviewViewController: UIViewController {
     @IBOutlet var moreButton:UIButton! = nil
     @IBOutlet var previewImageView:UIImageView! = nil
     
+    fileprivate var metaInformationManager: ImageMetaInformationManager? = nil
+    
     var page:ScanPage? = nil {
         didSet {
             populateWith(page:page)
+            if let data = page?.imageData {
+                metaInformationManager = ImageMetaInformationManager(imageData:data)
+            }
         }
     }
 
@@ -39,6 +44,10 @@ class ReviewViewController: UIViewController {
     
     @IBAction func rejectButtonTapped() {
         delegate?.reviewController(self, didRejectPage: page!)
+    }
+    
+    @IBAction func rotateTapped() {
+        rotate()
     }
     
     override func viewDidLoad() {
@@ -61,5 +70,39 @@ class ReviewViewController: UIViewController {
 
     private func makeRotateButtonRound() {
         rotateButton.layer.cornerRadius = rotateButton.frame.size.width / 2.0
+    }
+}
+
+// Rotation
+extension ReviewViewController {
+    
+    fileprivate func rotate() {
+        guard let rotatedImage = rotateImage(previewImageView.image) else { return }
+        previewImageView.image = rotatedImage
+        guard let metaInformationManager = metaInformationManager else { return }
+        metaInformationManager.rotate(degrees: 90, imageOrientation: rotatedImage.imageOrientation)
+        guard let data = metaInformationManager.imageData() else { return }
+        page?.imageData = data
+    }
+    
+    fileprivate func rotateImage(_ image: UIImage?) -> UIImage? {
+        guard let cgImage = image?.cgImage else { return nil }
+        let rotatedOrientation = nextImageOrientationClockwise(image!.imageOrientation)
+        return UIImage(cgImage: cgImage, scale: 1.0, orientation: rotatedOrientation)
+    }
+    
+    fileprivate func nextImageOrientationClockwise(_ orientation: UIImageOrientation) -> UIImageOrientation {
+        var nextOrientation: UIImageOrientation!
+        switch orientation {
+        case .up, .upMirrored:
+            nextOrientation = .right
+        case .down, .downMirrored:
+            nextOrientation = .left
+        case .left, .leftMirrored:
+            nextOrientation = .up
+        case .right, .rightMirrored:
+            nextOrientation = .down
+        }
+        return nextOrientation
     }
 }
