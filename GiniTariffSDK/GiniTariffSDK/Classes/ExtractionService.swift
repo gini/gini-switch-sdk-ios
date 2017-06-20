@@ -67,6 +67,19 @@ class ExtractionService {
         }
     }
     
+    func replacePage(id:String, newImageData:Data, completion:@escaping ExtractionServicePageCallback) {
+        guard let order = orderUrl else {
+            // no extraction order yet
+            // TODO: maybe return an error
+            return
+        }
+        resourceLoader.load(resource: resources.replacePageWith(id: id, orderUrl: order, imageData: newImageData)) { (response) in
+            if response != nil {     // TODO: not realistic check
+                completion(id, nil)
+            }
+        }
+    }
+    
     func fetchOrderStatus(completion:@escaping ExtractionServiceStatusCallback) {
         guard let order = orderUrl else {
             // no extraction order yet
