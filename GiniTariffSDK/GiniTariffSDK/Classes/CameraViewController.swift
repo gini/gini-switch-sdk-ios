@@ -19,8 +19,10 @@ protocol CameraViewControllerDelegate: class {
 class CameraViewController: UIViewController {
     
     @IBOutlet var cameraPreview:CameraPreviewView! = nil
+    @IBOutlet var unauthorizedView:UIView! = nil
     
     var camera:Camera! = nil
+    var isCameraAvailable = true
     
     weak var delegate:CameraViewControllerDelegate? = nil
 
@@ -30,16 +32,15 @@ class CameraViewController: UIViewController {
             do {
                 try camera = Camera()
             }
-                // TODO: handle CameraError
-                //        catch let error as CameraError {
-                //            switch error {
-                //            case .notAuthorizedToUseDevice:
-                //                addNotAuthorizedView()
-                //            default:
-                //                if GiniConfiguration.DEBUG { cameraState = .valid; addDefaultImage() }
-                //            }
-                //            failure(error)
-                //        }
+            catch let error as CameraError {
+                switch error {
+                case .notAuthorizedToUseDevice:
+                    isCameraAvailable = false
+                    addNotAuthorizedView()
+                default:
+                    break
+                }
+            }
             catch _ {
                 assertionFailure("Failed to initialize camera")
             }
@@ -63,9 +64,18 @@ class CameraViewController: UIViewController {
     }
     
     public func takePicture() {
+        guard isCameraAvailable else {
+            // TODO: this will work, but it would be better to be proactive and prevent pictures
+            // from being taken
+            return
+        }
         camera.captureStillImage { (data) in
             self.delegate?.cameraViewController(controller: self, didCaptureImage: data)
         }
+    }
+    
+    fileprivate func addNotAuthorizedView() {
+        unauthorizedView.isHidden = false
     }
 
 }

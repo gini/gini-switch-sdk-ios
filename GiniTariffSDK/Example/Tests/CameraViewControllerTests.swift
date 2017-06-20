@@ -46,6 +46,11 @@ class CameraViewControllerTests: XCTestCase {
         XCTAssertEqual(cameraController?.cameraPreview.session, cameraController?.camera.session, "The Preview view should have the camera session set")
     }
     
+    func testHasUnauthorizedView() {
+        _ = cameraController.view      // force the view to load
+        XCTAssertNotNil(cameraController?.unauthorizedView, "CameraViewController should have a fallback view for when there's no camera access")
+    }
+    
     func testCameraWasStartedWhenViewAppeared() {
         _ = cameraController.view      // force the view to load
         cameraController.viewWillAppear(false)

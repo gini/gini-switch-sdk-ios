@@ -15,6 +15,10 @@ class FakeCamera: Camera {
     var hasCaptured = false
     var hardCodedImageData:Data? = nil
     
+    override func setupSession() throws {
+        
+    }
+    
     override func start() {
         isStarted = true
     }
