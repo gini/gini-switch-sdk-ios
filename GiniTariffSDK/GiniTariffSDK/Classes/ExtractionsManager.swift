@@ -1,3 +1,4 @@
+
 //
 //  ExtractionsManager.swift
 //  Pods
@@ -137,7 +138,7 @@ class ExtractionsManager {
         }
     }
     
-    /// Replacing handles the case where the mage was rotated and needs to be re-uploaded
+    /// Replacing handles the case where the image was rotated and needs to be re-uploaded
     func replace(page: ScanPage, withPage:ScanPage) {
         guard hasActiveSession else {
             // TODO: queue the request
