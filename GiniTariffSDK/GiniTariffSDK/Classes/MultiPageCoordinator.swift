@@ -23,6 +23,8 @@ class MultiPageCoordinator {
     
     var extractionsManager = ExtractionsManager()       // should be able to inject another one
     
+    var pageToReplace:ScanPage? = nil
+    
     weak var delegate:MultiPageCoordinatorDelegate? = nil
     
     init(camera:CameraViewController, cameraOptions:CameraOptionsViewController, pagesCollection:PagesCollectionViewController) {
@@ -127,7 +129,13 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
     
     func reviewController(_ controller:ReviewViewController, didAcceptPage page:ScanPage) {
         delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .modal)
-        extractionsManager.add(page: page)
+        if let toBeReplaced = pageToReplace {
+            extractionsManager.replace(page: toBeReplaced, withPage: page)
+            pageToReplace = nil
+        }
+        else {
+            extractionsManager.add(page: page)
+        }
         refreshPagesCollectionView()
     }
     
@@ -146,9 +154,7 @@ extension MultiPageCoordinator: PreviewViewControllerDelegate {
     }
     
     func previewController(previewController:PreviewViewController, didRequestRetake page:ScanPage) {
-        // TODO: now it's the same as deleting the image. Figure out a way to retake
-        extractionsManager.delete(page: page)
-        refreshPagesCollectionView()
+        pageToReplace = page
         self.delegate?.multiPageCoordinator(self, requestedDismissingController: previewController, presentationStyle: .embed)
     }
 }

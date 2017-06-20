@@ -102,4 +102,21 @@ class ExtractionResources {
             return true
         })
     }
+    
+    func replacePageWith(id:String, orderUrl:String, imageData:Data) -> Resource<AddPageResponse> {
+        // TODO: Figure out how to return a failing Resource
+        //        guard let fullUrl = URL(string:orderUrl) else {
+        //            // TODO: return error
+        //            assertionFailure("Encountered a malformed url")
+        //        }
+        let fullUrl = URL(string:id)!
+        var authHeaders = Token.bearerAuthHeadersDictWith(token: token)
+        authHeaders["Content-Type"] = "image/jpeg"
+        let body = imageData
+        return Resource<AddPageResponse>(url: fullUrl, headers: authHeaders, method: "PUT", body: body, parseJSON: { (json) -> AddPageResponse? in
+            guard let pageDict = json as? JSONDictionary else { return nil }
+            let pageResponse = AddPageResponse(dict:pageDict)
+            return pageResponse
+        })
+    }
 }

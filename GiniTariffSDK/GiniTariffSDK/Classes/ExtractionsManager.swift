@@ -1,3 +1,4 @@
+
 //
 //  ExtractionsManager.swift
 //  Pods
@@ -122,11 +123,6 @@ class ExtractionsManager {
         })
     }
     
-    /// Replacing handles the case where the mage was rotated and needs to be re-uploaded
-    func replace(page: ScanPage, with otherPage: ScanPage) {
-        // TODO: implement me
-    }
-    
     func delete(page: ScanPage) {
         guard hasActiveSession else {
             // TODO: queue the request
@@ -138,6 +134,28 @@ class ExtractionsManager {
         if let id = page.id {      // if the page doesn't have an id, it was probably not uploaded
             uploadService?.deletePage(id: id, completion: { (pageUrl, error) in
                 // TODO: Handle possible errors
+            })
+        }
+    }
+    
+    /// Replacing handles the case where the image was rotated and needs to be re-uploaded
+    func replace(page: ScanPage, withPage:ScanPage) {
+        guard hasActiveSession else {
+            // TODO: queue the request
+            return
+        }
+        
+        let index = scannedPages.pages.index(of: page)
+        scannedPages.remove(page)
+        withPage.status = .uploading
+        scannedPages.pages.insert(withPage, at: index ?? scannedPages.pages.endIndex)
+        notifyCollectionChanged()
+        if let id = page.id, let data = withPage.imageData {
+            
+            uploadService?.replacePage(id: id, newImageData: data, completion: { [weak self] (pageUrl, error) in
+                page.id = pageUrl
+                page.status = .uploaded
+                self?.notifyCollectionChanged()
             })
         }
     }
