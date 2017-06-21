@@ -13,7 +13,7 @@ class NoOpWebService: WebService {
     
     var resource:AnyObject? = nil       // TODO: use Resource as data type
     
-    func load<A>(resource: Resource<A>, completion: @escaping (A?) -> ()) {
+    func load<A>(resource: Resource<A>, completion: @escaping (A?, Error?) -> ()) {
         self.resource = resource as AnyObject 
     }
 

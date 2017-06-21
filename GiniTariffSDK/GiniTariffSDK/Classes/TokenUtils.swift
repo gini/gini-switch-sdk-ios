@@ -23,6 +23,6 @@ extension Token {
     }
     
     static func bearerAuthHeadersDictWith(token:String) -> [String: String] {
-        return ["Authorization": bearerAuthHeaderWith(token: token), "Content-Type": "application/json"]
+        return ["Authorization": bearerAuthHeaderWith(token: token), "Content-Type": "application/json", "Accept": "application/json"]
     }
 }
