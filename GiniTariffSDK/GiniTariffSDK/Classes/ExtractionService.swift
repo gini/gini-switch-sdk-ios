@@ -79,7 +79,6 @@ class ExtractionService {
             return
         }
         resourceLoader.load(resource: resources.statusFor(orderUrl: order)) { (status, error) in
-            // TODO: check for errors
             completion(status, error)
         }
     }

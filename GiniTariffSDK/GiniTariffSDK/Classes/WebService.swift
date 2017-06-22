@@ -15,6 +15,7 @@ struct Resource<A> {
     let headers: Dictionary<String, String>
     let method:String?
     let body:Data?
+    let maxRetries = 2          // original attempt + 2 retries = 3 requests in total
     let parseData: (Data) -> A?
     let parseError: (Data) -> Error?
 }
@@ -75,6 +76,10 @@ protocol WebService {
 final class UrlSessionWebService : WebService {
     
     func load<A>(resource: Resource<A>, completion: @escaping (A?, Error?) -> ()) {
+        tryLoad(resource: resource, completion: completion, attemptNumber: 1)
+    }
+    
+    func tryLoad<A>(resource: Resource<A>, completion: @escaping (A?, Error?) -> (), attemptNumber:Int) {
         var request = URLRequest(url: resource.url)
         if let method = resource.method {
             request.httpMethod = method
@@ -84,8 +89,15 @@ final class UrlSessionWebService : WebService {
             request.setValue(value, forHTTPHeaderField: header)
         }
         
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
+        URLSession.shared.dataTask(with: request) { [weak self](data, response, error) in
             // first check if there's an error in the response body
+            if let nsError = error as NSError?,
+                nsError.isRetriableError(),
+                attemptNumber <= resource.maxRetries {
+                // retry the request
+                self?.tryLoad(resource: resource, completion: completion, attemptNumber:attemptNumber + 1)
+                return
+            }
             guard let data = data else {
                 completion(nil, error)
                 return
@@ -105,7 +117,7 @@ final class UrlSessionWebService : WebService {
                 let parseError = NSError(errorCode: .invalidResponse)
                 completion(nil, parseError)
             }
-        }.resume()
+            }.resume()
     }
     
 }

@@ -70,3 +70,14 @@ extension NSError {
         return errors[apiCode] ?? .unknown
     }
 }
+
+extension NSError {
+    
+    func isRetriableError() -> Bool {
+        return isTimeoutError()     // for now only timeouts are retried
+    }
+    
+    func isTimeoutError() -> Bool {
+        return code == NSURLErrorTimedOut && domain == NSURLErrorDomain
+    }
+}
