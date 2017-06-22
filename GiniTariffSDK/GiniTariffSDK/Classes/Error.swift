@@ -31,12 +31,12 @@ extension NSError {
     
     /// Try to initialize an error from an API response
     convenience init?(dictionary:JSONDictionary) {
-        if let errorName = dictionary["error"] as? String,
-            let errorDesc = dictionary["error_description"] as? String {
-            let errorCode = dictionary["errorCode"] as? Int     // TODO: might become mandatory after implemented in the backend
+        if let errorName = dictionary["error"] as? String {
+            let errorCode = dictionary["status"] as? Int     // TODO: might become mandatory after implemented in the backend
+            let errorDesc = dictionary["error_description"] as? String
             let inAppErrorCode = NSError.tariffErrorCode(apiCode:errorCode ?? 0)
             let userDict = [NSLocalizedDescriptionKey: errorName,
-                            NSLocalizedFailureReasonErrorKey: errorDesc]
+                            NSLocalizedFailureReasonErrorKey: errorDesc ?? ""]
             self.init(domain: TariffErrorDomain, code: inAppErrorCode.rawValue, userInfo: userDict)
         }
         else {

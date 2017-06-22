@@ -133,6 +133,13 @@ class Authenticator {
         proceedWithAuthentication()
     }
     
+    /// Will go through the whole authentication process even if it has pre-cached credentials
+    public func reauthenticate() {
+        // TODO: maybe just delete all credentials and relogin
+        authState = .none
+        proceedWithAuthentication()
+    }
+    
     public func authenticate(success:@escaping AuthenticatorSuccessCallback, failure:@escaping AuthenticatorErrorCallback) {
         completionCallback = success
         failureCallback = failure

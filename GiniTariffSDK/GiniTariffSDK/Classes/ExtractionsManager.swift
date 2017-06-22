@@ -89,7 +89,7 @@ class ExtractionsManager {
         shouldRequestOrder = false
         uploadService = ExtractionService(token: token)
         uploadService?.createOrder(completion: { [weak self](orderUrl, error) in
-            // TODO: check error
+            self?.tryHandleUnauthorizedError(error)
             if error == nil && orderUrl != nil {
                 self?.startPolling()
                 self?.startQueuedUploads()
@@ -113,6 +113,7 @@ class ExtractionsManager {
         page.status = .uploading
         uploadService?.addPage(data: image, completion: { [weak self](pageUrl, error) in
             if let _ = error {
+                self?.tryHandleUnauthorizedError(error)
                 // TODO: handle error
             }
             else {
@@ -132,8 +133,9 @@ class ExtractionsManager {
         scannedPages.remove(page)
         notifyCollectionChanged()
         if let id = page.id {      // if the page doesn't have an id, it was probably not uploaded
-            uploadService?.deletePage(id: id, completion: { (pageUrl, error) in
+            uploadService?.deletePage(id: id, completion: { [weak self](pageUrl, error) in
                 // TODO: Handle possible errors
+                self?.tryHandleUnauthorizedError(error)
             })
         }
     }
@@ -153,9 +155,12 @@ class ExtractionsManager {
         if let id = page.id, let data = withPage.imageData {
             
             uploadService?.replacePage(id: id, newImageData: data, completion: { [weak self] (pageUrl, error) in
-                page.id = pageUrl
-                page.status = .uploaded
-                self?.notifyCollectionChanged()
+                self?.tryHandleUnauthorizedError(error)
+                if error == nil {
+                    page.id = pageUrl
+                    page.status = .uploaded
+                    self?.notifyCollectionChanged()
+                }
             })
         }
     }
@@ -167,7 +172,7 @@ class ExtractionsManager {
         }
         uploadService?.fetchOrderStatus(completion: { [weak self](status, error) in
             if let _ = error {
-                
+                self?.tryHandleUnauthorizedError(error)
             }
             else if let newStatus = status {
                 self?.parseStatus(newStatus)
@@ -182,7 +187,7 @@ class ExtractionsManager {
         }
         uploadService?.fetchExtractions(completion: { [weak self](collection, error) in
             if let _ = error {
-                
+                self?.tryHandleUnauthorizedError(error)
             }
             else if let newExtractions = collection {
                 self?.parseExtractions(newExtractions)
@@ -262,5 +267,14 @@ class ExtractionsManager {
     fileprivate func queuedPages() -> [ScanPage] {
         let queued = scannedPages.pages.filter { $0.status == .taken }
         return queued
+    }
+    
+    fileprivate func tryHandleUnauthorizedError(_ error:Error?) {
+        if let error = error as NSError? {
+            if NSError.tariffErrorCode(apiCode: error.code) == .tokenExpired ||
+                error.errorName() == "invalid_token" {      // TODO: don't rely on names - check the code only
+                authenticator?.reauthenticate()
+            }
+        }
     }
 }
