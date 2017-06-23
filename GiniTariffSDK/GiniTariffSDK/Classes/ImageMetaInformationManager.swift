@@ -11,6 +11,29 @@ import ImageIO
 import AVFoundation
 import MobileCoreServices
 
+fileprivate var cfExifKeys: [CFString] {
+    return [
+        kCGImagePropertyExifLensMake,
+        kCGImagePropertyExifLensModel,
+        kCGImagePropertyExifISOSpeed,
+        kCGImagePropertyExifISOSpeedRatings,
+        kCGImagePropertyExifExposureTime,
+        kCGImagePropertyExifApertureValue,
+        kCGImagePropertyExifFlash,
+        kCGImagePropertyExifCompressedBitsPerPixel,
+        kCGImagePropertyExifUserComment
+    ]
+}
+
+fileprivate var cfTiffKeys: [CFString] {
+    return [
+        kCGImagePropertyTIFFMake,
+        kCGImagePropertyTIFFModel,
+        kCGImagePropertyTIFFSoftware,
+        kCGImagePropertyTIFFOrientation
+    ]
+}
+
 internal extension Collection where Iterator.Element == CFString {
     
     var strings: [ String ] {
@@ -20,29 +43,6 @@ internal extension Collection where Iterator.Element == CFString {
 }
 
 internal extension NSMutableDictionary {
-    
-    fileprivate var cfExifKeys: [CFString] {
-        return [
-            kCGImagePropertyExifLensMake,
-            kCGImagePropertyExifLensModel,
-            kCGImagePropertyExifISOSpeed,
-            kCGImagePropertyExifISOSpeedRatings,
-            kCGImagePropertyExifExposureTime,
-            kCGImagePropertyExifApertureValue,
-            kCGImagePropertyExifFlash,
-            kCGImagePropertyExifCompressedBitsPerPixel,
-            kCGImagePropertyExifUserComment
-        ]
-    }
-    
-    fileprivate var cfTiffKeys: [CFString] {
-        return [
-            kCGImagePropertyTIFFMake,
-            kCGImagePropertyTIFFModel,
-            kCGImagePropertyTIFFSoftware,
-            kCGImagePropertyTIFFOrientation
-        ]
-    }
     
     fileprivate var cfTopLevelKeys: [CFString] {
         return [
@@ -141,25 +141,6 @@ let JPEGDefaultCompression:CGFloat = 0.4
 
 internal class ImageMetaInformationManager {
     
-    fileprivate let cfRequiredExifKeys = [
-        kCGImagePropertyExifLensMake,
-        kCGImagePropertyExifLensModel,
-        kCGImagePropertyExifISOSpeed,
-        kCGImagePropertyExifISOSpeedRatings,
-        kCGImagePropertyExifExposureTime,
-        kCGImagePropertyExifApertureValue,
-        kCGImagePropertyExifFlash,
-        kCGImagePropertyExifCompressedBitsPerPixel,
-        kCGImagePropertyExifUserComment
-    ]
-    
-    fileprivate let cfRequiredTiffKeys = [
-        kCGImagePropertyTIFFOrientation,
-        kCGImagePropertyTIFFMake,
-        kCGImagePropertyTIFFModel,
-        kCGImagePropertyTIFFSoftware
-    ]
-    
     var imageData: Data?
     var metaInformation: MetaInformation?
     
@@ -205,8 +186,8 @@ internal class ImageMetaInformationManager {
     
     fileprivate func addDefaultValues(toMetaInformation information: MetaInformation) -> MetaInformation {
         var defaultInformation = information
-        defaultInformation = add(requiredValuesWithKeys: cfRequiredExifKeys.strings, toMetaInformation: defaultInformation)
-        defaultInformation = add(requiredValuesWithKeys: cfRequiredTiffKeys.strings, toMetaInformation: defaultInformation)
+        defaultInformation = add(requiredValuesWithKeys: cfTiffKeys.strings, toMetaInformation: defaultInformation)
+        defaultInformation = add(requiredValuesWithKeys: cfTiffKeys.strings, toMetaInformation: defaultInformation)
         return defaultInformation
     }
     
@@ -216,7 +197,7 @@ internal class ImageMetaInformationManager {
             if let _ = addedInformation.getMetaInformation(forKey: key) {
                 continue
             }
-            addedInformation.set(metaInformation: value(forMetaKey: key), forKey: key)
+            addedInformation.set(metaInformation: value(forMetaKey: key) as AnyObject, forKey: key)
         }
         return addedInformation
     }
@@ -248,18 +229,18 @@ internal class ImageMetaInformationManager {
         return metaInformation
     }
     
-    fileprivate func value(forMetaKey key: String) -> AnyObject? {
+    fileprivate func value(forMetaKey key: String) -> String? {
         if key == kCGImagePropertyTIFFSoftware as String {
-            return UIDevice.current.systemVersion as AnyObject?
+            return UIDevice.current.systemVersion
         }
         if key == kCGImagePropertyTIFFMake as String {
-            return "Apple" as AnyObject? // Hardcoded, but a pretty safe guess
+            return "Apple" // Hardcoded, but a pretty safe guess
         }
         if key == kCGImagePropertyTIFFModel as String {
-            return deviceName() as AnyObject?
+            return deviceName()
         }
         if key == kCGImagePropertyExifUserComment as String {
-            return userComment() as AnyObject?
+            return userComment()
         }
         
         return nil
