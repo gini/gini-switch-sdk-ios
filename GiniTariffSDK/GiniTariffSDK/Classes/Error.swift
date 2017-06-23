@@ -80,4 +80,9 @@ extension NSError {
     func isTimeoutError() -> Bool {
         return code == NSURLErrorTimedOut && domain == NSURLErrorDomain
     }
+    
+    func isTokenExpiredError() -> Bool {
+        return NSError.tariffErrorCode(apiCode: code) == .tokenExpired ||
+            errorName() == "invalid_token"      // TODO: don't rely on names - check the code only
+    }
 }

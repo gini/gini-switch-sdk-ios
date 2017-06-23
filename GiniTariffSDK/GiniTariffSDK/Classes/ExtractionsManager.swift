@@ -271,8 +271,7 @@ class ExtractionsManager {
     
     fileprivate func tryHandleUnauthorizedError(_ error:Error?) {
         if let error = error as NSError? {
-            if NSError.tariffErrorCode(apiCode: error.code) == .tokenExpired ||
-                error.errorName() == "invalid_token" {      // TODO: don't rely on names - check the code only
+            if error.isTokenExpiredError() {
                 authenticator?.reauthenticate()
             }
         }
