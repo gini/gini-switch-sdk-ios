@@ -44,7 +44,7 @@ extension Resource {
         self.body = body
         self.parseData = { data in
             let json = Resource.jsonFrom(data: data)
-            return json.flatMap(parseJSON)
+            return parseJSON(json ?? [:])
         }
         self.parseError = { data in
             let json = Resource.jsonFrom(data: data)

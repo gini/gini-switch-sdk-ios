@@ -80,8 +80,6 @@ class Authenticator {
         let authHeaders = Token.bearerAuthHeadersDictWith(token:clientToken!)
         let body = userCredentialsJsonData(for: user!)
         return Resource<Bool>(url: fullUrl, headers: authHeaders, method: "POST", body: body, parseJSON: { json in
-            guard let _ = json as? JSONDictionary else { return nil }
-            // TODO: check for errors
             return true
         })
     }
