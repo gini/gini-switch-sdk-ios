@@ -52,7 +52,8 @@ class Authenticator {
         var fullUrl = baseUrl.appendingPathComponent(authUrlExtension)
         fullUrl = fullUrl.appendingQueryParameter(name: loginTypeParameter, value: loginTypeClientSecret)!
 
-        let authHeaders = basicAuthHeadersDictFor(user: clientId!, pass: clientSecret!)
+        var authHeaders = basicAuthHeadersDictFor(user: clientId!, pass: clientSecret!)
+        authHeaders["Accept"] = "application/json"      // TODO: don't hardcode
         return Resource<Token>(url: fullUrl, headers: authHeaders, method: "GET", body: nil, parseJSON: { json in
             guard let dictionary = json as? JSONDictionary else { return nil }
             return Token(dictionary)
@@ -60,6 +61,7 @@ class Authenticator {
     }
     
     var userLogin:Resource<Token> {
+        user = user ?? userManager.user
         assert(user != nil, "Attempting to login without user credentials")
         var fullUrl = baseUrl.appendingPathComponent(authUrlExtension)
         fullUrl = fullUrl.appendingQueryParameter(name: loginTypeParameter, value: loginTypePassword)!
@@ -79,8 +81,6 @@ class Authenticator {
         let authHeaders = Token.bearerAuthHeadersDictWith(token:clientToken!)
         let body = userCredentialsJsonData(for: user!)
         return Resource<Bool>(url: fullUrl, headers: authHeaders, method: "POST", body: body, parseJSON: { json in
-            guard let _ = json as? JSONDictionary else { return nil }
-            // TODO: check for errors
             return true
         })
     }
@@ -132,6 +132,13 @@ class Authenticator {
         proceedWithAuthentication()
     }
     
+    /// Will go through the whole authentication process even if it has pre-cached credentials
+    public func reauthenticate() {
+        // TODO: maybe just delete all credentials and relogin
+        authState = .userCredentials
+        proceedWithAuthentication()
+    }
+    
     public func authenticate(success:@escaping AuthenticatorSuccessCallback, failure:@escaping AuthenticatorErrorCallback) {
         completionCallback = success
         failureCallback = failure
@@ -141,25 +148,37 @@ class Authenticator {
     func proceedWithAuthentication() {
         switch authState {
         case .none:
-            webService.load(resource: createClientToken, completion: { [weak self] (token) in
-                if token == nil {
-                    // TODO: actually a failure
+            webService.load(resource: createClientToken, completion: { [weak self] (token, error) in
+                if let error = error {
+                    self?.failureCallback?(error)
                 }
-                self?.authState = .clientToken
-                self?.clientToken = token?.accessToken
-                self?.proceedWithAuthentication()
+                else {
+                    self?.authState = .clientToken
+                    self?.clientToken = token?.accessToken
+                    self?.proceedWithAuthentication()
+                }
             })
         case .clientToken:
-            webService.load(resource: createUser, completion: { [weak self] (isCreated) in
-                self?.authState = .userCredentials
-                // self?.user - user should already be there - credentials are client generated
-                self?.proceedWithAuthentication()
+            webService.load(resource: createUser, completion: { [weak self] (isCreated, error) in
+                if let error = error {
+                    self?.failureCallback?(error)
+                }
+                else {
+                    self?.authState = .userCredentials
+                    // self?.user - user should already be there - credentials are client generated
+                    self?.proceedWithAuthentication()
+                }
             })
         case .userCredentials:
-            webService.load(resource: userLogin, completion: { [weak self] (token) in
-                self?.authState = .userToken
-                self?.userToken = token?.accessToken
-                self?.proceedWithAuthentication()
+            webService.load(resource: userLogin, completion: { [weak self] (token, error) in
+                if let error = error {
+                    self?.failureCallback?(error)
+                }
+                else {
+                    self?.authState = .userToken
+                    self?.userToken = token?.accessToken
+                    self?.proceedWithAuthentication()
+                }
             })
         case .userToken:
             // already logged in

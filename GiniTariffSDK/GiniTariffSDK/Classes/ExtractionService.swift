@@ -33,9 +33,9 @@ class ExtractionService {
     }
     
     func createOrder(completion:@escaping ExtractionServiceOrderCallback) {
-        resourceLoader.load(resource: resources.createExtractionOrder) { [weak self](response) in
+        resourceLoader.load(resource: resources.createExtractionOrder) { [weak self] (response, error) in
             self?.orderUrl = response?.href
-            completion(self?.orderUrl, nil)
+            completion(self?.orderUrl, error)
         }
     }
     
@@ -45,9 +45,8 @@ class ExtractionService {
             // TODO: maybe return an error
             return
         }
-        resourceLoader.load(resource: resources.addPage(imageData: data, toOrder: order)) { (response) in
-            completion(response?.href, nil)
-            // TODO: check for errors
+        resourceLoader.load(resource: resources.addPage(imageData: data, toOrder: order)) { (response, error) in
+            completion(response?.href, error)
         }
     }
     
@@ -57,13 +56,8 @@ class ExtractionService {
             // TODO: maybe return an error
             return
         }
-        resourceLoader.load(resource: resources.deletePageWith(id: id, orderUrl: order)) { (deleted) in
-            if deleted == true {
-                completion(id, nil)
-            }
-            else {
-//                completion(id, Error())   // TODO: return the error
-            }
+        resourceLoader.load(resource: resources.deletePageWith(id: id, orderUrl: order)) { (deleted, error) in
+                completion(id, error)
         }
     }
     
@@ -73,10 +67,8 @@ class ExtractionService {
             // TODO: maybe return an error
             return
         }
-        resourceLoader.load(resource: resources.replacePageWith(id: id, orderUrl: order, imageData: newImageData)) { (response) in
-            if response != nil {     // TODO: not realistic check
-                completion(id, nil)
-            }
+        resourceLoader.load(resource: resources.replacePageWith(id: id, orderUrl: order, imageData: newImageData)) { (response, error) in
+            completion(id, error)
         }
     }
     
@@ -86,9 +78,8 @@ class ExtractionService {
             // TODO: maybe return an error
             return
         }
-        resourceLoader.load(resource: resources.statusFor(orderUrl: order)) { (status) in
-            // TODO: check for errors
-            completion(status, nil)
+        resourceLoader.load(resource: resources.statusFor(orderUrl: order)) { (status, error) in
+            completion(status, error)
         }
     }
     
@@ -98,8 +89,8 @@ class ExtractionService {
             // TODO: maybe return an error
             return
         }
-        resourceLoader.load(resource: resources.extractionsFor(orderUrl: order)) { (collection) in
-            completion(collection, nil)
+        resourceLoader.load(resource: resources.extractionsFor(orderUrl: order)) { (collection, error) in
+            completion(collection, error)
         }
     }
 

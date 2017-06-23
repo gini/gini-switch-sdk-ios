@@ -15,30 +15,45 @@ struct Resource<A> {
     let headers: Dictionary<String, String>
     let method:String?
     let body:Data?
-    let parse: (Data) -> A?
+    let maxRetries = 2          // original attempt + 2 retries = 3 requests in total
+    let parseData: (Data) -> A?
+    let parseError: (Data) -> Error?
 }
 
 extension Resource {
-    init(url: URL, parseJSON: @escaping (Any) -> A?) {
+    
+    init(url: URL, parseJSON: @escaping (Any) -> A?, parseError: @escaping (Any) -> Error?) {
         self.url = url
         self.headers = [:]
         method = "GET"
         self.body = nil
-        self.parse = { data in
-            let json = try? JSONSerialization.jsonObject(with: data, options: [])
+        self.parseData = { data in
+            let json = Resource.jsonFrom(data: data)
             return json.flatMap(parseJSON)
+        }
+        self.parseError = { data in
+            let json = Resource.jsonFrom(data: data)
+            return json.flatMap(parseError)
         }
     }
     
-    init(url: URL, headers: Dictionary<String, String>, method: String?, body: Data?, parseJSON: @escaping (Any) -> A?) {
+    init(url: URL, headers: Dictionary<String, String>, method: String?, body: Data?, parseJSON: @escaping (Any) -> A?, parseError: @escaping (Any) -> Error?) {
         self.url = url
         self.headers = headers
         self.method = method
         self.body = body
-        self.parse = { data in
-            let json = try? JSONSerialization.jsonObject(with: data, options: [])
-            return json.flatMap(parseJSON)
+        self.parseData = { data in
+            let json = Resource.jsonFrom(data: data)
+            return parseJSON(json ?? [:])
         }
+        self.parseError = { data in
+            let json = Resource.jsonFrom(data: data)
+            return json.flatMap(parseError)
+        }
+    }
+    
+    static fileprivate func jsonFrom(data:Data) -> Any? {
+        return try? JSONSerialization.jsonObject(with: data, options: [])
     }
 }
 
@@ -55,12 +70,16 @@ extension Resource: Equatable {
 
 protocol WebService {
     
-    func load<A>(resource: Resource<A>, completion: @escaping (A?) -> ())
+    func load<A>(resource: Resource<A>, completion: @escaping (A?, Error?) -> ())
 }
 
 final class UrlSessionWebService : WebService {
     
-    func load<A>(resource: Resource<A>, completion: @escaping (A?) -> ()) {
+    func load<A>(resource: Resource<A>, completion: @escaping (A?, Error?) -> ()) {
+        tryLoad(resource: resource, completion: completion, attemptNumber: 1)
+    }
+    
+    func tryLoad<A>(resource: Resource<A>, completion: @escaping (A?, Error?) -> (), attemptNumber:Int) {
         var request = URLRequest(url: resource.url)
         if let method = resource.method {
             request.httpMethod = method
@@ -70,12 +89,35 @@ final class UrlSessionWebService : WebService {
             request.setValue(value, forHTTPHeaderField: header)
         }
         
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let data = data else {
-                completion(nil)
+        URLSession.shared.dataTask(with: request) { [weak self](data, response, error) in
+            // first check if there's an error in the response body
+            if let nsError = error as NSError?,
+                nsError.isRetriableError(),
+                attemptNumber <= resource.maxRetries {
+                // retry the request
+                self?.tryLoad(resource: resource, completion: completion, attemptNumber:attemptNumber + 1)
                 return
             }
-            completion(resource.parse(data))
-        }.resume()
+            guard let data = data else {
+                completion(nil, error)
+                return
+            }
+            let responseError = resource.parseError(data)
+            guard responseError == nil else {
+                completion(nil, responseError)
+                return
+            }
+            // then try to parse the response
+            let responseObject = resource.parseData(data)
+            if let parsedData = responseObject {
+                completion(parsedData, nil)
+            }
+            else {
+                // return an "invalid JSON" error
+                let parseError = NSError(errorCode: .invalidResponse)
+                completion(nil, parseError)
+            }
+            }.resume()
     }
+    
 }
