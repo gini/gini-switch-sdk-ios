@@ -61,6 +61,7 @@ class Authenticator {
     }
     
     var userLogin:Resource<Token> {
+        user = userManager.user
         assert(user != nil, "Attempting to login without user credentials")
         var fullUrl = baseUrl.appendingPathComponent(authUrlExtension)
         fullUrl = fullUrl.appendingQueryParameter(name: loginTypeParameter, value: loginTypePassword)!
@@ -134,7 +135,7 @@ class Authenticator {
     /// Will go through the whole authentication process even if it has pre-cached credentials
     public func reauthenticate() {
         // TODO: maybe just delete all credentials and relogin
-        authState = .none
+        authState = .userCredentials
         proceedWithAuthentication()
     }
     
