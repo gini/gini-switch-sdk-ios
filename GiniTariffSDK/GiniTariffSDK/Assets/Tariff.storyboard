@@ -513,10 +513,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0DX-1E-Iip">
-                                <rect key="frame" x="295" y="0.0" width="80" height="80"/>
+                                <rect key="frame" x="287" y="0.0" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0DX-1E-Iip" secondAttribute="height" multiplier="1:1" id="zGw-ZY-CiV"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Fertig">
                                     <color key="titleColor" red="0.087497897450000001" green="0.61690676209999995" blue="0.85222035650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -532,7 +533,7 @@
                             <constraint firstItem="gcL-36-dcE" firstAttribute="centerX" secondItem="yRJ-bz-abf" secondAttribute="centerX" id="atr-fk-HmB"/>
                             <constraint firstItem="0DX-1E-Iip" firstAttribute="height" secondItem="yRJ-bz-abf" secondAttribute="height" id="bor-OP-Qco"/>
                             <constraint firstItem="gcL-36-dcE" firstAttribute="top" secondItem="t3F-6d-kfL" secondAttribute="bottom" constant="6" id="fSk-wH-nMB"/>
-                            <constraint firstAttribute="trailing" secondItem="0DX-1E-Iip" secondAttribute="trailing" id="vX4-HT-ptT"/>
+                            <constraint firstAttribute="trailing" secondItem="0DX-1E-Iip" secondAttribute="trailing" constant="8" id="vX4-HT-ptT"/>
                         </constraints>
                     </view>
                     <connections>
