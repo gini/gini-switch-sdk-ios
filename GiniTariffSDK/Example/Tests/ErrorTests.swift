@@ -51,6 +51,6 @@ class ErrorTests: XCTestCase {
 extension ErrorTests {
     
     func testApiError() -> JSONDictionary {
-        return ["error": errorName as AnyObject, "errorCode": 401 as AnyObject, "error_description": errorDesc as AnyObject]
+        return ["error": errorName as AnyObject, "status": 401 as AnyObject, "error_description": errorDesc as AnyObject]
     }
 }

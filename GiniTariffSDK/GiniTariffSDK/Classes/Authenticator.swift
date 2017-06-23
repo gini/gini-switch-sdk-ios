@@ -61,7 +61,7 @@ class Authenticator {
     }
     
     var userLogin:Resource<Token> {
-        user = userManager.user
+        user = user ?? userManager.user
         assert(user != nil, "Attempting to login without user credentials")
         var fullUrl = baseUrl.appendingPathComponent(authUrlExtension)
         fullUrl = fullUrl.appendingQueryParameter(name: loginTypeParameter, value: loginTypePassword)!
