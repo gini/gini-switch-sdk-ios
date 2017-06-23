@@ -125,17 +125,21 @@ class ExtractionsManager {
     }
     
     func delete(page: ScanPage) {
+        // TODO: we should consider a "scheduled for deletion" state so we can recover into the
+        // right state if the connection is lost, requests fail and so on.
+        page.status = .none
+        scannedPages.remove(page)
+        notifyCollectionChanged()
         guard hasActiveSession else {
             // TODO: queue the request
             return
         }
-        page.status = .none
-        scannedPages.remove(page)
-        notifyCollectionChanged()
         if let id = page.id {      // if the page doesn't have an id, it was probably not uploaded
             uploadService?.deletePage(id: id, completion: { [weak self](pageUrl, error) in
                 // TODO: Handle possible errors
                 self?.tryHandleUnauthorizedError(error)
+                // TODO: if deleting failed, add the pages to the scan pages array so users see that
+                // it is still there
             })
         }
     }
