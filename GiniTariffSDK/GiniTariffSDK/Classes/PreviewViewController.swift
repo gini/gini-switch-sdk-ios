@@ -50,13 +50,13 @@ class PreviewViewController: UIViewController {
         case .analysed:
             // add the "Ok" marker in the middle of the preview
             // change the title text accordingly
-            statusView.image = UIImage(named:"pageUploadSuccessCheckmark")
+            statusView.image = UIImage(named: "pageUploadSuccessCheckmarkCircle", in: Bundle(identifier: "org.cocoapods.GiniTariffSDK"), compatibleWith: nil)
             titleView.text = analysedPageTitle
             break
         case .failed:
             // add the "X" marker in the middle of the preview
             // change the title text accordingly
-            statusView.image = UIImage(named:"pageUploadFailedCross")
+            statusView.image = UIImage(named: "pageUploadFailedCrossCircle", in: Bundle(identifier: "org.cocoapods.GiniTariffSDK"), compatibleWith: nil)
             titleView.text = failedPageTitle
             break
         default:
