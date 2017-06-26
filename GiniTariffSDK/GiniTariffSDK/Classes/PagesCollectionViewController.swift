@@ -23,6 +23,7 @@ class PagesCollectionViewController: UIViewController {
         didSet {
             pagesCollection?.delegate = self
             pagesCollection?.dataSource = self
+            (pagesCollection?.collectionViewLayout as? UICollectionViewFlowLayout)?.minimumLineSpacing = 5.0
         }
     }
     
