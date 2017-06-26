@@ -629,6 +629,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cwa-wu-DP1">
+                                    <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
                             </collectionView>
@@ -669,7 +670,7 @@
         <image name="cameraCaptureButton" width="68" height="68"/>
         <image name="cameraCaptureButtonActive" width="134" height="134"/>
         <image name="overflowButton" width="4" height="15"/>
-        <image name="pageUploadSuccessCheckmarkCircle" width="30" height="30"/>
+        <image name="pageUploadSuccessCheckmarkCircle" width="135" height="135"/>
         <image name="rotateImage" width="32" height="32"/>
         <image name="testDocument" width="888" height="618"/>
     </resources>
