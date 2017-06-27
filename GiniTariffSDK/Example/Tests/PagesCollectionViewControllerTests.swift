@@ -70,7 +70,7 @@ class PagesCollectionViewControllerTests: XCTestCase {
         let page = ScanPage()
         let collection = PageCollection(pages: [page])
         pagesController.pages = collection
-        XCTAssertEqual(pagesController.pages!, collection, "PagesCollectionViewController should have a page collection property")
+        XCTAssertEqual(pagesController.pages, collection, "PagesCollectionViewController should have a page collection property")
     }
     
     func testHasRightNumberOfRows() {

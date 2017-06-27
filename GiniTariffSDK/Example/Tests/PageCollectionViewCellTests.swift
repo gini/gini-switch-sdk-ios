@@ -123,6 +123,7 @@ extension PageCollectionViewCellTests {
         // of it, the whole view controller needs to be initialized from the storyboard.
         // Then, using the collection view data source methods, a cell can be created and returned
         let pagesController = storyboard?.instantiateViewController(withIdentifier: "PagesCollectionViewController") as! PagesCollectionViewController
+        pagesController.shouldShowAddIcon = true
         _ = pagesController.view
         if let collection = pageCollection {
             pagesController.pages = collection

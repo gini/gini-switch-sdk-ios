@@ -58,7 +58,10 @@ class MultiPageCoordinator {
     
     func refreshPagesCollectionView() {
         DispatchQueue.main.async { [weak self] () in
-            self?.pageCollectionController.pages = self?.extractionsManager.scannedPages
+            guard let pages = self?.extractionsManager.scannedPages else {
+                return
+            }
+            self?.pageCollectionController.pages = pages
             self?.pageCollectionController.pagesCollection?.reloadData()
         }
     }
@@ -110,6 +113,8 @@ extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
     }
     
     func pageCollectionController(_ pageController:PagesCollectionViewController, didSelectPage:ScanPage) {
+        pageController.shouldShowAddIcon = true
+        pageController.pagesCollection?.reloadData()
         let previewController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "PreviewViewController") as! PreviewViewController
         previewController.page = didSelectPage
         previewController.delegate = self
@@ -149,12 +154,15 @@ extension MultiPageCoordinator: PreviewViewControllerDelegate {
     
     func previewController(previewController:PreviewViewController, didDeletePage page:ScanPage) {
         extractionsManager.delete(page: page)
+        pageCollectionController.shouldShowAddIcon = true
         refreshPagesCollectionView()
         self.delegate?.multiPageCoordinator(self, requestedDismissingController: previewController, presentationStyle: .embed)
     }
     
     func previewController(previewController:PreviewViewController, didRequestRetake page:ScanPage) {
         pageToReplace = page
+        pageCollectionController.shouldShowAddIcon = false
+        pageCollectionController.pagesCollection?.reloadData()
         self.delegate?.multiPageCoordinator(self, requestedDismissingController: previewController, presentationStyle: .embed)
     }
 }
