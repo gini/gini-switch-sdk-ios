@@ -16,7 +16,7 @@ internal class CameraPreviewView: UIView {
     /// the size of the guides compared to the size of the whole view
     /// 0.9 = 90% of the view
     let guideLineSize:CGFloat = 0.9
-    let guideColor = UIColor.red
+    let guideColor = UIColor.white
     
     override class var layerClass : AnyClass {
         return AVCaptureVideoPreviewLayer.classForCoder()
