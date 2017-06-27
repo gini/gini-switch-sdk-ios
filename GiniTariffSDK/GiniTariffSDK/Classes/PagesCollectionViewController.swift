@@ -33,6 +33,7 @@ class PagesCollectionViewController: UIViewController {
             setupContentInsets()
         }
     }
+    var selectedIndexPath = IndexPath(row: 0, section: 1)   // the add page cell
     
     var shouldShowAddIcon = false
     weak var delegate:PagesCollectionViewControllerDelegate? = nil
@@ -68,6 +69,8 @@ extension PagesCollectionViewController: UICollectionViewDataSource {
         default:
             assert(false, "Unknown section encountered \(indexPath.section)")
         }
+        cell.isSelected = (indexPath == selectedIndexPath)
+        
         return cell
     }
     
@@ -98,6 +101,8 @@ extension PagesCollectionViewController: UICollectionViewDelegate {
             let offset = cell.center.x - collectionView.frame.width / 2.0
             collectionView.setContentOffset(CGPoint(x: offset, y: 0), animated: true)
         }
+        
+        selectedIndexPath = indexPath
         
         switch indexPath.section {
         case 0:

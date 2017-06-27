@@ -126,6 +126,8 @@ extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
         guard let controller = self.embeddedController else {
             return
         }
+        pageController.shouldShowAddIcon = false
+        pageController.pagesCollection?.reloadData()
         self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .embed)
     }
 }

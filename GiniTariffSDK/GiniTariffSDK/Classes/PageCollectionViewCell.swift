@@ -16,6 +16,8 @@ class PageCollectionViewCell: UICollectionViewCell {
     @IBOutlet var addPageLabel:UILabel! = nil
     @IBOutlet var uploadingIndicator:UIActivityIndicatorView! = nil
     
+    var pageSelectionLayer:CALayer? = nil
+    
     var image:UIImage? = nil {
         didSet {
             pagePreview.image = image
@@ -62,6 +64,23 @@ class PageCollectionViewCell: UICollectionViewCell {
                 pageStatusView.isHidden = true
                 uploadingIndicator.isHidden = true
             }
+        }
+    }
+    
+    override func awakeFromNib() {
+        let dashLayer = CALayer.dashedRectangleLayer(frame: self.bounds, color: UIColor.white)
+        dashLayer.isHidden = true
+        pageSelectionLayer = dashLayer
+        self.layer.addSublayer(dashLayer)
+    }
+    
+    override var isSelected: Bool {
+        get {
+            return super.isSelected
+        }
+        set {
+            super.isSelected = newValue
+            pageSelectionLayer?.isHidden = !newValue
         }
     }
     

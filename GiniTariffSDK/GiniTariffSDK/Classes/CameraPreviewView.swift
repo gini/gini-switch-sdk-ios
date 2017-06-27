@@ -23,5 +23,5 @@ internal class CameraPreviewView: UIView {
             (self.layer as! AVCaptureVideoPreviewLayer).session = newSession
         }
     }
-    
+
 }

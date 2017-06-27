@@ -575,7 +575,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cgr-eW-O38">
-                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="79"/>
+                                                    <rect key="frame" x="2" y="2" width="56" height="75"/>
                                                     <color key="backgroundColor" red="0.12852352857589722" green="0.12865498661994934" blue="0.1285439133644104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IyW-JP-acX">
@@ -608,13 +608,13 @@
                                             <constraint firstAttribute="bottom" secondItem="nL6-sm-15E" secondAttribute="bottom" id="0mL-zF-WYL"/>
                                             <constraint firstItem="nL6-sm-15E" firstAttribute="leading" secondItem="Yfb-Z8-Lu1" secondAttribute="leading" id="7Y3-Uh-cBV"/>
                                             <constraint firstItem="e4J-yy-fFN" firstAttribute="centerY" secondItem="Yfb-Z8-Lu1" secondAttribute="centerY" id="BVz-d1-BTn"/>
-                                            <constraint firstAttribute="bottom" secondItem="Cgr-eW-O38" secondAttribute="bottom" id="GFS-Cq-Gk2"/>
+                                            <constraint firstAttribute="bottom" secondItem="Cgr-eW-O38" secondAttribute="bottom" constant="2" id="GFS-Cq-Gk2"/>
                                             <constraint firstItem="IyW-JP-acX" firstAttribute="centerY" secondItem="Yfb-Z8-Lu1" secondAttribute="centerY" id="U7c-Wa-mFe"/>
                                             <constraint firstItem="IyW-JP-acX" firstAttribute="centerX" secondItem="Yfb-Z8-Lu1" secondAttribute="centerX" id="f2q-3H-HNO"/>
-                                            <constraint firstItem="Cgr-eW-O38" firstAttribute="top" secondItem="Yfb-Z8-Lu1" secondAttribute="top" id="h2s-Tk-c7G"/>
-                                            <constraint firstItem="Cgr-eW-O38" firstAttribute="leading" secondItem="Yfb-Z8-Lu1" secondAttribute="leading" id="j1U-w5-7yw"/>
+                                            <constraint firstItem="Cgr-eW-O38" firstAttribute="top" secondItem="Yfb-Z8-Lu1" secondAttribute="top" constant="2" id="h2s-Tk-c7G"/>
+                                            <constraint firstItem="Cgr-eW-O38" firstAttribute="leading" secondItem="Yfb-Z8-Lu1" secondAttribute="leading" constant="2" id="j1U-w5-7yw"/>
                                             <constraint firstItem="e4J-yy-fFN" firstAttribute="centerX" secondItem="Yfb-Z8-Lu1" secondAttribute="centerX" id="oFn-12-gJY"/>
-                                            <constraint firstAttribute="trailing" secondItem="Cgr-eW-O38" secondAttribute="trailing" id="t4w-hr-nLo"/>
+                                            <constraint firstAttribute="trailing" secondItem="Cgr-eW-O38" secondAttribute="trailing" constant="2" id="t4w-hr-nLo"/>
                                             <constraint firstItem="bjv-w2-wAS" firstAttribute="centerY" secondItem="Yfb-Z8-Lu1" secondAttribute="centerY" id="tdA-Lt-764"/>
                                             <constraint firstAttribute="trailing" secondItem="nL6-sm-15E" secondAttribute="trailing" id="u4E-2p-kGy"/>
                                             <constraint firstItem="bjv-w2-wAS" firstAttribute="centerX" secondItem="Yfb-Z8-Lu1" secondAttribute="centerX" id="y3z-A0-jfY"/>
