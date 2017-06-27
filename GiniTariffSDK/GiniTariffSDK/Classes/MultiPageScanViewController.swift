@@ -30,6 +30,10 @@ class MultiPageScanViewController: UIViewController {
         coordinator.delegate = self
     }
     
+    override var prefersStatusBarHidden:Bool {
+        return true
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // TODO: it would be nice if the following switch is only executed on "embed" segues
         switch segue.identifier! {

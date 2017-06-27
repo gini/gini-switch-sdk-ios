@@ -26,9 +26,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHm-Kf-HpV">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="110" id="k01-wd-JZ3"/>
+                                    <constraint firstAttribute="height" constant="100" id="k01-wd-JZ3"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="wsJ-W1-lRM" kind="embed" identifier="PagesCollectionViewControllerEmbed" id="sGZ-IJ-UDG"/>
@@ -39,7 +39,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLp-EP-i0R">
-                                <rect key="frame" x="0.0" y="110" width="375" height="477"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="487"/>
                                 <connections>
                                     <segue destination="1I9-D2-Sdm" kind="embed" identifier="CameraViewControllerEmbed" id="1r1-BM-raN"/>
                                 </connections>
@@ -89,18 +89,18 @@
                         <viewControllerLayoutGuide type="bottom" id="do6-Qk-TRG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="R7e-uW-Tlw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="477"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eb6-Ws-DUK" customClass="CameraPreviewView" customModule="GiniTariffSDK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="477"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="487"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWE-22-XBD">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="477"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="487"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Um Dokumente zu fotografieren, erlaube Gini Pay den Zugriff auf die Kamera." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msR-yi-mcd">
-                                        <rect key="frame" x="30" y="218.5" width="316.5" height="41"/>
+                                        <rect key="frame" x="30" y="223.5" width="316.5" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -554,11 +554,11 @@
                         <viewControllerLayoutGuide type="bottom" id="swo-Zi-749"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="y4E-OJ-DnV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AvA-or-wpf">
-                                <rect key="frame" x="0.0" y="0.0" width="327" height="110"/>
+                                <rect key="frame" x="0.0" y="0.0" width="327" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4Nx-qk-6eu">
                                     <size key="itemSize" width="60" height="79"/>
@@ -568,7 +568,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" reuseIdentifier="PageCollectionViewCell" id="Yfb-Z8-Lu1" customClass="PageCollectionViewCell" customModule="GiniTariffSDK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="15.5" width="60" height="79"/>
+                                        <rect key="frame" x="0.0" y="10.5" width="60" height="79"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="60" height="79"/>
@@ -630,7 +630,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kd9-b9-13F">
-                                <rect key="frame" x="335" y="0.0" width="40" height="110"/>
+                                <rect key="frame" x="335" y="0.0" width="40" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="SQs-rF-3QE"/>
                                 </constraints>

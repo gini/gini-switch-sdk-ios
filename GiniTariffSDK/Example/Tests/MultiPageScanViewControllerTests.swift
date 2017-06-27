@@ -54,4 +54,8 @@ class MultiPageScanViewControllerTests: XCTestCase {
         XCTAssertNotNil(multiPageController.presentedViewController, "MultiPageScanViewController should present view controllers provided via the multiPageCoordinator(requestedShowingController:) method")
     }
     
+    func testPrefersNoStatusBar() {
+        XCTAssertTrue(multiPageController.prefersStatusBarHidden, "MultiPageScanViewController shouldn't show the status bar")
+    }
+    
 }
