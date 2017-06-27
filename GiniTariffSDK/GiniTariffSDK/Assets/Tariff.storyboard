@@ -563,7 +563,7 @@
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4Nx-qk-6eu">
                                     <size key="itemSize" width="60" height="79"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="10"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
@@ -586,7 +586,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nL6-sm-15E">
-                                                    <rect key="frame" x="0.0" y="65" width="60" height="10"/>
+                                                    <rect key="frame" x="0.0" y="69" width="60" height="10"/>
                                                     <color key="backgroundColor" red="0.087497897450000001" green="0.61690676209999995" blue="0.85222035650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="10" id="NhF-zW-Y2A"/>
@@ -605,7 +605,7 @@
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="nL6-sm-15E" secondAttribute="bottom" constant="4" id="0mL-zF-WYL"/>
+                                            <constraint firstAttribute="bottom" secondItem="nL6-sm-15E" secondAttribute="bottom" id="0mL-zF-WYL"/>
                                             <constraint firstItem="nL6-sm-15E" firstAttribute="leading" secondItem="Yfb-Z8-Lu1" secondAttribute="leading" id="7Y3-Uh-cBV"/>
                                             <constraint firstItem="e4J-yy-fFN" firstAttribute="centerY" secondItem="Yfb-Z8-Lu1" secondAttribute="centerY" id="BVz-d1-BTn"/>
                                             <constraint firstAttribute="bottom" secondItem="Cgr-eW-O38" secondAttribute="bottom" id="GFS-Cq-Gk2"/>
@@ -628,10 +628,6 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cwa-wu-DP1">
-                                    <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionReusableView>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kd9-b9-13F">
                                 <rect key="frame" x="335" y="0.0" width="40" height="110"/>
