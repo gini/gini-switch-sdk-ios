@@ -83,13 +83,15 @@ class ExtractionsManager {
             shouldRequestOrder = true
             return
         }
-        guard uploadService == nil else {
+        guard uploadService == nil || uploadService?.hasExtractionOrder == false else {
             return
         }
         shouldRequestOrder = false
         uploadService = ExtractionService(token: token)
         uploadService?.createOrder(completion: { [weak self](orderUrl, error) in
-            self?.tryHandleUnauthorizedError(error)
+            if self?.tryHandleUnauthorizedError(error) == true {
+                self?.shouldRequestOrder = true
+            }
             if error == nil && orderUrl != nil {
                 self?.startPolling()
                 self?.startQueuedUploads()
@@ -273,11 +275,13 @@ class ExtractionsManager {
         return queued
     }
     
-    fileprivate func tryHandleUnauthorizedError(_ error:Error?) {
+    @discardableResult fileprivate func tryHandleUnauthorizedError(_ error:Error?) -> Bool {
         if let error = error as NSError? {
             if error.isTokenExpiredError() {
                 authenticator?.reauthenticate()
+                return true
             }
         }
+        return false
     }
 }
