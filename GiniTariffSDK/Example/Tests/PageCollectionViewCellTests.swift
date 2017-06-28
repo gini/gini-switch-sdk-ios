@@ -114,6 +114,18 @@ class PageCollectionViewCellTests: XCTestCase {
         // TODO: maybe check the image view also?
     }
     
+    func testAddingPageNumber() {
+        pageCell = initializeCellFromStoryboard(pageCollection: nil, indexPath: IndexPath(row:0, section:1))
+        pageCell.pageNumber = 3
+        XCTAssertEqual(pageCell.pageNumberLabel.text, "Foto 3", "When a page number is set, it should be displayed in the pageNumberLabel")
+    }
+    
+    func testAddingNoPageNumber() {
+        pageCell = initializeCellFromStoryboard(pageCollection: nil, indexPath: IndexPath(row:0, section:1))
+        pageCell.pageNumber = nil
+        XCTAssertTrue(pageCell.pageNumberLabel.text?.isEmpty == true, "When a nil page number is set, pageNumberLabel should be empty")
+    }
+    
 }
 
 extension PageCollectionViewCellTests {

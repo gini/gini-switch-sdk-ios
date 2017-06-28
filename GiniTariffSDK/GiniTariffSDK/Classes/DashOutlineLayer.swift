@@ -10,14 +10,14 @@ import UIKit
 
 extension CALayer {
 
-    static func dashedRectangleLayer(frame:CGRect, color:UIColor) -> CALayer {
+    static func dashedRectangleLayer(frame:CGRect, color:UIColor, lineWidth:CGFloat = 2, dashLength:NSNumber = 4) -> CALayer {
         let layer = CAShapeLayer()
         layer.frame = frame
         layer.path = CGPath(rect: frame, transform: nil)
         layer.strokeColor = color.cgColor
         layer.fillColor = UIColor.clear.cgColor
-        layer.lineWidth = 3.0
-        layer.lineDashPattern = [5, 5]
+        layer.lineWidth = lineWidth
+        layer.lineDashPattern = [dashLength, dashLength]
         return layer
     }
 }

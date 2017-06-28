@@ -134,6 +134,22 @@ class PagesCollectionViewControllerTests: XCTestCase {
         pagesController.delegate = self
         pagesController.collectionView(pagesController.pagesCollection!, didSelectItemAt: IndexPath(row:0, section:1))
     }
+    
+    func testSettingPageNumbers() {
+        let page1 = ScanPage()
+        let collection = PageCollection(pages: [page1])
+        pagesController.pages = collection
+        let cell = pagesController.collectionView(pagesController.pagesCollection!, cellForItemAt: IndexPath(row:0, section:0)) as? PageCollectionViewCell
+        XCTAssertEqual(cell?.pageNumber, 1, "PagesCollectionViewController should set page numbers on cells")
+    }
+    
+    func testSectionOnePageNumber() {
+        let page1 = ScanPage()
+        let collection = PageCollection(pages: [page1])
+        pagesController.pages = collection
+        let cell = pagesController.collectionView(pagesController.pagesCollection!, cellForItemAt: IndexPath(row:0, section:1)) as? PageCollectionViewCell
+        XCTAssertEqual(cell?.pageNumber, 2, "PagesCollectionViewController should set page numbers on cells")
+    }
 }
 
 extension PagesCollectionViewControllerTests: PagesCollectionViewControllerDelegate {

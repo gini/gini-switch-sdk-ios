@@ -70,6 +70,7 @@ extension PagesCollectionViewController: UICollectionViewDataSource {
             assert(false, "Unknown section encountered \(indexPath.section)")
         }
         cell.isSelected = (indexPath == selectedIndexPath)
+        cell.pageNumber = pageNumberFor(indexPath:indexPath)
         
         return cell
     }
@@ -79,16 +80,27 @@ extension PagesCollectionViewController: UICollectionViewDataSource {
         return 2
     }
     
-    private func setupPageCell(_ cell:PageCollectionViewCell, index:Int) {
+    fileprivate func setupPageCell(_ cell:PageCollectionViewCell, index:Int) {
         cell.page = self.pages.pages[index]
     }
     
-    private func setupAddCell(_ cell:PageCollectionViewCell) {
+    fileprivate func setupAddCell(_ cell:PageCollectionViewCell) {
         cell.pagePreview.image = nil
         cell.pageStatusUnderlineView.image = nil
         cell.pageStatusUnderlineView.backgroundColor = UIColor.clear
         cell.pageStatusView.image = nil
         cell.addPageLabel.isHidden = !shouldShowAddIcon
+    }
+    
+    fileprivate func pageNumberFor(indexPath:IndexPath) -> UInt? {
+        switch indexPath.section {
+        case 0:
+            return UInt(indexPath.row + NSInteger(1))
+        case 1:
+            return UInt(pages.count + 1)
+        default:
+            return nil
+        }
     }
     
 }
