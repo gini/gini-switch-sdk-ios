@@ -133,7 +133,16 @@ internal extension NSMutableDictionary {
     
 }
 
-typealias MetaInformation = NSDictionary
+typealias MetaInformation = NSMutableDictionary
+
+extension NSDictionary {
+    
+    func prettyPrint() {
+        self.allKeys.forEach { (key) in
+            print("\(key) : \(self.value(forKey: key as! String))")
+        }
+    }
+}
 
 /// The JPEG compression level that will be used if nothing else
 /// is specified in imageData(withCompression:)
@@ -154,6 +163,7 @@ internal class ImageMetaInformationManager {
     }
     
     func imageData(withCompression compression: CGFloat = JPEGDefaultCompression) -> Data? {
+        filterMetaInformation()
         return generateImage(withMetaInformation: metaInformation, andCompression: compression)
     }
     
@@ -166,7 +176,7 @@ internal class ImageMetaInformationManager {
     
     func rotate(degrees:Int, imageOrientation: UIImageOrientation) {
         update(imageOrientation: imageOrientation)
-        let information = metaInformation as? NSMutableDictionary
+        let information = metaInformation
         information?.set(metaInformation: userComment(rotationDegrees: degrees) as AnyObject?, forKey: kCGImagePropertyExifUserComment as String)
     }
     
@@ -186,7 +196,7 @@ internal class ImageMetaInformationManager {
     
     fileprivate func addDefaultValues(toMetaInformation information: MetaInformation) -> MetaInformation {
         var defaultInformation = information
-        defaultInformation = add(requiredValuesWithKeys: cfTiffKeys.strings, toMetaInformation: defaultInformation)
+        defaultInformation = add(requiredValuesWithKeys: cfExifKeys.strings, toMetaInformation: defaultInformation)
         defaultInformation = add(requiredValuesWithKeys: cfTiffKeys.strings, toMetaInformation: defaultInformation)
         return defaultInformation
     }
@@ -225,8 +235,9 @@ internal class ImageMetaInformationManager {
 
     fileprivate func metaInformation(fromImageData data: Data) -> MetaInformation? {
         guard let source = CGImageSourceCreateWithData(data as CFData, nil),
-              let metaInformation = CGImageSourceCopyPropertiesAtIndex(source, 0, nil) as MetaInformation? else { return nil }
-        return metaInformation
+            let propertiesDict = CGImageSourceCopyPropertiesAtIndex(source, 0, nil) else { return nil }
+        return MetaInformation(dictionary: propertiesDict)
+        
     }
     
     fileprivate func value(forMetaKey key: String) -> String? {
@@ -280,7 +291,7 @@ internal class ImageMetaInformationManager {
     }
     
     fileprivate func valueFor(userCommentField:String) -> String? {
-        let exifDict = metaInformation as? NSMutableDictionary
+        let exifDict = metaInformation
         let existingUserComment = exifDict?.getMetaInformation(forKey:kCGImagePropertyExifUserComment as String)
         let components = existingUserComment?.components(separatedBy: ",")
         let userCommentComponent = components?.filter({ (component) -> Bool in
