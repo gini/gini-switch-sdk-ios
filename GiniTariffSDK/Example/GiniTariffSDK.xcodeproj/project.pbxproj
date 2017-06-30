@@ -16,6 +16,8 @@
 		2310270A1EC473C100920F40 /* CameraOptionsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231027091EC473C100920F40 /* CameraOptionsViewControllerTests.swift */; };
 		2310270E1EC49BD900920F40 /* PagesCollectionViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2310270D1EC49BD900920F40 /* PagesCollectionViewControllerTests.swift */; };
 		23128CFD1EFA7ED0004F2A62 /* ErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23128CFC1EFA7ED0004F2A62 /* ErrorTests.swift */; };
+		23128D061F03DA72004F2A62 /* OnboardingPageViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23128D051F03DA72004F2A62 /* OnboardingPageViewControllerTests.swift */; };
+		23128D0A1F03E7A3004F2A62 /* TariffOnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23128D091F03E7A3004F2A62 /* TariffOnboardingTests.swift */; };
 		232CFB751EC4CB44009D464A /* PageCollectionViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232CFB741EC4CB44009D464A /* PageCollectionViewCellTests.swift */; };
 		232CFB7A1EC9D18E009D464A /* ScanPageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232CFB791EC9D18E009D464A /* ScanPageTests.swift */; };
 		232CFB7E1EC9D4D5009D464A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -75,6 +77,8 @@
 		231027091EC473C100920F40 /* CameraOptionsViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraOptionsViewControllerTests.swift; sourceTree = "<group>"; };
 		2310270D1EC49BD900920F40 /* PagesCollectionViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagesCollectionViewControllerTests.swift; sourceTree = "<group>"; };
 		23128CFC1EFA7ED0004F2A62 /* ErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTests.swift; sourceTree = "<group>"; };
+		23128D051F03DA72004F2A62 /* OnboardingPageViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewControllerTests.swift; sourceTree = "<group>"; };
+		23128D091F03E7A3004F2A62 /* TariffOnboardingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TariffOnboardingTests.swift; sourceTree = "<group>"; };
 		232CFB741EC4CB44009D464A /* PageCollectionViewCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCellTests.swift; sourceTree = "<group>"; };
 		232CFB791EC9D18E009D464A /* ScanPageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanPageTests.swift; sourceTree = "<group>"; };
 		233B51A51ECA006400C018B8 /* PageCollectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCollectionTests.swift; sourceTree = "<group>"; };
@@ -245,6 +249,8 @@
 				23A533F21EEECF9900EB2229 /* ExtractionsManagerTests.swift */,
 				23A533F81EF28B1700EB2229 /* ExtractionValueTests.swift */,
 				23128CFC1EFA7ED0004F2A62 /* ErrorTests.swift */,
+				23128D051F03DA72004F2A62 /* OnboardingPageViewControllerTests.swift */,
+				23128D091F03E7A3004F2A62 /* TariffOnboardingTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -499,6 +505,7 @@
 				231026F71EC1F35100920F40 /* MultiPageScanViewControllerTests.swift in Sources */,
 				23A533B71EDDBA5300EB2229 /* TokenTests.swift in Sources */,
 				23A533B31EDDB46B00EB2229 /* UserTests.swift in Sources */,
+				23128D0A1F03E7A3004F2A62 /* TariffOnboardingTests.swift in Sources */,
 				23A533F91EF28B1700EB2229 /* ExtractionValueTests.swift in Sources */,
 				233B51A61ECA006400C018B8 /* PageCollectionTests.swift in Sources */,
 				2310270A1EC473C100920F40 /* CameraOptionsViewControllerTests.swift in Sources */,
@@ -522,6 +529,7 @@
 				230B0A2E1ED59ADB00892467 /* PreviewViewControllerTests.swift in Sources */,
 				23A533C91EE82EAF00EB2229 /* AuthenticatorTests.swift in Sources */,
 				23EB01861EC07162000AB2D9 /* TariffUserInterfaceTests.swift in Sources */,
+				23128D061F03DA72004F2A62 /* OnboardingPageViewControllerTests.swift in Sources */,
 				231027051EC21F2500920F40 /* TestUtils.swift in Sources */,
 				2383D19D1ECC449400FF91FD /* ReviewViewControllerTests.swift in Sources */,
 				231026E91EC0ADCD00920F40 /* TariffConsoleLoggerTests.swift in Sources */,

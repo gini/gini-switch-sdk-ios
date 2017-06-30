@@ -36,6 +36,8 @@
 		23128CFF1EFAAB4F004F2A62 /* ResourceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23128CFE1EFAAB4F004F2A62 /* ResourceError.swift */; };
 		23128D021EFD673C004F2A62 /* Tariff.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23128D011EFD66FF004F2A62 /* Tariff.xcassets */; };
 		23128D041F029DA8004F2A62 /* DashOutlineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23128D031F029DA8004F2A62 /* DashOutlineLayer.swift */; };
+		23128D081F03DB60004F2A62 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23128D071F03DB60004F2A62 /* OnboardingPageViewController.swift */; };
+		23128D0C1F03ED64004F2A62 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23128D0B1F03ED64004F2A62 /* OnboardingViewController.swift */; };
 		232CFB781EC4CDFE009D464A /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232CFB761EC4CD4A009D464A /* PageCollectionViewCell.swift */; };
 		232CFB7D1EC9D204009D464A /* ScanPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232CFB7C1EC9D204009D464A /* ScanPage.swift */; };
 		233B51A81ECA01F000C018B8 /* PageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B51A71ECA01F000C018B8 /* PageCollection.swift */; };
@@ -137,6 +139,8 @@
 		23128CFE1EFAAB4F004F2A62 /* ResourceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResourceError.swift; path = Classes/ResourceError.swift; sourceTree = "<group>"; };
 		23128D011EFD66FF004F2A62 /* Tariff.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Tariff.xcassets; path = Assets/Tariff.xcassets; sourceTree = "<group>"; };
 		23128D031F029DA8004F2A62 /* DashOutlineLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashOutlineLayer.swift; path = Classes/DashOutlineLayer.swift; sourceTree = "<group>"; };
+		23128D071F03DB60004F2A62 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingPageViewController.swift; path = Classes/OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		23128D0B1F03ED64004F2A62 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingViewController.swift; path = Classes/OnboardingViewController.swift; sourceTree = "<group>"; };
 		232CFB761EC4CD4A009D464A /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageCollectionViewCell.swift; path = Classes/PageCollectionViewCell.swift; sourceTree = "<group>"; };
 		232CFB7C1EC9D204009D464A /* ScanPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanPage.swift; path = Classes/ScanPage.swift; sourceTree = "<group>"; };
 		233B51A71ECA01F000C018B8 /* PageCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageCollection.swift; path = Classes/PageCollection.swift; sourceTree = "<group>"; };
@@ -325,6 +329,8 @@
 				2399D8951ED3411D0006D523 /* ExtractionsTableViewCell.swift */,
 				230B0A2F1ED59BC900892467 /* PreviewViewController.swift */,
 				23128D031F029DA8004F2A62 /* DashOutlineLayer.swift */,
+				23128D071F03DB60004F2A62 /* OnboardingPageViewController.swift */,
+				23128D0B1F03ED64004F2A62 /* OnboardingViewController.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -791,6 +797,7 @@
 				23A533C11EDF02E100EB2229 /* UserManager.swift in Sources */,
 				230B0A2A1ED48D1400892467 /* MotionManager.swift in Sources */,
 				23A533B91EDDBE9700EB2229 /* Token.swift in Sources */,
+				23128D0C1F03ED64004F2A62 /* OnboardingViewController.swift in Sources */,
 				23A533F71EF289CA00EB2229 /* ExtractionValue.swift in Sources */,
 				231026EB1EC0BA1500920F40 /* TariffAppearance.swift in Sources */,
 				23EB01801EC06602000AB2D9 /* TariffSdk.swift in Sources */,
@@ -810,6 +817,7 @@
 				232CFB7D1EC9D204009D464A /* ScanPage.swift in Sources */,
 				7F101E8CE99B4D0FD46A404B7178AE23 /* GiniTariffSDK-dummy.m in Sources */,
 				23A533CF1EE8472400EB2229 /* URL+QueryParameters.swift in Sources */,
+				23128D081F03DB60004F2A62 /* OnboardingPageViewController.swift in Sources */,
 				231026E71EC0AB4100920F40 /* TariffConsoleLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
