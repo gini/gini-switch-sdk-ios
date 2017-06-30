@@ -28,7 +28,12 @@ public struct TariffOnboarding {
     let pages:[OnboardingPage]
     
     public init() {
-        pages = []
+        // init with default pages
+        let onboarding1 = OnboardingPage(image:UIImage(named:"onboardingPage1", in: Bundle(identifier: "org.cocoapods.GiniTariffSDK"), compatibleWith: nil)!, text: "1")
+        let onboarding2 = OnboardingPage(image:UIImage(named:"onboardingPage2", in: Bundle(identifier: "org.cocoapods.GiniTariffSDK"), compatibleWith: nil)!, text: "2")
+        let onboarding3 = OnboardingPage(image:UIImage(named:"onboardingPage3", in: Bundle(identifier: "org.cocoapods.GiniTariffSDK"), compatibleWith: nil)!, text: "3")
+        
+        self.init(pages: [onboarding1, onboarding2, onboarding3])
     }
     
     public init(pages:[OnboardingPage]) {
