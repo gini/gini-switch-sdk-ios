@@ -81,7 +81,7 @@ class PageCollectionViewCell: UICollectionViewCell {
     }
     
     override func awakeFromNib() {
-        let dashLayer = CALayer.dashedRectangleLayer(frame: self.pagePreview.bounds, color: UIColor.white)
+        let dashLayer = CALayer.dashOutlineLayer(frame: self.pagePreview.bounds, color: UIColor.white)
         dashLayer.isHidden = true
         pageSelectionLayer = dashLayer
         self.pagePreview.layer.addSublayer(dashLayer)

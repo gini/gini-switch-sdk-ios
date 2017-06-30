@@ -10,7 +10,7 @@ import UIKit
 
 extension CALayer {
 
-    static func dashedRectangleLayer(frame:CGRect, color:UIColor, lineWidth:CGFloat = 2, dashLength:NSNumber = 4) -> CALayer {
+    static func dashOutlineLayer(frame:CGRect, color:UIColor, lineWidth:CGFloat = 2, dashLength:NSNumber = 4) -> CALayer {
         let layer = CAShapeLayer()
         layer.frame = frame
         layer.path = CGPath(rect: frame, transform: nil)
