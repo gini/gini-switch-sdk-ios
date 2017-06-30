@@ -35,7 +35,6 @@ class PageCollectionViewCell: UICollectionViewCell {
             image = UIImage(data: data)
             status = pageStatus
             addPageLabel.isHidden = true
-            pageStatusUnderlineView.isHidden = false
         }
     }
     
@@ -78,6 +77,20 @@ class PageCollectionViewCell: UICollectionViewCell {
                 uploadingIndicator.isHidden = true
             }
         }
+    }
+    
+    var shouldShowPlus:Bool = false {
+        didSet {
+            addPageLabel.isHidden = !shouldShowPlus
+        }
+    }
+    
+    func setupForAddButton() {
+        pagePreview.image = nil
+        pageStatusUnderlineView.image = nil
+        pageStatusUnderlineView.backgroundColor = UIColor.clear
+        pageStatusView.image = nil
+        uploadingIndicator.isHidden = true
     }
     
     override func awakeFromNib() {
