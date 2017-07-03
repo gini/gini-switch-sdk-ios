@@ -36,6 +36,7 @@
 		23128CFF1EFAAB4F004F2A62 /* ResourceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23128CFE1EFAAB4F004F2A62 /* ResourceError.swift */; };
 		23128D021EFD673C004F2A62 /* Tariff.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23128D011EFD66FF004F2A62 /* Tariff.xcassets */; };
 		23128D041F029DA8004F2A62 /* DashOutlineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23128D031F029DA8004F2A62 /* DashOutlineLayer.swift */; };
+		23128D101F0A3CC5004F2A62 /* ExtractionsCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23128D0F1F0A3CC5004F2A62 /* ExtractionsCompletedViewController.swift */; };
 		232CFB781EC4CDFE009D464A /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232CFB761EC4CD4A009D464A /* PageCollectionViewCell.swift */; };
 		232CFB7D1EC9D204009D464A /* ScanPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232CFB7C1EC9D204009D464A /* ScanPage.swift */; };
 		233B51A81ECA01F000C018B8 /* PageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233B51A71ECA01F000C018B8 /* PageCollection.swift */; };
@@ -137,6 +138,7 @@
 		23128CFE1EFAAB4F004F2A62 /* ResourceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResourceError.swift; path = Classes/ResourceError.swift; sourceTree = "<group>"; };
 		23128D011EFD66FF004F2A62 /* Tariff.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Tariff.xcassets; path = Assets/Tariff.xcassets; sourceTree = "<group>"; };
 		23128D031F029DA8004F2A62 /* DashOutlineLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashOutlineLayer.swift; path = Classes/DashOutlineLayer.swift; sourceTree = "<group>"; };
+		23128D0F1F0A3CC5004F2A62 /* ExtractionsCompletedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtractionsCompletedViewController.swift; path = Classes/ExtractionsCompletedViewController.swift; sourceTree = "<group>"; };
 		232CFB761EC4CD4A009D464A /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageCollectionViewCell.swift; path = Classes/PageCollectionViewCell.swift; sourceTree = "<group>"; };
 		232CFB7C1EC9D204009D464A /* ScanPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanPage.swift; path = Classes/ScanPage.swift; sourceTree = "<group>"; };
 		233B51A71ECA01F000C018B8 /* PageCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageCollection.swift; path = Classes/PageCollection.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				2399D8951ED3411D0006D523 /* ExtractionsTableViewCell.swift */,
 				230B0A2F1ED59BC900892467 /* PreviewViewController.swift */,
 				23128D031F029DA8004F2A62 /* DashOutlineLayer.swift */,
+				23128D0F1F0A3CC5004F2A62 /* ExtractionsCompletedViewController.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -765,6 +768,7 @@
 				23A533E51EEA9FF400EB2229 /* CreateOrderResponse.swift in Sources */,
 				2383D1A31ECC69AE00FF91FD /* UIStoryboard+Tariff.swift in Sources */,
 				23A533BC1EDDCC7C00EB2229 /* WebService.swift in Sources */,
+				23128D101F0A3CC5004F2A62 /* ExtractionsCompletedViewController.swift in Sources */,
 				23A533D51EE9725200EB2229 /* TokenUtils.swift in Sources */,
 				23A533B51EDDB49300EB2229 /* User.swift in Sources */,
 				230B0A2C1ED4914800892467 /* TariffSdkStorage.swift in Sources */,

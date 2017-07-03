@@ -149,7 +149,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Sehr gut, wir könnten alle Daten aus diesem Fot erfolgreich analysieren." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed6-IP-jD3">
-                                <rect key="frame" x="8" y="16" width="359" height="41"/>
+                                <rect key="frame" x="8" y="16" width="359" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -180,10 +180,10 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7f9-Cy-2TZ">
-                                <rect key="frame" x="0.0" y="73" width="375" height="518"/>
+                                <rect key="frame" x="0.0" y="52.5" width="375" height="538.5"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pageUploadSuccessCheckmarkCircle" translatesAutoresizingMaskIntoConstraints="NO" id="gsP-hJ-IfY">
-                                <rect key="frame" x="172" y="317" width="30" height="30"/>
+                                <rect key="frame" x="119.5" y="254.5" width="135" height="135"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -447,10 +447,10 @@
             </objects>
             <point key="canvasLocation" x="1362.4000000000001" y="831.63418290854577"/>
         </scene>
-        <!--View Controller-->
+        <!--Extractions Completed View Controller-->
         <scene sceneID="btW-mp-ZP9">
             <objects>
-                <viewController storyboardIdentifier="ExtractionsCompletedViewController" id="xqs-uQ-KM6" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ExtractionsCompletedViewController" id="xqs-uQ-KM6" customClass="ExtractionsCompletedViewController" customModule="GiniTariffSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tQC-sx-OyZ"/>
                         <viewControllerLayoutGuide type="bottom" id="kxe-FB-M4R"/>
@@ -459,12 +459,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KwV-S9-ayu">
-                                <rect key="frame" x="112.5" y="183.5" width="150" height="150"/>
-                                <color key="backgroundColor" red="0.89015811680000001" green="0.042145691809999997" blue="0.36638969179999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pageUploadSuccessCheckmarkCircle" translatesAutoresizingMaskIntoConstraints="NO" id="KwV-S9-ayu">
+                                <rect key="frame" x="127.5" y="213.5" width="120" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="fbh-AE-K4Z"/>
-                                    <constraint firstAttribute="height" constant="150" id="sxG-Cm-Ixr"/>
+                                    <constraint firstAttribute="width" constant="120" id="fbh-AE-K4Z"/>
+                                    <constraint firstAttribute="height" constant="120" id="sxG-Cm-Ixr"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wir haben Alles was wir für deinen Strom Anbieter Wechseln benötigen." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQM-xN-CcN">
@@ -484,6 +483,10 @@
                             <constraint firstItem="KwV-S9-ayu" firstAttribute="centerX" secondItem="Taq-C5-GlW" secondAttribute="centerX" id="uqt-9N-R7J"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="KwV-S9-ayu" id="bgf-un-acN"/>
+                        <outlet property="textLabel" destination="SQM-xN-CcN" id="txr-C3-dMd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyZ-VE-zCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -502,7 +505,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcL-36-dcE">
-                                <rect key="frame" x="153" y="6" width="68" height="68"/>
+                                <rect key="frame" x="153.5" y="6" width="68" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="gcL-36-dcE" secondAttribute="height" multiplier="1:1" id="GIu-8j-cJJ"/>
                                 </constraints>
