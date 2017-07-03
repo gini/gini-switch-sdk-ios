@@ -27,6 +27,7 @@ class ExtractionsManager {
     var clientDomain:String = ""
 
     var scannedPages = PageCollection()
+    var extractionsComplete = false
     var extractions = ExtractionCollection()
     var authenticator:Authenticator? = nil
     var uploadService:ExtractionService? = nil
@@ -212,6 +213,7 @@ class ExtractionsManager {
     fileprivate func parseStatus(_ status:ExtractionStatusResponse?) {
         // go through all scanned pages and see if their status changed if any way
         var hasChanges = false
+        let hasJustCompleted = !extractionsComplete && (status?.extractionCompleted ?? false)
         status?.pages.forEach({ (page) in
             if let scannedPage = scannedPages.page(for: page.href!) {  // TODO: why is href optional?
                 if scannedPage.status != page.pageStatus {
@@ -222,6 +224,10 @@ class ExtractionsManager {
         })
         if hasChanges {
             notifyCollectionChanged()
+        }
+        if hasJustCompleted {
+            extractionsComplete = true
+            notifyExtractionsComplete()
         }
     }
     
@@ -239,6 +245,10 @@ class ExtractionsManager {
     
     fileprivate func notifyExtractionsChanged() {
         self.delegate?.extractionsManager(self, didChangeExtractions: extractions)
+    }
+    
+    fileprivate func notifyExtractionsComplete() {
+        self.delegate?.extractionsManagerDidCompleteExtractions(self)
     }
     
     fileprivate func startQueuedUploads() {
