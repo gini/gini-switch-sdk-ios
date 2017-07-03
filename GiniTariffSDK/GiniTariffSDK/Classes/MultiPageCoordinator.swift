@@ -79,6 +79,8 @@ class MultiPageCoordinator {
     
     fileprivate func completeIfReady() {
         if extractionsCompleted {
+            // reset the flag just in case
+            extractionsCompleted = false
             // show the extractions completed screen
             let completionController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "ExtractionsCompletedViewController") as! ExtractionsCompletedViewController
             let myDelegate = delegate
