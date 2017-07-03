@@ -16,6 +16,7 @@ protocol ExtractionsManagerDelegate {
     func extractionsManager(_ manager:ExtractionsManager, didChangeExtractions extractions:ExtractionCollection)
     func extractionsManagerDidAuthenticate(_ manager:ExtractionsManager)
     func extractionsManagerDidCreateOrder(_ manager:ExtractionsManager)
+    func extractionsManagerDidCompleteExtractions(_ manager:ExtractionsManager)
     
 }
 

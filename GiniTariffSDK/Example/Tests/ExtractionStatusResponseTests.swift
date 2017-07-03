@@ -40,4 +40,9 @@ class ExtractionStatusResponseTests: XCTestCase {
         XCTAssertEqual(page?.href, selfHref, "ExtractionStatusResponse should be able to parse page href")
     }
     
+    func testHasExtractionCompletionFlag() {
+        response = ExtractionStatusResponse(dict: [:])
+        XCTAssertFalse(response.extractionCompleted, "ExtractionStatusResponse should have a flag notifying when the extractions process is completed")
+    }
+    
 }

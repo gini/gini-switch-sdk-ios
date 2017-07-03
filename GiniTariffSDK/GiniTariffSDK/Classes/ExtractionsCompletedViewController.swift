@@ -15,10 +15,7 @@ class ExtractionsCompletedViewController: UIViewController {
     
     var image:UIImage? = nil {
         didSet {
-            guard imageView != nil else {
-                return
-            }
-            imageView.image = image
+            setupImage(image)
         }
     }
     
@@ -30,7 +27,7 @@ class ExtractionsCompletedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.image = image
+        setupImage(image)
         setupText(text)
     }
     
@@ -39,6 +36,13 @@ class ExtractionsCompletedViewController: UIViewController {
             return
         }
         textLabel.text = text
+    }
+    
+    fileprivate func setupImage(_ image:UIImage?) {
+        guard image != nil else {
+            return
+        }
+        imageView.image = image
     }
 
 }
