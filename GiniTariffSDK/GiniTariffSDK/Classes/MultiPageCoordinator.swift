@@ -76,8 +76,7 @@ class MultiPageCoordinator {
             }
             onboarding.completion = completionDismiss
             onboarding.modalPresentationStyle = .overFullScreen
-            let deadlineTime = DispatchTime.now() + .seconds(2)
-            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            DispatchQueue.main.async {
                 self.delegate?.multiPageCoordinator(self, requestedShowingController: onboarding, presentationStyle: .modal)
             }
         }
