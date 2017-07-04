@@ -32,7 +32,7 @@ public class TariffSdk {
     public weak var delegate:TariffSdkDelegate? = nil
     
     let userInterface = TariffUserInterface()
-    public let configuration = TariffConfiguration()
+    public var configuration = TariffConfiguration()
     
     /*
      * Convenience getter for the appearance object in the configuration

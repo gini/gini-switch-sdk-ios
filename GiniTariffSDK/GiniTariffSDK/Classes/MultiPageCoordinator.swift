@@ -36,10 +36,11 @@ class MultiPageCoordinator {
         cameraController.delegate = self
         pagesCollection.delegate = self
         
-        // TODO: remove this 5 sec waiting once queueing is done 
         extractionsManager.delegate = self
         extractionsManager.authenticate()
         self.extractionsManager.createExtractionOrder()
+        
+        scheduleOnboarding()
     }
     
     func showReviewScreen(withPage page:ScanPage) {
@@ -63,6 +64,21 @@ class MultiPageCoordinator {
             }
             self?.pageCollectionController.pages = pages
             self?.pageCollectionController.pagesCollection?.reloadData()
+        }
+    }
+    
+    fileprivate func scheduleOnboarding() {
+        if !TariffOnboarding.hasShownOnboarding {
+            let onboarding = OnboardingViewController(onboarding: (TariffSdkStorage.activeTariffSdk?.configuration.onboarding)!, completion:nil)
+            let completionDismiss = {
+                TariffOnboarding.hasShownOnboarding = true
+                self.delegate?.multiPageCoordinator(self, requestedDismissingController: onboarding, presentationStyle: .modal)
+            }
+            onboarding.completion = completionDismiss
+            onboarding.modalPresentationStyle = .overFullScreen
+            DispatchQueue.main.async {
+                self.delegate?.multiPageCoordinator(self, requestedShowingController: onboarding, presentationStyle: .modal)
+            }
         }
     }
 }

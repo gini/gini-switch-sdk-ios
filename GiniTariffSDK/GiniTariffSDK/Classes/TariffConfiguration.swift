@@ -36,6 +36,6 @@ public struct TariffConfiguration {
      * During the SDK's first run, an onboarding sequence will be shown. While a default content is
      * provided, clients can override that and use their own data using a TariffOnboarding object
      */
-    public let onboarding = TariffOnboarding()
+    public var onboarding = TariffOnboarding()
     
 }
