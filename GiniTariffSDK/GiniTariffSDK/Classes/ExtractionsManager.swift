@@ -16,6 +16,7 @@ protocol ExtractionsManagerDelegate {
     func extractionsManager(_ manager:ExtractionsManager, didChangeExtractions extractions:ExtractionCollection)
     func extractionsManagerDidAuthenticate(_ manager:ExtractionsManager)
     func extractionsManagerDidCreateOrder(_ manager:ExtractionsManager)
+    func extractionsManagerDidCompleteExtractions(_ manager:ExtractionsManager)
     
 }
 
@@ -26,6 +27,7 @@ class ExtractionsManager {
     var clientDomain:String = ""
 
     var scannedPages = PageCollection()
+    var extractionsComplete = false
     var extractions = ExtractionCollection()
     var authenticator:Authenticator? = nil
     var uploadService:ExtractionService? = nil
@@ -211,6 +213,7 @@ class ExtractionsManager {
     fileprivate func parseStatus(_ status:ExtractionStatusResponse?) {
         // go through all scanned pages and see if their status changed if any way
         var hasChanges = false
+        let hasJustCompleted = !extractionsComplete && (status?.extractionCompleted ?? false)
         status?.pages.forEach({ (page) in
             if let scannedPage = scannedPages.page(for: page.href!) {  // TODO: why is href optional?
                 if scannedPage.status != page.pageStatus {
@@ -221,6 +224,10 @@ class ExtractionsManager {
         })
         if hasChanges {
             notifyCollectionChanged()
+        }
+        if hasJustCompleted {
+            extractionsComplete = true
+            notifyExtractionsComplete()
         }
     }
     
@@ -240,6 +247,10 @@ class ExtractionsManager {
         self.delegate?.extractionsManager(self, didChangeExtractions: extractions)
     }
     
+    fileprivate func notifyExtractionsComplete() {
+        self.delegate?.extractionsManagerDidCompleteExtractions(self)
+    }
+    
     fileprivate func startQueuedUploads() {
         queuedPages().forEach { (page) in
             add(page: page)
@@ -248,7 +259,8 @@ class ExtractionsManager {
     
     fileprivate func startPolling() {
         statusScheduler = PollScheduler(condition: { [weak self]() -> Bool in
-            return (self?.hasActiveSession == true)
+            let analysingPages = self?.scannedPages.pages.filter {$0.status == .uploaded || $0.status == .uploading}
+            return (self?.hasActiveSession == true) && (self?.extractionsComplete == false || !(analysingPages?.isEmpty ?? true))
         }) { [weak self]() in
             self?.pollStatus()
         }

@@ -82,14 +82,14 @@ class MultiPageCoordinatorTests: XCTestCase {
 
 extension MultiPageCoordinatorTests: MultiPageCoordinatorDelegate {
     
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedShowingController:UIViewController, presentationStyle:PresentationStyle) {
+    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedShowingController:UIViewController, presentationStyle:PresentationStyle, animated:Bool, completion:(() -> Void)?) {
         didRequestReviewScreen = true
         requestedReviewScreen = requestedShowingController as? ReviewViewController
         requestedExtractionScreen = requestedShowingController as? ExtractionsViewController
         exitActionSheet = requestedShowingController as? UIAlertController
     }
     
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController, presentationStyle:PresentationStyle) {
+    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController, presentationStyle:PresentationStyle, animated:Bool) {
         didRequestReviewDismiss = true
     }
     

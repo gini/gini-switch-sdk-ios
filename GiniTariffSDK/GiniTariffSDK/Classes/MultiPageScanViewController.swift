@@ -76,25 +76,25 @@ class MultiPageScanViewController: UIViewController {
 
 extension MultiPageScanViewController: MultiPageCoordinatorDelegate {
     
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedShowingController:UIViewController, presentationStyle:PresentationStyle) {
+    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedShowingController:UIViewController, presentationStyle:PresentationStyle, animated:Bool, completion: (() -> Void)?) {
         switch presentationStyle {
         case .modal:
-            self.present(requestedShowingController, animated: true, completion: nil)
+            self.present(requestedShowingController, animated: animated, completion: completion)
         case .navigation:
-            self.navigationController?.pushViewController(requestedShowingController, animated: true)
+            self.navigationController?.pushViewController(requestedShowingController, animated: animated)
         case .embed:
             setInEmbedView(requestedShowingController)
             break
         }
     }
     
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController, presentationStyle:PresentationStyle) {
+    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController, presentationStyle:PresentationStyle, animated:Bool) {
         switch presentationStyle {
         case .modal:
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: animated, completion: nil)
         case .navigation:
             if self.navigationController?.topViewController == requestedDismissingController {
-                self.navigationController?.popViewController(animated: true)
+                self.navigationController?.popViewController(animated: animated)
             }
             else {
                 let requestedIndex = self.navigationController?.viewControllers.index(of: requestedDismissingController)
@@ -103,7 +103,7 @@ extension MultiPageScanViewController: MultiPageCoordinatorDelegate {
                 let prevController = self.navigationController?.viewControllers[prevIndex] else {
                     return
                 }
-                self.navigationController?.popToViewController(prevController, animated: true)
+                self.navigationController?.popToViewController(prevController, animated: animated)
             }
         case .embed:
             dismissEmbeddedController(requestedDismissingController)

@@ -10,8 +10,8 @@ import UIKit
 
 protocol MultiPageCoordinatorDelegate:class {
     
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedShowingController:UIViewController, presentationStyle:PresentationStyle)
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController, presentationStyle:PresentationStyle)
+    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedShowingController:UIViewController, presentationStyle:PresentationStyle, animated:Bool, completion:(() -> Void)?)
+    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController, presentationStyle:PresentationStyle, animated:Bool)
 }
 
 class MultiPageCoordinator {
@@ -24,6 +24,8 @@ class MultiPageCoordinator {
     var extractionsManager = ExtractionsManager()       // should be able to inject another one
     
     var pageToReplace:ScanPage? = nil
+    var extractionsCompleted = false
+    let extrationsCompletePopupTimeout = 3
     
     weak var delegate:MultiPageCoordinatorDelegate? = nil
     
@@ -47,7 +49,14 @@ class MultiPageCoordinator {
         let reviewController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
         reviewController.page = page
         reviewController.delegate = self
-        delegate?.multiPageCoordinator(self, requestedShowingController: reviewController, presentationStyle: .modal)
+        delegate?.multiPageCoordinator(self, requestedShowingController: reviewController, presentationStyle: .modal, animated: true, completion: nil)
+    }
+    
+    fileprivate func createExtractionsScreen(extractions:ExtractionCollection) -> ExtractionsViewController {
+        let extractionsController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "ExtractionsViewController") as! ExtractionsViewController
+        extractionsController.extractionsCollection = extractionsManager.extractions
+        extractionsManager.pollExtractions()
+        return extractionsController
     }
     
     func enableCaptureButton(_ enabled:Bool) {
@@ -72,13 +81,42 @@ class MultiPageCoordinator {
             let onboarding = OnboardingViewController(onboarding: (TariffSdkStorage.activeTariffSdk?.configuration.onboarding)!, completion:nil)
             let completionDismiss = {
                 TariffOnboarding.hasShownOnboarding = true
-                self.delegate?.multiPageCoordinator(self, requestedDismissingController: onboarding, presentationStyle: .modal)
+                self.delegate?.multiPageCoordinator(self, requestedDismissingController: onboarding, presentationStyle: .modal, animated: true)
             }
             onboarding.completion = completionDismiss
             onboarding.modalPresentationStyle = .overFullScreen
             DispatchQueue.main.async {
-                self.delegate?.multiPageCoordinator(self, requestedShowingController: onboarding, presentationStyle: .modal)
+                self.delegate?.multiPageCoordinator(self, requestedShowingController: onboarding, presentationStyle: .modal, animated: true, completion: nil)
             }
+        }
+    }
+    
+    fileprivate func completeIfReady() {
+        if extractionsCompleted {
+            // reset the flag just in case
+            extractionsCompleted = false
+            // show the extractions completed screen
+            let completionController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "ExtractionsCompletedViewController") as! ExtractionsCompletedViewController
+            let myDelegate = delegate
+            myDelegate?.multiPageCoordinator(self, requestedShowingController: completionController, presentationStyle: .modal, animated: true) { [weak self] in
+                // after it is presented, push the extractions screen below it. That way, when it is 
+                // automatically dismissed, the extractions will appear below
+                guard let weakSelf = self else {
+                    return
+                }
+                let extractionsController = weakSelf.createExtractionsScreen(extractions:weakSelf.extractionsManager.extractions)
+                weakSelf.extractionsManager.pollExtractions()
+                DispatchQueue.main.async {
+                    // schedule this async to avoid mixing up the transitions
+                    weakSelf.delegate?.multiPageCoordinator(weakSelf, requestedShowingController: extractionsController, presentationStyle: .navigation, animated: false, completion: nil)
+                }
+            }
+            
+            // wait a few seconds so users can read the text and automatically dismiss
+            let delay = DispatchTime.now() + .seconds(extrationsCompletePopupTimeout)
+            DispatchQueue.main.asyncAfter(deadline: delay, execute: {
+                myDelegate?.multiPageCoordinator(self, requestedDismissingController: completionController, presentationStyle: .modal, animated: true)
+            })
         }
     }
 }
@@ -91,10 +129,9 @@ extension MultiPageCoordinator: CameraOptionsViewControllerDelegate {
     }
     
     func cameraControllerIsDone(cameraController:CameraOptionsViewController) {
-        let extractionsController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "ExtractionsViewController") as! ExtractionsViewController
-        extractionsController.extractionsCollection = extractionsManager.extractions
+        let extractionsController = createExtractionsScreen(extractions: extractionsManager.extractions)
         extractionsManager.pollExtractions()
-        delegate?.multiPageCoordinator(self, requestedShowingController: extractionsController, presentationStyle: .navigation)
+        delegate?.multiPageCoordinator(self, requestedShowingController: extractionsController, presentationStyle: .navigation, animated: true, completion: nil)
     }
 }
 
@@ -125,7 +162,7 @@ extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
         }
         actionSheet.addAction(cancelAction)
         actionSheet.addAction(leaveAction)
-        self.delegate?.multiPageCoordinator(self, requestedShowingController: actionSheet, presentationStyle: .modal)
+        self.delegate?.multiPageCoordinator(self, requestedShowingController: actionSheet, presentationStyle: .modal, animated: true, completion: nil)
     }
     
     func pageCollectionController(_ pageController:PagesCollectionViewController, didSelectPage:ScanPage) {
@@ -135,7 +172,7 @@ extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
         previewController.page = didSelectPage
         previewController.delegate = self
         embeddedController = previewController
-        delegate?.multiPageCoordinator(self, requestedShowingController: previewController, presentationStyle: .embed)
+        delegate?.multiPageCoordinator(self, requestedShowingController: previewController, presentationStyle: .embed, animated: false, completion: nil)
     }
     
     func pageCollectionControllerDidRequestAddPage(_ pageController:PagesCollectionViewController) {
@@ -144,14 +181,14 @@ extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
         }
         pageController.shouldShowAddIcon = false
         pageController.pagesCollection?.reloadData()
-        self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .embed)
+        self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .embed, animated: false)
     }
 }
 
 extension MultiPageCoordinator: ReviewViewControllerDelegate {
     
     func reviewController(_ controller:ReviewViewController, didAcceptPage page:ScanPage) {
-        delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .modal)
+        delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .modal, animated: true)
         if let toBeReplaced = pageToReplace {
             extractionsManager.replace(page: toBeReplaced, withPage: page)
             pageToReplace = nil
@@ -160,10 +197,12 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
             extractionsManager.add(page: page)
         }
         refreshPagesCollectionView()
+        completeIfReady()
     }
     
     func reviewController(_ controller:ReviewViewController, didRejectPage page:ScanPage) {
-        self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .modal)
+        self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .modal, animated: true)
+        completeIfReady()
     }
     
 }
@@ -174,14 +213,14 @@ extension MultiPageCoordinator: PreviewViewControllerDelegate {
         extractionsManager.delete(page: page)
         pageCollectionController.shouldShowAddIcon = true
         refreshPagesCollectionView()
-        self.delegate?.multiPageCoordinator(self, requestedDismissingController: previewController, presentationStyle: .embed)
+        self.delegate?.multiPageCoordinator(self, requestedDismissingController: previewController, presentationStyle: .embed, animated: true)
     }
     
     func previewController(previewController:PreviewViewController, didRequestRetake page:ScanPage) {
         pageToReplace = page
         pageCollectionController.shouldShowAddIcon = false
         pageCollectionController.pagesCollection?.reloadData()
-        self.delegate?.multiPageCoordinator(self, requestedDismissingController: previewController, presentationStyle: .embed)
+        self.delegate?.multiPageCoordinator(self, requestedDismissingController: previewController, presentationStyle: .embed, animated: true)
     }
 }
 
@@ -205,6 +244,12 @@ extension MultiPageCoordinator: ExtractionsManagerDelegate {
     
     func extractionsManagerDidCreateOrder(_ manager:ExtractionsManager) {
         
+    }
+    
+    func extractionsManagerDidCompleteExtractions(_ manager:ExtractionsManager) {
+        // Don't interrupt the user immediately. Allow them to complete the last action
+        // before notifying them that extractions are complete
+        extractionsCompleted = true
     }
     
 }
