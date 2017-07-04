@@ -38,37 +38,12 @@ class OnboardingViewController: UIPageViewController {
 extension OnboardingViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        let page = (viewController as? OnboardingPageViewController)?.page
-        guard let currentPage = page else {
-            return nil
-        }
-        let currentIndex = onboarding.pages.index(of: currentPage)
-        guard let index = currentIndex else {
-            return nil
-        }
-        let beforeIndex = onboarding.pages.index(before: index)
-        guard beforeIndex >= 0 && beforeIndex < onboarding.pages.count else {
-            return nil
-        }
-        return onboardingPageController(with: onboarding.pages[beforeIndex])
+        return nextPage(direction: -1, currentController: viewController)
         
     }
     
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        let page = (viewController as? OnboardingPageViewController)?.page
-        guard let currentPage = page else {
-            return nil
-        }
-        let currentIndex = onboarding.pages.index(of: currentPage)
-        guard let index = currentIndex,
-            (index >= 0 && index < onboarding.pages.count) else {
-            return nil
-        }
-        let afterIndex = onboarding.pages.index(after: index)
-        guard afterIndex >= 0 && afterIndex < onboarding.pages.count else {
-            return nil
-        }
-        return onboardingPageController(with: onboarding.pages[afterIndex])
+        return nextPage(direction: 1, currentController: viewController)
     }
     
     func onboardingPageController(with page:OnboardingPage?) -> OnboardingPageViewController? {
@@ -78,6 +53,27 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
         }
         pageController.page = page
         return pageController
+    }
+    
+    /// returns the next page in the page view controller in both directions
+    /// 1 for direction right and -1 for left
+    fileprivate func nextPage(direction:Int, currentController:UIViewController) -> OnboardingPageViewController? {
+        let page = (currentController as? OnboardingPageViewController)?.page
+        guard let currentPage = page else {
+            return nil
+        }
+        let currentIndex = onboarding.pages.index(of: currentPage)
+        guard let index = currentIndex else {
+                return nil
+        }
+        var afterIndex = onboarding.pages.index(before: index)
+        if direction == 1 {
+            afterIndex = onboarding.pages.index(after: index)
+        }
+        guard afterIndex >= 0 && afterIndex < onboarding.pages.count else {
+            return nil
+        }
+        return onboardingPageController(with: onboarding.pages[afterIndex])
     }
 }
 
