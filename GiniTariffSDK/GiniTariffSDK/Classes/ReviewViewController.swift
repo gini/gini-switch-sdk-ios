@@ -45,7 +45,7 @@ class ReviewViewController: UIViewController {
     var delegate:ReviewViewControllerDelegate? = nil
     
     @IBAction func useButtonTapped() {
-        // TODO: get the current image data since it might have been rotated
+        page?.imageData = metaInformationManager?.imageData()
         delegate?.reviewController(self, didAcceptPage: page!)
     }
     
