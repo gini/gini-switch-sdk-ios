@@ -41,11 +41,10 @@ class PreviewViewController: UIViewController {
     
     private func populate(with page:ScanPage?) {
         guard let page = page,
-            let imageData = page.imageData,
             let previewImageView = pagePreview,
             let statusView = statusImageView,
             let titleView = titleLabel else { return }
-        previewImageView.image = UIImage(data: imageData)
+        previewImageView.image = UIImage(data: page.imageData)
         switch page.status {
         case .analysed:
             // add the "Ok" marker in the middle of the preview

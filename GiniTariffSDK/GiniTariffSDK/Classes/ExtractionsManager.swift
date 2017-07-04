@@ -110,12 +110,8 @@ class ExtractionsManager {
             // Queue the request. After the session is active, the uploads will be started
             return
         }
-        guard let image = page.imageData else {
-            // TODO: imageData should probably not be an optional
-            return
-        }
         page.status = .uploading
-        uploadService?.addPage(data: image, completion: { [weak self](pageUrl, error) in
+        uploadService?.addPage(data: page.imageData, completion: { [weak self](pageUrl, error) in
             if let _ = error {
                 self?.tryHandleUnauthorizedError(error)
                 // TODO: handle error
@@ -135,7 +131,6 @@ class ExtractionsManager {
         scannedPages.remove(page)
         notifyCollectionChanged()
         guard hasActiveSession else {
-            // TODO: queue the request
             return
         }
         if let id = page.id {      // if the page doesn't have an id, it was probably not uploaded
@@ -151,7 +146,6 @@ class ExtractionsManager {
     /// Replacing handles the case where the image was rotated and needs to be re-uploaded
     func replace(page: ScanPage, withPage:ScanPage) {
         guard hasActiveSession else {
-            // TODO: queue the request
             return
         }
         
@@ -160,9 +154,9 @@ class ExtractionsManager {
         withPage.status = .uploading
         scannedPages.pages.insert(withPage, at: index ?? scannedPages.pages.endIndex)
         notifyCollectionChanged()
-        if let id = page.id, let data = withPage.imageData {
+        if let id = page.id {
             
-            uploadService?.replacePage(id: id, newImageData: data, completion: { [weak self] (pageUrl, error) in
+            uploadService?.replacePage(id: id, newImageData: withPage.imageData, completion: { [weak self] (pageUrl, error) in
                 self?.tryHandleUnauthorizedError(error)
                 if error == nil {
                     page.id = pageUrl
@@ -175,7 +169,6 @@ class ExtractionsManager {
     
     func pollStatus() {
         guard hasActiveSession else {
-            // TODO: queue the request
             return
         }
         uploadService?.fetchOrderStatus(completion: { [weak self](status, error) in
@@ -190,7 +183,6 @@ class ExtractionsManager {
     
     func pollExtractions() {
         guard hasActiveSession else {
-            // TODO: queue the request
             return
         }
         uploadService?.fetchExtractions(completion: { [weak self](collection, error) in
@@ -215,7 +207,8 @@ class ExtractionsManager {
         var hasChanges = false
         let hasJustCompleted = !extractionsComplete && (status?.extractionCompleted ?? false)
         status?.pages.forEach({ (page) in
-            if let scannedPage = scannedPages.page(for: page.href!) {  // TODO: why is href optional?
+            if let pageRef = page.href,
+                let scannedPage = scannedPages.page(for: pageRef) {
                 if scannedPage.status != page.pageStatus {
                     hasChanges = true
                     scannedPage.status = page.pageStatus
