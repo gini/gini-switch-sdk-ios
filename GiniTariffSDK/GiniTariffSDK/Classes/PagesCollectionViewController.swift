@@ -85,11 +85,8 @@ extension PagesCollectionViewController: UICollectionViewDataSource {
     }
     
     fileprivate func setupAddCell(_ cell:PageCollectionViewCell) {
-        cell.pagePreview.image = nil
-        cell.pageStatusUnderlineView.image = nil
-        cell.pageStatusUnderlineView.backgroundColor = UIColor.clear
-        cell.pageStatusView.image = nil
-        cell.addPageLabel.isHidden = !shouldShowAddIcon
+        cell.setupForAddButton()
+        cell.shouldShowPlus = shouldShowAddIcon
     }
     
     fileprivate func pageNumberFor(indexPath:IndexPath) -> UInt? {
