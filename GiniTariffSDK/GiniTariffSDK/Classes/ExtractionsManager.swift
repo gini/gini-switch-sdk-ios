@@ -259,7 +259,8 @@ class ExtractionsManager {
     
     fileprivate func startPolling() {
         statusScheduler = PollScheduler(condition: { [weak self]() -> Bool in
-            return (self?.hasActiveSession == true)
+            let analysingPages = self?.scannedPages.pages.filter {$0.status == .uploaded || $0.status == .uploading}
+            return (self?.hasActiveSession == true) && (self?.extractionsComplete == false || !(analysingPages?.isEmpty ?? true))
         }) { [weak self]() in
             self?.pollStatus()
         }
