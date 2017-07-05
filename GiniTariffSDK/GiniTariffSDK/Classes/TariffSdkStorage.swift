@@ -12,11 +12,19 @@ import UIKit
 // this will have to do
 class TariffSdkStorage {
 
-    static var activeTariffSdk:TariffSdk? = nil
+    static var activeTariffSdk:TariffSdk! = nil
     
 }
 
 /// Convenience method for getting the currently active appearance object
 func currentTariffAppearance() -> TariffAppearance {
-    return TariffSdkStorage.activeTariffSdk?.appearance ?? TariffAppearance()   // TODO: is returning an empty object ok?
+    return TariffSdkStorage.activeTariffSdk.appearance
+}
+
+func currentTariffSdk() -> TariffSdk {
+    return TariffSdkStorage.activeTariffSdk
+}
+
+func Logger() -> TariffLogger {
+    return currentTariffSdk().configuration.logging
 }

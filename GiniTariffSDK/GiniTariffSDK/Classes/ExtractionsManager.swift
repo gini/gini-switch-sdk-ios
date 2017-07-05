@@ -120,6 +120,7 @@ class ExtractionsManager {
                 page.id = pageUrl
                 page.status = .uploaded
                 self?.notifyCollectionChanged()
+                currentTariffSdk().delegate?.tariffSdk(sdk: currentTariffSdk(), didUpload: page.imageData)
             }
         })
     }
@@ -238,6 +239,7 @@ class ExtractionsManager {
     
     fileprivate func notifyExtractionsChanged() {
         self.delegate?.extractionsManager(self, didChangeExtractions: extractions)
+        currentTariffSdk().delegate?.tariffSdk(sdk: currentTariffSdk(), didExtractInfo: extractions)
     }
     
     fileprivate func notifyExtractionsComplete() {

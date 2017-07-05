@@ -12,7 +12,7 @@
  *
  * Other responses should inherit from this class and add their additional elements
  */
-class BaseApiResponse {
+public class BaseApiResponse {
 
     let href:String?
     

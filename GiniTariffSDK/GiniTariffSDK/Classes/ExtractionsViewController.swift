@@ -35,7 +35,7 @@ class ExtractionsViewController: UIViewController {
     }
     
     @IBAction func onSwitchTapped() {
-        TariffSdkStorage.activeTariffSdk?.delegate?.tariffSdkDidExtractionsComplete(sdk: TariffSdkStorage.activeTariffSdk!)
+        TariffSdkStorage.activeTariffSdk?.delegate?.tariffSdkDidComplete(sdk: TariffSdkStorage.activeTariffSdk!)
     }
 
 }

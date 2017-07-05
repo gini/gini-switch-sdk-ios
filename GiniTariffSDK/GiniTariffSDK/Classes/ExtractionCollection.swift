@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExtractionCollection:BaseApiResponse {
+public class ExtractionCollection:BaseApiResponse {
 
     let extractions:[Extraction]
     
@@ -34,7 +34,7 @@ class ExtractionCollection:BaseApiResponse {
 
 extension ExtractionCollection:Equatable {
     
-    static func ==(lhs: ExtractionCollection, rhs: ExtractionCollection) -> Bool {
+    public static func ==(lhs: ExtractionCollection, rhs: ExtractionCollection) -> Bool {
         return lhs.extractions == rhs.extractions
     }
     

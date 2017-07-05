@@ -41,6 +41,7 @@ class MultiPageCoordinator {
         extractionsManager.delegate = self
         extractionsManager.authenticate()
         self.extractionsManager.createExtractionOrder()
+        currentTariffSdk().delegate?.tariffSdkDidStart(sdk: currentTariffSdk())
         
         scheduleOnboarding()
     }
@@ -142,6 +143,7 @@ extension MultiPageCoordinator: CameraViewControllerDelegate {
         let newPage = ScanPage(imageData: data, id: nil, status: .taken)
         showReviewScreen(withPage:newPage)
         enableCaptureButton(true)
+        currentTariffSdk().delegate?.tariffSdk(sdk: currentTariffSdk(), didCapture: data)
     }
     
     func cameraViewController(controller:CameraViewController, didFailWithError error:Error) {
@@ -198,6 +200,7 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
         }
         refreshPagesCollectionView()
         completeIfReady()
+        currentTariffSdk().delegate?.tariffSdk(sdk: currentTariffSdk(), didReview: page.imageData)
     }
     
     func reviewController(_ controller:ReviewViewController, didRejectPage page:ScanPage) {
