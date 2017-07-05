@@ -68,13 +68,17 @@ class ExtractionsManager {
             // assume already trying too log in
             return
         }
+        Logger().logInfo(message: "Authenticating...")
         authenticator = Authenticator(clientId: clientId, secret: clientSecret, domain: clientDomain, credentials: KeychainCredentialsStore())
         authenticator?.authenticate(success: { [weak self] () in
+            Logger().logInfo(message: "Authentication successful")
             if self?.shouldRequestOrder == true {
+                Logger().logInfo(message: "Detected pending extraction order creation")
                 self?.createExtractionOrder()
             }
         }, failure: { (error) in
             // TODO: handle error
+            Logger().logError(message: "Authentication failed: \(error.localizedDescription)")
         })
     }
     
@@ -90,11 +94,14 @@ class ExtractionsManager {
         }
         shouldRequestOrder = false
         uploadService = ExtractionService(token: token)
+        Logger().logInfo(message: "Creating extraction order...")
         uploadService?.createOrder(completion: { [weak self](orderUrl, error) in
             if self?.tryHandleUnauthorizedError(error) == true {
+                Logger().logInfo(message: "Queueing extraction order creating")
                 self?.shouldRequestOrder = true
             }
             if error == nil && orderUrl != nil {
+                Logger().logInfo(message: "Created extraction order")
                 self?.startPolling()
                 self?.startQueuedUploads()
             }
@@ -111,12 +118,15 @@ class ExtractionsManager {
             return
         }
         page.status = .uploading
+        Logger().logInfo(message: "Uploading page")
         uploadService?.addPage(data: page.imageData, completion: { [weak self](pageUrl, error) in
-            if let _ = error {
+            if let error = error {
+                Logger().logError(message: "Page upload failed: \(error.localizedDescription)")
                 self?.tryHandleUnauthorizedError(error)
                 // TODO: handle error
             }
             else {
+                Logger().logInfo(message: "Uploaded page with path\n\(pageUrl ?? "<unknown>")")
                 page.id = pageUrl
                 page.status = .uploaded
                 self?.notifyCollectionChanged()
@@ -136,10 +146,16 @@ class ExtractionsManager {
         }
         if let id = page.id {      // if the page doesn't have an id, it was probably not uploaded
             uploadService?.deletePage(id: id, completion: { [weak self](pageUrl, error) in
-                // TODO: Handle possible errors
-                self?.tryHandleUnauthorizedError(error)
-                // TODO: if deleting failed, add the pages to the scan pages array so users see that
-                // it is still there
+                if let error = error {
+                    self?.tryHandleUnauthorizedError(error)
+                    Logger().logError(message: "Page delete failed: \(error.localizedDescription)")
+                    // TODO: Handle possible errors
+                    // TODO: if deleting failed, add the pages to the scan pages array so users see that
+                    // it is still there
+                }
+                else {
+                    Logger().logInfo(message: "Deleted page with path\n\(pageUrl ?? "<unknown>")")
+                }
             })
         }
     }
@@ -156,10 +172,13 @@ class ExtractionsManager {
         scannedPages.pages.insert(withPage, at: index ?? scannedPages.pages.endIndex)
         notifyCollectionChanged()
         if let id = page.id {
-            
             uploadService?.replacePage(id: id, newImageData: withPage.imageData, completion: { [weak self] (pageUrl, error) in
-                self?.tryHandleUnauthorizedError(error)
-                if error == nil {
+                if let error = error {
+                    Logger().logError(message: "Page replace failed: \(error.localizedDescription)")
+                    self?.tryHandleUnauthorizedError(error)
+                }
+                else {
+                    Logger().logInfo(message: "Deleted page\n\(withPage.id ?? "<unknown>")\nwith path\n\(pageUrl ?? "<unknown>")")
                     page.id = pageUrl
                     page.status = .uploaded
                     self?.notifyCollectionChanged()
@@ -217,9 +236,11 @@ class ExtractionsManager {
             }
         })
         if hasChanges {
+            Logger().logInfo(message: "Order status changed!")
             notifyCollectionChanged()
         }
         if hasJustCompleted {
+            Logger().logInfo(message: "Extractions completed")
             extractionsComplete = true
             notifyExtractionsComplete()
         }
@@ -228,6 +249,7 @@ class ExtractionsManager {
     fileprivate func parseExtractions(_ collection:ExtractionCollection) {
         // see if there's something new and notify if so
         if extractions != collection {
+            Logger().logInfo(message: "Extractions changed!")
             extractions = collection
             notifyExtractionsChanged()
         }
