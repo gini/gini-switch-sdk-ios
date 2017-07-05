@@ -94,8 +94,7 @@ class ExtractionResources {
 //            // TODO: return error
 //            assertionFailure("Encountered a malformed url")
 //        }
-        var fullUrl = URL(string:orderUrl)!
-        fullUrl = fullUrl.appendingPathComponent(id)
+        let fullUrl = URL(string:id)!
         let authHeaders = Token.bearerAuthHeadersDictWith(token: token)
         return Resource<Bool>(url: fullUrl, headers: authHeaders, method: "DELETE", body: nil, parseJSON: { (json) -> Bool? in
             // TODO: check for errors
