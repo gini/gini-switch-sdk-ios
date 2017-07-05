@@ -23,7 +23,7 @@ class ScanPage {
     static var thumbSize = 100
     
     var thumbnail:UIImage? = nil
-    var imageData:Data? = nil
+    var imageData:Data = Data()
     var id:String? = nil
     var status = ScanPageStatus.none
     
@@ -39,8 +39,7 @@ class ScanPage {
     }
     
     func generateThumbnail() {
-        guard let data = imageData else { return }
-        let imagesSource = CGImageSourceCreateWithData(data as CFData, nil)
+        let imagesSource = CGImageSourceCreateWithData(imageData as CFData, nil)
         guard let source = imagesSource else {return}
         let imageOptions:[String: AnyObject] = [kCGImageSourceShouldAllowFloat as String: true as NSNumber,
                                                 kCGImageSourceCreateThumbnailWithTransform as String: true as NSNumber,

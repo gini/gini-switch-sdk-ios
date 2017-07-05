@@ -73,7 +73,7 @@ class PageCollectionViewCellTests: XCTestCase {
         let page = ScanPage(imageData: testImageData(), id: "test", status: .failed)
         pageCell.page = page
         // only check the image sizes - it's not as deterministic as comparing images but simpler
-        XCTAssertEqual(pageCell.image?.size, UIImage(data: page.imageData!)?.size, "The image from ScanPage should be displayed on the cell page")
+        XCTAssertEqual(pageCell.image?.size, UIImage(data: page.imageData)?.size, "The image from ScanPage should be displayed on the cell page")
         XCTAssertEqual(pageCell.status, page.status, "The status from ScanPage should be displayed on the cell page")
     }
     

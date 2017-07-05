@@ -42,7 +42,6 @@ class ExtractionService {
     func addPage(data:Data, completion:@escaping ExtractionServicePageCallback) {
         guard let order = orderUrl else {
             // no extraction order yet
-            // TODO: maybe return an error
             return
         }
         resourceLoader.load(resource: resources.addPage(imageData: data, toOrder: order)) { (response, error) in
@@ -53,7 +52,6 @@ class ExtractionService {
     func deletePage(id:String, completion:@escaping ExtractionServicePageCallback) {
         guard let order = orderUrl else {
             // no extraction order yet
-            // TODO: maybe return an error
             return
         }
         resourceLoader.load(resource: resources.deletePageWith(id: id, orderUrl: order)) { (deleted, error) in
@@ -64,7 +62,6 @@ class ExtractionService {
     func replacePage(id:String, newImageData:Data, completion:@escaping ExtractionServicePageCallback) {
         guard let order = orderUrl else {
             // no extraction order yet
-            // TODO: maybe return an error
             return
         }
         resourceLoader.load(resource: resources.replacePageWith(id: id, orderUrl: order, imageData: newImageData)) { (response, error) in
@@ -75,7 +72,6 @@ class ExtractionService {
     func fetchOrderStatus(completion:@escaping ExtractionServiceStatusCallback) {
         guard let order = orderUrl else {
             // no extraction order yet
-            // TODO: maybe return an error
             return
         }
         resourceLoader.load(resource: resources.statusFor(orderUrl: order)) { (status, error) in
@@ -86,7 +82,6 @@ class ExtractionService {
     func fetchExtractions(completion:@escaping ExtractionServiceExtractionsCallback) {
         guard let order = orderUrl else {
             // no extraction order yet
-            // TODO: maybe return an error
             return
         }
         resourceLoader.load(resource: resources.extractionsFor(orderUrl: order)) { (collection, error) in

@@ -197,8 +197,6 @@ extension Authenticator {
     func basicAuthHeaderFor(user:String, pass:String) -> String {
         let credentials = "\(user):\(pass)"
         let credData = credentials.data(using: .utf8)
-        // TODO: if credData?.base64EncodedString() is nil, authentication would be impossible
-        // How can this case be handled
         return "Basic \(credData?.base64EncodedString() ?? "")"
     }
     

@@ -12,7 +12,7 @@ struct Token {
     
     let accessToken:String
     let refreshToken:String?
-    let expiration:Int      // TODO: is it an Int?
+    let expiration:Int
     
     init(accessToken:String, refreshToken: String?, expiration: Int) {
         self.accessToken = accessToken
