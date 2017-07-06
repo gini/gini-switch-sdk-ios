@@ -94,7 +94,7 @@ class MultiPageCoordinator {
     }
     
     fileprivate func completeIfReady() {
-        if extractionsCompleted {
+        if extractionsManager.scannedPages.count >= 3 {
             // reset the flag just in case
             extractionsCompleted = false
             // show the extractions completed screen
