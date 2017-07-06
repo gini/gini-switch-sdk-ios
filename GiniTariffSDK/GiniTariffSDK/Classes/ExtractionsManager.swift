@@ -42,6 +42,8 @@ class ExtractionsManager {
     // it needs to be queued. shouldRequestOrder is used for that
     var shouldRequestOrder = false
     
+    var alreadyFailed = false
+    
     var hasActiveSession:Bool {
         return (authenticator?.isLoggedIn ?? false) &&
             (uploadService?.hasExtractionOrder ?? false)
@@ -118,6 +120,11 @@ class ExtractionsManager {
             return
         }
         page.status = .uploading
+        if scannedPages.count == 2 && !alreadyFailed {
+            page.status = .failed
+            alreadyFailed = true
+            return
+        }
         Logger().logInfo(message: "Uploading page")
         uploadService?.addPage(data: page.imageData, completion: { [weak self](pageUrl, error) in
             if let error = error {
