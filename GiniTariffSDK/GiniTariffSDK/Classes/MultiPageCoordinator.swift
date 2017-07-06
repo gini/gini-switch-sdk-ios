@@ -53,11 +53,12 @@ class MultiPageCoordinator {
         delegate?.multiPageCoordinator(self, requestedShowingController: reviewController, presentationStyle: .modal, animated: true, completion: nil)
     }
     
-    fileprivate func createExtractionsScreen(extractions:ExtractionCollection) -> ExtractionsViewController {
-        let extractionsController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "ExtractionsViewController") as! ExtractionsViewController
-        extractionsController.extractionsCollection = extractionsManager.extractions
+    fileprivate func createExtractionsScreen(extractions:ExtractionCollection) -> UIViewController {
+//        let extractionsController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "ExtractionsViewController") as! ExtractionsViewController
+        let extractionsController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "HardcodedProviderViewController")
+  //      extractionsController.extractionsCollection = extractionsManager.extractions
         extractionsManager.pollExtractions()
-        return extractionsController
+        return extractionsController!
     }
     
     func enableCaptureButton(_ enabled:Bool) {
