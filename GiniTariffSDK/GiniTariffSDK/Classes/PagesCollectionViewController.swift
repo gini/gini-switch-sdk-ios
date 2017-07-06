@@ -31,6 +31,7 @@ class PagesCollectionViewController: UIViewController {
     var pages:PageCollection = PageCollection() {
         didSet {
             setupContentInsets()
+            scrollToSeletedCell()
         }
     }
     var selectedIndexPath = IndexPath(row: 0, section: 1)   // the add page cell
@@ -105,13 +106,8 @@ extension PagesCollectionViewController: UICollectionViewDataSource {
 extension PagesCollectionViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // move the element to the center
-        if let cell = collectionView.cellForItem(at: indexPath) {
-            let offset = cell.center.x - collectionView.frame.width / 2.0
-            collectionView.setContentOffset(CGPoint(x: offset, y: 0), animated: true)
-        }
-        
         selectedIndexPath = indexPath
+        scrollToSeletedCell()
         
         switch indexPath.section {
         case 0:
@@ -127,7 +123,7 @@ extension PagesCollectionViewController: UICollectionViewDelegate {
     }
 }
 
-// Content insets
+// Scrolling positions
 extension PagesCollectionViewController {
     
     fileprivate func setupContentInsets() {
@@ -150,5 +146,13 @@ extension PagesCollectionViewController {
         // The right inset of always enough to let the last cell float to the center of the view
         let rightInset = pagesCollection!.frame.width / 2.0 - onePageWidth / 2.0
         pagesCollection?.contentInset = UIEdgeInsetsMake(0, leftInset, 0, rightInset)
+    }
+    
+    fileprivate func scrollToSeletedCell() {
+        if let collectionView = pagesCollection,
+            let cell = collectionView.cellForItem(at: selectedIndexPath) {
+            let offset = cell.center.x - collectionView.frame.width / 2.0
+            collectionView.setContentOffset(CGPoint(x: offset, y: 0), animated: true)
+        }
     }
 }
