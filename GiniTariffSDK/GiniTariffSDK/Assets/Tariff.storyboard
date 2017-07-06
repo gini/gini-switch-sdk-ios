@@ -34,9 +34,8 @@
                                     <segue destination="wsJ-W1-lRM" kind="embed" identifier="PagesCollectionViewControllerEmbed" id="sGZ-IJ-UDG"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EKL-7t-ZRt">
-                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKL-7t-ZRt">
+                                <rect key="frame" x="0.0" y="110" width="375" height="557"/>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLp-EP-i0R">
                                 <rect key="frame" x="0.0" y="110" width="375" height="477"/>
@@ -56,14 +55,18 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="VLp-EP-i0R" secondAttribute="trailing" id="0PT-51-We4"/>
+                            <constraint firstAttribute="trailing" secondItem="EKL-7t-ZRt" secondAttribute="trailing" id="1Kw-8X-XS5"/>
                             <constraint firstItem="VLp-EP-i0R" firstAttribute="leading" secondItem="T1f-IY-wNz" secondAttribute="leading" id="9YQ-mq-Bqa"/>
                             <constraint firstAttribute="trailing" secondItem="dHm-Kf-HpV" secondAttribute="trailing" id="AhZ-eX-GuJ"/>
                             <constraint firstItem="nfz-Bl-l5b" firstAttribute="top" secondItem="ztP-Ti-0ye" secondAttribute="bottom" id="JDm-m4-BO4"/>
                             <constraint firstAttribute="trailing" secondItem="ztP-Ti-0ye" secondAttribute="trailing" id="MDe-Jt-PNc"/>
                             <constraint firstItem="ztP-Ti-0ye" firstAttribute="top" secondItem="VLp-EP-i0R" secondAttribute="bottom" id="Omo-Ou-fEy"/>
+                            <constraint firstItem="EKL-7t-ZRt" firstAttribute="leading" secondItem="T1f-IY-wNz" secondAttribute="leading" id="Yz3-yW-Z6H"/>
                             <constraint firstItem="dHm-Kf-HpV" firstAttribute="top" secondItem="T1f-IY-wNz" secondAttribute="top" id="biK-ZH-boL"/>
                             <constraint firstItem="dHm-Kf-HpV" firstAttribute="leading" secondItem="T1f-IY-wNz" secondAttribute="leading" id="em0-Q8-2Wz"/>
                             <constraint firstItem="VLp-EP-i0R" firstAttribute="top" secondItem="dHm-Kf-HpV" secondAttribute="bottom" id="iFj-L2-weS"/>
+                            <constraint firstItem="EKL-7t-ZRt" firstAttribute="top" secondItem="dHm-Kf-HpV" secondAttribute="bottom" id="kCI-h7-uZw"/>
+                            <constraint firstItem="nfz-Bl-l5b" firstAttribute="top" secondItem="EKL-7t-ZRt" secondAttribute="bottom" id="qJU-hL-dAK"/>
                             <constraint firstItem="ztP-Ti-0ye" firstAttribute="leading" secondItem="T1f-IY-wNz" secondAttribute="leading" id="yjj-ZG-Swt"/>
                         </constraints>
                     </view>
@@ -148,7 +151,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Sehr gut, wir könnten alle Daten aus diesem Fot erfolgreich analysieren." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed6-IP-jD3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Sehr gut, wir könnten alle Daten aus diesem Foto erfolgreich analysieren." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed6-IP-jD3">
                                 <rect key="frame" x="8" y="16" width="359" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -391,7 +394,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="fhe-qD-he2">
-                                                    <rect key="frame" x="8" y="29" width="327" height="40"/>
+                                                    <rect key="frame" x="8" y="29" width="358" height="40"/>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="nUX-5P-Pni"/>
@@ -466,8 +469,8 @@
                                     <constraint firstAttribute="height" constant="120" id="sxG-Cm-Ixr"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wir haben Alles was wir für deinen Strom Anbieter Wechseln benötigen." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQM-xN-CcN">
-                                <rect key="frame" x="16" y="362" width="343" height="75.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wir haben alles, was wir für deinen Stromanbieter-Wechsel benötigen." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQM-xN-CcN">
+                                <rect key="frame" x="16" y="362" width="343" height="50.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -561,10 +564,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboardingPage1" translatesAutoresizingMaskIntoConstraints="NO" id="45G-ex-MgS">
-                                <rect key="frame" x="86" y="241.5" width="202" height="92"/>
+                                <rect key="frame" x="86.5" y="241.5" width="202" height="92"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Onboarding" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLh-u4-yYB">
-                                <rect key="frame" x="142.5" y="373.5" width="90.5" height="21"/>
+                                <rect key="frame" x="142" y="373.5" width="91" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
