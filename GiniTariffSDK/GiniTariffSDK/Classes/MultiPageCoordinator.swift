@@ -94,32 +94,32 @@ class MultiPageCoordinator {
     }
     
     fileprivate func completeIfReady() {
-        if extractionsCompleted {
-            // reset the flag just in case
-            extractionsCompleted = false
-            // show the extractions completed screen
-            let completionController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "ExtractionsCompletedViewController") as! ExtractionsCompletedViewController
-            let myDelegate = delegate
-            myDelegate?.multiPageCoordinator(self, requestedShowingController: completionController, presentationStyle: .modal, animated: true) { [weak self] in
-                // after it is presented, push the extractions screen below it. That way, when it is 
-                // automatically dismissed, the extractions will appear below
-                guard let weakSelf = self else {
-                    return
-                }
-                let extractionsController = weakSelf.createExtractionsScreen(extractions:weakSelf.extractionsManager.extractions)
-                weakSelf.extractionsManager.pollExtractions()
-                DispatchQueue.main.async {
-                    // schedule this async to avoid mixing up the transitions
-                    weakSelf.delegate?.multiPageCoordinator(weakSelf, requestedShowingController: extractionsController, presentationStyle: .navigation, animated: false, completion: nil)
-                }
-            }
-            
-            // wait a few seconds so users can read the text and automatically dismiss
-            let delay = DispatchTime.now() + .seconds(extrationsCompletePopupTimeout)
-            DispatchQueue.main.asyncAfter(deadline: delay, execute: {
-                myDelegate?.multiPageCoordinator(self, requestedDismissingController: completionController, presentationStyle: .modal, animated: true)
-            })
-        }
+//        if extractionsCompleted {
+//            // reset the flag just in case
+//            extractionsCompleted = false
+//            // show the extractions completed screen
+//            let completionController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "ExtractionsCompletedViewController") as! ExtractionsCompletedViewController
+//            let myDelegate = delegate
+//            myDelegate?.multiPageCoordinator(self, requestedShowingController: completionController, presentationStyle: .modal, animated: true) { [weak self] in
+//                // after it is presented, push the extractions screen below it. That way, when it is 
+//                // automatically dismissed, the extractions will appear below
+//                guard let weakSelf = self else {
+//                    return
+//                }
+//                let extractionsController = weakSelf.createExtractionsScreen(extractions:weakSelf.extractionsManager.extractions)
+//                weakSelf.extractionsManager.pollExtractions()
+//                DispatchQueue.main.async {
+//                    // schedule this async to avoid mixing up the transitions
+//                    weakSelf.delegate?.multiPageCoordinator(weakSelf, requestedShowingController: extractionsController, presentationStyle: .navigation, animated: false, completion: nil)
+//                }
+//            }
+//            
+//            // wait a few seconds so users can read the text and automatically dismiss
+//            let delay = DispatchTime.now() + .seconds(extrationsCompletePopupTimeout)
+//            DispatchQueue.main.asyncAfter(deadline: delay, execute: {
+//                myDelegate?.multiPageCoordinator(self, requestedDismissingController: completionController, presentationStyle: .modal, animated: true)
+//            })
+//        }
     }
 }
 
