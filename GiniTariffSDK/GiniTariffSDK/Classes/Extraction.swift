@@ -6,7 +6,7 @@
 //
 //
 
-class  Extraction {
+public class  Extraction {
 
     let name:String
     var value:ExtractionValue = ExtractionValue(value: "" as AnyObject, unit: nil)
@@ -56,7 +56,7 @@ extension Extraction {
 
 extension Extraction:Equatable {
     
-    static func ==(lhs: Extraction, rhs: Extraction) -> Bool {
+    public static func ==(lhs: Extraction, rhs: Extraction) -> Bool {
         var equalAlternatives = true
         for (val1, val2) in zip(lhs.alternatives, rhs.alternatives) {
             equalAlternatives = equalAlternatives && val1 == val2

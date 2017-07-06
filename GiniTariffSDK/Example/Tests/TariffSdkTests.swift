@@ -87,23 +87,23 @@ extension TariffSdkTests: TariffSdkDelegate {
         
     }
     
-    func tariffSdk(sdk:TariffSdk, didCapture image:UIImage) {
+    func tariffSdk(sdk:TariffSdk, didCapture imageData:Data) {
         
     }
     
-    func tariffSdk(sdk:TariffSdk, didUpload image:UIImage) {
+    func tariffSdk(sdk:TariffSdk, didUpload imageData:Data) {
         
     }
     
-    func tariffSdk(sdk:TariffSdk, didReview image:UIImage) {
+    func tariffSdk(sdk:TariffSdk, didReview imageData:Data) {
         
     }
     
-    func tariffSdkDidExtractionsComplete(sdk:TariffSdk) {
+    func tariffSdkDidComplete(sdk:TariffSdk) {
         
     }
     
-    func tariffSdk(sdk:TariffSdk, didExtractInfo info:NSData) {
+    func tariffSdk(sdk:TariffSdk, didExtractInfo info:ExtractionCollection) {
         
     }
     

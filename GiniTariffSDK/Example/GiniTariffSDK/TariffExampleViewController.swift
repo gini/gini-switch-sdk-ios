@@ -35,38 +35,40 @@ class TariffExampleViewController: UIViewController {
 extension TariffExampleViewController: TariffSdkDelegate {
     
     func tariffSdkDidStart(sdk:TariffSdk) {
-        
+        print("Tariff SDK did start")
     }
     
-    func tariffSdk(sdk:TariffSdk, didCapture image:UIImage) {
-        
+    func tariffSdk(sdk:TariffSdk, didCapture imageData:Data) {
+        print("Tariff SDK captured an image")
     }
     
-    func tariffSdk(sdk:TariffSdk, didUpload image:UIImage) {
-        
+    func tariffSdk(sdk:TariffSdk, didUpload imageData:Data) {
+        print("Tariff SDK uploaded an image")
     }
     
-    func tariffSdk(sdk:TariffSdk, didReview image:UIImage) {
-        
+    func tariffSdk(sdk:TariffSdk, didReview imageData:Data) {
+        print("Tariff SDK reviewed an image")
     }
     
-    func tariffSdkDidExtractionsComplete(sdk:TariffSdk) {
+    func tariffSdkDidComplete(sdk:TariffSdk) {
+        print("Tariff SDK completed")
         self.dismiss(animated: true, completion: nil)
     }
     
-    func tariffSdk(sdk:TariffSdk, didExtractInfo info:NSData) {
-        
+    func tariffSdk(sdk:TariffSdk, didExtractInfo info:ExtractionCollection) {
+        print("TariffSDK did receive extractions")
     }
     
     func tariffSdk(sdk:TariffSdk, didReceiveError error:Error) {
-        
+        print("Tariff SDK did receive an error: \(error.localizedDescription)")
     }
     
     func tariffSdk(sdk:TariffSdk, didFailWithError error:Error) {
-        
+        print("Tariff SDK finished with error: \(error.localizedDescription)")
     }
     
     func tariffSdkDidCancel(sdk:TariffSdk) {
+        print("Tariff SDK interrupted")
         self.dismiss(animated: true, completion: nil)
     }
     
