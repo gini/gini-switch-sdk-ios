@@ -18,6 +18,8 @@ internal class CameraPreviewView: UIView {
     let guideLineSize:CGFloat = 0.9
     let guideColor = UIColor.white
     
+    var guidesLayer:CAShapeLayer? = nil
+    
     override class var layerClass : AnyClass {
         return AVCaptureVideoPreviewLayer.classForCoder()
     }
@@ -35,21 +37,36 @@ internal class CameraPreviewView: UIView {
         drawGuides()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        positionGuides()
+    }
+    
 }
 
 extension CameraPreviewView {
     
     fileprivate func drawGuides() {
-        // get a size that's a close to guideLineSize as possible, while still respecting the
-        // ratio of a standard A4 piece of paper
-        let guideSize = biggestA4SizeRect()
+        createGuides()
+        
+    }
+    
+    fileprivate func createGuides() {
         let rectLayer = CAShapeLayer()
-        rectLayer.frame = guideSize
-        rectLayer.position = center
-        let path = guidePath(size:guideSize.size)
-        rectLayer.path = path
         styleLayer(rectLayer)
         layer.addSublayer(rectLayer)
+        guidesLayer = rectLayer
+    }
+    
+    fileprivate func positionGuides() {
+        guard let guides = guidesLayer else {
+            return
+        }
+        // get a size that's a close to guideLineSize as possible, while still respecting the
+        // ratio of a standard A4 piece of paper
+        guides.frame = biggestA4SizeRect()
+        guides.position = center
+        guides.path = guidePath(size:guides.frame.size)
     }
     
     fileprivate func biggestA4SizeRect() -> CGRect {
