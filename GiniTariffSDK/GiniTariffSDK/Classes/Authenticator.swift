@@ -104,7 +104,7 @@ class Authenticator {
     
     func importCredentials() {
         userToken = credentials.accessToken
-        if userToken?.isEmpty != true {
+        if userToken?.isEmpty == false {
             authState = .userToken
             return
         }
