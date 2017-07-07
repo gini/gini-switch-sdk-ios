@@ -79,7 +79,7 @@ class MultiPageCoordinator {
     }
     
     fileprivate func scheduleOnboarding() {
-        if !TariffOnboarding.hasShownOnboarding {
+        //if !TariffOnboarding.hasShownOnboarding {
             let onboarding = OnboardingViewController(onboarding: (TariffSdkStorage.activeTariffSdk?.configuration.onboarding)!, completion:nil)
             let completionDismiss = {
                 TariffOnboarding.hasShownOnboarding = true
@@ -90,7 +90,7 @@ class MultiPageCoordinator {
             DispatchQueue.main.async {
                 self.delegate?.multiPageCoordinator(self, requestedShowingController: onboarding, presentationStyle: .modal, animated: true, completion: nil)
             }
-        }
+        //}
     }
     
     fileprivate func completeIfReady() {
