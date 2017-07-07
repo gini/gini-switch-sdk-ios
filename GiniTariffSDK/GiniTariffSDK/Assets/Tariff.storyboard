@@ -234,7 +234,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgY-vc-JHF">
-                                <rect key="frame" x="114" y="607" width="245" height="44"/>
+                                <rect key="frame" x="125.5" y="607" width="233.5" height="44"/>
                                 <color key="backgroundColor" red="0.12838974595069885" green="0.72788512706756592" blue="0.65097540616989136" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Ja, verwenden">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -244,7 +244,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVs-E1-4Ny">
-                                <rect key="frame" x="16" y="607" width="82" height="44"/>
+                                <rect key="frame" x="16" y="607" width="93.5" height="44"/>
                                 <color key="backgroundColor" red="0.89015811680000001" green="0.042145691809999997" blue="0.36638969179999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="UIx-cF-gdD"/>
@@ -315,7 +315,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pgY-vc-JHF" firstAttribute="width" secondItem="wVs-E1-4Ny" secondAttribute="width" multiplier="3:1" id="1Zm-BC-zoY"/>
+                            <constraint firstItem="pgY-vc-JHF" firstAttribute="width" secondItem="wVs-E1-4Ny" secondAttribute="width" multiplier="2.5:1" id="1Zm-BC-zoY"/>
                             <constraint firstItem="beR-sF-2bk" firstAttribute="leading" secondItem="M9p-eo-5ii" secondAttribute="leading" id="352-N2-3mP"/>
                             <constraint firstItem="vHu-9x-IEq" firstAttribute="top" secondItem="M9p-eo-5ii" secondAttribute="top" id="4uw-K2-BY4"/>
                             <constraint firstAttribute="trailing" secondItem="beR-sF-2bk" secondAttribute="trailing" id="ABK-Yf-5Hq"/>
@@ -394,7 +394,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="fhe-qD-he2">
-                                                    <rect key="frame" x="8" y="29" width="358" height="40"/>
+                                                    <rect key="frame" x="8" y="29" width="327" height="40"/>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="nUX-5P-Pni"/>
