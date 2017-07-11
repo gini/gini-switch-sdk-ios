@@ -14,6 +14,7 @@ class OnboardingViewController: UIPageViewController {
     var completion:(() -> Void)? = nil
     
     var currentPage:OnboardingPage? = nil
+    var pageControl:UIPageControl? = nil
     
     convenience init(onboarding:TariffOnboarding, completion: (() -> Void)? = nil) {
         self.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
@@ -32,6 +33,25 @@ class OnboardingViewController: UIPageViewController {
         super.viewDidLoad()
         let firstPage = onboardingPageController(with: self.onboarding.pages.first)
         self.setViewControllers([firstPage!], direction: .forward, animated: false, completion: nil)
+        addPageIndicator()
+    }
+    
+    fileprivate func addPageIndicator() {
+        pageControl = UIPageControl()
+        updatePageControl()
+        view.addSubview(pageControl!)
+        pageControl?.translatesAutoresizingMaskIntoConstraints = false
+        let bottomConstraint = NSLayoutConstraint(item: view, attribute: .bottomMargin, relatedBy: .equal, toItem: pageControl, attribute: .bottom, multiplier: 1.0, constant: 120)
+        let centerConstraint = NSLayoutConstraint(item: view, attribute: .centerX, relatedBy: .equal, toItem: pageControl, attribute: .centerX, multiplier: 1.0, constant: 0.0)
+        view.addConstraints([bottomConstraint, centerConstraint])
+    }
+    
+    fileprivate func updatePageControl() {
+        pageControl?.numberOfPages = onboarding.pages.count
+        if let page = currentPage,
+            let currentIndex = onboarding.pages.index(of: page) {
+            pageControl?.currentPage = currentIndex
+        }
     }
 }
 
@@ -39,7 +59,6 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         return nextPage(direction: -1, currentController: viewController)
-        
     }
     
     public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
@@ -75,6 +94,7 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
         }
         return onboardingPageController(with: onboarding.pages[afterIndex])
     }
+    
 }
 
 extension OnboardingViewController: UIPageViewControllerDelegate {
@@ -85,6 +105,7 @@ extension OnboardingViewController: UIPageViewControllerDelegate {
         // OnboardingViewController only shows one and that probably wont change but just to be sure, take the last page -
         // it should be the right-most one
         currentPage = (pendingViewControllers.last as? OnboardingPageViewController)?.page
+        updatePageControl()
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
