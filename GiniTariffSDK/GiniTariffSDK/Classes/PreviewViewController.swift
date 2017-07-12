@@ -20,7 +20,6 @@ class PreviewViewController: UIViewController {
     @IBOutlet var titleLabel:UILabel! = nil
     @IBOutlet var retakeButton:UIButton! = nil
     @IBOutlet var deleteButton:UIButton! = nil
-    @IBOutlet var statusImageView:UIImageView! = nil
     
     weak var delegate:PreviewViewControllerDelegate? = nil
     
@@ -42,20 +41,15 @@ class PreviewViewController: UIViewController {
     private func populate(with page:ScanPage?) {
         guard let page = page,
             let previewImageView = pagePreview,
-            let statusView = statusImageView,
             let titleView = titleLabel else { return }
         previewImageView.image = UIImage(data: page.imageData)
         switch page.status {
         case .analysed:
-            // add the "Ok" marker in the middle of the preview
             // change the title text accordingly
-            statusView.image = UIImage(named: "pageUploadSuccessCheckmarkCircle", in: Bundle(identifier: "org.cocoapods.GiniTariffSDK"), compatibleWith: nil)
             titleView.text = analysedPageTitle
             break
         case .failed:
-            // add the "X" marker in the middle of the preview
             // change the title text accordingly
-            statusView.image = UIImage(named: "pageUploadFailedCrossCircle", in: Bundle(identifier: "org.cocoapods.GiniTariffSDK"), compatibleWith: nil)
             titleView.text = failedPageTitle
             break
         default:

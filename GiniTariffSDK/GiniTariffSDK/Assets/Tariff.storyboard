@@ -182,11 +182,8 @@
                                     <action selector="useButtonTapped" destination="CtN-U7-Tym" eventType="touchUpInside" id="36j-ZE-Tvx"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7f9-Cy-2TZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7f9-Cy-2TZ">
                                 <rect key="frame" x="0.0" y="52.5" width="375" height="538.5"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pageUploadSuccessCheckmarkCircle" translatesAutoresizingMaskIntoConstraints="NO" id="gsP-hJ-IfY">
-                                <rect key="frame" x="119.5" y="254.5" width="135" height="135"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -198,10 +195,8 @@
                             <constraint firstItem="7f9-Cy-2TZ" firstAttribute="leading" secondItem="eJS-Cf-TPR" secondAttribute="leading" id="JKh-zn-Nq4"/>
                             <constraint firstAttribute="trailing" secondItem="7f9-Cy-2TZ" secondAttribute="trailing" id="LQv-XD-S5t"/>
                             <constraint firstItem="e2e-hW-1NF" firstAttribute="leading" secondItem="eJS-Cf-TPR" secondAttribute="leadingMargin" id="Lkz-Ny-YxS"/>
-                            <constraint firstItem="gsP-hJ-IfY" firstAttribute="centerY" secondItem="7f9-Cy-2TZ" secondAttribute="centerY" id="Pmf-AN-qzp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Wgb-N6-LLu" secondAttribute="trailing" id="boF-PC-mLV"/>
                             <constraint firstItem="7f9-Cy-2TZ" firstAttribute="top" secondItem="Ed6-IP-jD3" secondAttribute="bottom" constant="16" id="g6U-EC-3EP"/>
-                            <constraint firstItem="gsP-hJ-IfY" firstAttribute="centerX" secondItem="7f9-Cy-2TZ" secondAttribute="centerX" id="gdp-hO-AJS"/>
                             <constraint firstAttribute="trailing" secondItem="Ed6-IP-jD3" secondAttribute="trailing" constant="8" id="jOd-07-bHX"/>
                             <constraint firstItem="Ed6-IP-jD3" firstAttribute="top" secondItem="eJS-Cf-TPR" secondAttribute="top" constant="16" id="k9w-p5-I7n"/>
                             <constraint firstItem="Ed6-IP-jD3" firstAttribute="leading" secondItem="eJS-Cf-TPR" secondAttribute="leading" constant="8" id="mh4-Ui-ZIU"/>
@@ -213,7 +208,6 @@
                         <outlet property="deleteButton" destination="e2e-hW-1NF" id="xcD-ou-oqP"/>
                         <outlet property="pagePreview" destination="7f9-Cy-2TZ" id="8QO-fF-cEv"/>
                         <outlet property="retakeButton" destination="Wgb-N6-LLu" id="5ou-iP-iLS"/>
-                        <outlet property="statusImageView" destination="gsP-hJ-IfY" id="NBd-FD-KNN"/>
                         <outlet property="titleLabel" destination="Ed6-IP-jD3" id="P97-dK-w1j"/>
                     </connections>
                 </viewController>
@@ -724,7 +718,7 @@
     <resources>
         <image name="cameraCaptureButton" width="68" height="68"/>
         <image name="cameraCaptureButtonActive" width="134" height="134"/>
-        <image name="onboardingPage1" width="403" height="185"/>
+        <image name="onboardingPage1" width="405" height="185"/>
         <image name="overflowButton" width="4" height="15"/>
         <image name="pageUploadSuccessCheckmarkCircle" width="135" height="135"/>
         <image name="rotateImage" width="32" height="32"/>
