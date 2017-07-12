@@ -2,18 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "onboarding-3-illustration.png",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "onboarding-3-illustration@2x.png",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "onboarding-3-illustration@3x.png",
-      "scale" : "3x"
+      "filename" : "onboardingPage3.pdf"
     }
   ],
   "info" : {

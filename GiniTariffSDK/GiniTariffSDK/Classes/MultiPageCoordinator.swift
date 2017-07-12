@@ -79,10 +79,13 @@ class MultiPageCoordinator {
     
     fileprivate func scheduleOnboarding() {
         if !TariffOnboarding.hasShownOnboarding {
+            // remove the camera button so users don't think they can tap on it
+            cameraOptionsController.captureButton.isHidden = true
             let onboarding = OnboardingViewController(onboarding: (TariffSdkStorage.activeTariffSdk?.configuration.onboarding)!, completion:nil)
             let completionDismiss = {
                 TariffOnboarding.hasShownOnboarding = true
                 self.delegate?.multiPageCoordinator(self, requestedDismissingController: onboarding, presentationStyle: .modal, animated: true)
+                self.cameraOptionsController.captureButton.isHidden = false
             }
             onboarding.completion = completionDismiss
             onboarding.modalPresentationStyle = .overFullScreen

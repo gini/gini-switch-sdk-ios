@@ -563,21 +563,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboardingPage1" translatesAutoresizingMaskIntoConstraints="NO" id="45G-ex-MgS">
-                                <rect key="frame" x="86.5" y="241.5" width="202" height="92"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboardingPage1" translatesAutoresizingMaskIntoConstraints="NO" id="45G-ex-MgS">
+                                <rect key="frame" x="40" y="241" width="295" height="185"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Onboarding" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLh-u4-yYB">
-                                <rect key="frame" x="142" y="373.5" width="91" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="122.5" y="466" width="131.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.39182898116438358" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.79955051369863017" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="45G-ex-MgS" firstAttribute="bottom" secondItem="6Wc-zD-wEG" secondAttribute="centerY" id="HSv-sk-slo"/>
+                            <constraint firstItem="45G-ex-MgS" firstAttribute="centerY" secondItem="6Wc-zD-wEG" secondAttribute="centerY" id="HSv-sk-slo"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="aLh-u4-yYB" secondAttribute="trailing" constant="20" id="Hnw-XA-UNU"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="45G-ex-MgS" secondAttribute="trailing" constant="40" id="Pd1-Yv-FGG"/>
                             <constraint firstItem="aLh-u4-yYB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Wc-zD-wEG" secondAttribute="leadingMargin" constant="20" id="UN5-Ph-pVY"/>
+                            <constraint firstItem="45G-ex-MgS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Wc-zD-wEG" secondAttribute="leading" constant="40" id="gSv-RY-CdK"/>
                             <constraint firstItem="aLh-u4-yYB" firstAttribute="top" secondItem="45G-ex-MgS" secondAttribute="bottom" constant="40" id="hRr-dq-9MV"/>
                             <constraint firstItem="45G-ex-MgS" firstAttribute="centerX" secondItem="6Wc-zD-wEG" secondAttribute="centerX" id="oRs-Nb-PCf"/>
                             <constraint firstItem="aLh-u4-yYB" firstAttribute="centerX" secondItem="6Wc-zD-wEG" secondAttribute="centerX" id="sGC-F3-kUp"/>
@@ -722,7 +724,7 @@
     <resources>
         <image name="cameraCaptureButton" width="68" height="68"/>
         <image name="cameraCaptureButtonActive" width="134" height="134"/>
-        <image name="onboardingPage1" width="202" height="92"/>
+        <image name="onboardingPage1" width="403" height="185"/>
         <image name="overflowButton" width="4" height="15"/>
         <image name="pageUploadSuccessCheckmarkCircle" width="135" height="135"/>
         <image name="rotateImage" width="32" height="32"/>
