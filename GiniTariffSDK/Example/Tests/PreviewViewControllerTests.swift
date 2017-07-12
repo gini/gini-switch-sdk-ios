@@ -46,10 +46,6 @@ class PreviewViewControllerTests: XCTestCase {
         XCTAssertNotNil(previewController.deleteButton, "PreviewViewController should have a delete button")
     }
     
-    func testHasStatusMarker() {
-        XCTAssertNotNil(previewController.statusImageView, "PreviewViewController should have a marker showing the current status of the analysis")
-    }
-    
     func testHasDelegate() {
         XCTAssertTrue(previewController.delegate === self, "PreviewViewController should have a delegate")
     }
