@@ -25,7 +25,7 @@ class MultiPageCoordinator {
     
     var pageToReplace:ScanPage? = nil
     var extractionsCompleted = false
-    let extrationsCompletePopupTimeout = 3
+    let extrationsCompletePopupTimeout = 4
     
     weak var delegate:MultiPageCoordinatorDelegate? = nil
     
