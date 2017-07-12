@@ -12,6 +12,7 @@ protocol ReviewViewControllerDelegate {
     
     func reviewController(_ controller:ReviewViewController, didAcceptPage page:ScanPage)
     func reviewController(_ controller:ReviewViewController, didRejectPage page:ScanPage)
+    func reviewControllerDidRequestOptions(_ controller:ReviewViewController)
     
 }
 
@@ -58,6 +59,10 @@ class ReviewViewController: UIViewController {
     
     @IBAction func rotateTapped() {
         rotate()
+    }
+    
+    @IBAction func optionsTapped() {
+        delegate?.reviewControllerDidRequestOptions(self)
     }
     
     override func viewDidLoad() {

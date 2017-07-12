@@ -43,7 +43,9 @@ class MultiPageCoordinator {
         self.extractionsManager.createExtractionOrder()
         currentTariffSdk().delegate?.tariffSdkDidStart(sdk: currentTariffSdk())
         
-        scheduleOnboarding()
+        if !TariffOnboarding.hasShownOnboarding {
+            scheduleOnboarding()
+        }
     }
     
     func showReviewScreen(withPage page:ScanPage) {
@@ -78,20 +80,18 @@ class MultiPageCoordinator {
     }
     
     fileprivate func scheduleOnboarding() {
-        if !TariffOnboarding.hasShownOnboarding {
-            // remove the camera button so users don't think they can tap on it
-            cameraOptionsController.captureButton.isHidden = true
-            let onboarding = OnboardingViewController(onboarding: (TariffSdkStorage.activeTariffSdk?.configuration.onboarding)!, completion:nil)
-            let completionDismiss = {
-                TariffOnboarding.hasShownOnboarding = true
-                self.delegate?.multiPageCoordinator(self, requestedDismissingController: onboarding, presentationStyle: .modal, animated: true)
-                self.cameraOptionsController.captureButton.isHidden = false
-            }
-            onboarding.completion = completionDismiss
-            onboarding.modalPresentationStyle = .overFullScreen
-            DispatchQueue.main.async {
-                self.delegate?.multiPageCoordinator(self, requestedShowingController: onboarding, presentationStyle: .modal, animated: true, completion: nil)
-            }
+        // remove the camera button so users don't think they can tap on it
+        cameraOptionsController.captureButton.isHidden = true
+        let onboarding = OnboardingViewController(onboarding: (TariffSdkStorage.activeTariffSdk?.configuration.onboarding)!, completion:nil)
+        let completionDismiss = {
+            TariffOnboarding.hasShownOnboarding = true
+            self.delegate?.multiPageCoordinator(self, requestedDismissingController: onboarding, presentationStyle: .modal, animated: true)
+            self.cameraOptionsController.captureButton.isHidden = false
+        }
+        onboarding.completion = completionDismiss
+        onboarding.modalPresentationStyle = .overFullScreen
+        DispatchQueue.main.async {
+            self.delegate?.multiPageCoordinator(self, requestedShowingController: onboarding, presentationStyle: .modal, animated: true, completion: nil)
         }
     }
     
@@ -122,6 +122,30 @@ class MultiPageCoordinator {
                 myDelegate?.multiPageCoordinator(self, requestedDismissingController: completionController, presentationStyle: .modal, animated: true)
             })
         }
+    }
+    
+    fileprivate func overflowMenu(withOnboarding:Bool) -> UIAlertController {
+        let actionSheet = UIAlertController(title: currentTariffAppearance().exitActionSheetTitle, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Abbrechen", comment: "Leave SDK actionsheet cancel title"), style: .cancel) { (action) in
+            
+        }
+        let leaveAction = UIAlertAction(title: NSLocalizedString("Verlassen", comment: "Leave SDK actionsheet leave title"), style: .destructive) { (action) in
+            TariffSdkStorage.activeTariffSdk?.delegate?.tariffSdkDidCancel(sdk: TariffSdkStorage.activeTariffSdk!)
+        }
+        actionSheet.addAction(cancelAction)
+        actionSheet.addAction(leaveAction)
+        if withOnboarding {
+            let helpAction = UIAlertAction(title: NSLocalizedString("Hilfe", comment: "Leave SDK actionsheet leave title"), style: .default) { (action) in
+                self.scheduleOnboarding()
+            }
+            actionSheet.addAction(helpAction)
+        }
+        return actionSheet
+    }
+    
+    fileprivate func showOverflowMenu(withOnboarding:Bool) {
+        let actionSheet = overflowMenu(withOnboarding: withOnboarding)
+        self.delegate?.multiPageCoordinator(self, requestedShowingController: actionSheet, presentationStyle: .modal, animated: true, completion: nil)
     }
 }
 
@@ -157,17 +181,8 @@ extension MultiPageCoordinator: CameraViewControllerDelegate {
 extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
     
     func pageCollectionControllerDidRequestOptions(_ pageController:PagesCollectionViewController) {
-         // show an action sheet with all possible action
-        let actionSheet = UIAlertController(title: currentTariffAppearance().exitActionSheetTitle, message: nil, preferredStyle: .actionSheet)
-        let cancelAction = UIAlertAction(title: NSLocalizedString("Abbrechen", comment: "Leave SDK actionsheet cancel title"), style: .cancel) { (action) in
-            
-        }
-        let leaveAction = UIAlertAction(title: NSLocalizedString("Verlassen", comment: "Leave SDK actionsheet leave title"), style: .destructive) { (action) in
-            TariffSdkStorage.activeTariffSdk?.delegate?.tariffSdkDidCancel(sdk: TariffSdkStorage.activeTariffSdk!)
-        }
-        actionSheet.addAction(cancelAction)
-        actionSheet.addAction(leaveAction)
-        self.delegate?.multiPageCoordinator(self, requestedShowingController: actionSheet, presentationStyle: .modal, animated: true, completion: nil)
+        let hasEmbeddedController = (embeddedController != nil)
+        showOverflowMenu(withOnboarding: !hasEmbeddedController)
     }
     
     func pageCollectionController(_ pageController:PagesCollectionViewController, didSelectPage:ScanPage) {
@@ -209,6 +224,11 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
     func reviewController(_ controller:ReviewViewController, didRejectPage page:ScanPage) {
         self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .modal, animated: true)
         completeIfReady()
+    }
+    
+    func reviewControllerDidRequestOptions(_ controller:ReviewViewController) {
+        let overflow = overflowMenu(withOnboarding: false)
+        controller.present(overflow, animated: true, completion: nil)
     }
     
 }

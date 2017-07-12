@@ -279,6 +279,9 @@
                                             <constraint firstAttribute="width" constant="40" id="f65-g4-1Qz"/>
                                         </constraints>
                                         <state key="normal" image="overflowButton"/>
+                                        <connections>
+                                            <action selector="optionsTapped" destination="CtN-U7-Tym" eventType="touchUpInside" id="pXz-4g-DII"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
