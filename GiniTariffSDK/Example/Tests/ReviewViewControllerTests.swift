@@ -99,4 +99,8 @@ extension ReviewViewControllerTests: ReviewViewControllerDelegate {
         didRejectPicture = true
     }
     
+    func reviewControllerDidRequestOptions(_ controller:ReviewViewController) {
+        
+    }
+    
 }
