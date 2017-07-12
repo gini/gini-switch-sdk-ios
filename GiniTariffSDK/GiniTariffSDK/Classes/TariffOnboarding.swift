@@ -30,11 +30,11 @@ public struct TariffOnboarding {
     public init() {
         // init with default pages
         let onboarding1 = OnboardingPage(image:UIImage(named:"onboardingPage1", in: Bundle(identifier: "org.cocoapods.GiniTariffSDK"), compatibleWith: nil)!,
-                                         text: NSLocalizedString("Dokument\nflach\nfotografieren", comment: "Onboarding page one text"))
+                                         text: NSLocalizedString("Jede Seite\nflach fotografieren", comment: "Onboarding page one text"))
         let onboarding2 = OnboardingPage(image:UIImage(named:"onboardingPage2", in: Bundle(identifier: "org.cocoapods.GiniTariffSDK"), compatibleWith: nil)!,
-                                         text: NSLocalizedString("Handy parallel\nzum Dokument\nhalten", comment: "Onboarding page two text"))
+                                         text: NSLocalizedString("Handy parallel\nzur Seite halten", comment: "Onboarding page two text"))
         let onboarding3 = OnboardingPage(image:UIImage(named:"onboardingPage3", in: Bundle(identifier: "org.cocoapods.GiniTariffSDK"), compatibleWith: nil)!,
-                                         text: NSLocalizedString("Dokument\nvollständig in\nRahmen einpassen", comment: "Onboarding page three text"))
+                                         text: NSLocalizedString("Seite vollständig in\nRahmen einpassen", comment: "Onboarding page three text"))
         self.init(pages: [onboarding1, onboarding2, onboarding3])
     }
     
