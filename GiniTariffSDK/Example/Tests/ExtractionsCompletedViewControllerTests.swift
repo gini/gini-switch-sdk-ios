@@ -1,9 +1,9 @@
 //
 //  ExtractionsCompletedViewControllerTests.swift
-//  GiniTariffSDK
+//  Gini Switch SDK
 //
 //  Created by Gini GmbH on 03.07.17.
-//  Copyright © 2017 CocoaPods. All rights reserved.
+//  Copyright © 2017 Gini GmbH. All rights reserved.
 //
 
 import XCTest
