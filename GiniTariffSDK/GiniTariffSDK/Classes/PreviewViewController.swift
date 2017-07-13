@@ -1,8 +1,8 @@
 //
 //  PreviewViewController.swift
-//  Pods
+//  Gini Switch SDK
 //
-//  Created by Nikola Sobadjiev on 24.05.17.
+//  Created by Gini GmbH on 24.05.17.
 //
 //
 

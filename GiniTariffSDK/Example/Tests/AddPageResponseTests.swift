@@ -2,7 +2,7 @@
 //  AddPageResponseTests.swift
 //  GiniTariffSDK
 //
-//  Created by Nikola Sobadjiev on 09.06.17.
+//  Created by Gini GmbH on 09.06.17.
 //  Copyright © 2017 CocoaPods. All rights reserved.
 //
 

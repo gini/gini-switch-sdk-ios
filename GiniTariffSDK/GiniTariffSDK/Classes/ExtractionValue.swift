@@ -1,8 +1,8 @@
 //
 //  ExtractionValue.swift
-//  Pods
+//  Gini Switch SDK
 //
-//  Created by Nikola Sobadjiev on 15.06.17.
+//  Created by Gini GmbH on 15.06.17.
 //
 //
 

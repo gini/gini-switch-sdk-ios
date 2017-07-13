@@ -2,7 +2,7 @@
 //  ScanPageTests.swift
 //  GiniTariffSDK
 //
-//  Created by Nikola Sobadjiev on 15.05.17.
+//  Created by Gini GmbH on 15.05.17.
 //  Copyright © 2017 CocoaPods. All rights reserved.
 //
 

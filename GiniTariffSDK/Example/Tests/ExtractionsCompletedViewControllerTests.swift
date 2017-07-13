@@ -2,7 +2,7 @@
 //  ExtractionsCompletedViewControllerTests.swift
 //  GiniTariffSDK
 //
-//  Created by Nikola Sobadjiev on 03.07.17.
+//  Created by Gini GmbH on 03.07.17.
 //  Copyright © 2017 CocoaPods. All rights reserved.
 //
 

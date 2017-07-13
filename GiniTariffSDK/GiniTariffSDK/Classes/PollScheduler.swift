@@ -1,8 +1,8 @@
 //
 //  PollScheduler.swift
-//  Pods
+//  Gini Switch SDK
 //
-//  Created by Nikola Sobadjiev on 16.06.17.
+//  Created by Gini GmbH on 16.06.17.
 //
 //
 

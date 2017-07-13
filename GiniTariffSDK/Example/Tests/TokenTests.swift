@@ -2,7 +2,7 @@
 //  TokenTests.swift
 //  GiniTariffSDK
 //
-//  Created by Nikola Sobadjiev on 30.05.17.
+//  Created by Gini GmbH on 30.05.17.
 //  Copyright © 2017 CocoaPods. All rights reserved.
 //
 

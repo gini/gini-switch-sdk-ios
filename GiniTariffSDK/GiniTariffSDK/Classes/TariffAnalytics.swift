@@ -1,8 +1,8 @@
 //
 //  TariffAnalytics.swift
-//  Pods
+//  Gini Switch SDK
 //
-//  Created by Nikola Sobadjiev on 08.05.17.
+//  Created by Gini GmbH on 08.05.17.
 //
 //
 

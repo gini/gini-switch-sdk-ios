@@ -1,8 +1,8 @@
 //
 //  MultiPageScanViewController.swift
-//  Pods
+//  Gini Switch SDK
 //
-//  Created by Nikola Sobadjiev on 09.05.17.
+//  Created by Gini GmbH on 09.05.17.
 //
 //
 

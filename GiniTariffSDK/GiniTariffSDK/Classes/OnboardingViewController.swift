@@ -1,8 +1,8 @@
 //
 //  OnboardingViewController.swift
-//  Pods
+//  Gini Switch SDK
 //
-//  Created by Nikola Sobadjiev on 28.06.17.
+//  Created by Gini GmbH on 28.06.17.
 //
 //
 
