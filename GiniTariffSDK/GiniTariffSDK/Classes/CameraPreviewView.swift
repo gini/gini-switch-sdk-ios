@@ -11,14 +11,16 @@ import AVFoundation
 
 internal class CameraPreviewView: UIView {
     
-    let guideLineLength:CGFloat = 20.0
-    let guideLineWidth:CGFloat = 3.0
+    let guideLineLength:CGFloat = 50.0
+    let guideLineWidth:CGFloat = 2.0
     /// the size of the guides compared to the size of the whole view
     /// 0.9 = 90% of the view
     let guideLineSize:CGFloat = 0.9
     let guideColor = UIColor.white
+    let frameColor = UIColor(white: 0.0, alpha: 0.4)
     
     var guidesLayer:CAShapeLayer? = nil
+    var frameLayer:CAShapeLayer? = nil
     
     override class var layerClass : AnyClass {
         return AVCaptureVideoPreviewLayer.classForCoder()
@@ -40,6 +42,7 @@ internal class CameraPreviewView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         positionGuides()
+        positionFrame()
     }
     
 }
@@ -48,7 +51,7 @@ extension CameraPreviewView {
     
     fileprivate func drawGuides() {
         createGuides()
-        
+        createGrayFrame()
     }
     
     fileprivate func createGuides() {
@@ -56,6 +59,14 @@ extension CameraPreviewView {
         styleLayer(rectLayer)
         layer.addSublayer(rectLayer)
         guidesLayer = rectLayer
+    }
+    
+    fileprivate func createGrayFrame() {
+        let grayFrame = CAShapeLayer()
+        grayFrame.fillColor = frameColor.cgColor
+        grayFrame.lineWidth = 0
+        layer.addSublayer(grayFrame)
+        frameLayer = grayFrame
     }
     
     fileprivate func positionGuides() {
@@ -67,6 +78,22 @@ extension CameraPreviewView {
         guides.frame = biggestA4SizeRect()
         guides.position = center
         guides.path = guidePath(size:guides.frame.size)
+    }
+    
+    fileprivate func positionFrame() {
+        guard let grayFrame = frameLayer else {
+            return
+        }
+        var innerRect = biggestA4SizeRect()
+        innerRect.origin.x = (frame.width - innerRect.width) / 2.0
+        innerRect.origin.y = (frame.height - innerRect.height) / 2.0
+        let cutOut = UIBezierPath(rect: innerRect)
+        let path = UIBezierPath(rect: bounds)
+        path.append(cutOut.reversing())
+        
+        grayFrame.path = path.cgPath
+        grayFrame.frame = frame
+        grayFrame.position = center
     }
     
     fileprivate func biggestA4SizeRect() -> CGRect {
