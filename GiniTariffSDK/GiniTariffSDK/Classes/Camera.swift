@@ -34,8 +34,6 @@ internal class Camera {
     var stillImageOutput: AVCaptureStillImageOutput?
     fileprivate lazy var sessionQueue:DispatchQueue = DispatchQueue(label: "session queue", attributes: [])
     
-    fileprivate lazy var motionManager = MotionManager()
-    
     init() throws {
         try setupSession()
     }
@@ -44,14 +42,12 @@ internal class Camera {
     func start() {
         sessionQueue.async {
             self.session.startRunning()
-            self.motionManager.startDetection()
         }
     }
     
     func stop() {
         sessionQueue.async {
             self.session.stopRunning()
-            self.motionManager.stopDetection()
         }
     }
     
@@ -80,12 +76,6 @@ internal class Camera {
             // Connection will be `nil` when there is no valid input device; for example on iOS simulator
             guard let connection = self.stillImageOutput?.connection(withMediaType: AVMediaTypeVideo) else {
                 return completion(Data())   // TODO return an error
-            }
-            // Set the orientation accoding to the current orientation of the device
-            if let orientation = AVCaptureVideoOrientation(rawValue: self.motionManager.currentOrientation.rawValue) {
-                connection.videoOrientation = orientation
-            } else {
-                connection.videoOrientation = .portrait
             }
             self.videoDeviceInput?.device.setFlashModeSecurely(.on)
             self.stillImageOutput?.captureStillImageAsynchronously(from: connection) { (imageDataSampleBuffer: CMSampleBuffer?, error: Error?) -> Void in
