@@ -135,15 +135,6 @@ internal extension NSMutableDictionary {
 
 typealias MetaInformation = NSMutableDictionary
 
-extension NSDictionary {
-    
-    func prettyPrint() {
-        self.allKeys.forEach { (key) in
-            print("\(key) : \(self.value(forKey: key as! String))")
-        }
-    }
-}
-
 /// The JPEG compression level that will be used if nothing else
 /// is specified in imageData(withCompression:)
 let JPEGDefaultCompression:CGFloat = 0.4
