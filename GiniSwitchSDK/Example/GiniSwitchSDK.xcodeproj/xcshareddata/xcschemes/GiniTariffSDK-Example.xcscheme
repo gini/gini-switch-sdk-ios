@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "GiniTariffSDK_Example.app"
-               BlueprintName = "GiniTariffSDK_Example"
-               ReferencedContainer = "container:GiniTariffSDK.xcodeproj">
+               BuildableName = "GiniSwitchSDK_Example.app"
+               BlueprintName = "GiniSwitchSDK_Example"
+               ReferencedContainer = "container:GiniSwitchSDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "GiniTariffSDK_Tests.xctest"
-               BlueprintName = "GiniTariffSDK_Tests"
-               ReferencedContainer = "container:GiniTariffSDK.xcodeproj">
+               BuildableName = "GiniSwitchSDK_Tests.xctest"
+               BlueprintName = "GiniSwitchSDK_Tests"
+               ReferencedContainer = "container:GiniSwitchSDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "GiniTariffSDK_Tests.xctest"
-               BlueprintName = "GiniTariffSDK_Tests"
-               ReferencedContainer = "container:GiniTariffSDK.xcodeproj">
+               BuildableName = "GiniSwitchSDK_Tests.xctest"
+               BlueprintName = "GiniSwitchSDK_Tests"
+               ReferencedContainer = "container:GiniSwitchSDK.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "GiniTariffSDK_Example.app"
-            BlueprintName = "GiniTariffSDK_Example"
-            ReferencedContainer = "container:GiniTariffSDK.xcodeproj">
+            BuildableName = "GiniSwitchSDK_Example.app"
+            BlueprintName = "GiniSwitchSDK_Example"
+            ReferencedContainer = "container:GiniSwitchSDK.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "GiniTariffSDK_Example.app"
-            BlueprintName = "GiniTariffSDK_Example"
-            ReferencedContainer = "container:GiniTariffSDK.xcodeproj">
+            BuildableName = "GiniSwitchSDK_Example.app"
+            BlueprintName = "GiniSwitchSDK_Example"
+            ReferencedContainer = "container:GiniSwitchSDK.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -99,9 +99,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "GiniTariffSDK_Example.app"
-            BlueprintName = "GiniTariffSDK_Example"
-            ReferencedContainer = "container:GiniTariffSDK.xcodeproj">
+            BuildableName = "GiniSwitchSDK_Example.app"
+            BlueprintName = "GiniSwitchSDK_Example"
+            ReferencedContainer = "container:GiniSwitchSDK.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

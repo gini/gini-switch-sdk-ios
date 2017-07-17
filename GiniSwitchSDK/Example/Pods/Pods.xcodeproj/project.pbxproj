@@ -602,9 +602,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1CB80FC907E63EE54D4CC3C61C16323F /* Pods-GiniTariffSDK_Tests */ = {
+		1CB80FC907E63EE54D4CC3C61C16323F /* Pods-GiniSwitchSDK_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DB7AABC416F4B2B6CBD98B3126B12D3 /* Build configuration list for PBXNativeTarget "Pods-GiniTariffSDK_Tests" */;
+			buildConfigurationList = 1DB7AABC416F4B2B6CBD98B3126B12D3 /* Build configuration list for PBXNativeTarget "Pods-GiniSwitchSDK_Tests" */;
 			buildPhases = (
 				6F77D413FF1BF683E787E9DCB124F209 /* Sources */,
 				7BE1D10432ACB129E612DB2B924DCA33 /* Frameworks */,
@@ -615,7 +615,7 @@
 			dependencies = (
 				C753B4C61F2F7F36F9BF3BA4B3FDE9EE /* PBXTargetDependency */,
 			);
-			name = "Pods-GiniTariffSDK_Tests";
+			name = "Pods-GiniSwitchSDK_Tests";
 			productName = "Pods-GiniTariffSDK_Tests";
 			productReference = FD5E0714D2A6A1D41BE010088A2700F3 /* Pods_GiniTariffSDK_Tests.framework */;
 			productType = "com.apple.product-type.framework";
@@ -637,9 +637,9 @@
 			productReference = F47180B4EF645660D094BD49DBC9C051 /* FBSnapshotTestCase.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		3C3A0199ACD3175C3699979516780535 /* Pods-GiniTariffSDK_Example */ = {
+		3C3A0199ACD3175C3699979516780535 /* Pods-GiniSwitchSDK_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ED192AF44397BC5C8CB85744628C4C0E /* Build configuration list for PBXNativeTarget "Pods-GiniTariffSDK_Example" */;
+			buildConfigurationList = ED192AF44397BC5C8CB85744628C4C0E /* Build configuration list for PBXNativeTarget "Pods-GiniSwitchSDK_Example" */;
 			buildPhases = (
 				66F957E5CF1CF9B4D9C0427C722DE32A /* Sources */,
 				2BEBBB16C04B37DD027FCC834EFB1EE0 /* Frameworks */,
@@ -650,14 +650,14 @@
 			dependencies = (
 				D63C00346F81C2A0D6C04CB0CC929FB7 /* PBXTargetDependency */,
 			);
-			name = "Pods-GiniTariffSDK_Example";
+			name = "Pods-GiniSwitchSDK_Example";
 			productName = "Pods-GiniTariffSDK_Example";
 			productReference = 75CBBE9A1049295AE1A3795F44FD38FF /* Pods_GiniTariffSDK_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		AEB5259DB4F7CC8F0E311D2256027EE9 /* GiniTariffSDK */ = {
+		AEB5259DB4F7CC8F0E311D2256027EE9 /* GiniSwitchSDK */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 97D742302586E041566EEBD2D4737AAB /* Build configuration list for PBXNativeTarget "GiniTariffSDK" */;
+			buildConfigurationList = 97D742302586E041566EEBD2D4737AAB /* Build configuration list for PBXNativeTarget "GiniSwitchSDK" */;
 			buildPhases = (
 				D5F06D6E01F0F2A52C92703CBDA2093F /* Sources */,
 				A4BDCD11695048CBAB58C0A2667AA7A8 /* Frameworks */,
@@ -668,7 +668,7 @@
 			);
 			dependencies = (
 			);
-			name = GiniTariffSDK;
+			name = GiniSwitchSDK;
 			productName = GiniTariffSDK;
 			productReference = 6338E260A8754FCCDE96ACCC8AC2AB8E /* GiniTariffSDK.framework */;
 			productType = "com.apple.product-type.framework";
@@ -700,9 +700,9 @@
 			projectRoot = "";
 			targets = (
 				34CD2E3428AB802BACA62286FF5074B1 /* FBSnapshotTestCase */,
-				AEB5259DB4F7CC8F0E311D2256027EE9 /* GiniTariffSDK */,
-				3C3A0199ACD3175C3699979516780535 /* Pods-GiniTariffSDK_Example */,
-				1CB80FC907E63EE54D4CC3C61C16323F /* Pods-GiniTariffSDK_Tests */,
+				AEB5259DB4F7CC8F0E311D2256027EE9 /* GiniSwitchSDK */,
+				3C3A0199ACD3175C3699979516780535 /* Pods-GiniSwitchSDK_Example */,
+				1CB80FC907E63EE54D4CC3C61C16323F /* Pods-GiniSwitchSDK_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -826,7 +826,7 @@
 		D63C00346F81C2A0D6C04CB0CC929FB7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GiniTariffSDK;
-			target = AEB5259DB4F7CC8F0E311D2256027EE9 /* GiniTariffSDK */;
+			target = AEB5259DB4F7CC8F0E311D2256027EE9 /* GiniSwitchSDK */;
 			targetProxy = F3436B06C562FAF1769EF198268DCBD0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1221,7 +1221,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DB7AABC416F4B2B6CBD98B3126B12D3 /* Build configuration list for PBXNativeTarget "Pods-GiniTariffSDK_Tests" */ = {
+		1DB7AABC416F4B2B6CBD98B3126B12D3 /* Build configuration list for PBXNativeTarget "Pods-GiniSwitchSDK_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4A2065751CFCE83301969DE0DE2CF94 /* Debug */,
@@ -1239,7 +1239,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		97D742302586E041566EEBD2D4737AAB /* Build configuration list for PBXNativeTarget "GiniTariffSDK" */ = {
+		97D742302586E041566EEBD2D4737AAB /* Build configuration list for PBXNativeTarget "GiniSwitchSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C4487F1C8BCA5D53DF188FDE06A7BC8B /* Debug */,
@@ -1248,7 +1248,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ED192AF44397BC5C8CB85744628C4C0E /* Build configuration list for PBXNativeTarget "Pods-GiniTariffSDK_Example" */ = {
+		ED192AF44397BC5C8CB85744628C4C0E /* Build configuration list for PBXNativeTarget "Pods-GiniSwitchSDK_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81192B746FEE97330330A0AD86140607 /* Debug */,

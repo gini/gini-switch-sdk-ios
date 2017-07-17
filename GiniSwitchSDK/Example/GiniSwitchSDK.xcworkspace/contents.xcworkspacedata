@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:GiniTariffSDK.xcodeproj">
+      location = "group:/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/Example/GiniSwitchSDK.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
