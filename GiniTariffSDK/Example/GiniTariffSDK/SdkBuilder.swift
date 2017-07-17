@@ -1,9 +1,9 @@
 //
 //  SdkBuilder.swift
-//  GiniTariffSDK
+//  Gini Switch SDK
 //
-//  Created by Nikola Sobadjiev on 06.06.17.
-//  Copyright © 2017 CocoaPods. All rights reserved.
+//  Created by Gini GmbH on 06.06.17.
+//  Copyright © 2017 Gini GmbH. All rights reserved.
 //
 
 import UIKit

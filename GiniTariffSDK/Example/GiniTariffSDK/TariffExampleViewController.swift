@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  GiniTariffSDK
+//  TariffExampleViewController.swift
+//  Gini Switch SDK
 //
 //  Created by Gini GmbH on 05/05/2017.
 //  Copyright (c) 2017 Gini GmbH. All rights reserved.

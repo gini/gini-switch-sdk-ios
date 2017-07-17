@@ -1,9 +1,9 @@
 //
 //  TariffAppearanceTests.swift
-//  GiniTariffSDK
+//  Gini Switch SDK
 //
-//  Created by Nikola Sobadjiev on 26.05.17.
-//  Copyright © 2017 CocoaPods. All rights reserved.
+//  Created by Gini GmbH on 26.05.17.
+//  Copyright © 2017 Gini GmbH. All rights reserved.
 //
 
 import XCTest

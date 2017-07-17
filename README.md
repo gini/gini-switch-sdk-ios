@@ -94,6 +94,6 @@ to your implementation or header files. Note that spaces in your project name re
 
 ## License
 
-The Gini Vision Library for iOS is licensed under a Private License. See the LICENSE file for more info.
+The Gini Vision Library for iOS is licensed under the MIT License. See the LICENSE file for more info.
 
 **Important:** Always make sure to ship all license notices and permissions with your application.
