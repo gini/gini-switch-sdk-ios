@@ -35,7 +35,7 @@ class ScanPageTests: XCTestCase {
     
     func testDefaultInitValues() {
         page = ScanPage()
-        XCTAssertNil(page.imageData, "The default init should initialize imageData with nil")
+        XCTAssertEqual(page.imageData.count, 0, "The default init should initialize imageData with an empty object")
         XCTAssertNil(page.thumbnail, "The default init should initialize thumbnail with nil")
     }
     

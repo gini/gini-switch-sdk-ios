@@ -1,5 +1,5 @@
 //
-//  TariffUserInterface.swift
+//  GiniSwitchUserInterface.swift
 //  Gini Switch SDK
 //
 //  Created by Gini GmbH on 08.05.17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct TariffUserInterface {
+struct GiniSwitchUserInterface {
     
     var presentationStyle = PresentationStyle.modal
     
@@ -27,7 +27,7 @@ struct TariffUserInterface {
     }
     
     private var contentViewController:UIViewController {
-        let storyboard = UIStoryboard(name: "Tariff", bundle: Bundle(identifier:"org.cocoapods.GiniTariffSDK"))    // TODO: duplication with TestUtils
+        let storyboard = UIStoryboard.switchStoryboard()!
         return storyboard.instantiateInitialViewController()!
     }
 

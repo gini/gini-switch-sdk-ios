@@ -11,7 +11,7 @@ import XCTest
 
 class ReviewViewControllerTests: XCTestCase {
     
-    let storyboard = tariffStoryboard()
+    let storyboard = UIStoryboard.switchStoryboard()
     var reviewController:ReviewViewController! = nil
     let testPage = testImageScanPage()
     

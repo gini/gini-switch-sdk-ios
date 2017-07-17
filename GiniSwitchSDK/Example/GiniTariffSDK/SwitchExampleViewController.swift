@@ -1,5 +1,5 @@
 //
-//  TariffExampleViewController.swift
+//  SwitchExampleViewController.swift
 //  Gini Switch SDK
 //
 //  Created by Gini GmbH on 05/05/2017.
@@ -9,7 +9,7 @@
 import UIKit
 import GiniTariffSDK
 
-class TariffExampleViewController: UIViewController {
+class SwitchExampleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,42 +32,42 @@ class TariffExampleViewController: UIViewController {
 
 }
 
-extension TariffExampleViewController: TariffSdkDelegate {
+extension SwitchExampleViewController: GiniSwitchSdkDelegate {
     
-    func tariffSdkDidStart(sdk:TariffSdk) {
+    func tariffSdkDidStart(sdk:GiniSwitchSdk) {
         print("Tariff SDK did start")
     }
     
-    func tariffSdk(sdk:TariffSdk, didCapture imageData:Data) {
+    func tariffSdk(sdk:GiniSwitchSdk, didCapture imageData:Data) {
         print("Tariff SDK captured an image")
     }
     
-    func tariffSdk(sdk:TariffSdk, didUpload imageData:Data) {
+    func tariffSdk(sdk:GiniSwitchSdk, didUpload imageData:Data) {
         print("Tariff SDK uploaded an image")
     }
     
-    func tariffSdk(sdk:TariffSdk, didReview imageData:Data) {
+    func tariffSdk(sdk:GiniSwitchSdk, didReview imageData:Data) {
         print("Tariff SDK reviewed an image")
     }
     
-    func tariffSdkDidComplete(sdk:TariffSdk) {
+    func tariffSdkDidComplete(sdk:GiniSwitchSdk) {
         print("Tariff SDK completed")
         self.dismiss(animated: true, completion: nil)
     }
     
-    func tariffSdk(sdk:TariffSdk, didExtractInfo info:ExtractionCollection) {
+    func tariffSdk(sdk:GiniSwitchSdk, didExtractInfo info:ExtractionCollection) {
         print("TariffSDK did receive extractions")
     }
     
-    func tariffSdk(sdk:TariffSdk, didReceiveError error:Error) {
+    func tariffSdk(sdk:GiniSwitchSdk, didReceiveError error:Error) {
         print("Tariff SDK did receive an error: \(error.localizedDescription)")
     }
     
-    func tariffSdk(sdk:TariffSdk, didFailWithError error:Error) {
+    func tariffSdk(sdk:GiniSwitchSdk, didFailWithError error:Error) {
         print("Tariff SDK finished with error: \(error.localizedDescription)")
     }
     
-    func tariffSdkDidCancel(sdk:TariffSdk) {
+    func tariffSdkDidCancel(sdk:GiniSwitchSdk) {
         print("Tariff SDK interrupted")
         self.dismiss(animated: true, completion: nil)
     }

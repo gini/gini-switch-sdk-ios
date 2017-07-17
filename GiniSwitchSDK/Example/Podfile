@@ -1,9 +1,9 @@
 use_frameworks!
 
-target 'GiniTariffSDK_Example' do
-  pod 'GiniTariffSDK', :path => '../'
+target 'GiniSwitchSDK_Example' do
+  pod 'GiniSwitchSDK', :path => '../'
 
-  target 'GiniTariffSDK_Tests' do
+  target 'GiniSwitchSDK_Tests' do
     inherit! :search_paths
 
     pod 'FBSnapshotTestCase'

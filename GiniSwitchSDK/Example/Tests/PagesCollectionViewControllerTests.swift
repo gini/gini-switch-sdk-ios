@@ -11,7 +11,7 @@ import XCTest
 
 class PagesCollectionViewControllerTests: XCTestCase {
     
-    let storyboard = UIStoryboard.tariffStoryboard()
+    let storyboard = UIStoryboard.switchStoryboard()
     var pagesController:PagesCollectionViewController! = nil
     
     var didRequestOptions = false

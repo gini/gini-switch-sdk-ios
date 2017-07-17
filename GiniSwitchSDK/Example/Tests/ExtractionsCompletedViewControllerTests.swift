@@ -11,7 +11,7 @@ import XCTest
 
 class ExtractionsCompletedViewControllerTests: XCTestCase {
     
-    let storyboard = tariffStoryboard()
+    let storyboard = switchStoryboard()
     var completionViewController:ExtractionsCompletedViewController! = nil
     
     override func setUp() {

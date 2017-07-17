@@ -11,15 +11,15 @@ import XCTest
 
 class TariffAppearanceTests: XCTestCase {
     
-    var appearance:TariffAppearance! {
-        return TariffSdkStorage.activeTariffSdk?.appearance
+    var appearance:GiniSwitchAppearance! {
+        return GiniSwitchSdkStorage.activeSwitchSdk?.appearance
     }
-    let storyboard = tariffStoryboard()
+    let storyboard = switchStoryboard()
     let testColor = UIColor.green
     
     override func setUp() {
         super.setUp()
-        TariffSdkStorage.activeTariffSdk = TariffSdk()
+        GiniSwitchSdkStorage.activeSwitchSdk = GiniSwitchSdk()
     }
     
 //    func testChangingBackgroundColor() {

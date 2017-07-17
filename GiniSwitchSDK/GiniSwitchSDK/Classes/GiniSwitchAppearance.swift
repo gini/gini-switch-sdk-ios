@@ -1,5 +1,5 @@
 //
-//  TariffAppearance.swift
+//  GiniSwitchAppearance.swift
 //  Gini Switch SDK
 //
 //  Created by Gini GmbH on 25.05.17.
@@ -14,7 +14,7 @@ import UIKit
  * The TariffAppearance class contains resources, texts and colors used for customizing the
  * SDKs UI to match the hosting app it is used with.
  */
-public class TariffAppearance {
+public class GiniSwitchAppearance {
     
     /**
      * The positive color is a color that will show up at many places throughout the SDK.

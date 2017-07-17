@@ -1,5 +1,5 @@
 //
-//  TariffLogger.swift
+//  GiniSwitchLogger.swift
 //  Gini Switch SDK
 //
 //  Created by Gini GmbH on 08.05.17.
@@ -14,7 +14,7 @@ public enum LogLevel : Int {
     case error
 }
 
-public protocol TariffLogger {
+public protocol GiniSwitchLogger {
     
     func log(level:LogLevel, message:String)
     func logVerbose(message:String)

@@ -1,5 +1,5 @@
 //
-//  TariffConsoleLoggerTests.swift
+//  GiniSwitchConsoleLoggerTests.swift
 //  Gini Switch SDK
 //
 //  Created by Gini GmbH on 08.05.17.
@@ -9,9 +9,9 @@
 import XCTest
 @testable import GiniTariffSDK
 
-class TariffConsoleLoggerTests: XCTestCase {
+class GiniSwitchConsoleLoggerTests: XCTestCase {
     
-    let logger = TariffConsoleLogger()
+    let logger = GiniSwitchConsoleLogger()
     
     override func setUp() {
         logger.minLogLevel = .verbose

@@ -12,7 +12,7 @@ import XCTest
 class ExtractionsTableViewCellTests: XCTestCase {
     
     var extractionCell:ExtractionsTableViewCell! = nil
-    let storyboard = UIStoryboard.tariffStoryboard()
+    let storyboard = UIStoryboard.switchStoryboard()
     let testField = "zip"
     let testValue = "80333"
     

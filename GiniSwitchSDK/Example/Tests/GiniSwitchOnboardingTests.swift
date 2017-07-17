@@ -1,5 +1,5 @@
 //
-//  TariffOnboardingTests.swift
+//  GiniSwitchOnboardingTests.swift
 //  Gini Switch SDK
 //
 //  Created by Gini GmbH on 28.06.17.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniTariffSDK
 
-class TariffOnboardingTests: XCTestCase {
+class GiniSwitchOnboardingTests: XCTestCase {
     
     let testImage = UIImage()
     let testText = "Go onboard yourself"
@@ -22,13 +22,13 @@ class TariffOnboardingTests: XCTestCase {
     
     func testSettingOnboardingPages() {
         let pages = [testPage(), testPage()]
-        let onboarding = TariffOnboarding(pages:pages)
+        let onboarding = GiniSwitchOnboarding(pages:pages)
         XCTAssertEqual(onboarding.pages, pages, "TariffOnboarding should have a pages array")
     }
     
 }
 
-extension TariffOnboardingTests {
+extension GiniSwitchOnboardingTests {
     
     func testPage() -> OnboardingPage {
         return OnboardingPage(image: testImage, text: testText)

@@ -11,8 +11,8 @@ import UIKit
 
 extension UIStoryboard {
     
-    class func tariffStoryboard() -> UIStoryboard? {
-        return UIStoryboard(name: "Tariff", bundle: Bundle(identifier: "org.cocoapods.GiniTariffSDK"))
+    class func switchStoryboard() -> UIStoryboard? {
+        return UIStoryboard(name: "GiniSwitch", bundle: Bundle(identifier: "org.cocoapods.GiniTariffSDK"))
     }
     
 }

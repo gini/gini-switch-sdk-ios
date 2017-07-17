@@ -1,5 +1,5 @@
 //
-//  TariffNopAnalytics.swift
+//  GiniSwitchNopAnalytics.swift
 //  Gini Switch SDK
 //
 //  Created by Gini GmbH on 08.05.17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TariffNopAnalytics: TariffAnalytics {
+class GiniSwitchNopAnalytics: GiniSwitchAnalytics {
     
     func sendAnalyticsEvent(type:AnalyticsEventType, eventName:String) {
         

@@ -1,12 +1,12 @@
 //
-//  TariffConsoleLogger.swift
+//  GiniSwitchConsoleLogger.swift
 //  Gini Switch SDK
 //
 //  Created by Gini GmbH on 08.05.17.
 //
 //
 
-class TariffConsoleLogger: TariffLogger {
+class GiniSwitchConsoleLogger: GiniSwitchLogger {
     
     var minLogLevel = LogLevel.info
     
@@ -48,7 +48,7 @@ class TariffConsoleLogger: TariffLogger {
 
 }
 
-extension TariffConsoleLogger {
+extension GiniSwitchConsoleLogger {
     
     func prefixFor(logLevel level:LogLevel) -> String {
         switch level {

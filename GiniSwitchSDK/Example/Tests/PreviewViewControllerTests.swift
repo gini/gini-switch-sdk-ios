@@ -11,7 +11,7 @@ import XCTest
 
 class PreviewViewControllerTests: XCTestCase {
     
-    let storyboard = tariffStoryboard()
+    let storyboard = switchStoryboard()
     var previewController:PreviewViewController! = nil
     
     var didDeletePage = false

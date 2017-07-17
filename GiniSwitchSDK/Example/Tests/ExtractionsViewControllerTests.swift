@@ -12,7 +12,7 @@ import XCTest
 class ExtractionsViewControllerTests: XCTestCase {
     
     var extractionsController:ExtractionsViewController! = nil
-    let storyboard = tariffStoryboard()
+    let storyboard = switchStoryboard()
     
     override func setUp() {
         super.setUp()

@@ -41,20 +41,20 @@ class MultiPageCoordinator {
         extractionsManager.delegate = self
         extractionsManager.authenticate()
         self.extractionsManager.createExtractionOrder()
-        currentTariffSdk().delegate?.tariffSdkDidStart(sdk: currentTariffSdk())
+        currentSwitchSdk().delegate?.tariffSdkDidStart(sdk: currentSwitchSdk())
         
         scheduleOnboarding()
     }
     
     func showReviewScreen(withPage page:ScanPage) {
-        let reviewController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
+        let reviewController = UIStoryboard.switchStoryboard()?.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
         reviewController.page = page
         reviewController.delegate = self
         delegate?.multiPageCoordinator(self, requestedShowingController: reviewController, presentationStyle: .modal, animated: true, completion: nil)
     }
     
     fileprivate func createExtractionsScreen(extractions:ExtractionCollection) -> ExtractionsViewController {
-        let extractionsController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "ExtractionsViewController") as! ExtractionsViewController
+        let extractionsController = UIStoryboard.switchStoryboard()?.instantiateViewController(withIdentifier: "ExtractionsViewController") as! ExtractionsViewController
         extractionsController.extractionsCollection = extractionsManager.extractions
         extractionsManager.pollExtractions()
         return extractionsController
@@ -78,12 +78,12 @@ class MultiPageCoordinator {
     }
     
     fileprivate func scheduleOnboarding() {
-        if !TariffOnboarding.hasShownOnboarding {
+        if !GiniSwitchOnboarding.hasShownOnboarding {
             // remove the camera button so users don't think they can tap on it
             cameraOptionsController.captureButton.isHidden = true
-            let onboarding = OnboardingViewController(onboarding: (TariffSdkStorage.activeTariffSdk?.configuration.onboarding)!, completion:nil)
+            let onboarding = OnboardingViewController(onboarding: (GiniSwitchSdkStorage.activeSwitchSdk?.configuration.onboarding)!, completion:nil)
             let completionDismiss = {
-                TariffOnboarding.hasShownOnboarding = true
+                GiniSwitchOnboarding.hasShownOnboarding = true
                 self.delegate?.multiPageCoordinator(self, requestedDismissingController: onboarding, presentationStyle: .modal, animated: true)
                 self.cameraOptionsController.captureButton.isHidden = false
             }
@@ -100,7 +100,7 @@ class MultiPageCoordinator {
             // reset the flag just in case
             extractionsCompleted = false
             // show the extractions completed screen
-            let completionController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "ExtractionsCompletedViewController") as! ExtractionsCompletedViewController
+            let completionController = UIStoryboard.switchStoryboard()?.instantiateViewController(withIdentifier: "ExtractionsCompletedViewController") as! ExtractionsCompletedViewController
             let myDelegate = delegate
             myDelegate?.multiPageCoordinator(self, requestedShowingController: completionController, presentationStyle: .modal, animated: true) { [weak self] in
                 // after it is presented, push the extractions screen below it. That way, when it is 
@@ -146,7 +146,7 @@ extension MultiPageCoordinator: CameraViewControllerDelegate {
         let newPage = ScanPage(imageData: data, id: nil, status: .taken)
         showReviewScreen(withPage:newPage)
         enableCaptureButton(true)
-        currentTariffSdk().delegate?.tariffSdk(sdk: currentTariffSdk(), didCapture: data)
+        currentSwitchSdk().delegate?.tariffSdk(sdk: currentSwitchSdk(), didCapture: data)
     }
     
     func cameraViewController(controller:CameraViewController, didFailWithError error:Error) {
@@ -158,12 +158,12 @@ extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
     
     func pageCollectionControllerDidRequestOptions(_ pageController:PagesCollectionViewController) {
          // show an action sheet with all possible action
-        let actionSheet = UIAlertController(title: currentTariffAppearance().exitActionSheetTitle, message: nil, preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: currentSwitchAppearance().exitActionSheetTitle, message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: NSLocalizedString("Abbrechen", comment: "Leave SDK actionsheet cancel title"), style: .cancel) { (action) in
             
         }
         let leaveAction = UIAlertAction(title: NSLocalizedString("Verlassen", comment: "Leave SDK actionsheet leave title"), style: .destructive) { (action) in
-            TariffSdkStorage.activeTariffSdk?.delegate?.tariffSdkDidCancel(sdk: TariffSdkStorage.activeTariffSdk!)
+            GiniSwitchSdkStorage.activeSwitchSdk?.delegate?.tariffSdkDidCancel(sdk: currentSwitchSdk())
         }
         actionSheet.addAction(cancelAction)
         actionSheet.addAction(leaveAction)
@@ -173,7 +173,7 @@ extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
     func pageCollectionController(_ pageController:PagesCollectionViewController, didSelectPage:ScanPage) {
         pageController.shouldShowAddIcon = true
         pageController.pagesCollection?.reloadData()
-        let previewController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "PreviewViewController") as! PreviewViewController
+        let previewController = UIStoryboard.switchStoryboard()?.instantiateViewController(withIdentifier: "PreviewViewController") as! PreviewViewController
         previewController.page = didSelectPage
         previewController.delegate = self
         embeddedController = previewController
@@ -203,7 +203,7 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
         }
         refreshPagesCollectionView()
         completeIfReady()
-        currentTariffSdk().delegate?.tariffSdk(sdk: currentTariffSdk(), didReview: page.imageData)
+        currentSwitchSdk().delegate?.tariffSdk(sdk: currentSwitchSdk(), didReview: page.imageData)
     }
     
     func reviewController(_ controller:ReviewViewController, didRejectPage page:ScanPage) {

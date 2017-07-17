@@ -11,7 +11,7 @@ import XCTest
 
 class MultiPageScanViewControllerTests: XCTestCase {
     
-    let storyboard = tariffStoryboard()
+    let storyboard = switchStoryboard()
     var multiPageController:MultiPageScanViewController! = nil
     
     override func setUp() {

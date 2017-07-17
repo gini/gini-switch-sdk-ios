@@ -11,7 +11,7 @@ import XCTest
 
 class CameraOptionsViewControllerTests: XCTestCase {
     
-    let storyboard = tariffStoryboard()
+    let storyboard = switchStoryboard()
     var optionsController:CameraOptionsViewController! = nil
     
     // delegate variables

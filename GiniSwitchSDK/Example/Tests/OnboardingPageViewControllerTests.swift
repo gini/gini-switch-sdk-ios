@@ -12,7 +12,7 @@ import XCTest
 class OnboardingPageViewControllerTests: XCTestCase {
     
     var onboadingPage:OnboardingPageViewController! = nil
-    let storyboard = tariffStoryboard()
+    let storyboard = switchStoryboard()
     
     override func setUp() {
         super.setUp()

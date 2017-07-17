@@ -1,5 +1,5 @@
 //
-//  TariffSdkTests.swift
+//  GiniSwitchSdkTests.swift
 //  Gini Switch SDK
 //
 //  Created by Gini GmbH on 08.05.17.
@@ -9,18 +9,18 @@
 import XCTest
 @testable import GiniTariffSDK
 
-class TariffSdkTests: XCTestCase {
+class GiniSwitchSdkTests: XCTestCase {
     
     let testClientId = "myTariffFun"
     let testClientSecret = "myTariffSecret"
     let testDomain = "tarifffun.com"
     
-    func testCanInitTariffSdk() {
+    func testCanInitTSwitchSdk() {
         let sdk = emptySdk()
         XCTAssertNotNil(sdk, "Should be able to init a TariffSDK without parameters")
     }
     
-    func testCanInitTariffSdkWithParameters() {
+    func testCanInitSwitchSdkWithParameters() {
         let sdk = sdkWithParams()
         XCTAssertNotNil(sdk, "Should be able to init a TariffSDK with parameters")
     }
@@ -70,52 +70,52 @@ class TariffSdkTests: XCTestCase {
 }
 
 // Tariff SDK initialization
-extension TariffSdkTests {
+extension GiniSwitchSdkTests {
     
-    func emptySdk() -> TariffSdk {
-        return TariffSdk()
+    func emptySdk() -> GiniSwitchSdk {
+        return GiniSwitchSdk()
     }
     
-    func sdkWithParams() -> TariffSdk {
-        return TariffSdk(clientId: testClientId, clientSecret: testClientSecret, domain: testDomain)
+    func sdkWithParams() -> GiniSwitchSdk {
+        return GiniSwitchSdk(clientId: testClientId, clientSecret: testClientSecret, domain: testDomain)
     }
 }
 
-extension TariffSdkTests: TariffSdkDelegate {
+extension GiniSwitchSdkTests: GiniSwitchSdkDelegate {
     
-    func tariffSdkDidStart(sdk:TariffSdk) {
+    func tariffSdkDidStart(sdk:GiniSwitchSdk) {
         
     }
     
-    func tariffSdk(sdk:TariffSdk, didCapture imageData:Data) {
+    func tariffSdk(sdk:GiniSwitchSdk, didCapture imageData:Data) {
         
     }
     
-    func tariffSdk(sdk:TariffSdk, didUpload imageData:Data) {
+    func tariffSdk(sdk:GiniSwitchSdk, didUpload imageData:Data) {
         
     }
     
-    func tariffSdk(sdk:TariffSdk, didReview imageData:Data) {
+    func tariffSdk(sdk:GiniSwitchSdk, didReview imageData:Data) {
         
     }
     
-    func tariffSdkDidComplete(sdk:TariffSdk) {
+    func tariffSdkDidComplete(sdk:GiniSwitchSdk) {
         
     }
     
-    func tariffSdk(sdk:TariffSdk, didExtractInfo info:ExtractionCollection) {
+    func tariffSdk(sdk:GiniSwitchSdk, didExtractInfo info:ExtractionCollection) {
         
     }
     
-    func tariffSdk(sdk:TariffSdk, didReceiveError error:Error) {
+    func tariffSdk(sdk:GiniSwitchSdk, didReceiveError error:Error) {
         
     }
     
-    func tariffSdk(sdk:TariffSdk, didFailWithError error:Error) {
+    func tariffSdk(sdk:GiniSwitchSdk, didFailWithError error:Error) {
         
     }
     
-    func tariffSdkDidCancel(sdk: TariffSdk) {
+    func tariffSdkDidCancel(sdk: GiniSwitchSdk) {
         
     }
     

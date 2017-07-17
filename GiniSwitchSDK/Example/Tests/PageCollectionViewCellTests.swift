@@ -11,7 +11,7 @@ import XCTest
 
 class PageCollectionViewCellTests: XCTestCase {
     
-    let storyboard = UIStoryboard.tariffStoryboard()
+    let storyboard = UIStoryboard.switchStoryboard()
     var pageCell:PageCollectionViewCell! = nil
     
     override func setUp() {
@@ -84,7 +84,7 @@ class PageCollectionViewCellTests: XCTestCase {
     }
     
     func testPageStatusAnalysed() {
-        TariffSdkStorage.activeTariffSdk = TariffSdk()
+        GiniSwitchSdkStorage.activeSwitchSdk = GiniSwitchSdk()
         let page = ScanPage(imageData: testImageData(), id: "test", status: .analysed)
         pageCell = initializeCellFromStoryboard(pageCollection:PageCollection(pages:[page]))
         let positiveColor = UIColor(colorLiteralRed: 32.0 / 255.0, green: 186.0 / 255.0, blue: 167.0 / 255.0, alpha: 1.0)       // TODO: get dynamically
@@ -92,14 +92,14 @@ class PageCollectionViewCellTests: XCTestCase {
     }
     
     func testPageStatusUploading() {
-        TariffSdkStorage.activeTariffSdk = TariffSdk()
+        GiniSwitchSdkStorage.activeSwitchSdk = GiniSwitchSdk()
         let page = ScanPage(imageData: testImageData(), id: "test", status: .uploading)
         pageCell = initializeCellFromStoryboard(pageCollection:PageCollection(pages:[page]))
         XCTAssertFalse(pageCell.uploadingIndicator.isHidden, "Uploading images should show an activity indicator")
     }
     
     func testPageStatusUploaded() {
-        TariffSdkStorage.activeTariffSdk = TariffSdk()
+        GiniSwitchSdkStorage.activeSwitchSdk = GiniSwitchSdk()
         let page = ScanPage(imageData: testImageData(), id: "test", status: .uploaded)
         pageCell = initializeCellFromStoryboard(pageCollection:PageCollection(pages:[page]))
         XCTAssertFalse(pageCell.uploadingIndicator.isHidden, "Uploaded images should still show an activity indicator. The image still needs to be analysed")

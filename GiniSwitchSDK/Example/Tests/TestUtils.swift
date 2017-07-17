@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 @testable import GiniTariffSDK
 
-func tariffStoryboard() -> UIStoryboard? {
-    return UIStoryboard.tariffStoryboard()
+func switchStoryboard() -> UIStoryboard? {
+    return UIStoryboard.switchStoryboard()
 }
 
 func testImageData() -> Data {

@@ -10,20 +10,20 @@ import UIKit
 
 class OnboardingViewController: UIPageViewController {
     
-    var onboarding = TariffOnboarding()
+    var onboarding = GiniSwitchOnboarding()
     var completion:(() -> Void)? = nil
     
     var currentPage:OnboardingPage? = nil
     var pageControl:UIPageControl? = nil
     
-    convenience init(onboarding:TariffOnboarding, completion: (() -> Void)? = nil) {
+    convenience init(onboarding:GiniSwitchOnboarding, completion: (() -> Void)? = nil) {
         self.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         self.onboarding = onboarding
         // add a default empty page at the end used to let the use to scroll past the onboarding
         // and dismiss it
         var pages = self.onboarding.pages
         pages.append(OnboardingPage(image: UIImage(), text: ""))
-        self.onboarding = TariffOnboarding(pages: pages)
+        self.onboarding = GiniSwitchOnboarding(pages: pages)
         self.completion = completion
         dataSource = self
         delegate = self
@@ -67,7 +67,7 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
     
     func onboardingPageController(with page:OnboardingPage?) -> OnboardingPageViewController? {
         guard let page = page,
-            let pageController = UIStoryboard.tariffStoryboard()?.instantiateViewController(withIdentifier: "OnboardingPageViewController") as? OnboardingPageViewController else {
+            let pageController = UIStoryboard.switchStoryboard()?.instantiateViewController(withIdentifier: "OnboardingPageViewController") as? OnboardingPageViewController else {
                 return nil
         }
         pageController.page = page

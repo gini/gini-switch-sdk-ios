@@ -20,8 +20,8 @@ class ExtractionsViewController: UIViewController {
         super.viewDidLoad()
         extractionsTable.dataSource = self
         extractionsTable.delegate = self
-        titleHintLabel.text = currentTariffAppearance().extractionsScreenTitleText
-        switchButton.setTitle(currentTariffAppearance().extractionsButtonText, for: .normal)
+        titleHintLabel.text = currentSwitchAppearance().extractionsScreenTitleText
+        switchButton.setTitle(currentSwitchAppearance().extractionsButtonText, for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,7 +35,7 @@ class ExtractionsViewController: UIViewController {
     }
     
     @IBAction func onSwitchTapped() {
-        TariffSdkStorage.activeTariffSdk?.delegate?.tariffSdkDidComplete(sdk: TariffSdkStorage.activeTariffSdk!)
+        currentSwitchSdk().delegate?.tariffSdkDidComplete(sdk: currentSwitchSdk())
     }
 
 }
@@ -59,10 +59,10 @@ extension ExtractionsViewController: UITableViewDataSource {
         let extraction = extractionsCollection?.extractions[indexPath.row]
         cell.nameLabel.text = extraction?.name ?? ""
         cell.valueTextField.text = extraction?.valueString ?? ""
-        cell.nameLabel.textColor = currentTariffAppearance().extractionTitleTextColor
-        cell.valueTextField.textColor = currentTariffAppearance().extractionsTextFieldTextColor
-        cell.valueTextField.layer.borderColor = currentTariffAppearance().extractionsTextFieldBorderColor?.cgColor
-        cell.valueTextField.backgroundColor = currentTariffAppearance().extractionsTextFieldBackgroundColor
+        cell.nameLabel.textColor = currentSwitchAppearance().extractionTitleTextColor
+        cell.valueTextField.textColor = currentSwitchAppearance().extractionsTextFieldTextColor
+        cell.valueTextField.layer.borderColor = currentSwitchAppearance().extractionsTextFieldBorderColor?.cgColor
+        cell.valueTextField.backgroundColor = currentSwitchAppearance().extractionsTextFieldBackgroundColor
         
         return cell
     }

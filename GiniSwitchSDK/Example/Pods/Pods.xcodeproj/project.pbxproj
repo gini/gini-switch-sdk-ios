@@ -14,15 +14,15 @@
 		19E9B2E352F343AF4DFC5A76683090E6 /* Pods-GiniTariffSDK_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D0BDBC7238D1A8DEB2847A2030550E0B /* Pods-GiniTariffSDK_Tests-dummy.m */; };
 		1AB7934C16CE49DE196FFC7BE7278287 /* SwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97545C39C4A5EE2631DD9FFECE76A40 /* SwiftSupport.swift */; };
 		1E8A7584520737945B40C78E957EC305 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E88A450A84E3957158B3B3459740AA /* Foundation.framework */; };
-		23AB50F91F1CE3DB00088619 /* TariffSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50B21F1CE1D700088619 /* TariffSdk.swift */; };
-		23AB50FA1F1CE3E400088619 /* TariffLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50AF1F1CE1D700088619 /* TariffLogger.swift */; };
-		23AB50FB1F1CE3E400088619 /* TariffConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50AE1F1CE1D700088619 /* TariffConsoleLogger.swift */; };
-		23AB50FC1F1CE3E400088619 /* TariffAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50AA1F1CE1D700088619 /* TariffAnalytics.swift */; };
-		23AB50FD1F1CE3E400088619 /* TariffConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50AD1F1CE1D700088619 /* TariffConfiguration.swift */; };
-		23AB50FE1F1CE3E400088619 /* TariffOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50B11F1CE1D700088619 /* TariffOnboarding.swift */; };
-		23AB50FF1F1CE3E400088619 /* TariffNopAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50B01F1CE1D700088619 /* TariffNopAnalytics.swift */; };
-		23AB51001F1CE3E400088619 /* TariffAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50AB1F1CE1D700088619 /* TariffAppearance.swift */; };
-		23AB51011F1CE3E400088619 /* TariffUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50B41F1CE1D700088619 /* TariffUserInterface.swift */; };
+		23AB50F91F1CE3DB00088619 /* GiniSwitchSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50B21F1CE1D700088619 /* GiniSwitchSdk.swift */; };
+		23AB50FA1F1CE3E400088619 /* GiniSwitchLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50AF1F1CE1D700088619 /* GiniSwitchLogger.swift */; };
+		23AB50FB1F1CE3E400088619 /* GiniSwitchConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50AE1F1CE1D700088619 /* GiniSwitchConsoleLogger.swift */; };
+		23AB50FC1F1CE3E400088619 /* GiniSwitchAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50AA1F1CE1D700088619 /* GiniSwitchAnalytics.swift */; };
+		23AB50FD1F1CE3E400088619 /* GiniSwitchConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50AD1F1CE1D700088619 /* GiniSwitchConfiguration.swift */; };
+		23AB50FE1F1CE3E400088619 /* GiniSwitchOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50B11F1CE1D700088619 /* GiniSwitchOnboarding.swift */; };
+		23AB50FF1F1CE3E400088619 /* GiniSwitchNopAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50B01F1CE1D700088619 /* GiniSwitchNopAnalytics.swift */; };
+		23AB51001F1CE3E400088619 /* GiniSwitchAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50AB1F1CE1D700088619 /* GiniSwitchAppearance.swift */; };
+		23AB51011F1CE3E400088619 /* GiniSwitchUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50B41F1CE1D700088619 /* GiniSwitchUserInterface.swift */; };
 		23AB51021F1CE3EF00088619 /* Extraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50911F1CE1D700088619 /* Extraction.swift */; };
 		23AB51031F1CE3EF00088619 /* ExtractionValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB509A1F1CE1D700088619 /* ExtractionValue.swift */; };
 		23AB51041F1CE3EF00088619 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50B91F1CE1D700088619 /* User.swift */; };
@@ -65,11 +65,11 @@
 		23AB51291F1CE41200088619 /* ExtractionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50961F1CE1D700088619 /* ExtractionsManager.swift */; };
 		23AB512A1F1CE41200088619 /* PollScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50A41F1CE1D700088619 /* PollScheduler.swift */; };
 		23AB512C1F1CE42700088619 /* ImageMetaInformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB509B1F1CE1D700088619 /* ImageMetaInformationManager.swift */; };
-		23AB512D1F1CE42E00088619 /* TariffSdkStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50B31F1CE1D700088619 /* TariffSdkStorage.swift */; };
-		23AB512E1F1CE43300088619 /* UIStoryboard+Tariff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50B71F1CE1D700088619 /* UIStoryboard+Tariff.swift */; };
+		23AB512D1F1CE42E00088619 /* GiniSwitchSdkStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50B31F1CE1D700088619 /* GiniSwitchSdkStorage.swift */; };
+		23AB512E1F1CE43300088619 /* UIStoryboard+Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50B71F1CE1D700088619 /* UIStoryboard+Switch.swift */; };
 		23AB512F1F1CE69000088619 /* ResourceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50A71F1CE1D700088619 /* ResourceError.swift */; };
-		23AB51321F1CE77000088619 /* Tariff.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23AB51311F1CE74C00088619 /* Tariff.xcassets */; };
-		23AB51331F1CE77500088619 /* Tariff.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23AB51301F1CE74C00088619 /* Tariff.storyboard */; };
+		23AB51321F1CE77000088619 /* GiniSwitch.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23AB51311F1CE74C00088619 /* GiniSwitch.xcassets */; };
+		23AB51331F1CE77500088619 /* GiniSwitch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23AB51301F1CE74C00088619 /* GiniSwitch.storyboard */; };
 		2F485B69F51E4F723A38410F31F08550 /* FBSnapshotTestController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1374B79237CAC07693E99442FBED1F15 /* FBSnapshotTestController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3496CC16AF41362D96538FACFF564326 /* GiniTariffSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A4573FEA117D5CE7BD14A347AA55F946 /* GiniTariffSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		35DD05FD595A6FE7F5A0692D12E319DC /* UIImage+Diff.m in Sources */ = {isa = PBXBuildFile; fileRef = B9CEF7D6C5E08AB80E58DABC75D882BC /* UIImage+Diff.m */; };
@@ -153,26 +153,26 @@
 		23AB50A71F1CE1D700088619 /* ResourceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResourceError.swift; path = GiniSwitchSDK/Classes/ResourceError.swift; sourceTree = "<group>"; };
 		23AB50A81F1CE1D700088619 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReviewViewController.swift; path = GiniSwitchSDK/Classes/ReviewViewController.swift; sourceTree = "<group>"; };
 		23AB50A91F1CE1D700088619 /* ScanPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanPage.swift; path = GiniSwitchSDK/Classes/ScanPage.swift; sourceTree = "<group>"; };
-		23AB50AA1F1CE1D700088619 /* TariffAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffAnalytics.swift; path = GiniSwitchSDK/Classes/TariffAnalytics.swift; sourceTree = "<group>"; };
-		23AB50AB1F1CE1D700088619 /* TariffAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffAppearance.swift; path = GiniSwitchSDK/Classes/TariffAppearance.swift; sourceTree = "<group>"; };
+		23AB50AA1F1CE1D700088619 /* GiniSwitchAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GiniSwitchAnalytics.swift; path = GiniSwitchSDK/Classes/GiniSwitchAnalytics.swift; sourceTree = "<group>"; };
+		23AB50AB1F1CE1D700088619 /* GiniSwitchAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GiniSwitchAppearance.swift; path = GiniSwitchSDK/Classes/GiniSwitchAppearance.swift; sourceTree = "<group>"; };
 		23AB50AC1F1CE1D700088619 /* TariffBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffBackgroundView.swift; path = GiniSwitchSDK/Classes/TariffBackgroundView.swift; sourceTree = "<group>"; };
-		23AB50AD1F1CE1D700088619 /* TariffConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffConfiguration.swift; path = GiniSwitchSDK/Classes/TariffConfiguration.swift; sourceTree = "<group>"; };
-		23AB50AE1F1CE1D700088619 /* TariffConsoleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffConsoleLogger.swift; path = GiniSwitchSDK/Classes/TariffConsoleLogger.swift; sourceTree = "<group>"; };
-		23AB50AF1F1CE1D700088619 /* TariffLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffLogger.swift; path = GiniSwitchSDK/Classes/TariffLogger.swift; sourceTree = "<group>"; };
-		23AB50B01F1CE1D700088619 /* TariffNopAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffNopAnalytics.swift; path = GiniSwitchSDK/Classes/TariffNopAnalytics.swift; sourceTree = "<group>"; };
-		23AB50B11F1CE1D700088619 /* TariffOnboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffOnboarding.swift; path = GiniSwitchSDK/Classes/TariffOnboarding.swift; sourceTree = "<group>"; };
-		23AB50B21F1CE1D700088619 /* TariffSdk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffSdk.swift; path = GiniSwitchSDK/Classes/TariffSdk.swift; sourceTree = "<group>"; };
-		23AB50B31F1CE1D700088619 /* TariffSdkStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffSdkStorage.swift; path = GiniSwitchSDK/Classes/TariffSdkStorage.swift; sourceTree = "<group>"; };
-		23AB50B41F1CE1D700088619 /* TariffUserInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffUserInterface.swift; path = GiniSwitchSDK/Classes/TariffUserInterface.swift; sourceTree = "<group>"; };
+		23AB50AD1F1CE1D700088619 /* GiniSwitchConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GiniSwitchConfiguration.swift; path = GiniSwitchSDK/Classes/GiniSwitchConfiguration.swift; sourceTree = "<group>"; };
+		23AB50AE1F1CE1D700088619 /* GiniSwitchConsoleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GiniSwitchConsoleLogger.swift; path = GiniSwitchSDK/Classes/GiniSwitchConsoleLogger.swift; sourceTree = "<group>"; };
+		23AB50AF1F1CE1D700088619 /* GiniSwitchLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GiniSwitchLogger.swift; path = GiniSwitchSDK/Classes/GiniSwitchLogger.swift; sourceTree = "<group>"; };
+		23AB50B01F1CE1D700088619 /* GiniSwitchNopAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GiniSwitchNopAnalytics.swift; path = GiniSwitchSDK/Classes/GiniSwitchNopAnalytics.swift; sourceTree = "<group>"; };
+		23AB50B11F1CE1D700088619 /* GiniSwitchOnboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GiniSwitchOnboarding.swift; path = GiniSwitchSDK/Classes/GiniSwitchOnboarding.swift; sourceTree = "<group>"; };
+		23AB50B21F1CE1D700088619 /* GiniSwitchSdk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GiniSwitchSdk.swift; path = GiniSwitchSDK/Classes/GiniSwitchSdk.swift; sourceTree = "<group>"; };
+		23AB50B31F1CE1D700088619 /* GiniSwitchSdkStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GiniSwitchSdkStorage.swift; path = GiniSwitchSDK/Classes/GiniSwitchSdkStorage.swift; sourceTree = "<group>"; };
+		23AB50B41F1CE1D700088619 /* GiniSwitchUserInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GiniSwitchUserInterface.swift; path = GiniSwitchSDK/Classes/GiniSwitchUserInterface.swift; sourceTree = "<group>"; };
 		23AB50B51F1CE1D700088619 /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Token.swift; path = GiniSwitchSDK/Classes/Token.swift; sourceTree = "<group>"; };
 		23AB50B61F1CE1D700088619 /* TokenUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenUtils.swift; path = GiniSwitchSDK/Classes/TokenUtils.swift; sourceTree = "<group>"; };
-		23AB50B71F1CE1D700088619 /* UIStoryboard+Tariff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIStoryboard+Tariff.swift"; path = "GiniSwitchSDK/Classes/UIStoryboard+Tariff.swift"; sourceTree = "<group>"; };
+		23AB50B71F1CE1D700088619 /* UIStoryboard+Switch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIStoryboard+Switch.swift"; path = "GiniSwitchSDK/Classes/UIStoryboard+Switch.swift"; sourceTree = "<group>"; };
 		23AB50B81F1CE1D700088619 /* URL+QueryParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "URL+QueryParameters.swift"; path = "GiniSwitchSDK/Classes/URL+QueryParameters.swift"; sourceTree = "<group>"; };
 		23AB50B91F1CE1D700088619 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = GiniSwitchSDK/Classes/User.swift; sourceTree = "<group>"; };
 		23AB50BA1F1CE1D700088619 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = GiniSwitchSDK/Classes/UserManager.swift; sourceTree = "<group>"; };
 		23AB50BB1F1CE1D700088619 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebService.swift; path = GiniSwitchSDK/Classes/WebService.swift; sourceTree = "<group>"; };
-		23AB51301F1CE74C00088619 /* Tariff.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Tariff.storyboard; path = GiniSwitchSDK/Assets/Tariff.storyboard; sourceTree = "<group>"; };
-		23AB51311F1CE74C00088619 /* Tariff.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Tariff.xcassets; path = GiniSwitchSDK/Assets/Tariff.xcassets; sourceTree = "<group>"; };
+		23AB51301F1CE74C00088619 /* GiniSwitch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = GiniSwitch.storyboard; path = GiniSwitchSDK/Assets/GiniSwitch.storyboard; sourceTree = "<group>"; };
+		23AB51311F1CE74C00088619 /* GiniSwitch.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = GiniSwitch.xcassets; path = GiniSwitchSDK/Assets/GiniSwitch.xcassets; sourceTree = "<group>"; };
 		2EECE81A9AEC1ED1057A9C3C88DBCEBE /* UIApplication+StrictKeyWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+StrictKeyWindow.m"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.m"; sourceTree = "<group>"; };
 		355952367005A8E00FB162C120751AD3 /* Pods-GiniTariffSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GiniTariffSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		39577E2B806B8B2D019998DE60728F63 /* FBSnapshotTestCase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestCase.m; path = FBSnapshotTestCase/FBSnapshotTestCase.m; sourceTree = "<group>"; };
@@ -386,14 +386,14 @@
 		23AB50F81F1CE36100088619 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				23AB50AF1F1CE1D700088619 /* TariffLogger.swift */,
-				23AB50AE1F1CE1D700088619 /* TariffConsoleLogger.swift */,
-				23AB50AA1F1CE1D700088619 /* TariffAnalytics.swift */,
-				23AB50AD1F1CE1D700088619 /* TariffConfiguration.swift */,
-				23AB50B11F1CE1D700088619 /* TariffOnboarding.swift */,
-				23AB50B01F1CE1D700088619 /* TariffNopAnalytics.swift */,
-				23AB50AB1F1CE1D700088619 /* TariffAppearance.swift */,
-				23AB50B41F1CE1D700088619 /* TariffUserInterface.swift */,
+				23AB50AF1F1CE1D700088619 /* GiniSwitchLogger.swift */,
+				23AB50AE1F1CE1D700088619 /* GiniSwitchConsoleLogger.swift */,
+				23AB50AA1F1CE1D700088619 /* GiniSwitchAnalytics.swift */,
+				23AB50AD1F1CE1D700088619 /* GiniSwitchConfiguration.swift */,
+				23AB50B11F1CE1D700088619 /* GiniSwitchOnboarding.swift */,
+				23AB50B01F1CE1D700088619 /* GiniSwitchNopAnalytics.swift */,
+				23AB50AB1F1CE1D700088619 /* GiniSwitchAppearance.swift */,
+				23AB50B41F1CE1D700088619 /* GiniSwitchUserInterface.swift */,
 			);
 			name = Configuration;
 			sourceTree = "<group>";
@@ -480,11 +480,11 @@
 				23AB50F31F1CE21700088619 /* Authentication */,
 				23AB50F21F1CE1E400088619 /* Extractions */,
 				23AB509B1F1CE1D700088619 /* ImageMetaInformationManager.swift */,
-				23AB50B21F1CE1D700088619 /* TariffSdk.swift */,
-				23AB50B31F1CE1D700088619 /* TariffSdkStorage.swift */,
-				23AB50B71F1CE1D700088619 /* UIStoryboard+Tariff.swift */,
-				23AB51301F1CE74C00088619 /* Tariff.storyboard */,
-				23AB51311F1CE74C00088619 /* Tariff.xcassets */,
+				23AB50B21F1CE1D700088619 /* GiniSwitchSdk.swift */,
+				23AB50B31F1CE1D700088619 /* GiniSwitchSdkStorage.swift */,
+				23AB50B71F1CE1D700088619 /* UIStoryboard+Switch.swift */,
+				23AB51301F1CE74C00088619 /* GiniSwitch.storyboard */,
+				23AB51311F1CE74C00088619 /* GiniSwitch.xcassets */,
 				5927E45E87179F483C50DB0D6C78FE93 /* Support Files */,
 			);
 			name = GiniSwitchSDK;
@@ -712,8 +712,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23AB51331F1CE77500088619 /* Tariff.storyboard in Resources */,
-				23AB51321F1CE77000088619 /* Tariff.xcassets in Resources */,
+				23AB51331F1CE77500088619 /* GiniSwitch.storyboard in Resources */,
+				23AB51321F1CE77000088619 /* GiniSwitch.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,22 +742,22 @@
 			files = (
 				23AB51041F1CE3EF00088619 /* User.swift in Sources */,
 				23AB510A1F1CE3F600088619 /* AddPageResponse.swift in Sources */,
-				23AB512E1F1CE43300088619 /* UIStoryboard+Tariff.swift in Sources */,
+				23AB512E1F1CE43300088619 /* UIStoryboard+Switch.swift in Sources */,
 				23AB51261F1CE40B00088619 /* CredentialsStore.swift in Sources */,
 				23AB511E1F1CE3FF00088619 /* ReviewViewController.swift in Sources */,
 				23AB51051F1CE3EF00088619 /* Token.swift in Sources */,
 				23AB51201F1CE3FF00088619 /* TariffBackgroundView.swift in Sources */,
 				23AB51091F1CE3F600088619 /* ExtractionCollection.swift in Sources */,
-				23AB50FA1F1CE3E400088619 /* TariffLogger.swift in Sources */,
+				23AB50FA1F1CE3E400088619 /* GiniSwitchLogger.swift in Sources */,
 				23AB510C1F1CE3F600088619 /* CreateOrderResponse.swift in Sources */,
-				23AB50FC1F1CE3E400088619 /* TariffAnalytics.swift in Sources */,
-				23AB50FD1F1CE3E400088619 /* TariffConfiguration.swift in Sources */,
-				23AB512D1F1CE42E00088619 /* TariffSdkStorage.swift in Sources */,
+				23AB50FC1F1CE3E400088619 /* GiniSwitchAnalytics.swift in Sources */,
+				23AB50FD1F1CE3E400088619 /* GiniSwitchConfiguration.swift in Sources */,
+				23AB512D1F1CE42E00088619 /* GiniSwitchSdkStorage.swift in Sources */,
 				23AB511F1F1CE3FF00088619 /* PagesCollectionViewController.swift in Sources */,
 				23AB51021F1CE3EF00088619 /* Extraction.swift in Sources */,
-				23AB50F91F1CE3DB00088619 /* TariffSdk.swift in Sources */,
+				23AB50F91F1CE3DB00088619 /* GiniSwitchSdk.swift in Sources */,
 				23AB51151F1CE3FF00088619 /* ExtractionsTableViewCell.swift in Sources */,
-				23AB50FF1F1CE3E400088619 /* TariffNopAnalytics.swift in Sources */,
+				23AB50FF1F1CE3E400088619 /* GiniSwitchNopAnalytics.swift in Sources */,
 				23AB51121F1CE3FF00088619 /* CameraPreviewView.swift in Sources */,
 				23AB51231F1CE40500088619 /* URL+QueryParameters.swift in Sources */,
 				23AB51071F1CE3EF00088619 /* PageCollection.swift in Sources */,
@@ -770,17 +770,17 @@
 				23AB51111F1CE3FF00088619 /* CameraOptionsViewController.swift in Sources */,
 				23AB51061F1CE3EF00088619 /* ScanPage.swift in Sources */,
 				7F101E8CE99B4D0FD46A404B7178AE23 /* GiniTariffSDK-dummy.m in Sources */,
-				23AB51001F1CE3E400088619 /* TariffAppearance.swift in Sources */,
-				23AB50FE1F1CE3E400088619 /* TariffOnboarding.swift in Sources */,
+				23AB51001F1CE3E400088619 /* GiniSwitchAppearance.swift in Sources */,
+				23AB50FE1F1CE3E400088619 /* GiniSwitchOnboarding.swift in Sources */,
 				23AB51181F1CE3FF00088619 /* MultiPageCoordinator.swift in Sources */,
 				23AB51191F1CE3FF00088619 /* OnboardingPageViewController.swift in Sources */,
-				23AB51011F1CE3E400088619 /* TariffUserInterface.swift in Sources */,
+				23AB51011F1CE3E400088619 /* GiniSwitchUserInterface.swift in Sources */,
 				23AB51251F1CE40B00088619 /* UserManager.swift in Sources */,
 				23AB51271F1CE41200088619 /* ExtractionResources.swift in Sources */,
 				23AB51171F1CE3FF00088619 /* MultiPageScanViewController.swift in Sources */,
 				23AB51211F1CE40500088619 /* WebService.swift in Sources */,
 				23AB51101F1CE3FF00088619 /* Camera.swift in Sources */,
-				23AB50FB1F1CE3E400088619 /* TariffConsoleLogger.swift in Sources */,
+				23AB50FB1F1CE3E400088619 /* GiniSwitchConsoleLogger.swift in Sources */,
 				23AB51141F1CE3FF00088619 /* ExtractionsCompletedViewController.swift in Sources */,
 				23AB51291F1CE41200088619 /* ExtractionsManager.swift in Sources */,
 				23AB51241F1CE40B00088619 /* Authenticator.swift in Sources */,

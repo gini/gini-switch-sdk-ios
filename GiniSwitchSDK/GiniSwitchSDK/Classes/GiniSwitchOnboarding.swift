@@ -1,5 +1,5 @@
 //
-//  TariffOnboarding.swift
+//  GiniSwitchOnboarding.swift
 //  Gini Switch SDK
 //
 //  Created by Gini GmbH on 08.05.17.
@@ -23,7 +23,7 @@ public struct OnboardingPage {
     }
 }
 
-public struct TariffOnboarding {
+public struct GiniSwitchOnboarding {
     
     let pages:[OnboardingPage]
     
@@ -44,7 +44,7 @@ public struct TariffOnboarding {
     
 }
 
-extension TariffOnboarding {
+extension GiniSwitchOnboarding {
     
     static var userDefaults:UserDefaults {
         return UserDefaults.standard

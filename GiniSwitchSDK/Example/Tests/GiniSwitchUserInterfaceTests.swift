@@ -1,5 +1,5 @@
 //
-//  TariffUserInterfaceTests.swift
+//  GiniSwitchUserInterfaceTests.swift
 //  Gini Switch SDK
 //
 //  Created by Gini GmbH on 08.05.17.
@@ -9,9 +9,9 @@
 import XCTest
 @testable import GiniTariffSDK
 
-class TariffUserInterfaceTests: XCTestCase {
+class GiniSwitchUserInterfaceTests: XCTestCase {
     
-    var tariffUI = TariffUserInterface()
+    var tariffUI = GiniSwitchUserInterface()
     
     func testDefaultInit() {
         XCTAssertNotNil(tariffUI)

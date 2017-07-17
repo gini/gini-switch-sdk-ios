@@ -130,7 +130,7 @@ class ExtractionsManager {
                 page.id = pageUrl
                 page.status = .uploaded
                 self?.notifyCollectionChanged()
-                currentTariffSdk().delegate?.tariffSdk(sdk: currentTariffSdk(), didUpload: page.imageData)
+                currentSwitchSdk().delegate?.tariffSdk(sdk: currentSwitchSdk(), didUpload: page.imageData)
             }
         })
     }
@@ -216,10 +216,10 @@ class ExtractionsManager {
     }
     
     fileprivate func importCredentials() {
-        let sdk = TariffSdkStorage.activeTariffSdk
-        clientId = sdk?.clientId ?? ""
-        clientSecret = sdk?.clientSecret ?? ""
-        clientDomain = sdk?.clientDomain ?? ""
+        let sdk = currentSwitchSdk()
+        clientId = sdk.clientId
+        clientSecret = sdk.clientSecret
+        clientDomain = sdk.clientDomain
     }
     
     fileprivate func parseStatus(_ status:ExtractionStatusResponse?) {
@@ -261,7 +261,7 @@ class ExtractionsManager {
     
     fileprivate func notifyExtractionsChanged() {
         self.delegate?.extractionsManager(self, didChangeExtractions: extractions)
-        currentTariffSdk().delegate?.tariffSdk(sdk: currentTariffSdk(), didExtractInfo: extractions)
+        currentSwitchSdk().delegate?.tariffSdk(sdk: currentSwitchSdk(), didExtractInfo: extractions)
     }
     
     fileprivate func notifyExtractionsComplete() {
