@@ -11,7 +11,7 @@ import UIKit
 // TODO: this is just an interface. It is not yet connected to the rest of the SDK and
 // changes made here, will NOT apply!
 /**
- * The TariffAppearance class contains resources, texts and colors used for customizing the
+ * The GiniSwitchAppearance class contains resources, texts and colors used for customizing the
  * SDKs UI to match the hosting app it is used with.
  */
 public class GiniSwitchAppearance {
@@ -38,7 +38,7 @@ public class GiniSwitchAppearance {
             guard let color = screenBackgroundColor else {
                 return
             }
-            TariffBackgroundView.appearance().backgroundColor = color
+            SwitchBackgroundView.appearance().backgroundColor = color
         }
     }
     

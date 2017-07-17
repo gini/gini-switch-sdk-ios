@@ -7,9 +7,9 @@
 //
 
 /// the domain for all errors that occur in the SDK
-let TariffErrorDomain = "net.gini.tariff"
+let GiniSwitchErrorDomain = "net.gini.switch"
 
-enum TariffErrorCode:Int {
+enum GiniSwitchErrorCode:Int {
     // low level errors
     case unknown
     case network
@@ -34,22 +34,22 @@ extension NSError {
         if let errorName = dictionary["error"] as? String {
             let errorCode = dictionary["status"] as? Int     // TODO: might become mandatory after implemented in the backend
             let errorDesc = dictionary["error_description"] as? String
-            let inAppErrorCode = NSError.tariffErrorCode(apiCode:errorCode ?? 0)
+            let inAppErrorCode = NSError.switchErrorCode(apiCode:errorCode ?? 0)
             let userDict = [NSLocalizedDescriptionKey: errorName,
                             NSLocalizedFailureReasonErrorKey: errorDesc ?? ""]
-            self.init(domain: TariffErrorDomain, code: inAppErrorCode.rawValue, userInfo: userDict)
+            self.init(domain: GiniSwitchErrorDomain, code: inAppErrorCode.rawValue, userInfo: userDict)
         }
         else {
             return nil
         }
     }
     
-    convenience init(errorCode:TariffErrorCode, underlyingError:Error? = nil) {
+    convenience init(errorCode:GiniSwitchErrorCode, underlyingError:Error? = nil) {
         var userDict:[AnyHashable : Any] = [:]
         if let error = underlyingError {
             userDict[NSUnderlyingErrorKey] = error
         }
-        self.init(domain: TariffErrorDomain, code: errorCode.rawValue, userInfo: userDict)
+        self.init(domain: GiniSwitchErrorDomain, code: errorCode.rawValue, userInfo: userDict)
     }
     
     func errorName() -> String? {
@@ -65,8 +65,8 @@ extension NSError {
     }
     
     /// Translates the error code returned from the server into an error code the app recognizes
-    class func tariffErrorCode(apiCode:Int) -> TariffErrorCode {
-        let errors:[Int: TariffErrorCode] = [400: .authentication, 401: .tokenExpired]  // TODO: just a sample list
+    class func switchErrorCode(apiCode:Int) -> GiniSwitchErrorCode {
+        let errors:[Int: GiniSwitchErrorCode] = [400: .authentication, 401: .tokenExpired]  // TODO: just a sample list
         return errors[apiCode] ?? .unknown
     }
 }
@@ -82,7 +82,7 @@ extension NSError {
     }
     
     func isTokenExpiredError() -> Bool {
-        return NSError.tariffErrorCode(apiCode: code) == .tokenExpired ||
+        return NSError.switchErrorCode(apiCode: code) == .tokenExpired ||
             errorName() == "invalid_token"      // TODO: don't rely on names - check the code only
     }
 }

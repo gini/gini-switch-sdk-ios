@@ -35,7 +35,7 @@ class ExtractionsViewController: UIViewController {
     }
     
     @IBAction func onSwitchTapped() {
-        currentSwitchSdk().delegate?.tariffSdkDidComplete(sdk: currentSwitchSdk())
+        currentSwitchSdk().delegate?.switchSdkDidComplete(sdk: currentSwitchSdk())
     }
 
 }

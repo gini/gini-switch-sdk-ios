@@ -1,5 +1,5 @@
 //
-//  TariffSdk.swift
+//  GiniSwitchSdk.swift
 //  Gini Switch SDK
 //
 //  Created by Gini GmbH on 08.05.17.
@@ -11,15 +11,15 @@ import UIKit
 public protocol GiniSwitchSdkDelegate: class {
     
     // TODO: make methods optional
-    func tariffSdkDidStart(sdk:GiniSwitchSdk)
-    func tariffSdk(sdk:GiniSwitchSdk, didCapture imageData:Data)
-    func tariffSdk(sdk:GiniSwitchSdk, didUpload imageData:Data)
-    func tariffSdk(sdk:GiniSwitchSdk, didReview imageData:Data)
-    func tariffSdkDidComplete(sdk:GiniSwitchSdk)
-    func tariffSdk(sdk:GiniSwitchSdk, didExtractInfo info:ExtractionCollection)
-    func tariffSdk(sdk:GiniSwitchSdk, didReceiveError error:Error)
-    func tariffSdk(sdk:GiniSwitchSdk, didFailWithError error:Error)
-    func tariffSdkDidCancel(sdk:GiniSwitchSdk)
+    func switchSdkDidStart(sdk:GiniSwitchSdk)
+    func switchSdk(sdk:GiniSwitchSdk, didCapture imageData:Data)
+    func switchSdk(sdk:GiniSwitchSdk, didUpload imageData:Data)
+    func switchSdk(sdk:GiniSwitchSdk, didReview imageData:Data)
+    func switchSdkDidComplete(sdk:GiniSwitchSdk)
+    func switchSdk(sdk:GiniSwitchSdk, didExtractInfo info:ExtractionCollection)
+    func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:Error)
+    func switchSdk(sdk:GiniSwitchSdk, didFailWithError error:Error)
+    func switchSdkDidCancel(sdk:GiniSwitchSdk)
     
 }
 
@@ -51,10 +51,10 @@ public class GiniSwitchSdk {
         self.clientId = clientId
         self.clientSecret = clientSecret
         self.clientDomain = domain
-        GiniSwitchSdkStorage.activeSwitchSdk = self     // TODO: Don't use TariffSdkStorage - find a better solution
+        GiniSwitchSdkStorage.activeSwitchSdk = self     // TODO: Don't use GiniSwitchSdkStorage - find a better solution
     }
     
-    public func instantiateTariffViewController() -> UIViewController {
+    public func instantiateSwitchViewController() -> UIViewController {
         return userInterface.initialViewController
     }
 

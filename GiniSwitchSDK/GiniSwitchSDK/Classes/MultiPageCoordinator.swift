@@ -41,7 +41,7 @@ class MultiPageCoordinator {
         extractionsManager.delegate = self
         extractionsManager.authenticate()
         self.extractionsManager.createExtractionOrder()
-        currentSwitchSdk().delegate?.tariffSdkDidStart(sdk: currentSwitchSdk())
+        currentSwitchSdk().delegate?.switchSdkDidStart(sdk: currentSwitchSdk())
         
         scheduleOnboarding()
     }
@@ -146,7 +146,7 @@ extension MultiPageCoordinator: CameraViewControllerDelegate {
         let newPage = ScanPage(imageData: data, id: nil, status: .taken)
         showReviewScreen(withPage:newPage)
         enableCaptureButton(true)
-        currentSwitchSdk().delegate?.tariffSdk(sdk: currentSwitchSdk(), didCapture: data)
+        currentSwitchSdk().delegate?.switchSdk(sdk: currentSwitchSdk(), didCapture: data)
     }
     
     func cameraViewController(controller:CameraViewController, didFailWithError error:Error) {
@@ -163,7 +163,7 @@ extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
             
         }
         let leaveAction = UIAlertAction(title: NSLocalizedString("Verlassen", comment: "Leave SDK actionsheet leave title"), style: .destructive) { (action) in
-            GiniSwitchSdkStorage.activeSwitchSdk?.delegate?.tariffSdkDidCancel(sdk: currentSwitchSdk())
+            GiniSwitchSdkStorage.activeSwitchSdk?.delegate?.switchSdkDidCancel(sdk: currentSwitchSdk())
         }
         actionSheet.addAction(cancelAction)
         actionSheet.addAction(leaveAction)
@@ -203,7 +203,7 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
         }
         refreshPagesCollectionView()
         completeIfReady()
-        currentSwitchSdk().delegate?.tariffSdk(sdk: currentSwitchSdk(), didReview: page.imageData)
+        currentSwitchSdk().delegate?.switchSdk(sdk: currentSwitchSdk(), didReview: page.imageData)
     }
     
     func reviewController(_ controller:ReviewViewController, didRejectPage page:ScanPage) {

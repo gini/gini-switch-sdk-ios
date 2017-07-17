@@ -7,9 +7,9 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'GiniTariffSDK'
+  s.name             = 'GiniSwitchSDK'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of GiniTariffSDK.'
+  s.summary          = 'A short description of GiniSwitchSDK.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -30,10 +30,10 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'GiniTariffSDK/Classes/**/*'
+  s.source_files = 'GiniSwitchSDK/Classes/**/*'
   
   # s.resource_bundles = {
-  #   'GiniTariffSDK' => ['GiniTariffSDK/Assets/*.png']
+  #   'GiniSwitchSDK' => ['GiniSwitchSDK/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'

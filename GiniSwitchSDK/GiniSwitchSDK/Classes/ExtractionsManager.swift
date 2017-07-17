@@ -130,7 +130,7 @@ class ExtractionsManager {
                 page.id = pageUrl
                 page.status = .uploaded
                 self?.notifyCollectionChanged()
-                currentSwitchSdk().delegate?.tariffSdk(sdk: currentSwitchSdk(), didUpload: page.imageData)
+                currentSwitchSdk().delegate?.switchSdk(sdk: currentSwitchSdk(), didUpload: page.imageData)
             }
         })
     }
@@ -261,7 +261,7 @@ class ExtractionsManager {
     
     fileprivate func notifyExtractionsChanged() {
         self.delegate?.extractionsManager(self, didChangeExtractions: extractions)
-        currentSwitchSdk().delegate?.tariffSdk(sdk: currentSwitchSdk(), didExtractInfo: extractions)
+        currentSwitchSdk().delegate?.switchSdk(sdk: currentSwitchSdk(), didExtractInfo: extractions)
     }
     
     fileprivate func notifyExtractionsComplete() {

@@ -23,7 +23,7 @@ class GiniSwitchOnboardingTests: XCTestCase {
     func testSettingOnboardingPages() {
         let pages = [testPage(), testPage()]
         let onboarding = GiniSwitchOnboarding(pages:pages)
-        XCTAssertEqual(onboarding.pages, pages, "TariffOnboarding should have a pages array")
+        XCTAssertEqual(onboarding.pages, pages, "GiniSwitchOnboarding should have a pages array")
     }
     
 }

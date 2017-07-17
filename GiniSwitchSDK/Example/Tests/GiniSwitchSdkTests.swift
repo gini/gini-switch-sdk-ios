@@ -17,59 +17,59 @@ class GiniSwitchSdkTests: XCTestCase {
     
     func testCanInitTSwitchSdk() {
         let sdk = emptySdk()
-        XCTAssertNotNil(sdk, "Should be able to init a TariffSDK without parameters")
+        XCTAssertNotNil(sdk, "Should be able to init a GiniSwitchSDK without parameters")
     }
     
     func testCanInitSwitchSdkWithParameters() {
         let sdk = sdkWithParams()
-        XCTAssertNotNil(sdk, "Should be able to init a TariffSDK with parameters")
+        XCTAssertNotNil(sdk, "Should be able to init a GiniSwitchSDK with parameters")
     }
     
     func testHasClientId() {
         let sdk = sdkWithParams()
-        XCTAssertEqual(sdk.clientId, testClientId, "TariffSDK should have a clientID property")
+        XCTAssertEqual(sdk.clientId, testClientId, "GiniSwitchSDK should have a clientID property")
     }
     
     func testHasClientSecret() {
         let sdk = sdkWithParams()
-        XCTAssertEqual(sdk.clientSecret, testClientSecret, "TariffSDK should have a Secret property")
+        XCTAssertEqual(sdk.clientSecret, testClientSecret, "GiniSwitchSDK should have a Secret property")
     }
     
     func testHasClientDomain() {
         let sdk = sdkWithParams()
-        XCTAssertEqual(sdk.clientDomain, testDomain, "TariffSDK should have a Domain property")
+        XCTAssertEqual(sdk.clientDomain, testDomain, "GiniSwitchSDK should have a Domain property")
     }
     
     func testHasDelegate() {
         let sdk = emptySdk()
         sdk.delegate = self
-        XCTAssertTrue(sdk.delegate === self, "Should be able to set TariffSDK's delegate")
+        XCTAssertTrue(sdk.delegate === self, "Should be able to set GiniSwitchSDK's delegate")
     }
     
     func testCanInstantiateUi() {
         let sdk = emptySdk()
-        let initialController = sdk.instantiateTariffViewController()
-        XCTAssertNotNil(initialController, "TariffSdk should be able to generate view controllers for clients")
+        let initialController = sdk.instantiateSwitchViewController()
+        XCTAssertNotNil(initialController, "GiniSwitchSDK should be able to generate view controllers for clients")
     }
     
     func testHasUserInterface() {
         let sdk = emptySdk()
-        XCTAssertNotNil(sdk.userInterface, "TariffSdk should have a TariffUserInterface object")
+        XCTAssertNotNil(sdk.userInterface, "GiniSwitchSDK should have a User Interface object")
     }
     
     func testHasConfiguration() {
         let sdk = emptySdk()
-        XCTAssertNotNil(sdk.configuration, "TariffSdk should have a TariffConfiguration object")
+        XCTAssertNotNil(sdk.configuration, "GiniSwitchSDK should have an Configuration object")
     }
     
     func testHasAppearance() {
         let sdk = emptySdk()
-        XCTAssertNotNil(sdk.appearance, "TariffSdk should have a TariffAppearance object")
+        XCTAssertNotNil(sdk.appearance, "GiniSwitchSDK should have an Appearance object")
     }
     
 }
 
-// Tariff SDK initialization
+// Switch SDK initialization
 extension GiniSwitchSdkTests {
     
     func emptySdk() -> GiniSwitchSdk {
@@ -83,39 +83,39 @@ extension GiniSwitchSdkTests {
 
 extension GiniSwitchSdkTests: GiniSwitchSdkDelegate {
     
-    func tariffSdkDidStart(sdk:GiniSwitchSdk) {
+    func switchSdkDidStart(sdk:GiniSwitchSdk) {
         
     }
     
-    func tariffSdk(sdk:GiniSwitchSdk, didCapture imageData:Data) {
+    func switchSdk(sdk:GiniSwitchSdk, didCapture imageData:Data) {
         
     }
     
-    func tariffSdk(sdk:GiniSwitchSdk, didUpload imageData:Data) {
+    func switchSdk(sdk:GiniSwitchSdk, didUpload imageData:Data) {
         
     }
     
-    func tariffSdk(sdk:GiniSwitchSdk, didReview imageData:Data) {
+    func switchSdk(sdk:GiniSwitchSdk, didReview imageData:Data) {
         
     }
     
-    func tariffSdkDidComplete(sdk:GiniSwitchSdk) {
+    func switchSdkDidComplete(sdk:GiniSwitchSdk) {
         
     }
     
-    func tariffSdk(sdk:GiniSwitchSdk, didExtractInfo info:ExtractionCollection) {
+    func switchSdk(sdk:GiniSwitchSdk, didExtractInfo info:ExtractionCollection) {
         
     }
     
-    func tariffSdk(sdk:GiniSwitchSdk, didReceiveError error:Error) {
+    func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:Error) {
         
     }
     
-    func tariffSdk(sdk:GiniSwitchSdk, didFailWithError error:Error) {
+    func switchSdk(sdk:GiniSwitchSdk, didFailWithError error:Error) {
         
     }
     
-    func tariffSdkDidCancel(sdk: GiniSwitchSdk) {
+    func switchSdkDidCancel(sdk: GiniSwitchSdk) {
         
     }
     

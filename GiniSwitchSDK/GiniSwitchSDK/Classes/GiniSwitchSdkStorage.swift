@@ -1,5 +1,5 @@
 //
-//  TariffSdkStorage.swift
+//  GiniSwitchSdkStorage.swift
 //  Gini Switch SDK
 //
 //  Created by Gini GmbH on 23.05.17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-// TODO: There should be a better way to access the Tariff SDK object, but for now, 
+// TODO: There should be a better way to access the Switch SDK object, but for now,
 // this will have to do
 class GiniSwitchSdkStorage {
 

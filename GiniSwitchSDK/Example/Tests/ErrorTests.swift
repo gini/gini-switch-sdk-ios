@@ -18,13 +18,13 @@ class ErrorTests: XCTestCase {
     func testInitWithDictionary() {
         let apiErrorDict = testApiError()
         error = NSError(dictionary: apiErrorDict)
-        XCTAssertEqual(error.domain, TariffErrorDomain, "All Tariff errors should have the Tariff domain")
+        XCTAssertEqual(error.domain, GiniSwitchErrorDomain, "All Tariff errors should have the Tariff domain")
     }
     
     func testErrorCode() {
         let apiErrorDict = testApiError()
         error = NSError(dictionary: apiErrorDict)
-        XCTAssertEqual(error.code, TariffErrorCode.tokenExpired.rawValue, "An error code of 401 should correspond to an expired token")
+        XCTAssertEqual(error.code, GiniSwitchErrorCode.tokenExpired.rawValue, "An error code of 401 should correspond to an expired token")
     }
     
     func testErrorDescription() {

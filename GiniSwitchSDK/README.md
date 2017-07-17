@@ -1,4 +1,4 @@
-# GiniTariffSDK
+# GiniSwitchSDK
 
 [![CI Status](http://img.shields.io/travis/Gini GmbH/GiniTariffSDK.svg?style=flat)](https://travis-ci.org/Gini GmbH/GiniTariffSDK)
 [![Version](https://img.shields.io/cocoapods/v/GiniTariffSDK.svg?style=flat)](http://cocoapods.org/pods/GiniTariffSDK)
@@ -17,13 +17,13 @@ GiniTariffSDK is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "GiniTariffSDK"
+pod "GiniSwitchSDK"
 ```
 
 ## Author
 
-Gini GmbH, nikola@gini.net
+Gini GmbH, hello@gini.net
 
 ## License
 
-GiniTariffSDK is available under the MIT license. See the LICENSE file for more info.
+GiniSwitchSDK is available under the MIT license. See the LICENSE file for more info.

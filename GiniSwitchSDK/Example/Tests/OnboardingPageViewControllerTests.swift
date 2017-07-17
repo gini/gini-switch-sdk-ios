@@ -21,7 +21,7 @@ class OnboardingPageViewControllerTests: XCTestCase {
     }
     
     func testInitFromStoryboard() {
-        XCTAssertNotNil(onboadingPage, "OnboardingPageViewController should be present in the Tariff storyboard")
+        XCTAssertNotNil(onboadingPage, "OnboardingPageViewController should be present in the Switch storyboard")
     }
     
     func testOnboardingImage() {

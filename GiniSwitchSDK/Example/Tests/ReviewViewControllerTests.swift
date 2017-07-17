@@ -31,7 +31,7 @@ class ReviewViewControllerTests: XCTestCase {
     }
     
     func testCreatingReviewControllerFromStoryboard() {
-        XCTAssertNotNil(reviewController, "ReviewViewController should be present in the Tariff storyboard")
+        XCTAssertNotNil(reviewController, "ReviewViewController should be present in the Switch storyboard")
     }
     
     func testReviewControllerHasUseButton() {

@@ -24,7 +24,7 @@ class MultiPageScanViewControllerTests: XCTestCase {
     }
 
     func testAbleToCreateViewController() {
-        XCTAssertNotNil(multiPageController, "MultiPageScanViewController should be the initial view controller in the Tariff storyboard")
+        XCTAssertNotNil(multiPageController, "MultiPageScanViewController should be the initial view controller in the Switch storyboard")
     }
     
     func testMultiPageScanControllerHidingNavigationBar() {

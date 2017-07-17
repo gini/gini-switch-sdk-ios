@@ -11,46 +11,46 @@ import XCTest
 
 class GiniSwitchUserInterfaceTests: XCTestCase {
     
-    var tariffUI = GiniSwitchUserInterface()
+    var switchUI = GiniSwitchUserInterface()
     
     func testDefaultInit() {
-        XCTAssertNotNil(tariffUI)
+        XCTAssertNotNil(switchUI)
     }
     
     func testTariffUIDefaultPresentationStyles() {
-        XCTAssertEqual(tariffUI.presentationStyle, .modal, "TariffUserInterface should have a presentation style, defaulting to .modal")
+        XCTAssertEqual(switchUI.presentationStyle, .modal, " Switch User Interface should have a presentation style, defaulting to .modal")
     }
     
     func testCanChangePresentationStlye() {
-        tariffUI.presentationStyle = .navigation
-        XCTAssertEqual(tariffUI.presentationStyle, .navigation, "Should be able to change TariffUserInterface's presentation style")
+        switchUI.presentationStyle = .navigation
+        XCTAssertEqual(switchUI.presentationStyle, .navigation, "Should be able to change GiniSwitchUserInterface's presentation style")
     }
     
     func testCreatingInitialViewController() {
-        let viewController = tariffUI.initialViewController as UIViewController
-        XCTAssertNotNil(viewController, "TariffUI should return a UIViewController instance")
+        let viewController = switchUI.initialViewController as UIViewController
+        XCTAssertNotNil(viewController, "SwitchUI should return a UIViewController instance")
     }
     
     func testViewControllerForModalPresentation() {
         // if the presentation style is modal, the view controller will have to be embedded in a
         // navigation stack
-        tariffUI.presentationStyle = .modal
-        let viewController = tariffUI.initialViewController as? UINavigationController
-        XCTAssertNotNil(viewController, "TariffUI with modal presentation style should return a UINavigationController instance")
+        switchUI.presentationStyle = .modal
+        let viewController = switchUI.initialViewController as? UINavigationController
+        XCTAssertNotNil(viewController, "SwitchUI with modal presentation style should return a UINavigationController instance")
     }
     
     func testViewControllerForNavigationPresentation() {
         // if the presentation style is modal, the view controller will have to be embedded in a
         // navigation stack
-        tariffUI.presentationStyle = .navigation
-        let viewController = tariffUI.initialViewController as? UINavigationController
-        XCTAssertNil(viewController, "TariffUI with navigaiton presentation style should not be embedded in a navigation stack")
+        switchUI.presentationStyle = .navigation
+        let viewController = switchUI.initialViewController as? UINavigationController
+        XCTAssertNil(viewController, "SwitchUI with navigaiton presentation style should not be embedded in a navigation stack")
     }
     
     func testReturnsMultiPageScanController() {
-        tariffUI.presentationStyle = .navigation    // otherwise it would be embedded into a navigation controller
-        let viewController = tariffUI.initialViewController as? MultiPageScanViewController
-        XCTAssertNotNil(viewController, "TariffUI should return a MultiPageScanViewController instance")
+        switchUI.presentationStyle = .navigation    // otherwise it would be embedded into a navigation controller
+        let viewController = switchUI.initialViewController as? MultiPageScanViewController
+        XCTAssertNotNil(viewController, "SwitchUI should return a MultiPageScanViewController instance")
     }
     
 }

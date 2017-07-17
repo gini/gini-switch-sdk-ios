@@ -53,7 +53,7 @@
 		23AB511D1F1CE3FF00088619 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50A11F1CE1D700088619 /* PageCollectionViewCell.swift */; };
 		23AB511E1F1CE3FF00088619 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50A81F1CE1D700088619 /* ReviewViewController.swift */; };
 		23AB511F1F1CE3FF00088619 /* PagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50A21F1CE1D700088619 /* PagesCollectionViewController.swift */; };
-		23AB51201F1CE3FF00088619 /* TariffBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50AC1F1CE1D700088619 /* TariffBackgroundView.swift */; };
+		23AB51201F1CE3FF00088619 /* SwitchBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50AC1F1CE1D700088619 /* SwitchBackgroundView.swift */; };
 		23AB51211F1CE40500088619 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50BB1F1CE1D700088619 /* WebService.swift */; };
 		23AB51221F1CE40500088619 /* TokenUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50B61F1CE1D700088619 /* TokenUtils.swift */; };
 		23AB51231F1CE40500088619 /* URL+QueryParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AB50B81F1CE1D700088619 /* URL+QueryParameters.swift */; };
@@ -155,7 +155,7 @@
 		23AB50A91F1CE1D700088619 /* ScanPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanPage.swift; path = GiniSwitchSDK/Classes/ScanPage.swift; sourceTree = "<group>"; };
 		23AB50AA1F1CE1D700088619 /* GiniSwitchAnalytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GiniSwitchAnalytics.swift; path = GiniSwitchSDK/Classes/GiniSwitchAnalytics.swift; sourceTree = "<group>"; };
 		23AB50AB1F1CE1D700088619 /* GiniSwitchAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GiniSwitchAppearance.swift; path = GiniSwitchSDK/Classes/GiniSwitchAppearance.swift; sourceTree = "<group>"; };
-		23AB50AC1F1CE1D700088619 /* TariffBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TariffBackgroundView.swift; path = GiniSwitchSDK/Classes/TariffBackgroundView.swift; sourceTree = "<group>"; };
+		23AB50AC1F1CE1D700088619 /* SwitchBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchBackgroundView.swift; path = GiniSwitchSDK/Classes/SwitchBackgroundView.swift; sourceTree = "<group>"; };
 		23AB50AD1F1CE1D700088619 /* GiniSwitchConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GiniSwitchConfiguration.swift; path = GiniSwitchSDK/Classes/GiniSwitchConfiguration.swift; sourceTree = "<group>"; };
 		23AB50AE1F1CE1D700088619 /* GiniSwitchConsoleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GiniSwitchConsoleLogger.swift; path = GiniSwitchSDK/Classes/GiniSwitchConsoleLogger.swift; sourceTree = "<group>"; };
 		23AB50AF1F1CE1D700088619 /* GiniSwitchLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GiniSwitchLogger.swift; path = GiniSwitchSDK/Classes/GiniSwitchLogger.swift; sourceTree = "<group>"; };
@@ -349,7 +349,7 @@
 				23AB50A11F1CE1D700088619 /* PageCollectionViewCell.swift */,
 				23AB50A81F1CE1D700088619 /* ReviewViewController.swift */,
 				23AB50A21F1CE1D700088619 /* PagesCollectionViewController.swift */,
-				23AB50AC1F1CE1D700088619 /* TariffBackgroundView.swift */,
+				23AB50AC1F1CE1D700088619 /* SwitchBackgroundView.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -746,7 +746,7 @@
 				23AB51261F1CE40B00088619 /* CredentialsStore.swift in Sources */,
 				23AB511E1F1CE3FF00088619 /* ReviewViewController.swift in Sources */,
 				23AB51051F1CE3EF00088619 /* Token.swift in Sources */,
-				23AB51201F1CE3FF00088619 /* TariffBackgroundView.swift in Sources */,
+				23AB51201F1CE3FF00088619 /* SwitchBackgroundView.swift in Sources */,
 				23AB51091F1CE3F600088619 /* ExtractionCollection.swift in Sources */,
 				23AB50FA1F1CE3E400088619 /* GiniSwitchLogger.swift in Sources */,
 				23AB510C1F1CE3F600088619 /* CreateOrderResponse.swift in Sources */,

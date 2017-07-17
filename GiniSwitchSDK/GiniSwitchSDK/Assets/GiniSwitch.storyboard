@@ -21,7 +21,7 @@
                         <viewControllerLayoutGuide type="top" id="h69-L6-Y1H"/>
                         <viewControllerLayoutGuide type="bottom" id="nfz-Bl-l5b"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="T1f-IY-wNz" customClass="TariffBackgroundView" customModule="GiniTariffSDK" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="T1f-IY-wNz" customClass="SwitchBackgroundView" customModule="GiniTariffSDK" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -147,7 +147,7 @@
                         <viewControllerLayoutGuide type="top" id="yE2-D0-Lt9"/>
                         <viewControllerLayoutGuide type="bottom" id="oPa-e9-tmO"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="eJS-Cf-TPR" customClass="TariffBackgroundView" customModule="GiniTariffSDK" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="eJS-Cf-TPR" customClass="SwitchBackgroundView" customModule="GiniTariffSDK" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -229,7 +229,7 @@
                         <viewControllerLayoutGuide type="top" id="7DL-jz-J1n"/>
                         <viewControllerLayoutGuide type="bottom" id="uG4-Nv-2ZO"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="M9p-eo-5ii" customClass="TariffBackgroundView" customModule="GiniTariffSDK" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="M9p-eo-5ii" customClass="SwitchBackgroundView" customModule="GiniTariffSDK" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -359,7 +359,7 @@
                         <viewControllerLayoutGuide type="top" id="YbD-d4-a4t"/>
                         <viewControllerLayoutGuide type="bottom" id="zcP-Ve-nqb"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0S8-lR-b1J" customClass="TariffBackgroundView" customModule="GiniTariffSDK" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="0S8-lR-b1J" customClass="SwitchBackgroundView" customModule="GiniTariffSDK" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

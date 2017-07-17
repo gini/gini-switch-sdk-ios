@@ -11,7 +11,7 @@ import GiniTariffSDK
 
 struct SdkBuilder {
 
-    static func customizedTariffSdk() -> GiniSwitchSdk {
+    static func customizedSwitchSdk() -> GiniSwitchSdk {
         let sdk = GiniSwitchSdk(clientId: "TestId", clientSecret: "secret", domain: "gini.net")
         
         // Change the main colors
@@ -35,7 +35,7 @@ struct SdkBuilder {
         // let onboarding1 = OnboardingPage(image:UIImage(named:"onboardingPage1", in: Bundle(identifier: "org.cocoapods.GiniTariffSDK"), compatibleWith: nil)!, text: "1")
         // let onboarding2 = OnboardingPage(image:UIImage(named:"onboardingPage2", in: Bundle(identifier: "org.cocoapods.GiniTariffSDK"), compatibleWith: nil)!, text: "2")
         // let onboarding3 = OnboardingPage(image:UIImage(named:"onboardingPage3", in: Bundle(identifier: "org.cocoapods.GiniTariffSDK"), compatibleWith: nil)!, text: "3")
-        // sdk.configuration.onboarding = TariffOnboarding(pages: [onboarding1, onboarding2, onboarding3])
+        // sdk.configuration.onboarding = GiniSwitchOnboarding(pages: [onboarding1, onboarding2, onboarding3])
         
         return sdk
     }

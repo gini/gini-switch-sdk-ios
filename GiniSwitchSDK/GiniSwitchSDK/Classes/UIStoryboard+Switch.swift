@@ -1,5 +1,5 @@
 //
-//  UIStoryboard+Tariff.swift
+//  UIStoryboard+Switch.swift
 //  Gini Switch SDK
 //
 //  Created by Gini GmbH on 17.05.17.

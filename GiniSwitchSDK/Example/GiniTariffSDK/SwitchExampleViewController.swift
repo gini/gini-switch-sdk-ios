@@ -22,10 +22,10 @@ class SwitchExampleViewController: UIViewController {
     }
     
     @IBAction func onStartSdk() {
-        let sdk = SdkBuilder.customizedTariffSdk()
+        let sdk = SdkBuilder.customizedSwitchSdk()
         sdk.delegate = self
-        let tariffController = sdk.instantiateTariffViewController()
-        self.present(tariffController, animated: true) { 
+        let switchController = sdk.instantiateSwitchViewController()
+        self.present(switchController, animated: true) {
             // TODO: maybe show a "thank you" note
         }
     }
@@ -34,41 +34,41 @@ class SwitchExampleViewController: UIViewController {
 
 extension SwitchExampleViewController: GiniSwitchSdkDelegate {
     
-    func tariffSdkDidStart(sdk:GiniSwitchSdk) {
-        print("Tariff SDK did start")
+    func switchSdkDidStart(sdk:GiniSwitchSdk) {
+        print("Switch SDK did start")
     }
     
-    func tariffSdk(sdk:GiniSwitchSdk, didCapture imageData:Data) {
-        print("Tariff SDK captured an image")
+    func switchSdk(sdk:GiniSwitchSdk, didCapture imageData:Data) {
+        print("Switch SDK captured an image")
     }
     
-    func tariffSdk(sdk:GiniSwitchSdk, didUpload imageData:Data) {
-        print("Tariff SDK uploaded an image")
+    func switchSdk(sdk:GiniSwitchSdk, didUpload imageData:Data) {
+        print("Switch SDK uploaded an image")
     }
     
-    func tariffSdk(sdk:GiniSwitchSdk, didReview imageData:Data) {
-        print("Tariff SDK reviewed an image")
+    func switchSdk(sdk:GiniSwitchSdk, didReview imageData:Data) {
+        print("Switch SDK reviewed an image")
     }
     
-    func tariffSdkDidComplete(sdk:GiniSwitchSdk) {
-        print("Tariff SDK completed")
+    func switchSdkDidComplete(sdk:GiniSwitchSdk) {
+        print("Switch SDK completed")
         self.dismiss(animated: true, completion: nil)
     }
     
-    func tariffSdk(sdk:GiniSwitchSdk, didExtractInfo info:ExtractionCollection) {
-        print("TariffSDK did receive extractions")
+    func switchSdk(sdk:GiniSwitchSdk, didExtractInfo info:ExtractionCollection) {
+        print("Switch SDK did receive extractions")
     }
     
-    func tariffSdk(sdk:GiniSwitchSdk, didReceiveError error:Error) {
-        print("Tariff SDK did receive an error: \(error.localizedDescription)")
+    func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:Error) {
+        print("Switch SDK did receive an error: \(error.localizedDescription)")
     }
     
-    func tariffSdk(sdk:GiniSwitchSdk, didFailWithError error:Error) {
-        print("Tariff SDK finished with error: \(error.localizedDescription)")
+    func switchSdk(sdk:GiniSwitchSdk, didFailWithError error:Error) {
+        print("Switch SDK finished with error: \(error.localizedDescription)")
     }
     
-    func tariffSdkDidCancel(sdk:GiniSwitchSdk) {
-        print("Tariff SDK interrupted")
+    func switchSdkDidCancel(sdk:GiniSwitchSdk) {
+        print("Switch SDK interrupted")
         self.dismiss(animated: true, completion: nil)
     }
     
