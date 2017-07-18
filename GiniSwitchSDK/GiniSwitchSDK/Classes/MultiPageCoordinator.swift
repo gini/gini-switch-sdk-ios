@@ -158,6 +158,19 @@ class MultiPageCoordinator {
         let actionSheet = overflowMenu(withOnboarding: withOnboarding)
         self.delegate?.multiPageCoordinator(self, requestedShowingController: actionSheet, presentationStyle: .modal, animated: true, completion: nil)
     }
+    
+    fileprivate func embed(controller:UIViewController) {
+        embeddedController = controller
+        delegate?.multiPageCoordinator(self, requestedShowingController: controller, presentationStyle: .embed, animated: false, completion: nil)
+    }
+    
+    fileprivate func removeEmbededController() {
+        guard let controller = embeddedController else {
+            return
+        }
+        self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .embed, animated: false)
+        embeddedController = nil
+    }
 }
 
 extension MultiPageCoordinator: CameraOptionsViewControllerDelegate {
@@ -204,17 +217,13 @@ extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
         previewController.denyColor = currentSwitchAppearance().negativeColor
         previewController.page = didSelectPage
         previewController.delegate = self
-        embeddedController = previewController
-        delegate?.multiPageCoordinator(self, requestedShowingController: previewController, presentationStyle: .embed, animated: false, completion: nil)
+        embed(controller: previewController)
     }
     
     func pageCollectionControllerDidRequestAddPage(_ pageController:PagesCollectionViewController) {
-        guard let controller = self.embeddedController else {
-            return
-        }
         pageController.shouldShowAddIcon = false
         pageController.pagesCollection?.reloadData()
-        self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .embed, animated: false)
+        removeEmbededController()
     }
 }
 
@@ -252,14 +261,14 @@ extension MultiPageCoordinator: PreviewViewControllerDelegate {
         extractionsManager.delete(page: page)
         pageCollectionController.shouldShowAddIcon = true
         refreshPagesCollectionView()
-        self.delegate?.multiPageCoordinator(self, requestedDismissingController: previewController, presentationStyle: .embed, animated: true)
+        removeEmbededController()
     }
     
     func previewController(previewController:PreviewViewController, didRequestRetake page:ScanPage) {
         pageToReplace = page
         pageCollectionController.shouldShowAddIcon = false
         pageCollectionController.pagesCollection?.reloadData()
-        self.delegate?.multiPageCoordinator(self, requestedDismissingController: previewController, presentationStyle: .embed, animated: true)
+        removeEmbededController()
     }
 }
 
