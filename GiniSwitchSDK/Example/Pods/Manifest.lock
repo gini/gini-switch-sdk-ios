@@ -1,0 +1,23 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - GiniSwitchSDK (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - GiniSwitchSDK (from `../`)
+
+EXTERNAL SOURCES:
+  GiniSwitchSDK:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  GiniSwitchSDK: fc71297b771e66b9112d116f8f94003a7c31d446
+
+PODFILE CHECKSUM: 08b0604cc73fd5179c59e9584221b4215755c0ec
+
+COCOAPODS: 1.2.1

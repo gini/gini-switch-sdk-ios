@@ -1,0 +1,6 @@
+framework module Pods_GiniSwitchSDK_Tests {
+  umbrella header "Pods-GiniSwitchSDK_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
