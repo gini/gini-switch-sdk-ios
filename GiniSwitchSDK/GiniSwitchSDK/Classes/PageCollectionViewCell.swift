@@ -17,7 +17,15 @@ class PageCollectionViewCell: UICollectionViewCell {
     @IBOutlet var uploadingIndicator:UIActivityIndicatorView! = nil
     @IBOutlet var pageNumberLabel:UILabel! = nil
     
-    var pageSelectionLayer:CALayer? = nil
+    var pageSelectionLayer:CAShapeLayer? = nil
+    var pageSelectionColor:UIColor = UIColor.white {
+        didSet {
+            pageSelectionLayer?.changeOutlineColor(with:pageSelectionColor)
+        }
+    }
+    
+    var pageUploadedImage = currentSwitchAppearance().pageAnalysisSuccessImage ?? UIImage(named: "pageUploadSuccessCheckmarkCircle", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil)
+    var pageFailedImage = currentSwitchAppearance().pageAnalysisFailureImage ?? UIImage(named: "pageUploadFailedCrossCircle", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil)
     
     var image:UIImage? = nil {
         didSet {
@@ -58,13 +66,13 @@ class PageCollectionViewCell: UICollectionViewCell {
                 pageStatusView.isHidden = false
                 pageStatusUnderlineView.backgroundColor = GiniSwitchSdkStorage.activeSwitchSdk?.appearance.positiveColor
                 // TODO: write a wrapper for accessing the framework bundle
-                pageStatusView.image = UIImage(named: "pageUploadSuccessCheckmarkCircle", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil)
+                pageStatusView.image = pageUploadedImage
                 uploadingIndicator.isHidden = true
             case .failed:
                 pageStatusUnderlineView.isHidden = false
                 pageStatusView.isHidden = false
                 pageStatusUnderlineView.backgroundColor = GiniSwitchSdkStorage.activeSwitchSdk?.appearance.negativeColor
-                pageStatusView.image = UIImage(named: "pageUploadFailedCrossCircle", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil)
+                pageStatusView.image = pageFailedImage
                 uploadingIndicator.isHidden = true
             case .uploading, .uploaded:
                 pageStatusUnderlineView.isHidden = true
@@ -94,7 +102,7 @@ class PageCollectionViewCell: UICollectionViewCell {
     }
     
     override func awakeFromNib() {
-        let dashLayer = CALayer.dashOutlineLayer(frame: self.pagePreview.bounds, color: UIColor.white)
+        let dashLayer = CAShapeLayer.dashOutlineLayer(frame: self.pagePreview.bounds, color: pageSelectionColor)
         dashLayer.isHidden = true
         pageSelectionLayer = dashLayer
         self.pagePreview.layer.addSublayer(dashLayer)

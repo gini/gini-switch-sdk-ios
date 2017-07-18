@@ -35,7 +35,10 @@ class MultiPageCoordinator {
         pageCollectionController = pagesCollection
         
         cameraOptionsController.delegate = self
+        cameraOptionsController.doneButtonText = currentSwitchAppearance().doneButtonText
+        cameraOptionsController.textColor = currentSwitchAppearance().doneButtonTextColor
         cameraController.delegate = self
+        pagesCollection.themeColor = currentSwitchAppearance().primaryColor
         pagesCollection.delegate = self
         
         extractionsManager.delegate = self
@@ -51,6 +54,8 @@ class MultiPageCoordinator {
     func showReviewScreen(withPage page:ScanPage) {
         let reviewController = UIStoryboard.switchStoryboard()?.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
         reviewController.page = page
+        reviewController.confirmColor = currentSwitchAppearance().positiveColor
+        reviewController.denyColor = currentSwitchAppearance().negativeColor
         reviewController.delegate = self
         delegate?.multiPageCoordinator(self, requestedShowingController: reviewController, presentationStyle: .modal, animated: true, completion: nil)
     }
@@ -103,9 +108,13 @@ class MultiPageCoordinator {
             extractionsCompleted = false
             // show the extractions completed screen
             let completionController = UIStoryboard.switchStoryboard()?.instantiateViewController(withIdentifier: "ExtractionsCompletedViewController") as! ExtractionsCompletedViewController
+            completionController.image = currentSwitchAppearance().analyzedImage
+            completionController.text = currentSwitchAppearance().analyzedText
+            completionController.textSize = currentSwitchAppearance().analyzedTextSize
+            completionController.textColor = currentSwitchAppearance().analyzedTextColor
             let myDelegate = delegate
             myDelegate?.multiPageCoordinator(self, requestedShowingController: completionController, presentationStyle: .modal, animated: true) { [weak self] in
-                // after it is presented, push the extractions screen below it. That way, when it is 
+                // after it is presented, push the extractions screen below it. That way, when it is
                 // automatically dismissed, the extractions will appear below
                 guard let weakSelf = self else {
                     return
@@ -191,6 +200,8 @@ extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
         pageController.shouldShowAddIcon = true
         pageController.pagesCollection?.reloadData()
         let previewController = UIStoryboard.switchStoryboard()?.instantiateViewController(withIdentifier: "PreviewViewController") as! PreviewViewController
+        previewController.confirmColor = currentSwitchAppearance().positiveColor
+        previewController.denyColor = currentSwitchAppearance().negativeColor
         previewController.page = didSelectPage
         previewController.delegate = self
         embeddedController = previewController

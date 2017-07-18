@@ -17,6 +17,13 @@ import UIKit
 public class GiniSwitchAppearance {
     
     /**
+     * The primary color is a color that will show up at many places throughout the SDK.
+     * It is used at times where an element branded with the main color of your app is approapriate
+     * For instance, for Gini, it would be the blue color we use for our logo
+     */
+    public var primaryColor:UIColor? = UIColor(colorLiteralRed: 22.0 / 255.0, green: 157.0 / 255.0, blue: 217.0 / 255.0, alpha: 1.0)
+    
+    /**
      * The positive color is a color that will show up at many places throughout the SDK.
      * It is used every time a component wants to indicate a success or a positive state in
      * any way. For instance - a successful upload, analysis completion, correct extractions.
@@ -43,6 +50,36 @@ public class GiniSwitchAppearance {
     }
     
     /**
+     * Image used for marking successfully analysed images.
+     */
+    public var pageAnalysisSuccessImage:UIImage? = nil
+    
+    /**
+     * Image used for marking images that couldn't be analysed.
+     */
+    public var pageAnalysisFailureImage:UIImage? = nil
+    
+    /**
+     * Text for the Done button in the camera screen
+     */
+    public var doneButtonText:String? = NSLocalizedString("Fertig", comment: "Camera screen done button text")
+    
+    /**
+     * Text color for the Done button in the camera screen.
+     */
+    public var doneButtonTextColor:UIColor? = UIColor(colorLiteralRed: 22.0 / 255.0, green: 157.0 / 255.0, blue: 217.0 / 255.0, alpha: 1.0)
+    
+    /**
+     * Text for the Preview screen - a successfully processed image.
+     */
+    public var imageProcessedText:String? = NSLocalizedString("Sehr gut, wir könnten alle Daten aus diesem Foto erfolgreich analysieren.", comment: "Preview screen title - analysed document")
+    
+    /**
+     * Text for the Preview screen - a failed processing of the image.
+     */
+    public var imageProcessFailedText:String? = NSLocalizedString("Leider ist die Qualität dieser Seite nicht ausreichend. Bitte fotografiere diese Seite nochmal neu.", comment: "Preview screen title - failed document")
+    
+    /**
      * Image for the Analysing Completed Screen.
      */
     public var analyzedImage:UIImage? = nil
@@ -66,38 +103,6 @@ public class GiniSwitchAppearance {
      * Use this to set a custom title for the cancel dialog.
      */
     public var exitActionSheetTitle:String? = NSLocalizedString("Gini Switch verlassen", comment: "Leave SDK actionsheet title")
-    
-    /**
-     * Text for the button in the extractions screen
-     */
-    public var extractionsButtonText:String? = NSLocalizedString("Jetzt Stromanbieter wechseln", comment: "Extraction screen switch provider title")
-    
-    /**
-     * The background for text fields used in the extractions screen
-     */
-    public var extractionsTextFieldBackgroundColor:UIColor? = UIColor.gray
-    
-    /**
-     * The text color used for text fields in the extractions screen
-     */
-    public var extractionsTextFieldTextColor:UIColor? = UIColor.white
-    
-    /**
-     * The color used for the borders if the text fields in the extractions screen
-     */
-    public var extractionsTextFieldBorderColor:UIColor? = nil
-    
-    /**
-     * The text color used for the labels that appear above each text field in the extractions
-     * screen indicating the extracted field's name
-     */
-    public var extractionTitleTextColor:UIColor? = UIColor.white
-    
-    /**
-     * The text showing on top of the extractions table in the extractions screen.
-     * @note The title doesn't appear in a navigation bar so it can be longer - even several lines
-     */
-    public var extractionsScreenTitleText:String? = NSLocalizedString("Fast geschafft. Bitte prüfe noch kurz ob alle Deine Daten korrekt ausgelesen wurden.", comment: "Extraction screen title")
     
     public init () {
         

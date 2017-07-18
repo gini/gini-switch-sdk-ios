@@ -20,16 +20,7 @@ struct SdkBuilder {
         sdk.appearance.screenBackgroundColor = UIColor.black
         
         // change the exit action sheet text
-        sdk.appearance.exitActionSheetTitle = NSLocalizedString("Leave Gini Switch verlassen?", comment: "Leave SDK actionsheet title")
-        
-        // change the text of the extractions screen button
-        sdk.appearance.extractionsButtonText = NSLocalizedString("Complete the process!", comment: "Extraction screen switch provider title")
-        
-        // change the colors of the extractions screen
-        sdk.appearance.extractionTitleTextColor = UIColor.lightGray
-        sdk.appearance.extractionsScreenTitleText = NSLocalizedString("We have extractions!", comment: "Extraction screen title")
-        sdk.appearance.extractionsTextFieldTextColor = UIColor.gray
-        sdk.appearance.extractionsTextFieldBackgroundColor = UIColor.lightGray
+        sdk.appearance.exitActionSheetTitle = NSLocalizedString("Gini Switch verlassen?", comment: "Leave SDK actionsheet title")
         
         // Use the following template to add your own onboarding pages
         // let onboarding1 = OnboardingPage(image:UIImage(named:"onboardingPage1", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil)!, text: "1")

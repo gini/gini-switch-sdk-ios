@@ -24,25 +24,55 @@ class ExtractionsCompletedViewController: UIViewController {
            setupText(text)
         }
     }
+    
+    var textSize:CGFloat? = nil {
+        didSet {
+            setupSize(textSize)
+        }
+    }
+    
+    var textColor:UIColor? = nil {
+        didSet {
+            setupTextColor(textColor)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupImage(image)
         setupText(text)
+        setupSize(textSize)
+        setupTextColor(textColor)
     }
     
     fileprivate func setupText(_ text:String?) {
-        guard text?.isEmpty == false else {
-            return
+        guard text?.isEmpty == false,
+            let label = textLabel else {
+                return
         }
-        textLabel.text = text
+        label.text = text
     }
     
     fileprivate func setupImage(_ image:UIImage?) {
-        guard image != nil else {
+        guard image != nil,
+        let view = imageView else {
             return
         }
-        imageView.image = image
+        view.image = image
+    }
+    
+    fileprivate func setupSize(_ size:CGFloat?) {
+        if let label = textLabel,
+            let size = textSize {
+            label.font = UIFont.systemFont(ofSize: size)
+        }
+    }
+    
+    fileprivate func setupTextColor(_ color:UIColor?) {
+        if let label = textLabel,
+            let color = color {
+            label.textColor = color
+        }
     }
 
 }

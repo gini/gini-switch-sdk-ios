@@ -8,9 +8,9 @@
 
 import UIKit
 
-extension CALayer {
+extension CAShapeLayer {
 
-    static func dashOutlineLayer(frame:CGRect, color:UIColor, lineWidth:CGFloat = 2, dashLength:NSNumber = 4) -> CALayer {
+    static func dashOutlineLayer(frame:CGRect, color:UIColor, lineWidth:CGFloat = 2, dashLength:NSNumber = 4) -> CAShapeLayer {
         let layer = CAShapeLayer()
         layer.frame = frame
         layer.path = CGPath(rect: frame, transform: nil)
@@ -19,5 +19,9 @@ extension CALayer {
         layer.lineWidth = lineWidth
         layer.lineDashPattern = [dashLength, dashLength]
         return layer
+    }
+    
+    func changeOutlineColor(with color:UIColor) {
+        self.strokeColor = color.cgColor
     }
 }

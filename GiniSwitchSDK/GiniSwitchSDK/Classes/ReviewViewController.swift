@@ -42,6 +42,9 @@ class ReviewViewController: UIViewController {
             }
         }
     }
+    
+    var confirmColor:UIColor? = nil
+    var denyColor:UIColor? = nil
 
     var delegate:ReviewViewControllerDelegate? = nil
     
@@ -70,6 +73,7 @@ class ReviewViewController: UIViewController {
         makeRotateButtonRound()
         populateWith(page: self.page)
         setupZooming()
+        setupButtonColors()
     }
     
     public override func viewDidLayoutSubviews() {
@@ -99,6 +103,15 @@ class ReviewViewController: UIViewController {
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap))
         doubleTapGesture.numberOfTapsRequired = 2
         imageContainerScrollView.addGestureRecognizer(doubleTapGesture)
+    }
+    
+    private func setupButtonColors() {
+        if let confirmColor = confirmColor {
+            useButton.backgroundColor = confirmColor
+        }
+        if let denyColor = denyColor {
+            retakeButton.backgroundColor = denyColor
+        }
     }
 }
 

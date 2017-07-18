@@ -24,18 +24,22 @@ class PreviewViewController: UIViewController {
     weak var delegate:PreviewViewControllerDelegate? = nil
     
     //titles
-    let analysedPageTitle = NSLocalizedString("Sehr gut, wir könnten alle Daten aus diesem Foto erfolgreich analysieren.", comment: "Preview screen title - analysed document")
-    let failedPageTitle = NSLocalizedString("Leider ist die Qualität dieser Seite nicht ausreichend. Bitte fotografiere diese Seite nochmal neu.", comment: "Preview screen title - failed document")
+    let analysedPageTitle = currentSwitchAppearance().imageProcessedText
+    let failedPageTitle = currentSwitchAppearance().imageProcessFailedText
     
     var page:ScanPage? = nil {
         didSet {
             populate(with:page)
         }
     }
+    
+    var confirmColor:UIColor? = nil
+    var denyColor:UIColor? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
         populate(with: page)
+        setupButtonColors()
     }
     
     private func populate(with page:ScanPage?) {
@@ -54,6 +58,15 @@ class PreviewViewController: UIViewController {
             break
         default:
             break
+        }
+    }
+    
+    private func setupButtonColors() {
+        if let confirmColor = confirmColor {
+            retakeButton.backgroundColor = confirmColor
+        }
+        if let denyColor = denyColor {
+            deleteButton.backgroundColor = denyColor
         }
     }
 
