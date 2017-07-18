@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AEB5259DB4F7CC8F0E311D2256027EE9"
-               BuildableName = "GiniTariffSDK.framework"
+               BlueprintIdentifier = "C6C30BD9CCFAA8105E8F275E8D4F9291"
+               BuildableName = "GiniSwitchSDK.framework"
                BlueprintName = "GiniSwitchSDK"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -45,8 +45,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AEB5259DB4F7CC8F0E311D2256027EE9"
-            BuildableName = "GiniTariffSDK.framework"
+            BlueprintIdentifier = "C6C30BD9CCFAA8105E8F275E8D4F9291"
+            BuildableName = "GiniSwitchSDK.framework"
             BlueprintName = "GiniSwitchSDK"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
@@ -63,8 +63,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AEB5259DB4F7CC8F0E311D2256027EE9"
-            BuildableName = "GiniTariffSDK.framework"
+            BlueprintIdentifier = "C6C30BD9CCFAA8105E8F275E8D4F9291"
+            BuildableName = "GiniSwitchSDK.framework"
             BlueprintName = "GiniSwitchSDK"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>

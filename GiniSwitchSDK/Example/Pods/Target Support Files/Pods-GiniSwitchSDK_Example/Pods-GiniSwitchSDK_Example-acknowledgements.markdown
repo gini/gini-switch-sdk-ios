@@ -1,7 +1,7 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## GiniTariffSDK
+## GiniSwitchSDK
 
 Copyright (c) 2017 Gini GmbH <nikola@gini.net>
 

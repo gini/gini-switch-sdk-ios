@@ -12,7 +12,7 @@ import UIKit
 extension UIStoryboard {
     
     class func switchStoryboard() -> UIStoryboard? {
-        return UIStoryboard(name: "GiniSwitch", bundle: Bundle(identifier: "org.cocoapods.GiniTariffSDK"))
+        return UIStoryboard(name: "GiniSwitch", bundle: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"))
     }
     
 }

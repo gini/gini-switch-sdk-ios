@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_GiniTariffSDK_ExampleVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_GiniTariffSDK_ExampleVersionString[];
+FOUNDATION_EXPORT double Pods_GiniSwitchSDK_TestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_GiniSwitchSDK_TestsVersionString[];
 

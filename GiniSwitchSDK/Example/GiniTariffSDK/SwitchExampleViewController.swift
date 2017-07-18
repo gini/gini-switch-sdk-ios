@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import GiniTariffSDK
+import GiniSwitchSDK
 
 class SwitchExampleViewController: UIViewController {
 

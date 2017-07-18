@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-@testable import GiniTariffSDK
+@testable import GiniSwitchSDK
 
 func switchStoryboard() -> UIStoryboard? {
     return UIStoryboard.switchStoryboard()

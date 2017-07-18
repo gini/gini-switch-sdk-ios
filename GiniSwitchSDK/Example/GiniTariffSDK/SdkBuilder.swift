@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import GiniTariffSDK
+import GiniSwitchSDK
 
 struct SdkBuilder {
 
@@ -32,9 +32,9 @@ struct SdkBuilder {
         sdk.appearance.extractionsTextFieldBackgroundColor = UIColor.lightGray
         
         // Use the following template to add your own onboarding pages
-        // let onboarding1 = OnboardingPage(image:UIImage(named:"onboardingPage1", in: Bundle(identifier: "org.cocoapods.GiniTariffSDK"), compatibleWith: nil)!, text: "1")
-        // let onboarding2 = OnboardingPage(image:UIImage(named:"onboardingPage2", in: Bundle(identifier: "org.cocoapods.GiniTariffSDK"), compatibleWith: nil)!, text: "2")
-        // let onboarding3 = OnboardingPage(image:UIImage(named:"onboardingPage3", in: Bundle(identifier: "org.cocoapods.GiniTariffSDK"), compatibleWith: nil)!, text: "3")
+        // let onboarding1 = OnboardingPage(image:UIImage(named:"onboardingPage1", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil)!, text: "1")
+        // let onboarding2 = OnboardingPage(image:UIImage(named:"onboardingPage2", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil)!, text: "2")
+        // let onboarding3 = OnboardingPage(image:UIImage(named:"onboardingPage3", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil)!, text: "3")
         // sdk.configuration.onboarding = GiniSwitchOnboarding(pages: [onboarding1, onboarding2, onboarding3])
         
         return sdk

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-@testable import GiniTariffSDK
+@testable import GiniSwitchSDK
 
 class FakeCamera: Camera {
     

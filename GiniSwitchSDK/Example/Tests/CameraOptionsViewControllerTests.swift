@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import GiniTariffSDK
+@testable import GiniSwitchSDK
 
 class CameraOptionsViewControllerTests: XCTestCase {
     

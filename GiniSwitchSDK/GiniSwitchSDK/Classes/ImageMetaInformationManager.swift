@@ -302,7 +302,7 @@ internal class ImageMetaInformationManager {
     }
     
     fileprivate func sdkVersion() -> String {
-        let sdkBundle = Bundle(identifier: "org.cocoapods.GiniTariffSDK")
+        let sdkBundle = Bundle(identifier: "org.cocoapods.GiniSwitchSDK")
         let version = sdkBundle?.infoDictionary?["CFBundleShortVersionString"] as? String
         return version ?? "x.x"
     }

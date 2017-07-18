@@ -58,13 +58,13 @@ class PageCollectionViewCell: UICollectionViewCell {
                 pageStatusView.isHidden = false
                 pageStatusUnderlineView.backgroundColor = GiniSwitchSdkStorage.activeSwitchSdk?.appearance.positiveColor
                 // TODO: write a wrapper for accessing the framework bundle
-                pageStatusView.image = UIImage(named: "pageUploadSuccessCheckmarkCircle", in: Bundle(identifier: "org.cocoapods.GiniTariffSDK"), compatibleWith: nil)
+                pageStatusView.image = UIImage(named: "pageUploadSuccessCheckmarkCircle", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil)
                 uploadingIndicator.isHidden = true
             case .failed:
                 pageStatusUnderlineView.isHidden = false
                 pageStatusView.isHidden = false
                 pageStatusUnderlineView.backgroundColor = GiniSwitchSdkStorage.activeSwitchSdk?.appearance.negativeColor
-                pageStatusView.image = UIImage(named: "pageUploadFailedCrossCircle", in: Bundle(identifier: "org.cocoapods.GiniTariffSDK"), compatibleWith: nil)
+                pageStatusView.image = UIImage(named: "pageUploadFailedCrossCircle", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil)
                 uploadingIndicator.isHidden = true
             case .uploading, .uploaded:
                 pageStatusUnderlineView.isHidden = true
