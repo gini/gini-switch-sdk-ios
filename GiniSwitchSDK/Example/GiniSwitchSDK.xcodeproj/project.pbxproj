@@ -13,7 +13,6 @@
 		2331C5AE1F1DF53200F0742E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2331C5AD1F1DF53200F0742E /* Images.xcassets */; };
 		2331C5B51F1DF60500F0742E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2331C5B11F1DF60500F0742E /* LaunchScreen.xib */; };
 		2331C5B91F1DF66500F0742E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2331C5B71F1DF66500F0742E /* Main.storyboard */; };
-		2331C5BB1F1DF75100F0742E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2331C5BA1F1DF75100F0742E /* Info.plist */; };
 		2331C60D1F1DFC5A00F0742E /* FakeCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C6071F1DFC2C00F0742E /* FakeCamera.swift */; };
 		2331C60E1F1DFC5E00F0742E /* MemoryCredentialsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C6081F1DFC2C00F0742E /* MemoryCredentialsStore.swift */; };
 		2331C60F1F1DFC6200F0742E /* NoOpWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C6091F1DFC2C00F0742E /* NoOpWebService.swift */; };
@@ -376,7 +375,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2331C5BB1F1DF75100F0742E /* Info.plist in Resources */,
 				2331C5B91F1DF66500F0742E /* Main.storyboard in Resources */,
 				2331C5B51F1DF60500F0742E /* LaunchScreen.xib in Resources */,
 				2331C5AE1F1DF53200F0742E /* Images.xcassets in Resources */,
@@ -694,10 +692,7 @@
 			baseConfigurationReference = 5DB37A2085126DC26D50715C /* Pods-GiniSwitchSDK_Tests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = JA825X8F7Z;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -715,10 +710,7 @@
 			baseConfigurationReference = 325A76F94A53E650CAE5CF37 /* Pods-GiniSwitchSDK_Tests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = JA825X8F7Z;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
