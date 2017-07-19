@@ -11,7 +11,7 @@ import UIKit
 
 protocol ExtractionsManagerDelegate {
     
-    func extractionsManager(_ manager:ExtractionsManager, didEncounterError error:Error)
+    func extractionsManager(_ manager:ExtractionsManager, didEncounterError error:NSError)
     func extractionsManager(_ manager:ExtractionsManager, didChangePageCollection collection:PageCollection)
     func extractionsManager(_ manager:ExtractionsManager, didChangeExtractions extractions:ExtractionCollection)
     func extractionsManagerDidAuthenticate(_ manager:ExtractionsManager)
@@ -76,9 +76,10 @@ class ExtractionsManager {
                 Logger().logInfo(message: "Detected pending extraction order creation")
                 self?.createExtractionOrder()
             }
-        }, failure: { (error) in
-            // TODO: handle error
+        }, failure: { [weak self] (error) in
             Logger().logError(message: "Authentication failed: \(error.localizedDescription)")
+            let authError = NSError(errorCode: .authentication, underlyingError: error)
+            self?.notifyError(authError)
         })
     }
     
@@ -105,6 +106,11 @@ class ExtractionsManager {
                 self?.startPolling()
                 self?.startQueuedUploads()
             }
+            else {
+                Logger().logError(message: "Creating extraction order failed: \(String(describing: error))")
+                let orderError = NSError(errorCode: .cannotCreateExtractionOrder, underlyingError:error)
+                self?.notifyError(orderError)
+            }
         })
     }
     
@@ -122,8 +128,7 @@ class ExtractionsManager {
         uploadService?.addPage(data: page.imageData, completion: { [weak self](pageUrl, error) in
             if let error = error {
                 Logger().logError(message: "Page upload failed: \(error.localizedDescription)")
-                self?.tryHandleUnauthorizedError(error)
-                // TODO: handle error
+                self?.handleError(error, ofType: .cannotUploadPage)
             }
             else {
                 Logger().logInfo(message: "Uploaded page with path\n\(pageUrl ?? "<unknown>")")
@@ -147,9 +152,8 @@ class ExtractionsManager {
         if let id = page.id {      // if the page doesn't have an id, it was probably not uploaded
             uploadService?.deletePage(id: id, completion: { [weak self](pageUrl, error) in
                 if let error = error {
-                    self?.tryHandleUnauthorizedError(error)
                     Logger().logError(message: "Page delete failed: \(error.localizedDescription)")
-                    // TODO: Handle possible errors
+                    self?.handleError(error, ofType: .pageDeleteError)
                     // TODO: if deleting failed, add the pages to the scan pages array so users see that
                     // it is still there
                 }
@@ -175,7 +179,7 @@ class ExtractionsManager {
             uploadService?.replacePage(id: id, newImageData: withPage.imageData, completion: { [weak self] (pageUrl, error) in
                 if let error = error {
                     Logger().logError(message: "Page replace failed: \(error.localizedDescription)")
-                    self?.tryHandleUnauthorizedError(error)
+                    self?.handleError(error, ofType: .pageReplaceError)
                 }
                 else {
                     Logger().logInfo(message: "Deleted page\n\(withPage.id ?? "<unknown>")\nwith path\n\(pageUrl ?? "<unknown>")")
@@ -193,7 +197,7 @@ class ExtractionsManager {
         }
         uploadService?.fetchOrderStatus(completion: { [weak self](status, error) in
             if let _ = error {
-                self?.tryHandleUnauthorizedError(error)
+                self?.handleError(error, ofType: .pageStatusError)
             }
             else if let newStatus = status {
                 self?.parseStatus(newStatus)
@@ -207,7 +211,7 @@ class ExtractionsManager {
         }
         uploadService?.fetchExtractions(completion: { [weak self](collection, error) in
             if let _ = error {
-                self?.tryHandleUnauthorizedError(error)
+                self?.handleError(error, ofType: .extractionsError)
             }
             else if let newExtractions = collection {
                 self?.parseExtractions(newExtractions)
@@ -268,6 +272,10 @@ class ExtractionsManager {
         self.delegate?.extractionsManagerDidCompleteExtractions(self)
     }
     
+    fileprivate func notifyError(_ error: NSError) {
+        delegate?.extractionsManager(self, didEncounterError: error)
+    }
+    
     fileprivate func startQueuedUploads() {
         queuedPages().forEach { (page) in
             add(page: page)
@@ -302,6 +310,14 @@ class ExtractionsManager {
     fileprivate func queuedPages() -> [ScanPage] {
         let queued = scannedPages.pages.filter { $0.status == .taken }
         return queued
+    }
+    
+    fileprivate func handleError(_ error:Error?, ofType type: GiniSwitchErrorCode) {
+        let handled = tryHandleUnauthorizedError(error)
+        if !handled {
+            let highLevelError = NSError(errorCode: type, underlyingError: error)
+            notifyError(highLevelError)
+        }
     }
     
     @discardableResult fileprivate func tryHandleUnauthorizedError(_ error:Error?) -> Bool {
