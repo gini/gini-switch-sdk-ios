@@ -85,20 +85,18 @@ class MultiPageCoordinator {
     }
     
     fileprivate func scheduleOnboarding() {
-        if !GiniSwitchOnboarding.hasShownOnboarding {
-            // remove the camera button so users don't think they can tap on it
-            cameraOptionsController.captureButton.isHidden = true
-            let onboarding = OnboardingViewController(onboarding: (GiniSwitchSdkStorage.activeSwitchSdk?.configuration.onboarding)!, completion:nil)
-            let completionDismiss = {
-                GiniSwitchOnboarding.hasShownOnboarding = true
-                self.delegate?.multiPageCoordinator(self, requestedDismissingController: onboarding, presentationStyle: .modal, animated: true)
-                self.cameraOptionsController.captureButton.isHidden = false
-            }
-            onboarding.completion = completionDismiss
-            onboarding.modalPresentationStyle = .overFullScreen
-            DispatchQueue.main.async {
-                self.delegate?.multiPageCoordinator(self, requestedShowingController: onboarding, presentationStyle: .modal, animated: true, completion: nil)
-            }
+        // remove the camera button so users don't think they can tap on it
+        cameraOptionsController.captureButton.isHidden = true
+        let onboarding = OnboardingViewController(onboarding: (GiniSwitchSdkStorage.activeSwitchSdk?.configuration.onboarding)!, completion:nil)
+        let completionDismiss = {
+            GiniSwitchOnboarding.hasShownOnboarding = true
+            self.delegate?.multiPageCoordinator(self, requestedDismissingController: onboarding, presentationStyle: .modal, animated: true)
+            self.cameraOptionsController.captureButton.isHidden = false
+        }
+        onboarding.completion = completionDismiss
+        onboarding.modalPresentationStyle = .overFullScreen
+        DispatchQueue.main.async {
+            self.delegate?.multiPageCoordinator(self, requestedShowingController: onboarding, presentationStyle: .modal, animated: true, completion: nil)
         }
     }
     
