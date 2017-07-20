@@ -20,7 +20,7 @@ struct SdkBuilder {
         sdk.appearance.screenBackgroundColor = UIColor.black
         
         // change the exit action sheet text
-        sdk.appearance.exitActionSheetTitle = NSLocalizedString("Gini Switch verlassen?", comment: "Leave SDK actionsheet title")
+        sdk.appearance.exitActionSheetTitle = NSLocalizedString("Foto-Modus verlassen?", comment: "Leave SDK actionsheet title")
         
         // Use the following template to add your own onboarding pages
         // let onboarding1 = OnboardingPage(image:UIImage(named:"onboardingPage1", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil)!, text: "1")
