@@ -84,9 +84,13 @@ extension CameraPreviewView {
         guard let grayFrame = frameLayer else {
             return
         }
+        // The frame is as big as the guides
         var innerRect = biggestA4SizeRect()
-        innerRect.origin.x = (frame.width - innerRect.width) / 2.0
-        innerRect.origin.y = (frame.height - innerRect.height) / 2.0
+        // However, in order for them to not overlap, the frame needs to get a little bigger
+        innerRect.origin.x = ((frame.width - innerRect.width) / 2.0) - (guideLineWidth / 2.0)
+        innerRect.origin.y = ((frame.height - innerRect.height) / 2.0) - (guideLineWidth / 2.0)
+        innerRect.size.width += guideLineWidth
+        innerRect.size.height += guideLineWidth
         let cutOut = UIBezierPath(rect: innerRect)
         let path = UIBezierPath(rect: bounds)
         path.append(cutOut.reversing())
