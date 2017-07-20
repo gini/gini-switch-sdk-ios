@@ -133,7 +133,7 @@ class MultiPageCoordinator {
         }
     }
     
-    fileprivate func overflowMenu(withOnboarding:Bool) -> UIAlertController {
+    fileprivate func overflowMenu() -> UIAlertController {
         let actionSheet = UIAlertController(title: currentSwitchAppearance().exitActionSheetTitle, message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: NSLocalizedString("Abbrechen", comment: "Leave SDK actionsheet cancel title"), style: .cancel) { (action) in
             
@@ -141,19 +141,17 @@ class MultiPageCoordinator {
         let leaveAction = UIAlertAction(title: NSLocalizedString("Verlassen", comment: "Leave SDK actionsheet leave title"), style: .destructive) { (action) in
             currentSwitchSdk().delegate?.switchSdkDidCancel(sdk: currentSwitchSdk())
         }
+        let helpAction = UIAlertAction(title: NSLocalizedString("Hilfe", comment: "Leave SDK actionsheet help title"), style: .default) { (action) in
+            self.scheduleOnboarding()
+        }
         actionSheet.addAction(cancelAction)
         actionSheet.addAction(leaveAction)
-        if withOnboarding {
-            let helpAction = UIAlertAction(title: NSLocalizedString("Hilfe", comment: "Leave SDK actionsheet help title"), style: .default) { (action) in
-                self.scheduleOnboarding()
-            }
-            actionSheet.addAction(helpAction)
-        }
+        actionSheet.addAction(helpAction)
         return actionSheet
     }
     
-    fileprivate func showOverflowMenu(withOnboarding:Bool) {
-        let actionSheet = overflowMenu(withOnboarding: withOnboarding)
+    fileprivate func showOverflowMenu() {
+        let actionSheet = overflowMenu()
         self.delegate?.multiPageCoordinator(self, requestedShowingController: actionSheet, presentationStyle: .modal, animated: true, completion: nil)
     }
     
@@ -203,8 +201,7 @@ extension MultiPageCoordinator: CameraViewControllerDelegate {
 extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
     
     func pageCollectionControllerDidRequestOptions(_ pageController:PagesCollectionViewController) {
-        let hasEmbeddedController = (embeddedController != nil)
-        showOverflowMenu(withOnboarding: !hasEmbeddedController)
+        showOverflowMenu()
     }
     
     func pageCollectionController(_ pageController:PagesCollectionViewController, didSelectPage:ScanPage) {
@@ -247,7 +244,7 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
     }
     
     func reviewControllerDidRequestOptions(_ controller:ReviewViewController) {
-        let overflow = overflowMenu(withOnboarding: false)
+        let overflow = overflowMenu()
         controller.present(overflow, animated: true, completion: nil)
     }
     
