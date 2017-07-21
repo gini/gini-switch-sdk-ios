@@ -8,30 +8,29 @@
 
 Pod::Spec.new do |s|
   s.name             = 'GiniSwitchSDK'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of GiniSwitchSDK.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.version          = '0.4.0'
+  s.summary          = 'SDK for scanning and analysing german electricity bills'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  The Gini Switch SDK provides components for capturing, reviewing and analyzing photos of electricity bills in Germany.
+  By integrating this library into your application you can allow your users to easily take pictures of a document, review it and extract the necessary information to then proceed and change their electricity provider.
+  The SDK takes care of all interactions with our backend and provides you with customizable UI you can easily integrate within your app to take care of the whole process for you.
+  Even though some of the UI's appearance is customizable, the overall user flow and UX is not. We have worked hard to find the best way to navigate our users through the process and would like partners to follow the same path.
+  The Gini Vision Library has been designed for portrait orientation. The UI is automatically forced to portrait when being displayed.
                        DESC
 
-  s.homepage         = 'https://github.com/Gini GmbH/GiniSwitchSDK'
+  s.homepage         = 'https://github.com/gini/gini-tariff-sdk-ios'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.license          = { :type => 'MIT', :file => 'LICENSE.md' }
   s.author           = { 'Gini GmbH' => 'hello@gini.net' }
-  s.source           = { :git => 'https://github.com/Gini GmbH/GiniSwitchSDK.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/gini/gini-tariff-sdk-ios.git', :tag => s.version.to_s }
+   s.social_media_url = 'https://twitter.com/Gini'
 
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'GiniSwitchSDK/Classes/**/*'
-  
+  s.resources = 'GiniSwitchSDK/Assets/*'
+
   # s.resource_bundles = {
   #   'GiniSwitchSDK' => ['GiniSwitchSDK/Assets/*.png']
   # }
