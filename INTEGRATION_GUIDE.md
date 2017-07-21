@@ -94,3 +94,7 @@ func switchSdk(sdk:GiniSwitchSdk, didExtractInfo info:ExtractionCollection)
 ```
 
 method. It can be called multiple time throughout the lifecycle of the SDK - every time there's a change in the extractions. When our service determines that the extractions are complete, it will also call the `switchSdkDidComplete` delegate method. However, even before that, if the host app can determine that it has everything it needs, it is free to dismiss the SDK and continue on its own.
+
+### Going back
+
+While in the SDK's UI, users can exit prematurely by tapping on the "Done" button. They might do so too soon and therefore see that they need to go back and upload some more pictures. Unfortunately, this will happen after the `switchSdkDidComplete` delegate method call. So if you want to allow users to return to the SDK (And you should), make sure to hold on to the Switch SDK UI (the result from the `sdk.instantiateSwitchViewController()` statement) until you are sure users will not want to go back. After that, just clear the reference to the view controller and let ARC do the rest.
