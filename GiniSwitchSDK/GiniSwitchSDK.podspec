@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 
   s.homepage         = 'https://github.com/gini/gini-switch-sdk-ios'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE.md' }
+  s.license          = { :type => 'MIT', :file => '../LICENSE.md' }
   s.author           = { 'Gini GmbH' => 'hello@gini.net' }
   s.source           = { :git => 'https://github.com/gini/gini-switch-sdk-ios.git', :tag => s.version.to_s }
    s.social_media_url = 'https://twitter.com/Gini'
