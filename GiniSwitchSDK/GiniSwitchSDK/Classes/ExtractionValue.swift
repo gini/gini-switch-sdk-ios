@@ -11,6 +11,9 @@ struct ExtractionValue {
     let value:AnyObject
     let unit:String?
     
+    static let valueKey = "value"
+    static let unitKey = "unit"
+    
     var valueString:String {
         return "\(value)"
     }
@@ -21,10 +24,20 @@ struct ExtractionValue {
     }
     
     init?(dictionary:JSONDictionary) {
-        guard let val = dictionary["value"] as AnyObject? else {
-                return nil
+        // In any case, there needs to be a "value" key
+        guard let val = dictionary[ExtractionValue.valueKey] as AnyObject? else {
+            return nil
         }
-        self.init(value:val, unit: dictionary["unit"] as? String)
+        // Also, the value might be a value/unit pair
+        if let json = dictionary[ExtractionValue.valueKey] as? JSONDictionary,
+            let jsonValue = json[ExtractionValue.valueKey],
+            let value = jsonValue {
+            self.init(value:value, unit: dictionary[ExtractionValue.unitKey] as? String)
+        }
+        // Lastly, the value might be just a top level object
+        else {
+            self.init(value:val, unit: dictionary[ExtractionValue.unitKey] as? String)
+        }
     }
     
     static func ==(lhs: ExtractionValue, rhs: ExtractionValue) -> Bool {
