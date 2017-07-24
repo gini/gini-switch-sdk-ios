@@ -49,6 +49,11 @@ class PagesCollectionViewController: UIViewController {
         setupOptionsButton()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupContentInsets()
+    }
+    
     fileprivate func setupOptionsButton() {
         // change the color of the button's image to make it reflect the
         // app's theme

@@ -146,7 +146,7 @@ class MultiPageCoordinator {
         actionSheet.addAction(cancelAction)
         actionSheet.addAction(leaveAction)
         if withOnboarding {
-            let helpAction = UIAlertAction(title: NSLocalizedString("Hilfe", comment: "Leave SDK actionsheet leave title"), style: .default) { (action) in
+            let helpAction = UIAlertAction(title: NSLocalizedString("Hilfe", comment: "Leave SDK actionsheet help title"), style: .default) { (action) in
                 self.scheduleOnboarding()
             }
             actionSheet.addAction(helpAction)
