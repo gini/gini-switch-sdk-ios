@@ -11,7 +11,7 @@ import UIKit
 protocol MultiPageCoordinatorDelegate:class {
     
     func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedShowingController:UIViewController, presentationStyle:PresentationStyle, animated:Bool, completion:(() -> Void)?)
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController, presentationStyle:PresentationStyle, animated:Bool)
+    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController, presentationStyle:PresentationStyle, animated:Bool, completion: (() -> Void)?)
 }
 
 class MultiPageCoordinator {
@@ -90,7 +90,7 @@ class MultiPageCoordinator {
         let onboarding = OnboardingViewController(onboarding: (GiniSwitchSdkStorage.activeSwitchSdk?.configuration.onboarding)!, completion:nil)
         let completionDismiss = {
             GiniSwitchOnboarding.hasShownOnboarding = true
-            self.delegate?.multiPageCoordinator(self, requestedDismissingController: onboarding, presentationStyle: .modal, animated: true)
+            self.delegate?.multiPageCoordinator(self, requestedDismissingController: onboarding, presentationStyle: .modal, animated: true, completion:nil)
             self.cameraOptionsController.captureButton.isHidden = false
         }
         onboarding.completion = completionDismiss
@@ -128,7 +128,7 @@ class MultiPageCoordinator {
             // wait a few seconds so users can read the text and automatically dismiss
             let delay = DispatchTime.now() + .seconds(extrationsCompletePopupTimeout)
             DispatchQueue.main.asyncAfter(deadline: delay, execute: {
-                myDelegate?.multiPageCoordinator(self, requestedDismissingController: completionController, presentationStyle: .modal, animated: true)
+                myDelegate?.multiPageCoordinator(self, requestedDismissingController: completionController, presentationStyle: .modal, animated: true, completion: nil)
             })
         }
     }
@@ -164,7 +164,7 @@ class MultiPageCoordinator {
         guard let controller = embeddedController else {
             return
         }
-        self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .embed, animated: false)
+        self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .embed, animated: false, completion: nil)
         embeddedController = nil
     }
 }
@@ -225,7 +225,11 @@ extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
 extension MultiPageCoordinator: ReviewViewControllerDelegate {
     
     func reviewController(_ controller:ReviewViewController, didAcceptPage page:ScanPage) {
-        delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .modal, animated: true)
+        delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .modal, animated: true) {
+            DispatchQueue.main.async {
+                self.completeIfReady()
+            }
+        }
         if let toBeReplaced = pageToReplace {
             extractionsManager.replace(page: toBeReplaced, withPage: page)
             pageToReplace = nil
@@ -234,13 +238,15 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
             extractionsManager.add(page: page)
         }
         refreshPagesCollectionView()
-        completeIfReady()
         currentSwitchSdk().delegate?.switchSdk(sdk: currentSwitchSdk(), didReview: page.imageData)
     }
     
     func reviewController(_ controller:ReviewViewController, didRejectPage page:ScanPage) {
-        self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .modal, animated: true)
-        completeIfReady()
+        self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .modal, animated: true) {
+            DispatchQueue.main.async {
+                self.completeIfReady()
+            }
+        }
     }
     
     func reviewControllerDidRequestOptions(_ controller:ReviewViewController) {

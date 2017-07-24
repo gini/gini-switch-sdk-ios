@@ -90,10 +90,10 @@ extension MultiPageScanViewController: MultiPageCoordinatorDelegate {
         }
     }
     
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController, presentationStyle:PresentationStyle, animated:Bool) {
+    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController, presentationStyle:PresentationStyle, animated:Bool, completion: (() -> Void)?) {
         switch presentationStyle {
         case .modal:
-            requestedDismissingController.presentingViewController?.dismiss(animated: animated, completion: nil)
+            requestedDismissingController.presentingViewController?.dismiss(animated: animated, completion: completion)
         case .navigation:
             if self.navigationController?.topViewController == requestedDismissingController {
                 self.navigationController?.popViewController(animated: animated)
