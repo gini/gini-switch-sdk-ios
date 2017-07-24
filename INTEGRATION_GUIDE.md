@@ -98,3 +98,35 @@ method. It can be called multiple time throughout the lifecycle of the SDK - eve
 ### Going back
 
 While in the SDK's UI, users can exit prematurely by tapping on the "Done" button. They might do so too soon and therefore see that they need to go back and upload some more pictures. Unfortunately, this will happen after the `switchSdkDidComplete` delegate method call. So if you want to allow users to return to the SDK (And you should), make sure to hold on to the Switch SDK UI (the result from the `sdk.instantiateSwitchViewController()` statement) until you are sure users will not want to go back. After that, just clear the reference to the view controller and let ARC do the rest.
+
+## SDK Customizations
+
+The Gini Switch SDK is designed to be an independent part of the hosting application. The overall UI and UX is fixed, but some parameters are customizable.
+
+### UI changes
+
+Regarding the looks of the SDK, the following values are changeable:
+
+* `primaryColor` - The primary color is a color that will show up at many places throughout the SDK. It is used at times where an element branded with the main color of your app is appropriate. For instance, for Gini, it would be the blue color we use for our logo.
+* `positiveColor` - The positive color is a color that will show up at many places throughout the SDK. It is used every time a component wants to indicate a success or a positive state in any way. For instance - a successful upload, analysis completion, correct extractions.
+* `negativeColor` - The positive color is a color that will show up at many places throughout the SDK. It is used every time a component wants to indicate a failure or error state in any way. For instance - a failed upload, incorrect extractions.
+* `screenBackgroundColor` - The background color most view controllers are going to use throughout the SDK.
+* `pageAnalysisSuccessImage` - Image used for marking successfully analyzed images.
+* `pageAnalysisFailureImage` - Image used for marking images that couldn't be analyzed.
+* `doneButtonText` - Text for the Done button in the camera screen.
+* `doneButtonTextColor` - Text color for the Done button in the camera screen.
+* `imageProcessedText` - Text for the Preview screen - a successfully processed image.
+* `imageProcessFailedText` - Text for the Preview screen - a failed processing of the image.
+* `analyzedImage` - Image for the Analyzing Completed Screen.
+* `analyzedText` - Text for the Analyzing Completed Screen.
+* `analyzedTextColor` - Text color for the Analyzing Completed Screen.
+* `analyzedTextSize` - Text size for the Analyzing Completed Screen.
+* `exitActionSheetTitle` - Use this to set a custom title for the cancel dialog.
+
+### Logging
+
+Logging in the Switch SDK is achieved using the `GiniSwitchLogger` protocol. By default, the `GiniSwitchConsoleLogger` class is used. It just prints messages to the console. Feel free to implment the protocol and insert your own implementation. Change the default logger using the code:
+
+```swift
+sdk.configuration.logging = myCustomLogger
+```

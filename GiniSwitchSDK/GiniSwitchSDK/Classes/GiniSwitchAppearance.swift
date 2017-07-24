@@ -18,7 +18,7 @@ public class GiniSwitchAppearance {
     
     /**
      * The primary color is a color that will show up at many places throughout the SDK.
-     * It is used at times where an element branded with the main color of your app is approapriate
+     * It is used at times where an element branded with the main color of your app is appropriate
      * For instance, for Gini, it would be the blue color we use for our logo
      */
     public var primaryColor:UIColor? = UIColor(colorLiteralRed: 22.0 / 255.0, green: 157.0 / 255.0, blue: 217.0 / 255.0, alpha: 1.0)
@@ -62,7 +62,7 @@ public class GiniSwitchAppearance {
     /**
      * Text for the Preview screen - a successfully processed image.
      */
-    public var imageProcessedText:String? = NSLocalizedString("Sehr gut, wir könnten alle Daten aus diesem Foto erfolgreich analysieren.", comment: "Preview screen title - analysed document")
+    public var imageProcessedText:String? = NSLocalizedString("Sehr gut, wir könnten alle Daten aus diesem Foto erfolgreich analysieren.", comment: "Preview screen title - analyzed document")
     
     /**
      * Text for the Preview screen - a failed processing of the image.
