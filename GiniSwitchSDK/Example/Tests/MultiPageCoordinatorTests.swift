@@ -89,7 +89,7 @@ extension MultiPageCoordinatorTests: MultiPageCoordinatorDelegate {
         exitActionSheet = requestedShowingController as? UIAlertController
     }
     
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController, presentationStyle:PresentationStyle, animated:Bool) {
+    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController, presentationStyle:PresentationStyle, animated:Bool, completion:(() -> Void)?) {
         didRequestReviewDismiss = true
     }
     
