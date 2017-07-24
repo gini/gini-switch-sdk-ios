@@ -79,7 +79,9 @@ extension MultiPageScanViewController: MultiPageCoordinatorDelegate {
     func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedShowingController:UIViewController, presentationStyle:PresentationStyle, animated:Bool, completion: (() -> Void)?) {
         switch presentationStyle {
         case .modal:
-            self.present(requestedShowingController, animated: animated, completion: completion)
+            // there might be a controller already presented. If so, this one needs to be presented on top of it
+            let presentationController = self.presentedViewController ?? self
+            presentationController.present(requestedShowingController, animated: animated, completion: completion)
         case .navigation:
             self.navigationController?.pushViewController(requestedShowingController, animated: animated)
         case .embed:
@@ -91,7 +93,7 @@ extension MultiPageScanViewController: MultiPageCoordinatorDelegate {
     func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController, presentationStyle:PresentationStyle, animated:Bool) {
         switch presentationStyle {
         case .modal:
-            self.dismiss(animated: animated, completion: nil)
+            requestedDismissingController.presentingViewController?.dismiss(animated: animated, completion: nil)
         case .navigation:
             if self.navigationController?.topViewController == requestedDismissingController {
                 self.navigationController?.popViewController(animated: animated)

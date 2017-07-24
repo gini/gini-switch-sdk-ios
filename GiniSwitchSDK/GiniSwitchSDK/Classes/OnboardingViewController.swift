@@ -41,7 +41,7 @@ class OnboardingViewController: UIPageViewController {
         updatePageControl()
         view.addSubview(pageControl!)
         pageControl?.translatesAutoresizingMaskIntoConstraints = false
-        let bottomConstraint = NSLayoutConstraint(item: view, attribute: .bottomMargin, relatedBy: .equal, toItem: pageControl, attribute: .bottom, multiplier: 1.0, constant: 120)
+        let bottomConstraint = NSLayoutConstraint(item: view, attribute: .bottomMargin, relatedBy: .equal, toItem: pageControl, attribute: .bottom, multiplier: 1.0, constant: 20)
         let centerConstraint = NSLayoutConstraint(item: view, attribute: .centerX, relatedBy: .equal, toItem: pageControl, attribute: .centerX, multiplier: 1.0, constant: 0.0)
         view.addConstraints([bottomConstraint, centerConstraint])
     }
