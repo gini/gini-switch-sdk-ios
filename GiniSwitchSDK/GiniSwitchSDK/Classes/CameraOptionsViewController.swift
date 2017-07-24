@@ -21,11 +21,30 @@ class CameraOptionsViewController: UIViewController {
     @IBOutlet var doneButton:UIButton! = nil
     
     weak var delegate:CameraOptionsViewControllerDelegate? = nil
+    
+    var textColor:UIColor? {
+        didSet {
+            setupStyle()
+        }
+    }
+    var doneButtonText:String? {
+        didSet {
+            setupStyle()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupStyle()
+    }
+    
+    fileprivate func setupStyle() {
+        if let color = textColor {
+            doneButton.setTitleColor(color, for: .normal)
+        }
+        if let text = doneButtonText {
+            doneButton.setTitle(text, for: .normal)
+        }
     }
 
 }

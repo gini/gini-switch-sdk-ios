@@ -37,10 +37,27 @@ class PagesCollectionViewController: UIViewController {
     var selectedIndexPath = IndexPath(row: 0, section: 1)   // the add page cell
     
     var shouldShowAddIcon = false
+    var themeColor:UIColor?
     weak var delegate:PagesCollectionViewControllerDelegate? = nil
     
     @IBAction func onOptionsTapped() {
         self.delegate?.pageCollectionControllerDidRequestOptions(self)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupOptionsButton()
+    }
+    
+    fileprivate func setupOptionsButton() {
+        // change the color of the button's image to make it reflect the
+        // app's theme
+        guard let buttonImage = optionsButton.image(for: .normal) else {
+            Logger().logError(message: "Options button didn't have an image")
+            return
+        }
+        optionsButton.setImage(buttonImage.withRenderingMode(.alwaysTemplate), for: .normal)
+        optionsButton.tintColor = themeColor
     }
 
 }
@@ -69,6 +86,9 @@ extension PagesCollectionViewController: UICollectionViewDataSource {
             setupAddCell(cell)
         default:
             assert(false, "Unknown section encountered \(indexPath.section)")
+        }
+        if let themeColor = themeColor {
+            cell.pageSelectionColor = themeColor
         }
         cell.isSelected = (indexPath == selectedIndexPath)
         cell.pageNumber = pageNumberFor(indexPath:indexPath)

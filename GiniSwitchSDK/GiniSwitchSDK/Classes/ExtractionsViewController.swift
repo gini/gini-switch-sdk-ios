@@ -20,8 +20,9 @@ class ExtractionsViewController: UIViewController {
         super.viewDidLoad()
         extractionsTable.dataSource = self
         extractionsTable.delegate = self
-        titleHintLabel.text = currentSwitchAppearance().extractionsScreenTitleText
-        switchButton.setTitle(currentSwitchAppearance().extractionsButtonText, for: .normal)
+        titleHintLabel.text = NSLocalizedString("Fast geschafft. Bitte prüfe noch kurz ob alle Deine Daten korrekt ausgelesen wurden.", comment: "Extraction screen title")
+
+        switchButton.setTitle(NSLocalizedString("Jetzt Stromanbieter wechseln", comment: "Extraction screen switch provider title"), for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,10 +60,6 @@ extension ExtractionsViewController: UITableViewDataSource {
         let extraction = extractionsCollection?.extractions[indexPath.row]
         cell.nameLabel.text = extraction?.name ?? ""
         cell.valueTextField.text = extraction?.valueString ?? ""
-        cell.nameLabel.textColor = currentSwitchAppearance().extractionTitleTextColor
-        cell.valueTextField.textColor = currentSwitchAppearance().extractionsTextFieldTextColor
-        cell.valueTextField.layer.borderColor = currentSwitchAppearance().extractionsTextFieldBorderColor?.cgColor
-        cell.valueTextField.backgroundColor = currentSwitchAppearance().extractionsTextFieldBackgroundColor
         
         return cell
     }
