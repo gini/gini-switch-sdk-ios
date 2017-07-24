@@ -34,7 +34,7 @@ The Gini Switch SDK is designed to be a self-contained and independent part of y
 The SDK is designed to take over the whole app navigation once it's started, assist the user in photographing their document and finally notifying the host app that it's done and it can be dismissed. While that's happening, it uses delegation to periodically inform the hosting app about events that are happening (a page has been uploaded, a new extraction is available, etc.).
 
 ```swift
-let sdk = GiniSwitchSdk(clientId: "YourClientSecret", clientSecret: "SomeSecret", domain: "gini.net")
+let sdk = GiniSwitchSdk(clientId: "YourClientID", clientSecret: "YourSecret", domain: "gini.net")
 sdk.delegate = self
 let switchController = sdk.instantiateSwitchViewController()
 self.present(switchController, animated: true) {
