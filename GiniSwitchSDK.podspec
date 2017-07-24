@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'GiniSwitchSDK'
-  s.version          = '0.4.0'
+  s.version          = '0.5.0'
   s.summary          = 'SDK for scanning and analysing german electricity bills'
 
   s.description      = <<-DESC
@@ -28,8 +28,8 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'GiniSwitchSDK/Classes/**/*'
-  s.resources = 'GiniSwitchSDK/Assets/*'
+  s.source_files = 'GiniSwitchSDK/GiniSwitchSDK/Classes/**/*'
+  s.resources = 'GiniSwitchSDK/GiniSwitchSDK/Assets/*'
 
   # s.resource_bundles = {
   #   'GiniSwitchSDK' => ['GiniSwitchSDK/Assets/*.png']
