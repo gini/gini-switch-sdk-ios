@@ -24,7 +24,7 @@ extension NSError {
         case .cannotUploadPage, .pageAnalysisFailed:
             return NSLocalizedString("Fehler beim Verarbeiten der Seite", comment: "Decription of a page upload or analysis error")
         case .pageDeleteError:
-            return NSLocalizedString("Fehler beim Loeschen der Seite", comment: "Decription for a page deletion error")
+            return NSLocalizedString("Fehler beim Löschen der Seite", comment: "Decription for a page deletion error")
         case .pageReplaceError:
             return NSLocalizedString("Fehler beim Ersetzen der Seite", comment: "Decription for a page replacement error")
         default:
