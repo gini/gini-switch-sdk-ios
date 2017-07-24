@@ -22,6 +22,7 @@
 		22E72C99CDE7E617B07B09CB5D7BE7DE /* ExtractionValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C5D342A356EC8E6CCA270DAC8DCB4 /* ExtractionValue.swift */; };
 		2331C63A1F1E00B200F0742E /* GiniSwitch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2331C6371F1E005000F0742E /* GiniSwitch.storyboard */; };
 		2331C63B1F1E00B200F0742E /* GiniSwitch.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2331C6381F1E005000F0742E /* GiniSwitch.xcassets */; };
+		23DCD17D1F1F96CE00C5E2C8 /* HumanReadableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DCD17C1F1F96CE00C5E2C8 /* HumanReadableError.swift */; };
 		27CE7B2C3605AD911BDD5ED9189A05A7 /* GiniSwitchNopAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993EF25D3026D9D0646EB91655A1CD4C /* GiniSwitchNopAnalytics.swift */; };
 		285874803E80C0D425673A69E71CAF0A /* MultiPageScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4A3B490DFB6DA19BB17F09CA48529E /* MultiPageScanViewController.swift */; };
 		29C01E67B91BDAB236D1B8644882C709 /* GiniSwitchConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A59A1588A498030860DD183B46EBA8 /* GiniSwitchConsoleLogger.swift */; };
@@ -132,6 +133,7 @@
 		2298956B82A193EF7E88243F7E0F0A51 /* ExtractionsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExtractionsViewController.swift; sourceTree = "<group>"; };
 		2331C6371F1E005000F0742E /* GiniSwitch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = GiniSwitch.storyboard; path = Assets/GiniSwitch.storyboard; sourceTree = "<group>"; };
 		2331C6381F1E005000F0742E /* GiniSwitch.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = GiniSwitch.xcassets; path = Assets/GiniSwitch.xcassets; sourceTree = "<group>"; };
+		23DCD17C1F1F96CE00C5E2C8 /* HumanReadableError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HumanReadableError.swift; sourceTree = "<group>"; };
 		26343B90E98E5470B487CDA3710D9380 /* ExtractionStatusResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExtractionStatusResponse.swift; sourceTree = "<group>"; };
 		29633F7FB62129047199811E75F7A628 /* Pods-GiniSwitchSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GiniSwitchSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		29835CE7720B6C94E7032FA71B866E5C /* CreateOrderResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreateOrderResponse.swift; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 				373C120FBD9752157611E96BCBEC6057 /* CredentialsStore.swift */,
 				2B0804EBE96A8FC8EF9DEAAE673DD09D /* DashOutlineLayer.swift */,
 				D5F964BAF12F6A64ADBF22CBFE2D1C6A /* Error.swift */,
+				23DCD17C1F1F96CE00C5E2C8 /* HumanReadableError.swift */,
 				7CAF85065AAF21C1B67CF241B16A7AEC /* Extraction.swift */,
 				6B6ACAB76464EDB8440CE0AA614AF379 /* ExtractionCollection.swift */,
 				5359BF1C3ACD48415AEFF6A38DC9939F /* ExtractionResources.swift */,
@@ -757,6 +760,7 @@
 				5EEACC15D1410D9D24660CC314DAA084 /* OnboardingPageViewController.swift in Sources */,
 				BEA598238C97D7D21F3E444A0B77D5FD /* OnboardingViewController.swift in Sources */,
 				A9E1EE4E520BF77FA73B8C459A39A0B8 /* PageCollection.swift in Sources */,
+				23DCD17D1F1F96CE00C5E2C8 /* HumanReadableError.swift in Sources */,
 				76814CAC84BB100DE0E6E77042B3D432 /* PageCollectionViewCell.swift in Sources */,
 				5F3C458AB0F704332C9976730A267DFB /* PagesCollectionViewController.swift in Sources */,
 				1D3FB1C940FFB76CC88A6EAC6CD854A5 /* PagesResponse.swift in Sources */,

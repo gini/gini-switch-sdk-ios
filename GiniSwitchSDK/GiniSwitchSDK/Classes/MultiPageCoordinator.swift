@@ -274,8 +274,18 @@ extension MultiPageCoordinator: PreviewViewControllerDelegate {
 
 extension MultiPageCoordinator: ExtractionsManagerDelegate {
     
-    func extractionsManager(_ manager:ExtractionsManager, didEncounterError error:Error) {
-        
+    func extractionsManager(_ manager:ExtractionsManager, didEncounterError error:NSError) {
+        // check if it's an error that needs to be shown to the user
+        if error.isHumanReadable {
+            let alert = UIAlertController(title: NSLocalizedString("Fehler", comment: "Error alert view title"),
+                              message: error.humanReadableDescription(),
+                              preferredStyle: .alert)
+            let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: "Error alert view button title"),
+                                         style: .default,
+                                         handler: nil)
+            alert.addAction(okAction)
+            delegate?.multiPageCoordinator(self, requestedShowingController: alert, presentationStyle: .modal, animated: true, completion: nil)
+        }
     }
     
     func extractionsManager(_ manager:ExtractionsManager, didChangePageCollection collection:PageCollection) {
