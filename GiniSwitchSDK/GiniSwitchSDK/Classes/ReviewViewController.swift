@@ -81,6 +81,10 @@ class ReviewViewController: UIViewController {
         
         updateMinZoomScaleForSize(imageContainerScrollView.bounds.size)
     }
+    
+    override var prefersStatusBarHidden:Bool {
+        return true
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

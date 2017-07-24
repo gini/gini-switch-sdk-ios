@@ -92,7 +92,7 @@ public class GiniSwitchAppearance {
     /**
      * Use this to set a custom title for the cancel dialog.
      */
-    public var exitActionSheetTitle:String? = NSLocalizedString("Gini Switch verlassen", comment: "Leave SDK actionsheet title")
+    public var exitActionSheetTitle:String? = NSLocalizedString("Foto-Modus verlassen?", comment: "Leave SDK actionsheet title")
     
     public init () {
         
