@@ -24,8 +24,8 @@ class PageCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    var pageUploadedImage = currentSwitchAppearance().pageAnalysisSuccessImage ?? UIImage(named: "pageUploadSuccessCheckmarkCircle", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil)
-    var pageFailedImage = currentSwitchAppearance().pageAnalysisFailureImage ?? UIImage(named: "pageUploadFailedCrossCircle", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil)
+    var pageUploadedImage = UIImage(named: "pageUploadSuccessCheckmarkCircle", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil)
+    var pageFailedImage = UIImage(named: "pageUploadFailedCrossCircle", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil)
     
     var image:UIImage? = nil {
         didSet {

@@ -50,16 +50,6 @@ public class GiniSwitchAppearance {
     }
     
     /**
-     * Image used for marking successfully analysed images.
-     */
-    public var pageAnalysisSuccessImage:UIImage? = nil
-    
-    /**
-     * Image used for marking images that couldn't be analysed.
-     */
-    public var pageAnalysisFailureImage:UIImage? = nil
-    
-    /**
      * Text for the Done button in the camera screen
      */
     public var doneButtonText:String? = NSLocalizedString("Fertig", comment: "Camera screen done button text")
