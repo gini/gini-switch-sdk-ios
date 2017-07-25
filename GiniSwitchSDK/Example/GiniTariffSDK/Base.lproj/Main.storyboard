@@ -63,7 +63,6 @@
         <!--Extractions View Controller-->
         <scene sceneID="bCZ-T5-F7j">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BzO-Re-OU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="ExtractionsViewController" id="yZa-BH-8Sg" customClass="ExtractionsViewController" customModule="GiniSwitchSDK_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EcV-uS-rkR"/>
@@ -80,7 +79,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qFj-8Z-N06">
-                                <rect key="frame" x="16" y="44.5" width="343" height="558.5"/>
+                                <rect key="frame" x="16" y="45" width="343" height="491"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExtractionsTableViewCell" rowHeight="85" id="aSX-ST-uOB" customClass="ExtractionsTableViewCell" customModule="GiniSwitchSDK_Example" customModuleProvider="target">
@@ -126,15 +125,42 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8OR-Ur-xPM">
+                                <rect key="frame" x="282" y="555" width="47" height="40"/>
+                                <state key="normal" title="Switch">
+                                    <color key="titleColor" red="0.128389746" green="0.72788512709999997" blue="0.65097540620000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSwitchTapped" destination="yZa-BH-8Sg" eventType="touchUpInside" id="QZz-t6-uax"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRh-vI-kfo">
+                                <rect key="frame" x="46" y="555" width="47" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6UH-72-5OS"/>
+                                </constraints>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.80000000000000004" green="0.12941176469999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onBack" destination="yZa-BH-8Sg" eventType="touchUpInside" id="crv-OY-xRw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="F3L-Eg-AAG" firstAttribute="trailing" secondItem="Ldl-gI-GGL" secondAttribute="trailingMargin" id="0WL-eB-2gK"/>
+                            <constraint firstItem="RRh-vI-kfo" firstAttribute="height" secondItem="8OR-Ur-xPM" secondAttribute="height" id="1lH-ih-qE9"/>
+                            <constraint firstItem="RRh-vI-kfo" firstAttribute="width" secondItem="8OR-Ur-xPM" secondAttribute="width" id="6De-mi-Dv7"/>
                             <constraint firstItem="qFj-8Z-N06" firstAttribute="top" secondItem="F3L-Eg-AAG" secondAttribute="bottom" constant="16" id="7vx-Mv-ZFu"/>
+                            <constraint firstItem="8OR-Ur-xPM" firstAttribute="bottom" secondItem="RRh-vI-kfo" secondAttribute="bottom" id="9KL-Pd-G1c"/>
                             <constraint firstItem="qFj-8Z-N06" firstAttribute="leading" secondItem="Ldl-gI-GGL" secondAttribute="leadingMargin" id="D9X-nt-xkg"/>
+                            <constraint firstItem="RRh-vI-kfo" firstAttribute="leading" secondItem="Ldl-gI-GGL" secondAttribute="leadingMargin" constant="30" id="Psx-yE-hC5"/>
                             <constraint firstItem="F3L-Eg-AAG" firstAttribute="top" secondItem="EcV-uS-rkR" secondAttribute="bottom" constant="8" id="T5J-lN-nqj"/>
-                            <constraint firstItem="q3A-yY-Jie" firstAttribute="top" secondItem="qFj-8Z-N06" secondAttribute="bottom" id="bb5-Hg-LQU"/>
+                            <constraint firstItem="RRh-vI-kfo" firstAttribute="top" secondItem="qFj-8Z-N06" secondAttribute="bottom" constant="19" id="XaT-BP-mJC"/>
                             <constraint firstItem="qFj-8Z-N06" firstAttribute="trailing" secondItem="Ldl-gI-GGL" secondAttribute="trailingMargin" id="hyb-vj-gL9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8OR-Ur-xPM" secondAttribute="trailing" constant="30" id="jhc-gq-Zuo"/>
+                            <constraint firstAttribute="bottom" secondItem="RRh-vI-kfo" secondAttribute="bottom" constant="8" id="nFS-9Y-lza"/>
                             <constraint firstItem="F3L-Eg-AAG" firstAttribute="leading" secondItem="Ldl-gI-GGL" secondAttribute="leadingMargin" id="wkT-mE-J9T"/>
                         </constraints>
                     </view>
@@ -144,8 +170,9 @@
                         <outlet property="extractionsTable" destination="qFj-8Z-N06" id="DXe-bc-zoZ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BzO-Re-OU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1452" y="-645"/>
+            <point key="canvasLocation" x="1452" y="-645.42728635682158"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Feh-Cv-NtJ">
