@@ -12,6 +12,7 @@ import GiniSwitchSDK
 class SwitchExampleViewController: UIViewController {
     
     var extractions = ExtractionCollection()
+    var switchController:UIViewController? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,20 +27,19 @@ class SwitchExampleViewController: UIViewController {
     @IBAction func onStartSdk() {
         let sdk = SdkBuilder.customizedSwitchSdk()
         sdk.delegate = self
-        let switchController = sdk.instantiateSwitchViewController()
-        self.present(switchController, animated: true) {
-            // TODO: maybe show a "thank you" note
-        }
+        switchController = sdk.instantiateSwitchViewController()
+        self.present(switchController!, animated: true, completion: nil)
     }
     
     fileprivate func createExtractionsScreen(extractions:ExtractionCollection) -> ExtractionsViewController {
         let extractionsController = storyboard?.instantiateViewController(withIdentifier: "ExtractionsViewController") as! ExtractionsViewController
         extractionsController.extractionsCollection = extractions
+        extractionsController.delegate = self
         return extractionsController
     }
     
     fileprivate func showExtractions(extractions:ExtractionCollection) {
-        navigationController?.pushViewController(createExtractionsScreen(extractions: extractions), animated: true)
+        navigationController?.pushViewController(createExtractionsScreen(extractions: extractions), animated: false)
     }
 
 }
@@ -64,12 +64,8 @@ extension SwitchExampleViewController: GiniSwitchSdkDelegate {
     
     func switchSdkDidComplete(sdk:GiniSwitchSdk) {
         print("Switch SDK completed")
-        self.dismiss(animated: true) { [weak self] () in
-            guard let weakSelf = self else {
-                return
-            }
-            weakSelf.showExtractions(extractions: weakSelf.extractions)
-        }
+        self.showExtractions(extractions: self.extractions)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func switchSdk(sdk:GiniSwitchSdk, didExtractInfo info:ExtractionCollection) {
@@ -90,4 +86,20 @@ extension SwitchExampleViewController: GiniSwitchSdkDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension SwitchExampleViewController: ExtractionsViewControllerDelegate {
+    
+    func extractionsControllerDidSwitch(_ controller:ExtractionsViewController) {
+        navigationController?.popViewController(animated: true)
+        switchController = nil
+    }
+    
+    func extractionsControllerDidGoBack(_ controller:ExtractionsViewController) {
+        navigationController?.popViewController(animated: false)
+        guard let controller = switchController else {
+            return
+        }
+        present(controller, animated: false, completion: nil)
+    }
 }

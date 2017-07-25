@@ -9,11 +9,22 @@
 import UIKit
 import GiniSwitchSDK
 
+protocol ExtractionsViewControllerDelegate {
+    
+    func extractionsControllerDidSwitch(_ controller:ExtractionsViewController)
+    func extractionsControllerDidGoBack(_ controller:ExtractionsViewController)
+    
+}
+
 class ExtractionsViewController: UIViewController {
     
+    @IBOutlet var titleHintLabel:UILabel! = nil
     @IBOutlet var extractionsTable:UITableView! = nil
+    @IBOutlet var backButton:UIButton! = nil
+    @IBOutlet var switchButton:UIButton! = nil
     
     var extractionsCollection:ExtractionCollection? = nil
+    var delegate:ExtractionsViewControllerDelegate? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,18 +32,12 @@ class ExtractionsViewController: UIViewController {
         extractionsTable.delegate = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = false
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.isNavigationBarHidden = true
-    }
-    
     @IBAction func onSwitchTapped() {
-        navigationController?.popViewController(animated: true)
+        delegate?.extractionsControllerDidSwitch(self)
+    }
+    
+    @IBAction func onBack() {
+        delegate?.extractionsControllerDidGoBack(self)
     }
 
 }
