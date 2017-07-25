@@ -10,14 +10,14 @@ import UIKit
 
 public class ExtractionCollection:BaseApiResponse {
 
-    let extractions:[Extraction]
+    public let extractions:[Extraction]
     
-    init() {
+    public init() {
         extractions = []
         super.init(href: "")
     }
     
-    init(collection:[Extraction]) {
+    public init(collection:[Extraction]) {
         extractions = collection
         super.init(href: "")
     }

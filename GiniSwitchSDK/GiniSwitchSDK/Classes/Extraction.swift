@@ -8,19 +8,19 @@
 
 public class  Extraction {
 
-    let name:String
-    var value:ExtractionValue = ExtractionValue(value: "" as AnyObject, unit: nil)
-    var alternatives:[ExtractionValue] = []
+    public let name:String
+    public var value:ExtractionValue = ExtractionValue(value: "" as AnyObject, unit: nil)
+    public var alternatives:[ExtractionValue] = []
     
-    var valueString:String {
+    public var valueString:String {
         return value.valueString
     }
     
-    convenience init() {
+    public convenience init() {
         self.init(name: "", value: "" as AnyObject)
     }
     
-    init(name:String, value:AnyObject) {
+    public init(name:String, value:AnyObject) {
         self.name = name
         self.value = ExtractionValue(value: value, unit: nil)
         alternatives = []

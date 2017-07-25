@@ -348,105 +348,6 @@
             </objects>
             <point key="canvasLocation" x="2112.8000000000002" y="139.880059970015"/>
         </scene>
-        <!--Extractions View Controller-->
-        <scene sceneID="hsB-Zx-Q2Y">
-            <objects>
-                <viewController storyboardIdentifier="ExtractionsViewController" id="Tcw-tt-dPw" customClass="ExtractionsViewController" customModule="GiniSwitchSDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="YbD-d4-a4t"/>
-                        <viewControllerLayoutGuide type="bottom" id="zcP-Ve-nqb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0S8-lR-b1J" customClass="SwitchBackgroundView" customModule="GiniSwitchSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fast geschafft. Bitte prüfe noch kurz ob alle Deine Daten korrekt ausgelesen wurden." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZO-CT-NTG">
-                                <rect key="frame" x="16" y="8" width="343" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLj-V8-HUP">
-                                <rect key="frame" x="16" y="553" width="343" height="30"/>
-                                <state key="normal" title="Jetzt Stromanbieter wechseln"/>
-                                <connections>
-                                    <action selector="onSwitchTapped" destination="Tcw-tt-dPw" eventType="touchUpInside" id="YJ3-87-bRa"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="agV-Ao-7bG">
-                                <rect key="frame" x="16" y="65" width="343" height="472"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExtractionsTableViewCell" rowHeight="85" id="IIq-NA-cxK" customClass="ExtractionsTableViewCell" customModule="GiniSwitchSDK" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="85"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IIq-NA-cxK" id="t3m-ep-W9V">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="85"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HtQ-8F-oiE">
-                                                    <rect key="frame" x="8" y="8" width="42" height="13"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="fhe-qD-he2">
-                                                    <rect key="frame" x="8" y="29" width="327" height="40"/>
-                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="nUX-5P-Pni"/>
-                                                    </constraints>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstItem="HtQ-8F-oiE" firstAttribute="top" secondItem="t3m-ep-W9V" secondAttribute="topMargin" id="XtA-rB-X2L"/>
-                                                <constraint firstItem="HtQ-8F-oiE" firstAttribute="leading" secondItem="t3m-ep-W9V" secondAttribute="leadingMargin" id="eMC-Lj-ACd"/>
-                                                <constraint firstItem="fhe-qD-he2" firstAttribute="trailing" secondItem="t3m-ep-W9V" secondAttribute="trailingMargin" id="eiP-NY-GYz"/>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="HtQ-8F-oiE" secondAttribute="trailing" constant="8" id="fyf-9y-EAY"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="fhe-qD-he2" secondAttribute="bottom" constant="8" id="gIh-gb-BVY"/>
-                                                <constraint firstItem="fhe-qD-he2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="HtQ-8F-oiE" secondAttribute="bottom" constant="8" id="ghT-58-752"/>
-                                                <constraint firstItem="fhe-qD-he2" firstAttribute="leading" secondItem="t3m-ep-W9V" secondAttribute="leadingMargin" id="mgv-9c-0ia"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="nameLabel" destination="HtQ-8F-oiE" id="XBa-Cq-RqP"/>
-                                            <outlet property="valueTextField" destination="fhe-qD-he2" id="nYx-XC-CcI"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="agV-Ao-7bG" firstAttribute="trailing" secondItem="0S8-lR-b1J" secondAttribute="trailingMargin" id="0aJ-MH-kg4"/>
-                            <constraint firstItem="nLj-V8-HUP" firstAttribute="top" secondItem="agV-Ao-7bG" secondAttribute="bottom" constant="16" id="0d6-jd-aSg"/>
-                            <constraint firstItem="nLj-V8-HUP" firstAttribute="leading" secondItem="0S8-lR-b1J" secondAttribute="leadingMargin" id="KgI-AC-Vu5"/>
-                            <constraint firstItem="nLj-V8-HUP" firstAttribute="trailing" secondItem="0S8-lR-b1J" secondAttribute="trailingMargin" id="Tzs-Jy-lZA"/>
-                            <constraint firstItem="agV-Ao-7bG" firstAttribute="leading" secondItem="0S8-lR-b1J" secondAttribute="leadingMargin" id="Y4W-VB-c8K"/>
-                            <constraint firstItem="BZO-CT-NTG" firstAttribute="trailing" secondItem="0S8-lR-b1J" secondAttribute="trailingMargin" id="bLa-h6-Uaw"/>
-                            <constraint firstItem="agV-Ao-7bG" firstAttribute="top" secondItem="BZO-CT-NTG" secondAttribute="bottom" constant="16" id="cB4-68-6dy"/>
-                            <constraint firstItem="zcP-Ve-nqb" firstAttribute="top" secondItem="nLj-V8-HUP" secondAttribute="bottom" constant="20" id="gLE-ua-T8g"/>
-                            <constraint firstItem="BZO-CT-NTG" firstAttribute="top" secondItem="YbD-d4-a4t" secondAttribute="bottom" constant="8" id="mWy-2o-zYR"/>
-                            <constraint firstItem="BZO-CT-NTG" firstAttribute="leading" secondItem="0S8-lR-b1J" secondAttribute="leadingMargin" id="q8H-2I-cqF"/>
-                        </constraints>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <connections>
-                        <outlet property="extractionsTable" destination="agV-Ao-7bG" id="NCS-5j-nc6"/>
-                        <outlet property="switchButton" destination="nLj-V8-HUP" id="ypK-lv-wNU"/>
-                        <outlet property="titleHintLabel" destination="BZO-CT-NTG" id="IU2-wM-dCc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zou-Sl-pas" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1362.4000000000001" y="831.63418290854577"/>
-        </scene>
         <!--Extractions Completed View Controller-->
         <scene sceneID="btW-mp-ZP9">
             <objects>
@@ -490,7 +391,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyZ-VE-zCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2113" y="832"/>
+            <point key="canvasLocation" x="346" y="1001"/>
         </scene>
         <!--Camera Options View Controller-->
         <scene sceneID="kYw-rf-WPV">
