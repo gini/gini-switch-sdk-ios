@@ -276,6 +276,7 @@ extension MultiPageCoordinator: ExtractionsManagerDelegate {
             alert.addAction(okAction)
             delegate?.multiPageCoordinator(self, requestedShowingController: alert, presentationStyle: .modal, animated: true, completion: nil)
         }
+        currentSwitchSdk().delegate?.switchSdk(sdk: currentSwitchSdk(), didReceiveError: error)
     }
     
     func extractionsManager(_ manager:ExtractionsManager, didChangePageCollection collection:PageCollection) {

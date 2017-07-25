@@ -81,10 +81,6 @@ extension SwitchExampleViewController: GiniSwitchSdkDelegate {
         print("Switch SDK did receive an error: \(error.localizedDescription)")
     }
     
-    func switchSdk(sdk:GiniSwitchSdk, didFailWithError error:Error) {
-        print("Switch SDK finished with error: \(error.localizedDescription)")
-    }
-    
     func switchSdkDidCancel(sdk:GiniSwitchSdk) {
         print("Switch SDK interrupted")
         self.dismiss(animated: true, completion: nil)
