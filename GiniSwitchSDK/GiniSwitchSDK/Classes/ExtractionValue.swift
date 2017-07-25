@@ -6,19 +6,19 @@
 //
 //
 
-struct ExtractionValue {
+public struct ExtractionValue {
     
-    let value:AnyObject
-    let unit:String?
+    public let value:AnyObject
+    public let unit:String?
     
     static let valueKey = "value"
     static let unitKey = "unit"
     
-    var valueString:String {
+    public var valueString:String {
         return "\(value)"
     }
     
-    init(value val:AnyObject, unit:String?) {
+    public init(value val:AnyObject, unit:String?) {
         self.value = val
         self.unit = unit
     }
@@ -40,7 +40,7 @@ struct ExtractionValue {
         }
     }
     
-    static func ==(lhs: ExtractionValue, rhs: ExtractionValue) -> Bool {
+    public static func ==(lhs: ExtractionValue, rhs: ExtractionValue) -> Bool {
         return lhs.unit == rhs.unit && lhs.valueString == rhs.valueString
     }
 

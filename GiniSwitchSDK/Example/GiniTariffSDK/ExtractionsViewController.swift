@@ -7,12 +7,11 @@
 //
 
 import UIKit
+import GiniSwitchSDK
 
 class ExtractionsViewController: UIViewController {
     
-    @IBOutlet var titleHintLabel:UILabel! = nil
     @IBOutlet var extractionsTable:UITableView! = nil
-    @IBOutlet var switchButton:UIButton! = nil
     
     var extractionsCollection:ExtractionCollection? = nil
 
@@ -20,9 +19,6 @@ class ExtractionsViewController: UIViewController {
         super.viewDidLoad()
         extractionsTable.dataSource = self
         extractionsTable.delegate = self
-        titleHintLabel.text = NSLocalizedString("Fast geschafft. Bitte prüfe noch kurz ob alle Deine Daten korrekt ausgelesen wurden.", comment: "Extraction screen title")
-
-        switchButton.setTitle(NSLocalizedString("Jetzt Stromanbieter wechseln", comment: "Extraction screen switch provider title"), for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +32,7 @@ class ExtractionsViewController: UIViewController {
     }
     
     @IBAction func onSwitchTapped() {
-        currentSwitchSdk().delegate?.switchSdkDidComplete(sdk: currentSwitchSdk())
+        navigationController?.popViewController(animated: true)
     }
 
 }

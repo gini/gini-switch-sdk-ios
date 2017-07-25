@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		017FEBA85D9851788DA1BBF2FBE13AF8 /* ExtractionResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5359BF1C3ACD48415AEFF6A38DC9939F /* ExtractionResources.swift */; };
-		0273F9C3B3A9F3BCDF7800D7687E5D4E /* ExtractionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2298956B82A193EF7E88243F7E0F0A51 /* ExtractionsViewController.swift */; };
 		045226785B22DB5FB5E20075EA239A44 /* Pods-GiniSwitchSDK_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E71F2770A42C44563F660B2730F8F5 /* Pods-GiniSwitchSDK_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		051A816D6DD0CAE13496DDCFE0829167 /* UIImage+Diff.h in Headers */ = {isa = PBXBuildFile; fileRef = 85E250EF19C5B5671AEC10BEB508D087 /* UIImage+Diff.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		094973D2D2F1E3B2E772F93C8147C6B9 /* UIApplication+StrictKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EECE81A9AEC1ED1057A9C3C88DBCEBE /* UIApplication+StrictKeyWindow.m */; };
@@ -68,7 +67,6 @@
 		9C24F4A733192F1F8D35BD399E6B9E39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E88A450A84E3957158B3B3459740AA /* Foundation.framework */; };
 		9ED7553557B8F45A10DD6FEF635A40CF /* SwitchBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A7103D378EB6863075D0CDB75143EC /* SwitchBackgroundView.swift */; };
 		A4F69F3477A935285620AC3031C5C848 /* FBSnapshotTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 052258A488A96C35531FAC73C4F42924 /* FBSnapshotTestController.m */; };
-		A8651721A4D272058B1842C34D3566ED /* ExtractionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC60117FB670AB0B456DA132945EA8E2 /* ExtractionsTableViewCell.swift */; };
 		A9E1EE4E520BF77FA73B8C459A39A0B8 /* PageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D87B5D334AAC3D5594E58E8A2D47779 /* PageCollection.swift */; };
 		B27DFD6025D94758785918F1D6F6C060 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A27810809BAD71E4022600B21251449F /* QuartzCore.framework */; };
 		B758FB09FE2C06C1B8E36A71A9D76D41 /* FBSnapshotTestCase-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 73D037B3C804B9E1BB70538E342E5104 /* FBSnapshotTestCase-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -130,7 +128,6 @@
 		18E53BA4820B836ACC66C773B43FCA63 /* GiniSwitchSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GiniSwitchSDK-dummy.m"; sourceTree = "<group>"; };
 		1C06C6005746DE5A67CB25F74357F043 /* PagesCollectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PagesCollectionViewController.swift; sourceTree = "<group>"; };
 		223C9CA44F4479EC50D00C4E18A5C79F /* Camera.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
-		2298956B82A193EF7E88243F7E0F0A51 /* ExtractionsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExtractionsViewController.swift; sourceTree = "<group>"; };
 		2331C6371F1E005000F0742E /* GiniSwitch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = GiniSwitch.storyboard; path = Assets/GiniSwitch.storyboard; sourceTree = "<group>"; };
 		2331C6381F1E005000F0742E /* GiniSwitch.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = GiniSwitch.xcassets; path = Assets/GiniSwitch.xcassets; sourceTree = "<group>"; };
 		23DCD17C1F1F96CE00C5E2C8 /* HumanReadableError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HumanReadableError.swift; sourceTree = "<group>"; };
@@ -197,7 +194,6 @@
 		B9109B8B333B5A1A3E92EFC09EDC10AC /* UIApplication+StrictKeyWindow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIApplication+StrictKeyWindow.h"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.h"; sourceTree = "<group>"; };
 		B9CEF7D6C5E08AB80E58DABC75D882BC /* UIImage+Diff.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Diff.m"; path = "FBSnapshotTestCase/Categories/UIImage+Diff.m"; sourceTree = "<group>"; };
 		BB6695C84A346D9E786E21F1D4C8AF53 /* Pods_GiniSwitchSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniSwitchSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC60117FB670AB0B456DA132945EA8E2 /* ExtractionsTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExtractionsTableViewCell.swift; sourceTree = "<group>"; };
 		BDF9DCB9ED701084ECD951F2685E407F /* Pods-GiniSwitchSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GiniSwitchSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		BF230215C443D183E9A06046406B2083 /* GiniSwitchLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchLogger.swift; sourceTree = "<group>"; };
 		C32053A03089532003F7122A782BAE81 /* BaseApiResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseApiResponse.swift; sourceTree = "<group>"; };
@@ -375,9 +371,7 @@
 				018AE165B3DE6EE4E167C16F718C991A /* ExtractionsCompletedViewController.swift */,
 				B7569FF2CB4192D2B97359D397AFA2CF /* ExtractionService.swift */,
 				039027B5C1A65B527A37C354AEC725C8 /* ExtractionsManager.swift */,
-				BC60117FB670AB0B456DA132945EA8E2 /* ExtractionsTableViewCell.swift */,
 				26343B90E98E5470B487CDA3710D9380 /* ExtractionStatusResponse.swift */,
-				2298956B82A193EF7E88243F7E0F0A51 /* ExtractionsViewController.swift */,
 				5B5C5D342A356EC8E6CCA270DAC8DCB4 /* ExtractionValue.swift */,
 				81654DA4FB9EE5556AF884E639F70DF0 /* GiniSwitchAnalytics.swift */,
 				A62D1C1E8535C53062E1CC2F2EDD8403 /* GiniSwitchAppearance.swift */,
@@ -739,9 +733,7 @@
 				8255DEC834ADB8780FB95FC84933ADFE /* ExtractionsCompletedViewController.swift in Sources */,
 				7E8D2131730D87E3F5DCF11D278390D6 /* ExtractionService.swift in Sources */,
 				5E96D7B2ECD48DCEF8B434E4B5A84B73 /* ExtractionsManager.swift in Sources */,
-				A8651721A4D272058B1842C34D3566ED /* ExtractionsTableViewCell.swift in Sources */,
 				6E21D745F7659D5CA501F998EC9CEEE7 /* ExtractionStatusResponse.swift in Sources */,
-				0273F9C3B3A9F3BCDF7800D7687E5D4E /* ExtractionsViewController.swift in Sources */,
 				22E72C99CDE7E617B07B09CB5D7BE7DE /* ExtractionValue.swift in Sources */,
 				40A4B66481BF0894DA30AB07D5CE3D16 /* GiniSwitchAnalytics.swift in Sources */,
 				1973FD3A4592EF3C7D940B6250112DDD /* GiniSwitchAppearance.swift in Sources */,

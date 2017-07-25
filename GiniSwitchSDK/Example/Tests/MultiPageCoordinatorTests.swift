@@ -18,7 +18,6 @@ class MultiPageCoordinatorTests: XCTestCase {
     var didRequestReviewScreen = false
     var didRequestReviewDismiss = false
     var requestedReviewScreen:ReviewViewController? = nil
-    var requestedExtractionScreen:ExtractionsViewController? = nil
     var exitActionSheet:UIAlertController? = nil
     
     override func setUp() {
@@ -32,7 +31,6 @@ class MultiPageCoordinatorTests: XCTestCase {
         didRequestReviewScreen = false
         didRequestReviewDismiss = false
         requestedReviewScreen = nil
-        requestedExtractionScreen = nil
         exitActionSheet = nil
     }
     
@@ -69,11 +67,6 @@ class MultiPageCoordinatorTests: XCTestCase {
         XCTAssertTrue(didRequestReviewDismiss, "After the image is rejected, the review screen should be dismissed")
     }
     
-    func testGoingToExtractions() {
-        coordinator.cameraOptionsController.onDoneTapped()
-        XCTAssertNotNil(requestedExtractionScreen, "Tapping on the done button should result in the extractions being shown")
-    }
-    
     func testExitSDKActionsSheet() {
         coordinator.pageCollectionController.onOptionsTapped()
         XCTAssertNotNil(exitActionSheet, "Tapping on the options button should result in an action sheet confirming exiting being shown")
@@ -85,7 +78,6 @@ extension MultiPageCoordinatorTests: MultiPageCoordinatorDelegate {
     func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedShowingController:UIViewController, presentationStyle:PresentationStyle, animated:Bool, completion:(() -> Void)?) {
         didRequestReviewScreen = true
         requestedReviewScreen = requestedShowingController as? ReviewViewController
-        requestedExtractionScreen = requestedShowingController as? ExtractionsViewController
         exitActionSheet = requestedShowingController as? UIAlertController
     }
     

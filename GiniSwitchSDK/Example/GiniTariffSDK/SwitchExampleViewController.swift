@@ -10,6 +10,8 @@ import UIKit
 import GiniSwitchSDK
 
 class SwitchExampleViewController: UIViewController {
+    
+    var extractions = ExtractionCollection()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,16 @@ class SwitchExampleViewController: UIViewController {
         self.present(switchController, animated: true) {
             // TODO: maybe show a "thank you" note
         }
+    }
+    
+    fileprivate func createExtractionsScreen(extractions:ExtractionCollection) -> ExtractionsViewController {
+        let extractionsController = storyboard?.instantiateViewController(withIdentifier: "ExtractionsViewController") as! ExtractionsViewController
+        extractionsController.extractionsCollection = extractions
+        return extractionsController
+    }
+    
+    fileprivate func showExtractions(extractions:ExtractionCollection) {
+        navigationController?.pushViewController(createExtractionsScreen(extractions: extractions), animated: true)
     }
 
 }
@@ -52,19 +64,21 @@ extension SwitchExampleViewController: GiniSwitchSdkDelegate {
     
     func switchSdkDidComplete(sdk:GiniSwitchSdk) {
         print("Switch SDK completed")
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) { [weak self] () in
+            guard let weakSelf = self else {
+                return
+            }
+            weakSelf.showExtractions(extractions: weakSelf.extractions)
+        }
     }
     
     func switchSdk(sdk:GiniSwitchSdk, didExtractInfo info:ExtractionCollection) {
         print("Switch SDK did receive extractions")
+        extractions = info
     }
     
     func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:Error) {
         print("Switch SDK did receive an error: \(error.localizedDescription)")
-    }
-    
-    func switchSdk(sdk:GiniSwitchSdk, didFailWithError error:Error) {
-        print("Switch SDK finished with error: \(error.localizedDescription)")
     }
     
     func switchSdkDidCancel(sdk:GiniSwitchSdk) {

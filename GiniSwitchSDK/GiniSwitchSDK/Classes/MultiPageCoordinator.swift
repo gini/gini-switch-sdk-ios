@@ -60,13 +60,6 @@ class MultiPageCoordinator {
         delegate?.multiPageCoordinator(self, requestedShowingController: reviewController, presentationStyle: .modal, animated: true, completion: nil)
     }
     
-    fileprivate func createExtractionsScreen(extractions:ExtractionCollection) -> ExtractionsViewController {
-        let extractionsController = UIStoryboard.switchStoryboard()?.instantiateViewController(withIdentifier: "ExtractionsViewController") as! ExtractionsViewController
-        extractionsController.extractionsCollection = extractionsManager.extractions
-        extractionsManager.pollExtractions()
-        return extractionsController
-    }
-    
     func enableCaptureButton(_ enabled:Bool) {
         guard let button = cameraOptionsController.captureButton else {
             return
@@ -117,18 +110,15 @@ class MultiPageCoordinator {
                 guard let weakSelf = self else {
                     return
                 }
-                let extractionsController = weakSelf.createExtractionsScreen(extractions:weakSelf.extractionsManager.extractions)
                 weakSelf.extractionsManager.pollExtractions()
-                DispatchQueue.main.async {
-                    // schedule this async to avoid mixing up the transitions
-                    weakSelf.delegate?.multiPageCoordinator(weakSelf, requestedShowingController: extractionsController, presentationStyle: .navigation, animated: false, completion: nil)
-                }
             }
             
             // wait a few seconds so users can read the text and automatically dismiss
             let delay = DispatchTime.now() + .seconds(extrationsCompletePopupTimeout)
             DispatchQueue.main.asyncAfter(deadline: delay, execute: {
-                myDelegate?.multiPageCoordinator(self, requestedDismissingController: completionController, presentationStyle: .modal, animated: true, completion: nil)
+                myDelegate?.multiPageCoordinator(self, requestedDismissingController: completionController, presentationStyle: .modal, animated: true) {
+                    currentSwitchSdk().delegate?.switchSdkDidComplete(sdk: currentSwitchSdk())
+                }
             })
         }
     }
@@ -177,9 +167,8 @@ extension MultiPageCoordinator: CameraOptionsViewControllerDelegate {
     }
     
     func cameraControllerIsDone(cameraController:CameraOptionsViewController) {
-        let extractionsController = createExtractionsScreen(extractions: extractionsManager.extractions)
         extractionsManager.pollExtractions()
-        delegate?.multiPageCoordinator(self, requestedShowingController: extractionsController, presentationStyle: .navigation, animated: true, completion: nil)
+        currentSwitchSdk().delegate?.switchSdkDidComplete(sdk: currentSwitchSdk())
     }
 }
 
@@ -287,6 +276,7 @@ extension MultiPageCoordinator: ExtractionsManagerDelegate {
             alert.addAction(okAction)
             delegate?.multiPageCoordinator(self, requestedShowingController: alert, presentationStyle: .modal, animated: true, completion: nil)
         }
+        currentSwitchSdk().delegate?.switchSdk(sdk: currentSwitchSdk(), didReceiveError: error)
     }
     
     func extractionsManager(_ manager:ExtractionsManager, didChangePageCollection collection:PageCollection) {
