@@ -13,45 +13,45 @@
 		2331C5AE1F1DF53200F0742E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2331C5AD1F1DF53200F0742E /* Images.xcassets */; };
 		2331C5B51F1DF60500F0742E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2331C5B11F1DF60500F0742E /* LaunchScreen.xib */; };
 		2331C5B91F1DF66500F0742E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2331C5B71F1DF66500F0742E /* Main.storyboard */; };
-		2331C60D1F1DFC5A00F0742E /* FakeCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C6071F1DFC2C00F0742E /* FakeCamera.swift */; };
-		2331C60E1F1DFC5E00F0742E /* MemoryCredentialsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C6081F1DFC2C00F0742E /* MemoryCredentialsStore.swift */; };
-		2331C60F1F1DFC6200F0742E /* NoOpWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C6091F1DFC2C00F0742E /* NoOpWebService.swift */; };
-		2331C6101F1DFD0C00F0742E /* AddPageResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5BC1F1DFC1800F0742E /* AddPageResponseTests.swift */; };
-		2331C6111F1DFD0C00F0742E /* AuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5BD1F1DFC1800F0742E /* AuthenticatorTests.swift */; };
-		2331C6121F1DFD0C00F0742E /* BaseApiResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5BE1F1DFC1800F0742E /* BaseApiResponseTests.swift */; };
-		2331C6131F1DFD0C00F0742E /* CameraOptionsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5BF1F1DFC1800F0742E /* CameraOptionsViewControllerTests.swift */; };
-		2331C6141F1DFD0C00F0742E /* CameraViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C01F1DFC1800F0742E /* CameraViewControllerTests.swift */; };
-		2331C6151F1DFD0C00F0742E /* CreateOrderResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C11F1DFC1800F0742E /* CreateOrderResponseTests.swift */; };
-		2331C6161F1DFD0C00F0742E /* ErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C21F1DFC1800F0742E /* ErrorTests.swift */; };
-		2331C6171F1DFD0C00F0742E /* ExtractionCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C31F1DFC1800F0742E /* ExtractionCollectionTests.swift */; };
-		2331C6181F1DFD0C00F0742E /* ExtractionResourcesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C41F1DFC1800F0742E /* ExtractionResourcesTests.swift */; };
-		2331C6191F1DFD0C00F0742E /* ExtractionsCompletedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C51F1DFC1800F0742E /* ExtractionsCompletedViewControllerTests.swift */; };
-		2331C61A1F1DFD0C00F0742E /* ExtractionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C61F1DFC1800F0742E /* ExtractionServiceTests.swift */; };
-		2331C61B1F1DFD0C00F0742E /* ExtractionsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C71F1DFC1800F0742E /* ExtractionsManagerTests.swift */; };
-		2331C61D1F1DFD0C00F0742E /* ExtractionStatusResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C91F1DFC1800F0742E /* ExtractionStatusResponseTests.swift */; };
-		2331C61F1F1DFD0C00F0742E /* ExtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5CB1F1DFC1800F0742E /* ExtractionTests.swift */; };
-		2331C6201F1DFD0C00F0742E /* ExtractionValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5CC1F1DFC1800F0742E /* ExtractionValueTests.swift */; };
-		2331C6211F1DFD0C00F0742E /* GiniSwitchAppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5CD1F1DFC1800F0742E /* GiniSwitchAppearanceTests.swift */; };
-		2331C6221F1DFD0C00F0742E /* GiniSwitchConsoleLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5CE1F1DFC1800F0742E /* GiniSwitchConsoleLoggerTests.swift */; };
-		2331C6231F1DFD0C00F0742E /* GiniSwitchOnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5CF1F1DFC1800F0742E /* GiniSwitchOnboardingTests.swift */; };
-		2331C6241F1DFD0C00F0742E /* GiniSwitchSdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D01F1DFC1800F0742E /* GiniSwitchSdkTests.swift */; };
-		2331C6251F1DFD0C00F0742E /* GiniSwitchUserInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D11F1DFC1800F0742E /* GiniSwitchUserInterfaceTests.swift */; };
-		2331C6261F1DFD0C00F0742E /* MultiPageCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D31F1DFC1800F0742E /* MultiPageCoordinatorTests.swift */; };
-		2331C6271F1DFD0C00F0742E /* MultiPageScanViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D41F1DFC1800F0742E /* MultiPageScanViewControllerTests.swift */; };
-		2331C6281F1DFD0C00F0742E /* OnboardingPageViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D51F1DFC1800F0742E /* OnboardingPageViewControllerTests.swift */; };
-		2331C6291F1DFD0C00F0742E /* PageCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D61F1DFC1800F0742E /* PageCollectionTests.swift */; };
-		2331C62A1F1DFD0C00F0742E /* PageCollectionViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D71F1DFC1800F0742E /* PageCollectionViewCellTests.swift */; };
-		2331C62B1F1DFD0C00F0742E /* PagesCollectionViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D81F1DFC1800F0742E /* PagesCollectionViewControllerTests.swift */; };
-		2331C62C1F1DFD0C00F0742E /* PagesResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D91F1DFC1800F0742E /* PagesResponseTests.swift */; };
-		2331C62D1F1DFD0C00F0742E /* PreviewViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5DA1F1DFC1800F0742E /* PreviewViewControllerTests.swift */; };
-		2331C62E1F1DFD0C00F0742E /* ReviewViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5DB1F1DFC1800F0742E /* ReviewViewControllerTests.swift */; };
-		2331C62F1F1DFD0C00F0742E /* ScanPageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5DC1F1DFC1800F0742E /* ScanPageTests.swift */; };
-		2331C6301F1DFD0C00F0742E /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5DD1F1DFC1800F0742E /* TestUtils.swift */; };
-		2331C6311F1DFD0C00F0742E /* TokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5DE1F1DFC1800F0742E /* TokenTests.swift */; };
-		2331C6321F1DFD0C00F0742E /* UserManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5DF1F1DFC1800F0742E /* UserManagerTests.swift */; };
-		2331C6331F1DFD0C00F0742E /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5E01F1DFC1800F0742E /* UserTests.swift */; };
 		23DCD19D1F2747E300C5E2C8 /* ExtractionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DCD19C1F2747E300C5E2C8 /* ExtractionsViewController.swift */; };
 		23DCD19F1F274BE300C5E2C8 /* ExtractionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DCD19E1F274BE300C5E2C8 /* ExtractionsTableViewCell.swift */; };
+		23FA08521F28F3C200753E39 /* FakeCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C6071F1DFC2C00F0742E /* FakeCamera.swift */; };
+		23FA08531F28F3C200753E39 /* MemoryCredentialsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C6081F1DFC2C00F0742E /* MemoryCredentialsStore.swift */; };
+		23FA08541F28F3C200753E39 /* NoOpWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C6091F1DFC2C00F0742E /* NoOpWebService.swift */; };
+		23FA08551F28F3C700753E39 /* AddPageResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5BC1F1DFC1800F0742E /* AddPageResponseTests.swift */; };
+		23FA08561F28F3C700753E39 /* AuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5BD1F1DFC1800F0742E /* AuthenticatorTests.swift */; };
+		23FA08571F28F3C700753E39 /* BaseApiResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5BE1F1DFC1800F0742E /* BaseApiResponseTests.swift */; };
+		23FA08581F28F3C700753E39 /* CameraOptionsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5BF1F1DFC1800F0742E /* CameraOptionsViewControllerTests.swift */; };
+		23FA08591F28F3C700753E39 /* CameraViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C01F1DFC1800F0742E /* CameraViewControllerTests.swift */; };
+		23FA085A1F28F3C700753E39 /* CreateOrderResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C11F1DFC1800F0742E /* CreateOrderResponseTests.swift */; };
+		23FA085B1F28F3C700753E39 /* ErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C21F1DFC1800F0742E /* ErrorTests.swift */; };
+		23FA085C1F28F3C700753E39 /* ExtractionCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C31F1DFC1800F0742E /* ExtractionCollectionTests.swift */; };
+		23FA085D1F28F3C700753E39 /* ExtractionResourcesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C41F1DFC1800F0742E /* ExtractionResourcesTests.swift */; };
+		23FA085E1F28F3C700753E39 /* ExtractionsCompletedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C51F1DFC1800F0742E /* ExtractionsCompletedViewControllerTests.swift */; };
+		23FA085F1F28F3C700753E39 /* ExtractionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C61F1DFC1800F0742E /* ExtractionServiceTests.swift */; };
+		23FA08601F28F3C700753E39 /* ExtractionsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C71F1DFC1800F0742E /* ExtractionsManagerTests.swift */; };
+		23FA08611F28F3C700753E39 /* ExtractionStatusResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C91F1DFC1800F0742E /* ExtractionStatusResponseTests.swift */; };
+		23FA08621F28F3C700753E39 /* ExtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5CB1F1DFC1800F0742E /* ExtractionTests.swift */; };
+		23FA08631F28F3C700753E39 /* ExtractionValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5CC1F1DFC1800F0742E /* ExtractionValueTests.swift */; };
+		23FA08641F28F3C700753E39 /* GiniSwitchAppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5CD1F1DFC1800F0742E /* GiniSwitchAppearanceTests.swift */; };
+		23FA08651F28F3C700753E39 /* GiniSwitchConsoleLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5CE1F1DFC1800F0742E /* GiniSwitchConsoleLoggerTests.swift */; };
+		23FA08661F28F3C700753E39 /* GiniSwitchOnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5CF1F1DFC1800F0742E /* GiniSwitchOnboardingTests.swift */; };
+		23FA08671F28F3C700753E39 /* GiniSwitchSdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D01F1DFC1800F0742E /* GiniSwitchSdkTests.swift */; };
+		23FA08681F28F3C700753E39 /* GiniSwitchUserInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D11F1DFC1800F0742E /* GiniSwitchUserInterfaceTests.swift */; };
+		23FA08691F28F3C700753E39 /* MultiPageCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D31F1DFC1800F0742E /* MultiPageCoordinatorTests.swift */; };
+		23FA086A1F28F3C700753E39 /* MultiPageScanViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D41F1DFC1800F0742E /* MultiPageScanViewControllerTests.swift */; };
+		23FA086B1F28F3C700753E39 /* OnboardingPageViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D51F1DFC1800F0742E /* OnboardingPageViewControllerTests.swift */; };
+		23FA086C1F28F3C700753E39 /* PageCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D61F1DFC1800F0742E /* PageCollectionTests.swift */; };
+		23FA086D1F28F3C700753E39 /* PageCollectionViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D71F1DFC1800F0742E /* PageCollectionViewCellTests.swift */; };
+		23FA086E1F28F3C700753E39 /* PagesCollectionViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D81F1DFC1800F0742E /* PagesCollectionViewControllerTests.swift */; };
+		23FA086F1F28F3C700753E39 /* PagesResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D91F1DFC1800F0742E /* PagesResponseTests.swift */; };
+		23FA08701F28F3C700753E39 /* PreviewViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5DA1F1DFC1800F0742E /* PreviewViewControllerTests.swift */; };
+		23FA08711F28F3C700753E39 /* ReviewViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5DB1F1DFC1800F0742E /* ReviewViewControllerTests.swift */; };
+		23FA08721F28F3C700753E39 /* ScanPageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5DC1F1DFC1800F0742E /* ScanPageTests.swift */; };
+		23FA08731F28F3C700753E39 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5DD1F1DFC1800F0742E /* TestUtils.swift */; };
+		23FA08741F28F3C700753E39 /* TokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5DE1F1DFC1800F0742E /* TokenTests.swift */; };
+		23FA08751F28F3C700753E39 /* UserManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5DF1F1DFC1800F0742E /* UserManagerTests.swift */; };
+		23FA08761F28F3C700753E39 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5E01F1DFC1800F0742E /* UserTests.swift */; };
 		403F9ACC380A5CBDFB271827 /* Pods_GiniSwitchSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8FCC1E2311026943AB37E63 /* Pods_GiniSwitchSDK_Tests.framework */; };
 		F8C5B51369285E9071E1ED12 /* Pods_GiniSwitchSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF11A2A6C37DA189A0361BBF /* Pods_GiniSwitchSDK_Example.framework */; };
 /* End PBXBuildFile section */
@@ -500,43 +500,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2331C62F1F1DFD0C00F0742E /* ScanPageTests.swift in Sources */,
-				2331C62E1F1DFD0C00F0742E /* ReviewViewControllerTests.swift in Sources */,
-				2331C6191F1DFD0C00F0742E /* ExtractionsCompletedViewControllerTests.swift in Sources */,
-				2331C6241F1DFD0C00F0742E /* GiniSwitchSdkTests.swift in Sources */,
-				2331C6291F1DFD0C00F0742E /* PageCollectionTests.swift in Sources */,
-				2331C6181F1DFD0C00F0742E /* ExtractionResourcesTests.swift in Sources */,
-				2331C6151F1DFD0C00F0742E /* CreateOrderResponseTests.swift in Sources */,
-				2331C62C1F1DFD0C00F0742E /* PagesResponseTests.swift in Sources */,
-				2331C60F1F1DFC6200F0742E /* NoOpWebService.swift in Sources */,
-				2331C62B1F1DFD0C00F0742E /* PagesCollectionViewControllerTests.swift in Sources */,
-				2331C62D1F1DFD0C00F0742E /* PreviewViewControllerTests.swift in Sources */,
-				2331C61F1F1DFD0C00F0742E /* ExtractionTests.swift in Sources */,
-				2331C6331F1DFD0C00F0742E /* UserTests.swift in Sources */,
-				2331C61D1F1DFD0C00F0742E /* ExtractionStatusResponseTests.swift in Sources */,
-				2331C6271F1DFD0C00F0742E /* MultiPageScanViewControllerTests.swift in Sources */,
-				2331C6321F1DFD0C00F0742E /* UserManagerTests.swift in Sources */,
-				2331C6221F1DFD0C00F0742E /* GiniSwitchConsoleLoggerTests.swift in Sources */,
-				2331C6201F1DFD0C00F0742E /* ExtractionValueTests.swift in Sources */,
-				2331C6101F1DFD0C00F0742E /* AddPageResponseTests.swift in Sources */,
-				2331C6231F1DFD0C00F0742E /* GiniSwitchOnboardingTests.swift in Sources */,
-				2331C6171F1DFD0C00F0742E /* ExtractionCollectionTests.swift in Sources */,
-				2331C60D1F1DFC5A00F0742E /* FakeCamera.swift in Sources */,
-				2331C6111F1DFD0C00F0742E /* AuthenticatorTests.swift in Sources */,
-				2331C62A1F1DFD0C00F0742E /* PageCollectionViewCellTests.swift in Sources */,
-				2331C6281F1DFD0C00F0742E /* OnboardingPageViewControllerTests.swift in Sources */,
-				2331C6121F1DFD0C00F0742E /* BaseApiResponseTests.swift in Sources */,
-				2331C6141F1DFD0C00F0742E /* CameraViewControllerTests.swift in Sources */,
-				2331C60E1F1DFC5E00F0742E /* MemoryCredentialsStore.swift in Sources */,
-				2331C6161F1DFD0C00F0742E /* ErrorTests.swift in Sources */,
-				2331C61A1F1DFD0C00F0742E /* ExtractionServiceTests.swift in Sources */,
-				2331C61B1F1DFD0C00F0742E /* ExtractionsManagerTests.swift in Sources */,
-				2331C6301F1DFD0C00F0742E /* TestUtils.swift in Sources */,
-				2331C6311F1DFD0C00F0742E /* TokenTests.swift in Sources */,
-				2331C6251F1DFD0C00F0742E /* GiniSwitchUserInterfaceTests.swift in Sources */,
-				2331C6131F1DFD0C00F0742E /* CameraOptionsViewControllerTests.swift in Sources */,
-				2331C6211F1DFD0C00F0742E /* GiniSwitchAppearanceTests.swift in Sources */,
-				2331C6261F1DFD0C00F0742E /* MultiPageCoordinatorTests.swift in Sources */,
+				23FA08721F28F3C700753E39 /* ScanPageTests.swift in Sources */,
+				23FA085E1F28F3C700753E39 /* ExtractionsCompletedViewControllerTests.swift in Sources */,
+				23FA08691F28F3C700753E39 /* MultiPageCoordinatorTests.swift in Sources */,
+				23FA085D1F28F3C700753E39 /* ExtractionResourcesTests.swift in Sources */,
+				23FA085A1F28F3C700753E39 /* CreateOrderResponseTests.swift in Sources */,
+				23FA08701F28F3C700753E39 /* PreviewViewControllerTests.swift in Sources */,
+				23FA08741F28F3C700753E39 /* TokenTests.swift in Sources */,
+				23FA086E1F28F3C700753E39 /* PagesCollectionViewControllerTests.swift in Sources */,
+				23FA08541F28F3C200753E39 /* NoOpWebService.swift in Sources */,
+				23FA08551F28F3C700753E39 /* AddPageResponseTests.swift in Sources */,
+				23FA08761F28F3C700753E39 /* UserTests.swift in Sources */,
+				23FA086B1F28F3C700753E39 /* OnboardingPageViewControllerTests.swift in Sources */,
+				23FA085C1F28F3C700753E39 /* ExtractionCollectionTests.swift in Sources */,
+				23FA086F1F28F3C700753E39 /* PagesResponseTests.swift in Sources */,
+				23FA08521F28F3C200753E39 /* FakeCamera.swift in Sources */,
+				23FA08641F28F3C700753E39 /* GiniSwitchAppearanceTests.swift in Sources */,
+				23FA08561F28F3C700753E39 /* AuthenticatorTests.swift in Sources */,
+				23FA08631F28F3C700753E39 /* ExtractionValueTests.swift in Sources */,
+				23FA08571F28F3C700753E39 /* BaseApiResponseTests.swift in Sources */,
+				23FA08751F28F3C700753E39 /* UserManagerTests.swift in Sources */,
+				23FA08591F28F3C700753E39 /* CameraViewControllerTests.swift in Sources */,
+				23FA086C1F28F3C700753E39 /* PageCollectionTests.swift in Sources */,
+				23FA08661F28F3C700753E39 /* GiniSwitchOnboardingTests.swift in Sources */,
+				23FA08651F28F3C700753E39 /* GiniSwitchConsoleLoggerTests.swift in Sources */,
+				23FA08531F28F3C200753E39 /* MemoryCredentialsStore.swift in Sources */,
+				23FA08681F28F3C700753E39 /* GiniSwitchUserInterfaceTests.swift in Sources */,
+				23FA085B1F28F3C700753E39 /* ErrorTests.swift in Sources */,
+				23FA085F1F28F3C700753E39 /* ExtractionServiceTests.swift in Sources */,
+				23FA08731F28F3C700753E39 /* TestUtils.swift in Sources */,
+				23FA08611F28F3C700753E39 /* ExtractionStatusResponseTests.swift in Sources */,
+				23FA086A1F28F3C700753E39 /* MultiPageScanViewControllerTests.swift in Sources */,
+				23FA08601F28F3C700753E39 /* ExtractionsManagerTests.swift in Sources */,
+				23FA08581F28F3C700753E39 /* CameraOptionsViewControllerTests.swift in Sources */,
+				23FA086D1F28F3C700753E39 /* PageCollectionViewCellTests.swift in Sources */,
+				23FA08621F28F3C700753E39 /* ExtractionTests.swift in Sources */,
+				23FA08711F28F3C700753E39 /* ReviewViewControllerTests.swift in Sources */,
+				23FA08671F28F3C700753E39 /* GiniSwitchSdkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,6 +691,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5DB37A2085126DC26D50715C /* Pods-GiniSwitchSDK_Tests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = JA825X8F7Z;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -702,6 +703,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GiniSwitchSDK_Example.app/GiniSwitchSDK_Example";
 			};
 			name = Debug;
 		};
@@ -709,6 +711,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 325A76F94A53E650CAE5CF37 /* Pods-GiniSwitchSDK_Tests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = JA825X8F7Z;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
@@ -716,6 +719,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GiniSwitchSDK_Example.app/GiniSwitchSDK_Example";
 			};
 			name = Release;
 		};
