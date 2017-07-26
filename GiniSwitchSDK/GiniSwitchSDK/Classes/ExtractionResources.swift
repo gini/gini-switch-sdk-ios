@@ -12,7 +12,7 @@ class ExtractionResources {
 
     var token:String = ""
     
-    let baseUrl = URL(string:"https://switch-api.stage.gini.net")!
+    let baseUrl = URL(string:"https://switch-api.gini.net")!
     
     // paths
     let extractionOrderUrlExtension = "extractionOrders"
