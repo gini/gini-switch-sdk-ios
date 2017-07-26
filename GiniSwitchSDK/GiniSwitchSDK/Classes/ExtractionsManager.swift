@@ -100,6 +100,7 @@ class ExtractionsManager {
             if self?.tryHandleUnauthorizedError(error) == true {
                 Logger().logInfo(message: "Queueing extraction order creating")
                 self?.shouldRequestOrder = true
+                return
             }
             if error == nil && orderUrl != nil {
                 Logger().logInfo(message: "Created extraction order")
