@@ -21,7 +21,7 @@ typealias AuthenticatorErrorCallback = (_ error:Error) -> Void
 class Authenticator {
     
     // urls
-    let baseUrl = URL(string:"https://user.stage.gini.net")!
+    let baseUrl = URL(string:"https://user.gini.net")!
     let authUrlExtension = "/oauth/token"
     let userLoginUrlExtension = "/oauth/token?grant_type=password"
     let createUserUrlExtension = "/api/users"
