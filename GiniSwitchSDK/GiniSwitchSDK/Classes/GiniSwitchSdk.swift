@@ -56,5 +56,9 @@ public class GiniSwitchSdk {
     public func instantiateSwitchViewController() -> UIViewController {
         return userInterface.initialViewController
     }
+    
+    public func terminate() {
+        GiniSwitchSdkStorage.activeSwitchSdk = nil     // TODO: Don't use GiniSwitchSdkStorage - find a better solution
+    }
 
 }

@@ -13,6 +13,7 @@ class SwitchExampleViewController: UIViewController {
     
     var extractions = ExtractionCollection()
     var switchController:UIViewController? = nil
+    var sdk:GiniSwitchSdk? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +26,9 @@ class SwitchExampleViewController: UIViewController {
     }
     
     @IBAction func onStartSdk() {
-        let sdk = SdkBuilder.customizedSwitchSdk()
-        sdk.delegate = self
-        switchController = sdk.instantiateSwitchViewController()
+        sdk = SdkBuilder.customizedSwitchSdk()
+        sdk?.delegate = self
+        switchController = sdk?.instantiateSwitchViewController()
         self.present(switchController!, animated: true, completion: nil)
     }
     
@@ -89,6 +90,9 @@ extension SwitchExampleViewController: ExtractionsViewControllerDelegate {
     func extractionsControllerDidSwitch(_ controller:ExtractionsViewController) {
         navigationController?.popViewController(animated: true)
         switchController = nil
+        sdk?.terminate()
+        sdk = nil
+        extractions = ExtractionCollection()        // release the collection
     }
     
     func extractionsControllerDidGoBack(_ controller:ExtractionsViewController) {
