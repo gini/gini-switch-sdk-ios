@@ -40,10 +40,10 @@ class CameraOptionsViewController: UIViewController {
     
     fileprivate func setupStyle() {
         if let color = textColor {
-            doneButton.setTitleColor(color, for: .normal)
+            doneButton?.setTitleColor(color, for: .normal)
         }
         if let text = doneButtonText {
-            doneButton.setTitle(text, for: .normal)
+            doneButton?.setTitle(text, for: .normal)
         }
     }
 
