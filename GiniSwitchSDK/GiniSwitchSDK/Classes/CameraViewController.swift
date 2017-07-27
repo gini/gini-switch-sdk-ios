@@ -38,6 +38,7 @@ class CameraViewController: UIViewController {
                     isCameraAvailable = false
                     addNotAuthorizedView()
                 default:
+                    isCameraAvailable = false
                     break
                 }
             }
@@ -67,6 +68,16 @@ class CameraViewController: UIViewController {
         guard isCameraAvailable else {
             // TODO: this will work, but it would be better to be proactive and prevent pictures
             // from being taken
+            #if DEBUG
+                // This will most likely happen when debugging on the Simulator. Just inject
+                // a sample document
+                if let image = UIImage(named: "sampleDocument", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil),
+                    let imageData = UIImageJPEGRepresentation(image, 1) {
+                    DispatchQueue.main.async {
+                        self.delegate?.cameraViewController(controller: self, didCaptureImage: imageData)
+                    }
+                }
+            #endif
             return
         }
         camera.captureStillImage { (data) in
