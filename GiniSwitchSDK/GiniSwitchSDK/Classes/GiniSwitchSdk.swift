@@ -24,13 +24,19 @@ public protocol GiniSwitchSdkDelegate: class {
 
 public class GiniSwitchSdk {
     
+    /// The client ID you got from Gini GmbH
     public let clientId: String
+    /// The client secret, securing your account, provided by Gini GmbH
     public let clientSecret: String
+    /// Your domain. Will be used when creating new users
     public let clientDomain: String
     
+    /// The delegate object, receiving callbacks about events happening in the SDK
     public weak var delegate:GiniSwitchSdkDelegate? = nil
     
+    /// The object responsible for creating the SDK's UI
     let userInterface = GiniSwitchUserInterface()
+    /// Contains some configuration objects that can be used to customize the SDK
     public var configuration = GiniSwitchConfiguration()
     
     /*
@@ -40,12 +46,19 @@ public class GiniSwitchSdk {
         return configuration.appearance
     }
     
+    /*
+     * Creates an empty GiniSwitchSdk instance. Mostly shouldn't be used. Use
+     * `init(clientId: String, clientSecret: String, domain: String)` instead
+     */
     public init() {
         clientId = ""
         clientSecret = ""
         clientDomain = ""
     }
     
+    /*
+     * Creates a GiniSwitchSdk instance based on the provided credentials
+     */
     public init(clientId: String, clientSecret: String, domain: String) {
         self.clientId = clientId
         self.clientSecret = clientSecret
@@ -53,10 +66,17 @@ public class GiniSwitchSdk {
         GiniSwitchSdkStorage.activeSwitchSdk = self     // TODO: Don't use GiniSwitchSdkStorage - find a better solution
     }
     
+    /*
+     * Convenience method for creating the SDK's UI
+     */
     public func instantiateSwitchViewController() -> UIViewController {
         return userInterface.initialViewController
     }
     
+    /*
+     * Disposes of the current SDK object. Should be called after clients are done with the SDK
+     * in order to clean up
+     */
     public func terminate() {
         GiniSwitchSdkStorage.activeSwitchSdk = nil     // TODO: Don't use GiniSwitchSdkStorage - find a better solution
     }
