@@ -9,7 +9,7 @@
 
 import UIKit
 
-protocol ExtractionsManagerDelegate {
+protocol ExtractionsManagerDelegate: class {
     
     func extractionsManager(_ manager:ExtractionsManager, didEncounterError error:NSError)
     func extractionsManager(_ manager:ExtractionsManager, didChangePageCollection collection:PageCollection)
@@ -36,7 +36,7 @@ class ExtractionsManager {
     var statusScheduler:PollScheduler? = nil
     var extractionsScheduler:PollScheduler? = nil
     
-    var delegate:ExtractionsManagerDelegate? = nil
+    weak var delegate:ExtractionsManagerDelegate? = nil
     
     // if the create extraction order call comes before the client is authenticated
     // it needs to be queued. shouldRequestOrder is used for that
