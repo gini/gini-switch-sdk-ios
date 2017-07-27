@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ReviewViewControllerDelegate {
+protocol ReviewViewControllerDelegate:class {
     
     func reviewController(_ controller:ReviewViewController, didAcceptPage page:ScanPage)
     func reviewController(_ controller:ReviewViewController, didRejectPage page:ScanPage)
@@ -46,7 +46,7 @@ class ReviewViewController: UIViewController {
     var confirmColor:UIColor? = nil
     var denyColor:UIColor? = nil
 
-    var delegate:ReviewViewControllerDelegate? = nil
+    weak var delegate:ReviewViewControllerDelegate? = nil
     
     @IBAction func useButtonTapped() {
         guard let image = metaInformationManager?.imageData() else {

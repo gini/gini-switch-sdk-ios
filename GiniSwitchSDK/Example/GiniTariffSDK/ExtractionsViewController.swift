@@ -9,7 +9,7 @@
 import UIKit
 import GiniSwitchSDK
 
-protocol ExtractionsViewControllerDelegate {
+protocol ExtractionsViewControllerDelegate:class {
     
     func extractionsControllerDidSwitch(_ controller:ExtractionsViewController)
     func extractionsControllerDidGoBack(_ controller:ExtractionsViewController)
@@ -24,7 +24,7 @@ class ExtractionsViewController: UIViewController {
     @IBOutlet var switchButton:UIButton! = nil
     
     var extractionsCollection:ExtractionCollection? = nil
-    var delegate:ExtractionsViewControllerDelegate? = nil
+    weak var delegate:ExtractionsViewControllerDelegate? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
