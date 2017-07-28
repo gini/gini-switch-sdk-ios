@@ -7,91 +7,70 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		017FEBA85D9851788DA1BBF2FBE13AF8 /* ExtractionResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5359BF1C3ACD48415AEFF6A38DC9939F /* ExtractionResources.swift */; };
 		045226785B22DB5FB5E20075EA239A44 /* Pods-GiniSwitchSDK_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E71F2770A42C44563F660B2730F8F5 /* Pods-GiniSwitchSDK_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		051A816D6DD0CAE13496DDCFE0829167 /* UIImage+Diff.h in Headers */ = {isa = PBXBuildFile; fileRef = 85E250EF19C5B5671AEC10BEB508D087 /* UIImage+Diff.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		094973D2D2F1E3B2E772F93C8147C6B9 /* UIApplication+StrictKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EECE81A9AEC1ED1057A9C3C88DBCEBE /* UIApplication+StrictKeyWindow.m */; };
-		15F9AEED81E52221340CBB8940113E06 /* DashOutlineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0804EBE96A8FC8EF9DEAAE673DD09D /* DashOutlineLayer.swift */; };
-		1973FD3A4592EF3C7D940B6250112DDD /* GiniSwitchAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62D1C1E8535C53062E1CC2F2EDD8403 /* GiniSwitchAppearance.swift */; };
-		1AB7934C16CE49DE196FFC7BE7278287 /* SwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97545C39C4A5EE2631DD9FFECE76A40 /* SwiftSupport.swift */; };
-		1C7B704295C54138A69F5754E497E0BA /* ExtractionCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6ACAB76464EDB8440CE0AA614AF379 /* ExtractionCollection.swift */; };
-		1CC9F97E669B94F2A42FFA2854A45BFB /* GiniSwitchSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8D4E7BAC07A3079DF7682747AD863B /* GiniSwitchSdk.swift */; };
-		1D3FB1C940FFB76CC88A6EAC6CD854A5 /* PagesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9A7C2A8E42A07F8AB85A68220762F1 /* PagesResponse.swift */; };
-		1E0BFFEF0D7E63AE9BE13DC3F1BF6F1C /* GiniSwitchSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E53BA4820B836ACC66C773B43FCA63 /* GiniSwitchSDK-dummy.m */; };
-		22E72C99CDE7E617B07B09CB5D7BE7DE /* ExtractionValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5C5D342A356EC8E6CCA270DAC8DCB4 /* ExtractionValue.swift */; };
-		2331C63A1F1E00B200F0742E /* GiniSwitch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2331C6371F1E005000F0742E /* GiniSwitch.storyboard */; };
-		2331C63B1F1E00B200F0742E /* GiniSwitch.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2331C6381F1E005000F0742E /* GiniSwitch.xcassets */; };
-		23DCD17D1F1F96CE00C5E2C8 /* HumanReadableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DCD17C1F1F96CE00C5E2C8 /* HumanReadableError.swift */; };
-		27CE7B2C3605AD911BDD5ED9189A05A7 /* GiniSwitchNopAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993EF25D3026D9D0646EB91655A1CD4C /* GiniSwitchNopAnalytics.swift */; };
-		285874803E80C0D425673A69E71CAF0A /* MultiPageScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4A3B490DFB6DA19BB17F09CA48529E /* MultiPageScanViewController.swift */; };
-		29C01E67B91BDAB236D1B8644882C709 /* GiniSwitchConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A59A1588A498030860DD183B46EBA8 /* GiniSwitchConsoleLogger.swift */; };
-		2F485B69F51E4F723A38410F31F08550 /* FBSnapshotTestController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1374B79237CAC07693E99442FBED1F15 /* FBSnapshotTestController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		336C41A7AAEB845E0AD362406CC8B6AA /* AddPageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB476520ABD57FFF5DDE649EA819B237 /* AddPageResponse.swift */; };
-		34339526F246F21178652730A3D81C1E /* GiniSwitchOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8593C4657278E284A378D2032CEF79C0 /* GiniSwitchOnboarding.swift */; };
-		35DD05FD595A6FE7F5A0692D12E319DC /* UIImage+Diff.m in Sources */ = {isa = PBXBuildFile; fileRef = B9CEF7D6C5E08AB80E58DABC75D882BC /* UIImage+Diff.m */; };
-		3E35EAC2EE6C84B190C5E9ECC46463D8 /* MultiPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1366721ACEFB627D6D37FA6E668DA845 /* MultiPageCoordinator.swift */; };
-		3E936EB52DF5A4CC36A81D9A61818E7C /* ImageMetaInformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3FD3D00911818C8BD0817F2F170454 /* ImageMetaInformationManager.swift */; };
-		3F0F035C75BBE801E5F98B547655444D /* PresentationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8610D3618B532ED406270D0DD97E1750 /* PresentationStyle.swift */; };
-		40A4B66481BF0894DA30AB07D5CE3D16 /* GiniSwitchAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81654DA4FB9EE5556AF884E639F70DF0 /* GiniSwitchAnalytics.swift */; };
-		421CDD701AEE0F2458A84200366CDD0F /* UIImage+Snapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B161931541BFE46DFEA2092EDDDA815 /* UIImage+Snapshot.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		48A8E90D593322EB328880B95BC5D320 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81C7872279A5E553D7D470270F5BA43 /* ReviewViewController.swift */; };
+		05187E97B8DEC2F3F68FC171041EB26A /* HumanReadableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0936F454753BA68C3B280BCB3718EF49 /* HumanReadableError.swift */; };
+		0D580E4E34230520CB24133188027D63 /* MultiPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8623CA4B620FE732CF32F2E0E60CF5BB /* MultiPageCoordinator.swift */; };
+		0E3C65D1B3CA996776B82566AF31C468 /* ExtractionResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E06E4C2826B286F948D0B81524D225 /* ExtractionResources.swift */; };
+		0F05B86574E2D80F2075F758703B7189 /* DashOutlineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91F10C34C5C184A2B577E299FEE5648 /* DashOutlineLayer.swift */; };
+		1061D687E53D14F864248E65D6659537 /* PagesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F96676315886B107AA14C0D0BCAD57 /* PagesResponse.swift */; };
+		1432832636F9CA554358B7BB53908BC4 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36D360BEFD5904DD4F192013F13AC70 /* Token.swift */; };
+		14AC81C69F680A6304023F3997F96660 /* TokenUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105EEEFECF79A719028575C007181EC /* TokenUtils.swift */; };
+		1C53382013F463B52E345C84E029CF85 /* GiniSwitchConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AABBA73F0AF6CE9E97788368FEEB29C /* GiniSwitchConfiguration.swift */; };
+		1E31D4170DA581B71544DD153A0B77D8 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F62FCF52274790A8F568524B0A234 /* ReviewViewController.swift */; };
+		2CB91DA7761AD9ED7E7119138F28419C /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4431079AA669EEAB64E82BE2DE704A0F /* CameraViewController.swift */; };
+		321F920A6AB10E5AA020A83639410A54 /* GiniSwitchUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C064540E072D16CF38336888E376C46 /* GiniSwitchUserInterface.swift */; };
+		45FD9CE25FB0163E8BDC647CDA9EEB6B /* GiniSwitchLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CE271EE6FBC6B062403C825B6D6D8 /* GiniSwitchLogger.swift */; };
 		49E927CDC96135E5686ED163BF2A4E51 /* Pods-GiniSwitchSDK_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3FA68BCCE62C896D4962756944184BA /* Pods-GiniSwitchSDK_Example-dummy.m */; };
-		4C2C251C80D2A825D11A4A05D1CCA3D6 /* CameraOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BC5ADB5DC55589BEE4D859CED1D9A3 /* CameraOptionsViewController.swift */; };
-		4E70BF80ADB1218A43EFD7F05281B8BE /* GiniSwitchConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B664AC7348910874816291A82F58B6 /* GiniSwitchConfiguration.swift */; };
-		506D761F91EC3583789A837C559972FE /* FBSnapshotTestCase-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C18C0EB1FED5EB5CE3B0E768AC510F /* FBSnapshotTestCase-dummy.m */; };
-		50C712F9BBF7792FF762C47631649B6A /* GiniSwitchSdkStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9B302F314AD02EFEC9B401381A19F3 /* GiniSwitchSdkStorage.swift */; };
-		5690933EF01E583E7995AEF2CF60AD62 /* Pods-GiniSwitchSDK_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D33C9B6CB919C6083208CFB4F1E9C2BE /* Pods-GiniSwitchSDK_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5C3A9C585C768508BA43A0C39E801B0D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100E9DBA36DE383E2748F9BF928629CA /* User.swift */; };
-		5E96D7B2ECD48DCEF8B434E4B5A84B73 /* ExtractionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039027B5C1A65B527A37C354AEC725C8 /* ExtractionsManager.swift */; };
-		5EEACC15D1410D9D24660CC314DAA084 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E867E3A1D57B1D12364FF1CF0BD78921 /* OnboardingPageViewController.swift */; };
-		5F3C458AB0F704332C9976730A267DFB /* PagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C06C6005746DE5A67CB25F74357F043 /* PagesCollectionViewController.swift */; };
-		6743D516587E460C853D03E92FB0492C /* GiniSwitchSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B3A1FB02D1DA3AF74B7A5717DAB1DBD6 /* GiniSwitchSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		69DA8B003216466C60F029CBD79897F1 /* UIImage+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E22F9517F21D3A0251F88FCAB281E /* UIImage+Compare.m */; };
-		6CDC33ED4F7896A38C83C9D64FE1BE6E /* ResourceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D73779A87FD4C38777CAC456EFAACA /* ResourceError.swift */; };
-		6DC834295E8ACDF91C69C937E5512D84 /* URL+QueryParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D5B1B505ED624F121D3FFBD8D4CEC0 /* URL+QueryParameters.swift */; };
-		6E21D745F7659D5CA501F998EC9CEEE7 /* ExtractionStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26343B90E98E5470B487CDA3710D9380 /* ExtractionStatusResponse.swift */; };
-		73BDDA8594097F1A335A0EBD09D33018 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223C9CA44F4479EC50D00C4E18A5C79F /* Camera.swift */; };
-		756564ABAF2892FE7140C92A1CDDCF65 /* UIImage+Snapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBFBDCC891B770A2AC9EF0FB164B751 /* UIImage+Snapshot.m */; };
-		76814CAC84BB100DE0E6E77042B3D432 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BDD7EBC5480E4896530ED15D05A310 /* PageCollectionViewCell.swift */; };
-		76DF60C3E2CEB3E00F1EBE10099A3A00 /* CreateOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29835CE7720B6C94E7032FA71B866E5C /* CreateOrderResponse.swift */; };
-		7B629CF6743EB08E98D2DAED93769DEB /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F964BAF12F6A64ADBF22CBFE2D1C6A /* Error.swift */; };
-		7E8D2131730D87E3F5DCF11D278390D6 /* ExtractionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7569FF2CB4192D2B97359D397AFA2CF /* ExtractionService.swift */; };
-		7E9B14D5F8842A86CA86F2AF45230725 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8F339250A1C3C5C5C5364254007103 /* XCTest.framework */; };
-		8255DEC834ADB8780FB95FC84933ADFE /* ExtractionsCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018AE165B3DE6EE4E167C16F718C991A /* ExtractionsCompletedViewController.swift */; };
-		841FF232C33C7D49C58CEFDBE7EEB92B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA323C90663942983643D7A4D1F697C8 /* UIKit.framework */; };
-		8DFE19B4931E3B61A81EBE0E6CA6306F /* ScanPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C85E9C024CB3DB8FD9C2751CE79C0C /* ScanPage.swift */; };
-		917A6C3D4D3FD67B050F0DE824062857 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FFB36BB8633E170553AD613553ACAE /* UserManager.swift */; };
-		91D0138ACFAD733E4061F12E450C336C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E88A450A84E3957158B3B3459740AA /* Foundation.framework */; };
-		9673CF780F48C8E4EC2A331717B1F67C /* FBSnapshotTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = E37899BD4B349060AA147E2A3721D3A2 /* FBSnapshotTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		98DC90A9B69BE64BFBF99E5E07779ADC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E88A450A84E3957158B3B3459740AA /* Foundation.framework */; };
-		9C24F4A733192F1F8D35BD399E6B9E39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E88A450A84E3957158B3B3459740AA /* Foundation.framework */; };
-		9ED7553557B8F45A10DD6FEF635A40CF /* SwitchBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A7103D378EB6863075D0CDB75143EC /* SwitchBackgroundView.swift */; };
-		A4F69F3477A935285620AC3031C5C848 /* FBSnapshotTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 052258A488A96C35531FAC73C4F42924 /* FBSnapshotTestController.m */; };
-		A9E1EE4E520BF77FA73B8C459A39A0B8 /* PageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D87B5D334AAC3D5594E58E8A2D47779 /* PageCollection.swift */; };
-		B27DFD6025D94758785918F1D6F6C060 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A27810809BAD71E4022600B21251449F /* QuartzCore.framework */; };
-		B758FB09FE2C06C1B8E36A71A9D76D41 /* FBSnapshotTestCase-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 73D037B3C804B9E1BB70538E342E5104 /* FBSnapshotTestCase-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BA424B2EB5381B542F9E95361FBECB5D /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E17AACCC550B09C1F63C79CB9CB667 /* CameraViewController.swift */; };
-		BC952FC04FC963C1294DCD619C9B6B3B /* UIApplication+StrictKeyWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = B9109B8B333B5A1A3E92EFC09EDC10AC /* UIApplication+StrictKeyWindow.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		BDE568E7A3003B876F19648AECD77474 /* Pods-GiniSwitchSDK_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AB17721D20ABE9294B8DF54C3A25C8 /* Pods-GiniSwitchSDK_Tests-dummy.m */; };
-		BE14F2198CDB0DAD98A567981D21C7A1 /* FBSnapshotTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 39577E2B806B8B2D019998DE60728F63 /* FBSnapshotTestCase.m */; };
-		BEA598238C97D7D21F3E444A0B77D5FD /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B190580F24D0A2D3EE9EB047BE9E70C2 /* OnboardingViewController.swift */; };
-		BFCE460CC33E8872B7156D4166340178 /* FBSnapshotTestCasePlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E3DB4D092B985E76E227F7F313C6981 /* FBSnapshotTestCasePlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C1194DC354CBC753D0A72CB61BB1AE07 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BFABE1064079F890D66C8EDA673E41 /* PreviewViewController.swift */; };
-		C69239EDA103101AF155863CA90520ED /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2EF2798A1343CCAF6630BF44982C9A /* CameraPreviewView.swift */; };
-		C839BD8EAE49B7615E5F0D7BE1DC8B79 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F319B7E14C5EA4AEFEFF0A867D2037FF /* Authenticator.swift */; };
-		C845DBE9A8FE508E03538C355B6C2AEB /* Extraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAF85065AAF21C1B67CF241B16A7AEC /* Extraction.swift */; };
-		CAB4A92E164C8607CBD592D9CAEA51DB /* BaseApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32053A03089532003F7122A782BAE81 /* BaseApiResponse.swift */; };
-		CAFA5E486BCE117A7D8C0FBF9DA6666B /* UIImage+Compare.h in Headers */ = {isa = PBXBuildFile; fileRef = 432938111B6FF0189EFFEDF2F845B308 /* UIImage+Compare.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		CD5D5D29E648ABFF7A1826DB64626F0F /* TokenUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EF334E447CEFA2A88D9FC10BE7FC43 /* TokenUtils.swift */; };
-		CE3862DCE00E1CB1B359DCEBEE5C5B61 /* GiniSwitchLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF230215C443D183E9A06046406B2083 /* GiniSwitchLogger.swift */; };
-		D5B20615CCC6F49992A462325B8A5107 /* CredentialsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373C120FBD9752157611E96BCBEC6057 /* CredentialsStore.swift */; };
-		DB7A106243AC974FC7EBEB00B506C786 /* FBSnapshotTestCasePlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A2557E7CE20AACCD1B28B1CD1F920D /* FBSnapshotTestCasePlatform.m */; };
-		DBB434A7C95601A100FEEE47BFA0B1D6 /* UIStoryboard+Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097B819964660D5A2E824A9BA101B310 /* UIStoryboard+Switch.swift */; };
-		DF3FBD41C077A1D87305E1CC599BDB96 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BA62DA582B922AD6026C264501A0C /* WebService.swift */; };
-		E34E3EC08B4F96C727C18A7D40C9BC79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E88A450A84E3957158B3B3459740AA /* Foundation.framework */; };
-		ED7ECE6C99054537BF647A0C2B976A87 /* GiniSwitchUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3715B0E1CF923A5BF85AA1990DE1231 /* GiniSwitchUserInterface.swift */; };
-		F54A7140656F6BCAA9ACFF1B56DDFDE8 /* PollScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C92525E45615761A5C450AECE8420C /* PollScheduler.swift */; };
-		FF640B8887588F46003849E011C19355 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EBE5055C5F4606427EB8C6CA008E2F /* Token.swift */; };
+		50C4D8C7A8868F651E48CB4F5D9CE751 /* GiniSwitchSdkStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CE3CAA655B2D1191C4A16A64CB8CD9 /* GiniSwitchSdkStorage.swift */; };
+		526D850918B924F3DC63A7860DA511F8 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51D79AC5A3745721703F42A7C76722 /* Camera.swift */; };
+		52E5B884461D7CCF756330EB2D400622 /* GiniSwitchSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EE5AD9984D9760D05E9DABC11453AF8 /* GiniSwitchSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B4EDE352375F6F0992277E59780FAA9 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2D1D51DDA7BA8B693A22C8AA2310BF /* Authenticator.swift */; };
+		5D08AE1579C832662CC88DA8C47E3DC3 /* GiniSwitch.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C25FAB8B92C04963856E78D10274FADC /* GiniSwitch.xcassets */; };
+		611B49A2174E53B90FDF61DC5C445CF6 /* ExtractionsCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7869FCCEB7B9E3FEF3E4546C37F6658A /* ExtractionsCompletedViewController.swift */; };
+		61E4BCB8BBC61A923EBBE2DD3642E37A /* ExtractionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D5858C233EF576DE7C9424934E41A0 /* ExtractionsManager.swift */; };
+		62A7625DC06964699905BD3E24C9ABE6 /* ResourceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A108FF32FE936C6AFB8C27E22465E683 /* ResourceError.swift */; };
+		677A059B87544EDA068C279A19BE61E3 /* GiniSwitchSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3279B5206923A222EA13C17925C04CBA /* GiniSwitchSdk.swift */; };
+		689E40D2A0FAD89D003B9766B1B99C13 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785ED907A19DE9479222CD882ACEE602 /* Error.swift */; };
+		69B132AF8144A4105735D41B7AA7B55A /* GiniSwitchAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B15B5965AF3668EB7E80679C5B8C78 /* GiniSwitchAnalytics.swift */; };
+		7A18B9229986974DA5E68099B88AF7A9 /* SwitchBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF8368D7E14ED2436422EC0615757F /* SwitchBackgroundView.swift */; };
+		80A2A6F68129890889E6DBA139AA06A9 /* URL+QueryParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BB32E4F58E0B65DC5AD64061D798DF /* URL+QueryParameters.swift */; };
+		80B2B5963D6C4297AA7C45F89E84D52B /* GiniSwitchNopAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131F75568089EA4DB8546AAD467BD100 /* GiniSwitchNopAnalytics.swift */; };
+		80BDCB7CBF1FB6144A7630EC805E9627 /* CredentialsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD74EF0AAB70743AE03BA11A77A2E90E /* CredentialsStore.swift */; };
+		8C7D3978C7CAD90E8F858F822B6A41A9 /* UIStoryboard+Switch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4F77EE1B15CF1F2970586F186AF633 /* UIStoryboard+Switch.swift */; };
+		973FCD8C3D413043A8FC4B69D2F02D62 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBB50E5295781D058B3C4EDA17CEB4D /* User.swift */; };
+		99EC3FF8A53D6A7DB62DC61E22D538F4 /* GiniSwitchAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9643B00683F5C2A5F775CA97644B34 /* GiniSwitchAppearance.swift */; };
+		9AC97405355BAF130309F7FB162006B8 /* AddPageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226DC5B5D668D4BB8D3B95750D965AF5 /* AddPageResponse.swift */; };
+		9C24F4A733192F1F8D35BD399E6B9E39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		9E51B39E140209B7E1EB8CE6AD158FED /* CreateOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC089CA51FE3AAB37F9D6F9AFF9382F /* CreateOrderResponse.swift */; };
+		9F611551F1EA4C2AAA3C1A68E0F06447 /* GiniSwitch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 711FF982CEF5AC7E6EDFA6A4EC54FDBB /* GiniSwitch.storyboard */; };
+		A1733DB46C85CB40531070EDB00B38CA /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001E46407492564BE83FD0D0046BC2FC /* OnboardingViewController.swift */; };
+		A212A1F4BE680D3B096768CFAA54EF53 /* BaseApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A11DFEAC854B333CEC13A570BEA6FF /* BaseApiResponse.swift */; };
+		A64D6257E8CA21942706A128D11EE303 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431E1A5886A446250FB6217EF707F932 /* OnboardingPageViewController.swift */; };
+		A6CBC8D7CD89D8DE97962BD32E3B7EAA /* ExtractionCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E242DBA1822918444F06BE010C9EDF5 /* ExtractionCollection.swift */; };
+		A75B2206E015EB7C91F862BE326AC18F /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC9A59DA31C5DE9D9FEAAFC580424D6 /* PageCollectionViewCell.swift */; };
+		AC0FF394C41561AE2A3DAC4320950C6D /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7569C8A19BA1551528E02EABECD22D1 /* CameraPreviewView.swift */; };
+		AE67481A5C122DD5E5F7F019BBE86A1B /* PagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31472ECE53613B48B939DF892241A3 /* PagesCollectionViewController.swift */; };
+		AEAF0BC4E19E9FAA2B830F0415943F0A /* Pods-GiniSwitchSDK_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 01AB17721D20ABE9294B8DF54C3A25C8 /* Pods-GiniSwitchSDK_Tests-dummy.m */; };
+		B09B63AB29CEB2728D2E3003C06183A1 /* PresentationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB42B3CC706FB10ECE5A2AAC623063CE /* PresentationStyle.swift */; };
+		BE49F9CC93701B9733E62BB50BA06F9B /* PageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64425B27D2A3914A5F1553C6D838F47 /* PageCollection.swift */; };
+		C02AADA91771F5673283B5CB63CB85DC /* ScanPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83BA3273611644B905E58CC3E83A1EA /* ScanPage.swift */; };
+		C204623ACB79F6F255BEF0FA08487C69 /* CameraOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9084333465DB167895BDF0C8C5E7108 /* CameraOptionsViewController.swift */; };
+		C6114E9A302913620DB48A5FAE3825F9 /* PollScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E913A7BBEA71CC4467BF44EA7BF71AB /* PollScheduler.swift */; };
+		C71DEAEEF5F75A1B0388C682FE7C113B /* Pods-GiniSwitchSDK_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D33C9B6CB919C6083208CFB4F1E9C2BE /* Pods-GiniSwitchSDK_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C92F3E2E15150A4A15BAC11F02E400D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		C947C8023EC1FF94E432513F8F686D71 /* ExtractionStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17C77B61DA9E5B51629A31B37AA2B3E /* ExtractionStatusResponse.swift */; };
+		CB7D34028346C85DCB8F0EC2A520601D /* Extraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D4DF4AA794D3C5CFDA30B5B601DD42 /* Extraction.swift */; };
+		CDB21DFE09754843E17284B43B545990 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183F841A44F096404D0D4405C380A8ED /* WebService.swift */; };
+		D2C9A5E37A21A8E235D9251F4B07180E /* ImageMetaInformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07CB4202E00EE7B39BB956DD14C1E98 /* ImageMetaInformationManager.swift */; };
+		D546A0730CA7960E8AAB5D53DF673F6E /* GiniSwitchSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2061737229ECEFA0EB9DD977E71E42CA /* GiniSwitchSDK-dummy.m */; };
+		D940D5E9E699E21F33E4A699253257FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		DEA87F0DE69451B569271679483A7E81 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35699ABBC533582789BD79C52B96CD7 /* PreviewViewController.swift */; };
+		DEBC04C059D89A3DB3A63C41C0316107 /* ExtractionValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B0856A1F8B57F06E362BA7B95BF71F /* ExtractionValue.swift */; };
+		E3758E764C8DB35E9177855981D17B91 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9B681B00A40ADBF06D858FD2E433D /* UserManager.swift */; };
+		E4597874508DC9ADEFBA11C8EF6887E7 /* MultiPageScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE73DE58938D198EE5F38D660CE5A22 /* MultiPageScanViewController.swift */; };
+		E5034F7A4F2DE0BA6749139E40FC6D16 /* ExtractionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B065AE268E65017DC3CC99C1BB5D8E /* ExtractionService.swift */; };
+		E7347A33CC7A965EF5187867B7FDBC2B /* GiniSwitchConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2424B973F038582E20870EAC54A18ABB /* GiniSwitchConsoleLogger.swift */; };
+		FA6DDCBC331BDF11040C3D681C78D3A9 /* GiniSwitchOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927409559F4BEB06291DD2F2E3839F60 /* GiniSwitchOnboarding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,144 +78,101 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C6C30BD9CCFAA8105E8F275E8D4F9291;
+			remoteGlobalIDString = B06A543A31444980D0B99AD9FF6120EE;
 			remoteInfo = GiniSwitchSDK;
-		};
-		BCE081F91A70C48562F6E909308E50E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 34CD2E3428AB802BACA62286FF5074B1;
-			remoteInfo = FBSnapshotTestCase;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		018AE165B3DE6EE4E167C16F718C991A /* ExtractionsCompletedViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExtractionsCompletedViewController.swift; sourceTree = "<group>"; };
+		001E46407492564BE83FD0D0046BC2FC /* OnboardingViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		0105EEEFECF79A719028575C007181EC /* TokenUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TokenUtils.swift; sourceTree = "<group>"; };
 		01AB17721D20ABE9294B8DF54C3A25C8 /* Pods-GiniSwitchSDK_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GiniSwitchSDK_Tests-dummy.m"; sourceTree = "<group>"; };
-		039027B5C1A65B527A37C354AEC725C8 /* ExtractionsManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExtractionsManager.swift; sourceTree = "<group>"; };
-		03C92525E45615761A5C450AECE8420C /* PollScheduler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PollScheduler.swift; sourceTree = "<group>"; };
-		052258A488A96C35531FAC73C4F42924 /* FBSnapshotTestController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestController.m; path = FBSnapshotTestCase/FBSnapshotTestController.m; sourceTree = "<group>"; };
-		097B819964660D5A2E824A9BA101B310 /* UIStoryboard+Switch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Switch.swift"; sourceTree = "<group>"; };
-		0B161931541BFE46DFEA2092EDDDA815 /* UIImage+Snapshot.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Snapshot.h"; path = "FBSnapshotTestCase/Categories/UIImage+Snapshot.h"; sourceTree = "<group>"; };
-		0D9A7C2A8E42A07F8AB85A68220762F1 /* PagesResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PagesResponse.swift; sourceTree = "<group>"; };
+		044CE271EE6FBC6B062403C825B6D6D8 /* GiniSwitchLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchLogger.swift; sourceTree = "<group>"; };
+		0936F454753BA68C3B280BCB3718EF49 /* HumanReadableError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HumanReadableError.swift; sourceTree = "<group>"; };
+		0AC7B2E6227B7FDE7DC1AD2773DE030E /* Pods_GiniSwitchSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GiniSwitchSDK_Example.framework; path = "Pods-GiniSwitchSDK_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E242DBA1822918444F06BE010C9EDF5 /* ExtractionCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExtractionCollection.swift; sourceTree = "<group>"; };
 		0EACE7B5A41679C263D6475CC7F0B96A /* Pods-GiniSwitchSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GiniSwitchSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		100E9DBA36DE383E2748F9BF928629CA /* User.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		1366721ACEFB627D6D37FA6E668DA845 /* MultiPageCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MultiPageCoordinator.swift; sourceTree = "<group>"; };
-		1374B79237CAC07693E99442FBED1F15 /* FBSnapshotTestController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestController.h; path = FBSnapshotTestCase/FBSnapshotTestController.h; sourceTree = "<group>"; };
-		16E17AACCC550B09C1F63C79CB9CB667 /* CameraViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		18E53BA4820B836ACC66C773B43FCA63 /* GiniSwitchSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GiniSwitchSDK-dummy.m"; sourceTree = "<group>"; };
-		1C06C6005746DE5A67CB25F74357F043 /* PagesCollectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PagesCollectionViewController.swift; sourceTree = "<group>"; };
-		223C9CA44F4479EC50D00C4E18A5C79F /* Camera.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
-		2331C6371F1E005000F0742E /* GiniSwitch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = GiniSwitch.storyboard; path = Assets/GiniSwitch.storyboard; sourceTree = "<group>"; };
-		2331C6381F1E005000F0742E /* GiniSwitch.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = GiniSwitch.xcassets; path = Assets/GiniSwitch.xcassets; sourceTree = "<group>"; };
-		23DCD17C1F1F96CE00C5E2C8 /* HumanReadableError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HumanReadableError.swift; sourceTree = "<group>"; };
-		26343B90E98E5470B487CDA3710D9380 /* ExtractionStatusResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExtractionStatusResponse.swift; sourceTree = "<group>"; };
+		131F75568089EA4DB8546AAD467BD100 /* GiniSwitchNopAnalytics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchNopAnalytics.swift; sourceTree = "<group>"; };
+		183F841A44F096404D0D4405C380A8ED /* WebService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		1FD9B681B00A40ADBF06D858FD2E433D /* UserManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		2061737229ECEFA0EB9DD977E71E42CA /* GiniSwitchSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GiniSwitchSDK-dummy.m"; sourceTree = "<group>"; };
+		226DC5B5D668D4BB8D3B95750D965AF5 /* AddPageResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddPageResponse.swift; sourceTree = "<group>"; };
+		2424B973F038582E20870EAC54A18ABB /* GiniSwitchConsoleLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchConsoleLogger.swift; sourceTree = "<group>"; };
+		28CE3CAA655B2D1191C4A16A64CB8CD9 /* GiniSwitchSdkStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchSdkStorage.swift; sourceTree = "<group>"; };
 		29633F7FB62129047199811E75F7A628 /* Pods-GiniSwitchSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GiniSwitchSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		29835CE7720B6C94E7032FA71B866E5C /* CreateOrderResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreateOrderResponse.swift; sourceTree = "<group>"; };
-		2B0804EBE96A8FC8EF9DEAAE673DD09D /* DashOutlineLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DashOutlineLayer.swift; sourceTree = "<group>"; };
-		2EECE81A9AEC1ED1057A9C3C88DBCEBE /* UIApplication+StrictKeyWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+StrictKeyWindow.m"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.m"; sourceTree = "<group>"; };
+		2C11A52C20A4444A3DA02FC7BEE92728 /* GiniSwitchSDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = GiniSwitchSDK.modulemap; sourceTree = "<group>"; };
+		30F96676315886B107AA14C0D0BCAD57 /* PagesResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PagesResponse.swift; sourceTree = "<group>"; };
+		3279B5206923A222EA13C17925C04CBA /* GiniSwitchSdk.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchSdk.swift; sourceTree = "<group>"; };
 		364F3FFF3759B06846FB643D47964C71 /* Pods-GiniSwitchSDK_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GiniSwitchSDK_Example-resources.sh"; sourceTree = "<group>"; };
-		373C120FBD9752157611E96BCBEC6057 /* CredentialsStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CredentialsStore.swift; sourceTree = "<group>"; };
-		39577E2B806B8B2D019998DE60728F63 /* FBSnapshotTestCase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestCase.m; path = FBSnapshotTestCase/FBSnapshotTestCase.m; sourceTree = "<group>"; };
-		3A8F339250A1C3C5C5C5364254007103 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		3B5E22F9517F21D3A0251F88FCAB281E /* UIImage+Compare.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Compare.m"; path = "FBSnapshotTestCase/Categories/UIImage+Compare.m"; sourceTree = "<group>"; };
-		3D9B302F314AD02EFEC9B401381A19F3 /* GiniSwitchSdkStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchSdkStorage.swift; sourceTree = "<group>"; };
-		3DBFBDCC891B770A2AC9EF0FB164B751 /* UIImage+Snapshot.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Snapshot.m"; path = "FBSnapshotTestCase/Categories/UIImage+Snapshot.m"; sourceTree = "<group>"; };
+		3E51D79AC5A3745721703F42A7C76722 /* Camera.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		3FBB50E5295781D058B3C4EDA17CEB4D /* User.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4183F6002BA40D39962EFDE8816EAEBD /* Pods-GiniSwitchSDK_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GiniSwitchSDK_Example-frameworks.sh"; sourceTree = "<group>"; };
-		432938111B6FF0189EFFEDF2F845B308 /* UIImage+Compare.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Compare.h"; path = "FBSnapshotTestCase/Categories/UIImage+Compare.h"; sourceTree = "<group>"; };
-		44BFABE1064079F890D66C8EDA673E41 /* PreviewViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		431E1A5886A446250FB6217EF707F932 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		4431079AA669EEAB64E82BE2DE704A0F /* CameraViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		47E71F2770A42C44563F660B2730F8F5 /* Pods-GiniSwitchSDK_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GiniSwitchSDK_Example-umbrella.h"; sourceTree = "<group>"; };
-		4C0507DAB540D4833818460FC2038AE8 /* GiniSwitchSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GiniSwitchSDK-prefix.pch"; sourceTree = "<group>"; };
-		4D87B5D334AAC3D5594E58E8A2D47779 /* PageCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PageCollection.swift; sourceTree = "<group>"; };
-		4E837B3527F5EFD836D8F6C7A4376E29 /* Pods_GiniSwitchSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniSwitchSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		50C85E9C024CB3DB8FD9C2751CE79C0C /* ScanPage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScanPage.swift; sourceTree = "<group>"; };
-		52C18C0EB1FED5EB5CE3B0E768AC510F /* FBSnapshotTestCase-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FBSnapshotTestCase-dummy.m"; sourceTree = "<group>"; };
-		5359BF1C3ACD48415AEFF6A38DC9939F /* ExtractionResources.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExtractionResources.swift; sourceTree = "<group>"; };
-		58A2557E7CE20AACCD1B28B1CD1F920D /* FBSnapshotTestCasePlatform.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestCasePlatform.m; path = FBSnapshotTestCase/FBSnapshotTestCasePlatform.m; sourceTree = "<group>"; };
-		59BDD7EBC5480E4896530ED15D05A310 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
-		5B5C5D342A356EC8E6CCA270DAC8DCB4 /* ExtractionValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExtractionValue.swift; sourceTree = "<group>"; };
+		4C064540E072D16CF38336888E376C46 /* GiniSwitchUserInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchUserInterface.swift; sourceTree = "<group>"; };
+		4E4F77EE1B15CF1F2970586F186AF633 /* UIStoryboard+Switch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Switch.swift"; sourceTree = "<group>"; };
+		52B15B5965AF3668EB7E80679C5B8C78 /* GiniSwitchAnalytics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchAnalytics.swift; sourceTree = "<group>"; };
+		5AABBA73F0AF6CE9E97788368FEEB29C /* GiniSwitchConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchConfiguration.swift; sourceTree = "<group>"; };
 		5BDC2E6320D9D18B3D6D95EF06F0FE07 /* Pods-GiniSwitchSDK_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GiniSwitchSDK_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		648BA3F9E9B8DB1FA89E8194CFB96B31 /* Pods-GiniSwitchSDK_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GiniSwitchSDK_Tests.modulemap"; sourceTree = "<group>"; };
-		6B6ACAB76464EDB8440CE0AA614AF379 /* ExtractionCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExtractionCollection.swift; sourceTree = "<group>"; };
-		6E66B4218824CF8160D93713DDBEEA82 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6F0B538EA1CC28DE3CB58E7F93F200D9 /* GiniSwitchSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GiniSwitchSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		72BC5ADB5DC55589BEE4D859CED1D9A3 /* CameraOptionsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CameraOptionsViewController.swift; sourceTree = "<group>"; };
-		72EF334E447CEFA2A88D9FC10BE7FC43 /* TokenUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TokenUtils.swift; sourceTree = "<group>"; };
-		73D037B3C804B9E1BB70538E342E5104 /* FBSnapshotTestCase-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSnapshotTestCase-umbrella.h"; sourceTree = "<group>"; };
+		648BA3F9E9B8DB1FA89E8194CFB96B31 /* Pods-GiniSwitchSDK_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-GiniSwitchSDK_Tests.modulemap"; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6AC9A59DA31C5DE9D9FEAAFC580424D6 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
+		6EE5AD9984D9760D05E9DABC11453AF8 /* GiniSwitchSDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GiniSwitchSDK-umbrella.h"; sourceTree = "<group>"; };
+		711FF982CEF5AC7E6EDFA6A4EC54FDBB /* GiniSwitch.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = GiniSwitch.storyboard; sourceTree = "<group>"; };
+		7689257F516314D63EE064CCD9FB1545 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77BB32E4F58E0B65DC5AD64061D798DF /* URL+QueryParameters.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "URL+QueryParameters.swift"; sourceTree = "<group>"; };
+		785ED907A19DE9479222CD882ACEE602 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		7869FCCEB7B9E3FEF3E4546C37F6658A /* ExtractionsCompletedViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExtractionsCompletedViewController.swift; sourceTree = "<group>"; };
 		78762E867C2B82EA444AE173E1850FFF /* Pods-GiniSwitchSDK_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GiniSwitchSDK_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		7A2EF2798A1343CCAF6630BF44982C9A /* CameraPreviewView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
-		7A83D3749630EAC55FAF06D593032406 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7CAF85065AAF21C1B67CF241B16A7AEC /* Extraction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Extraction.swift; sourceTree = "<group>"; };
-		7E3DB4D092B985E76E227F7F313C6981 /* FBSnapshotTestCasePlatform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestCasePlatform.h; path = FBSnapshotTestCase/FBSnapshotTestCasePlatform.h; sourceTree = "<group>"; };
-		81654DA4FB9EE5556AF884E639F70DF0 /* GiniSwitchAnalytics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchAnalytics.swift; sourceTree = "<group>"; };
-		823558E8AC8EB39D028DB5FBBEA227A3 /* FBSnapshotTestCase.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FBSnapshotTestCase.modulemap; sourceTree = "<group>"; };
-		8593C4657278E284A378D2032CEF79C0 /* GiniSwitchOnboarding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchOnboarding.swift; sourceTree = "<group>"; };
-		85E250EF19C5B5671AEC10BEB508D087 /* UIImage+Diff.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Diff.h"; path = "FBSnapshotTestCase/Categories/UIImage+Diff.h"; sourceTree = "<group>"; };
-		8610D3618B532ED406270D0DD97E1750 /* PresentationStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentationStyle.swift; sourceTree = "<group>"; };
-		88EBE5055C5F4606427EB8C6CA008E2F /* Token.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
-		89A7103D378EB6863075D0CDB75143EC /* SwitchBackgroundView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwitchBackgroundView.swift; sourceTree = "<group>"; };
-		8F5B3DD519FB85C558D72EB775023463 /* FBSnapshotTestCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FBSnapshotTestCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		993EF25D3026D9D0646EB91655A1CD4C /* GiniSwitchNopAnalytics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchNopAnalytics.swift; sourceTree = "<group>"; };
-		A1D73779A87FD4C38777CAC456EFAACA /* ResourceError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResourceError.swift; sourceTree = "<group>"; };
-		A27810809BAD71E4022600B21251449F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		A62D1C1E8535C53062E1CC2F2EDD8403 /* GiniSwitchAppearance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchAppearance.swift; sourceTree = "<group>"; };
+		78B065AE268E65017DC3CC99C1BB5D8E /* ExtractionService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExtractionService.swift; sourceTree = "<group>"; };
+		7E2D1D51DDA7BA8B693A22C8AA2310BF /* Authenticator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
+		807F0DA74BD26528B710C54117DB2F99 /* GiniSwitchSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GiniSwitchSDK.framework; path = GiniSwitchSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		85A11DFEAC854B333CEC13A570BEA6FF /* BaseApiResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseApiResponse.swift; sourceTree = "<group>"; };
+		8623CA4B620FE732CF32F2E0E60CF5BB /* MultiPageCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MultiPageCoordinator.swift; sourceTree = "<group>"; };
+		927409559F4BEB06291DD2F2E3839F60 /* GiniSwitchOnboarding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchOnboarding.swift; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94D7580F3505D701B5BF723762CD40B0 /* GiniSwitchSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GiniSwitchSDK.xcconfig; sourceTree = "<group>"; };
+		9A9643B00683F5C2A5F775CA97644B34 /* GiniSwitchAppearance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchAppearance.swift; sourceTree = "<group>"; };
+		9E913A7BBEA71CC4467BF44EA7BF71AB /* PollScheduler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PollScheduler.swift; sourceTree = "<group>"; };
+		A07CB4202E00EE7B39BB956DD14C1E98 /* ImageMetaInformationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageMetaInformationManager.swift; sourceTree = "<group>"; };
+		A108FF32FE936C6AFB8C27E22465E683 /* ResourceError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResourceError.swift; sourceTree = "<group>"; };
+		A64425B27D2A3914A5F1553C6D838F47 /* PageCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PageCollection.swift; sourceTree = "<group>"; };
 		A7BEC688C490956AF6BBE633A281BA6B /* Pods-GiniSwitchSDK_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GiniSwitchSDK_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		AA323C90663942983643D7A4D1F697C8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		AA4A3B490DFB6DA19BB17F09CA48529E /* MultiPageScanViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MultiPageScanViewController.swift; sourceTree = "<group>"; };
-		B190580F24D0A2D3EE9EB047BE9E70C2 /* OnboardingViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		B3A1FB02D1DA3AF74B7A5717DAB1DBD6 /* GiniSwitchSDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GiniSwitchSDK-umbrella.h"; sourceTree = "<group>"; };
-		B4B664AC7348910874816291A82F58B6 /* GiniSwitchConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchConfiguration.swift; sourceTree = "<group>"; };
-		B5D5B1B505ED624F121D3FFBD8D4CEC0 /* URL+QueryParameters.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "URL+QueryParameters.swift"; sourceTree = "<group>"; };
-		B7569FF2CB4192D2B97359D397AFA2CF /* ExtractionService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExtractionService.swift; sourceTree = "<group>"; };
+		ADE73DE58938D198EE5F38D660CE5A22 /* MultiPageScanViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MultiPageScanViewController.swift; sourceTree = "<group>"; };
+		B17C77B61DA9E5B51629A31B37AA2B3E /* ExtractionStatusResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExtractionStatusResponse.swift; sourceTree = "<group>"; };
+		B6B0856A1F8B57F06E362BA7B95BF71F /* ExtractionValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExtractionValue.swift; sourceTree = "<group>"; };
 		B81291AF08A3DA151C0BAA6D000E5B37 /* Pods-GiniSwitchSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GiniSwitchSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
-		B9109B8B333B5A1A3E92EFC09EDC10AC /* UIApplication+StrictKeyWindow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIApplication+StrictKeyWindow.h"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.h"; sourceTree = "<group>"; };
-		B9CEF7D6C5E08AB80E58DABC75D882BC /* UIImage+Diff.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Diff.m"; path = "FBSnapshotTestCase/Categories/UIImage+Diff.m"; sourceTree = "<group>"; };
-		BB6695C84A346D9E786E21F1D4C8AF53 /* Pods_GiniSwitchSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiniSwitchSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B91F10C34C5C184A2B577E299FEE5648 /* DashOutlineLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DashOutlineLayer.swift; sourceTree = "<group>"; };
+		B9E06E4C2826B286F948D0B81524D225 /* ExtractionResources.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExtractionResources.swift; sourceTree = "<group>"; };
 		BDF9DCB9ED701084ECD951F2685E407F /* Pods-GiniSwitchSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GiniSwitchSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		BF230215C443D183E9A06046406B2083 /* GiniSwitchLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchLogger.swift; sourceTree = "<group>"; };
-		C32053A03089532003F7122A782BAE81 /* BaseApiResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseApiResponse.swift; sourceTree = "<group>"; };
-		C6E88A450A84E3957158B3B3459740AA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		C1D5858C233EF576DE7C9424934E41A0 /* ExtractionsManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExtractionsManager.swift; sourceTree = "<group>"; };
+		C25FAB8B92C04963856E78D10274FADC /* GiniSwitch.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = GiniSwitch.xcassets; sourceTree = "<group>"; };
+		C35699ABBC533582789BD79C52B96CD7 /* PreviewViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		C701F1C76E3853BCBD8AC9C9AC6299D8 /* Pods_GiniSwitchSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GiniSwitchSDK_Tests.framework; path = "Pods-GiniSwitchSDK_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7569C8A19BA1551528E02EABECD22D1 /* CameraPreviewView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
 		C7E392A2131D4F7A1D9A24DCF01A90F9 /* Pods-GiniSwitchSDK_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GiniSwitchSDK_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		C81C7872279A5E553D7D470270F5BA43 /* ReviewViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
-		C93BA62DA582B922AD6026C264501A0C /* WebService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
-		CC12BCFA3FC0B8C307F5B38C673EDD12 /* FBSnapshotTestCase-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSnapshotTestCase-prefix.pch"; sourceTree = "<group>"; };
-		CEC2B307CA252AFE8FFC7BF10BB33DBB /* GiniSwitchSDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = GiniSwitchSDK.modulemap; sourceTree = "<group>"; };
+		C83BA3273611644B905E58CC3E83A1EA /* ScanPage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScanPage.swift; sourceTree = "<group>"; };
+		CD74EF0AAB70743AE03BA11A77A2E90E /* CredentialsStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CredentialsStore.swift; sourceTree = "<group>"; };
+		CF0F62FCF52274790A8F568524B0A234 /* ReviewViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		D1DC1D2629D6F5F495A182EB1887DE42 /* Pods-GiniSwitchSDK_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GiniSwitchSDK_Tests-resources.sh"; sourceTree = "<group>"; };
-		D2556DBF8E5FBABD5571311FB873D094 /* GiniSwitchSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GiniSwitchSDK.xcconfig; sourceTree = "<group>"; };
-		D2FB3E09E0AD62137D3B18261DE2C366 /* Pods-GiniSwitchSDK_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GiniSwitchSDK_Example.modulemap"; sourceTree = "<group>"; };
+		D2FB3E09E0AD62137D3B18261DE2C366 /* Pods-GiniSwitchSDK_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-GiniSwitchSDK_Example.modulemap"; sourceTree = "<group>"; };
 		D33C9B6CB919C6083208CFB4F1E9C2BE /* Pods-GiniSwitchSDK_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GiniSwitchSDK_Tests-umbrella.h"; sourceTree = "<group>"; };
-		D5F964BAF12F6A64ADBF22CBFE2D1C6A /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		D97545C39C4A5EE2631DD9FFECE76A40 /* SwiftSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftSupport.swift; path = FBSnapshotTestCase/SwiftSupport.swift; sourceTree = "<group>"; };
-		DADAF30F2D84FDAAD2ADD2D50C1F40DF /* FBSnapshotTestCase.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FBSnapshotTestCase.xcconfig; sourceTree = "<group>"; };
-		E37899BD4B349060AA147E2A3721D3A2 /* FBSnapshotTestCase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSnapshotTestCase.h; path = FBSnapshotTestCase/FBSnapshotTestCase.h; sourceTree = "<group>"; };
-		E6A59A1588A498030860DD183B46EBA8 /* GiniSwitchConsoleLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchConsoleLogger.swift; sourceTree = "<group>"; };
-		E867E3A1D57B1D12364FF1CF0BD78921 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		D36D360BEFD5904DD4F192013F13AC70 /* Token.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		DB42B3CC706FB10ECE5A2AAC623063CE /* PresentationStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentationStyle.swift; sourceTree = "<group>"; };
+		DBC089CA51FE3AAB37F9D6F9AFF9382F /* CreateOrderResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreateOrderResponse.swift; sourceTree = "<group>"; };
+		DF31472ECE53613B48B939DF892241A3 /* PagesCollectionViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PagesCollectionViewController.swift; sourceTree = "<group>"; };
+		E79BB0DB89C851C8F467A057129F15A2 /* GiniSwitchSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GiniSwitchSDK-prefix.pch"; sourceTree = "<group>"; };
+		E9084333465DB167895BDF0C8C5E7108 /* CameraOptionsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CameraOptionsViewController.swift; sourceTree = "<group>"; };
+		EEAF8368D7E14ED2436422EC0615757F /* SwitchBackgroundView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwitchBackgroundView.swift; sourceTree = "<group>"; };
 		F00B044174BD1914AC59A47528679752 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1A643F0989159A498F5BF71E52D00EA /* Pods-GiniSwitchSDK_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GiniSwitchSDK_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F319B7E14C5EA4AEFEFF0A867D2037FF /* Authenticator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
-		F3715B0E1CF923A5BF85AA1990DE1231 /* GiniSwitchUserInterface.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchUserInterface.swift; sourceTree = "<group>"; };
+		F2D4DF4AA794D3C5CFDA30B5B601DD42 /* Extraction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Extraction.swift; sourceTree = "<group>"; };
 		F3FA68BCCE62C896D4962756944184BA /* Pods-GiniSwitchSDK_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GiniSwitchSDK_Example-dummy.m"; sourceTree = "<group>"; };
-		F3FFB36BB8633E170553AD613553ACAE /* UserManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		F4A3120026A27A6E4F441FAC434D9155 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB476520ABD57FFF5DDE649EA819B237 /* AddPageResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddPageResponse.swift; sourceTree = "<group>"; };
-		FD8D4E7BAC07A3079DF7682747AD863B /* GiniSwitchSdk.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchSdk.swift; sourceTree = "<group>"; };
-		FE3FD3D00911818C8BD0817F2F170454 /* ImageMetaInformationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageMetaInformationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1D421A30A1BDB7E1C4216F64D0C939B1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				91D0138ACFAD733E4061F12E450C336C /* Foundation.framework in Frameworks */,
-				B27DFD6025D94758785918F1D6F6C060 /* QuartzCore.framework in Frameworks */,
-				841FF232C33C7D49C58CEFDBE7EEB92B /* UIKit.framework in Frameworks */,
-				7E9B14D5F8842A86CA86F2AF45230725 /* XCTest.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		58124796F19898AE8C22112C25DCCA74 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -245,80 +181,71 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5B399E0F401FCCCB77C1F431C8EA23C9 /* Frameworks */ = {
+		B7EB9BAF00B7A786BF1135D946B3E691 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98DC90A9B69BE64BFBF99E5E07779ADC /* Foundation.framework in Frameworks */,
+				D940D5E9E699E21F33E4A699253257FF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		81067B96F3EA8CF8B74099CDA629BF97 /* Frameworks */ = {
+		B853C3B184A942ACB490D6EAD3A99797 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E34E3EC08B4F96C727C18A7D40C9BC79 /* Foundation.framework in Frameworks */,
+				C92F3E2E15150A4A15BAC11F02E400D7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */ = {
+		05ABE3F8383D62CDE0F2CE936E753654 /* GiniSwitchSDK */ = {
 			isa = PBXGroup;
 			children = (
-				8D22B0D091B0427E43C82354D9CA8E06 /* iOS */,
+				63070A006717C9CA3ED627D31D6CB2A7 /* Assets */,
 			);
-			name = Frameworks;
+			name = GiniSwitchSDK;
+			path = GiniSwitchSDK;
 			sourceTree = "<group>";
 		};
-		1549F91FCD089822594C1F5DB8AB9E8F /* Support Files */ = {
+		19E2A8687D9F8430AEDF9ECF7615B2C6 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				823558E8AC8EB39D028DB5FBBEA227A3 /* FBSnapshotTestCase.modulemap */,
-				DADAF30F2D84FDAAD2ADD2D50C1F40DF /* FBSnapshotTestCase.xcconfig */,
-				52C18C0EB1FED5EB5CE3B0E768AC510F /* FBSnapshotTestCase-dummy.m */,
-				CC12BCFA3FC0B8C307F5B38C673EDD12 /* FBSnapshotTestCase-prefix.pch */,
-				73D037B3C804B9E1BB70538E342E5104 /* FBSnapshotTestCase-umbrella.h */,
-				6E66B4218824CF8160D93713DDBEEA82 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/FBSnapshotTestCase";
-			sourceTree = "<group>";
-		};
-		194B9D5B1567FD043D32180B92BC69DE /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				62C5C02DC560D8F8A70C7BC2D5B7E0BF /* GiniSwitchSDK */,
+				8F9AB60E08D13492B65EB92F157F0FE9 /* GiniSwitchSDK */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		2287B5EBEAA3C332F8DB9A1E61F5B097 /* FBSnapshotTestCase */ = {
+		1CF81A78B759E9BB0309F086DAD10482 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				F35791481CAFDD8E7715AE1B44687328 /* Core */,
-				1549F91FCD089822594C1F5DB8AB9E8F /* Support Files */,
-				99E46DD4AB2256791F111C718CB0EEF8 /* SwiftSupport */,
+				2C11A52C20A4444A3DA02FC7BEE92728 /* GiniSwitchSDK.modulemap */,
+				94D7580F3505D701B5BF723762CD40B0 /* GiniSwitchSDK.xcconfig */,
+				2061737229ECEFA0EB9DD977E71E42CA /* GiniSwitchSDK-dummy.m */,
+				E79BB0DB89C851C8F467A057129F15A2 /* GiniSwitchSDK-prefix.pch */,
+				6EE5AD9984D9760D05E9DABC11453AF8 /* GiniSwitchSDK-umbrella.h */,
+				7689257F516314D63EE064CCD9FB1545 /* Info.plist */,
 			);
-			path = FBSnapshotTestCase;
+			name = "Support Files";
+			path = "GiniSwitchSDK/Example/Pods/Target Support Files/GiniSwitchSDK";
 			sourceTree = "<group>";
 		};
-		2331C6341F1DFF7300F0742E /* Assets */ = {
+		27ACDF54FC484843B2F18598790A7BF3 /* GiniSwitchSDK */ = {
 			isa = PBXGroup;
 			children = (
-				2331C6371F1E005000F0742E /* GiniSwitch.storyboard */,
-				2331C6381F1E005000F0742E /* GiniSwitch.xcassets */,
+				6E9B8DD7FF958714D2302E2C31806993 /* GiniSwitchSDK */,
 			);
-			name = Assets;
+			name = GiniSwitchSDK;
+			path = GiniSwitchSDK;
 			sourceTree = "<group>";
 		};
-		3A161E196FA3A2AF7D5750B7BC7E85DD /* GiniSwitchSDK */ = {
+		32A3632A1D3901C7352D504203161254 /* GiniSwitchSDK */ = {
 			isa = PBXGroup;
 			children = (
-				674839348857B6355C063EDF065EF42B /* Classes */,
-				2331C6341F1DFF7300F0742E /* Assets */,
+				05ABE3F8383D62CDE0F2CE936E753654 /* GiniSwitchSDK */,
 			);
+			name = GiniSwitchSDK;
 			path = GiniSwitchSDK;
 			sourceTree = "<group>";
 		};
@@ -340,116 +267,140 @@
 			path = "Target Support Files/Pods-GiniSwitchSDK_Example";
 			sourceTree = "<group>";
 		};
-		62C5C02DC560D8F8A70C7BC2D5B7E0BF /* GiniSwitchSDK */ = {
+		63070A006717C9CA3ED627D31D6CB2A7 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				3A161E196FA3A2AF7D5750B7BC7E85DD /* GiniSwitchSDK */,
-				DE6D01C323E76700FF82BFCB25A01C3A /* Support Files */,
+				711FF982CEF5AC7E6EDFA6A4EC54FDBB /* GiniSwitch.storyboard */,
+				C25FAB8B92C04963856E78D10274FADC /* GiniSwitch.xcassets */,
 			);
-			name = GiniSwitchSDK;
-			path = ../..;
+			name = Assets;
+			path = Assets;
 			sourceTree = "<group>";
 		};
-		674839348857B6355C063EDF065EF42B /* Classes */ = {
+		6E9B8DD7FF958714D2302E2C31806993 /* GiniSwitchSDK */ = {
 			isa = PBXGroup;
 			children = (
-				FB476520ABD57FFF5DDE649EA819B237 /* AddPageResponse.swift */,
-				F319B7E14C5EA4AEFEFF0A867D2037FF /* Authenticator.swift */,
-				C32053A03089532003F7122A782BAE81 /* BaseApiResponse.swift */,
-				223C9CA44F4479EC50D00C4E18A5C79F /* Camera.swift */,
-				72BC5ADB5DC55589BEE4D859CED1D9A3 /* CameraOptionsViewController.swift */,
-				7A2EF2798A1343CCAF6630BF44982C9A /* CameraPreviewView.swift */,
-				16E17AACCC550B09C1F63C79CB9CB667 /* CameraViewController.swift */,
-				29835CE7720B6C94E7032FA71B866E5C /* CreateOrderResponse.swift */,
-				373C120FBD9752157611E96BCBEC6057 /* CredentialsStore.swift */,
-				2B0804EBE96A8FC8EF9DEAAE673DD09D /* DashOutlineLayer.swift */,
-				D5F964BAF12F6A64ADBF22CBFE2D1C6A /* Error.swift */,
-				23DCD17C1F1F96CE00C5E2C8 /* HumanReadableError.swift */,
-				7CAF85065AAF21C1B67CF241B16A7AEC /* Extraction.swift */,
-				6B6ACAB76464EDB8440CE0AA614AF379 /* ExtractionCollection.swift */,
-				5359BF1C3ACD48415AEFF6A38DC9939F /* ExtractionResources.swift */,
-				018AE165B3DE6EE4E167C16F718C991A /* ExtractionsCompletedViewController.swift */,
-				B7569FF2CB4192D2B97359D397AFA2CF /* ExtractionService.swift */,
-				039027B5C1A65B527A37C354AEC725C8 /* ExtractionsManager.swift */,
-				26343B90E98E5470B487CDA3710D9380 /* ExtractionStatusResponse.swift */,
-				5B5C5D342A356EC8E6CCA270DAC8DCB4 /* ExtractionValue.swift */,
-				81654DA4FB9EE5556AF884E639F70DF0 /* GiniSwitchAnalytics.swift */,
-				A62D1C1E8535C53062E1CC2F2EDD8403 /* GiniSwitchAppearance.swift */,
-				B4B664AC7348910874816291A82F58B6 /* GiniSwitchConfiguration.swift */,
-				E6A59A1588A498030860DD183B46EBA8 /* GiniSwitchConsoleLogger.swift */,
-				BF230215C443D183E9A06046406B2083 /* GiniSwitchLogger.swift */,
-				993EF25D3026D9D0646EB91655A1CD4C /* GiniSwitchNopAnalytics.swift */,
-				8593C4657278E284A378D2032CEF79C0 /* GiniSwitchOnboarding.swift */,
-				FD8D4E7BAC07A3079DF7682747AD863B /* GiniSwitchSdk.swift */,
-				3D9B302F314AD02EFEC9B401381A19F3 /* GiniSwitchSdkStorage.swift */,
-				F3715B0E1CF923A5BF85AA1990DE1231 /* GiniSwitchUserInterface.swift */,
-				FE3FD3D00911818C8BD0817F2F170454 /* ImageMetaInformationManager.swift */,
-				1366721ACEFB627D6D37FA6E668DA845 /* MultiPageCoordinator.swift */,
-				AA4A3B490DFB6DA19BB17F09CA48529E /* MultiPageScanViewController.swift */,
-				E867E3A1D57B1D12364FF1CF0BD78921 /* OnboardingPageViewController.swift */,
-				B190580F24D0A2D3EE9EB047BE9E70C2 /* OnboardingViewController.swift */,
-				4D87B5D334AAC3D5594E58E8A2D47779 /* PageCollection.swift */,
-				59BDD7EBC5480E4896530ED15D05A310 /* PageCollectionViewCell.swift */,
-				1C06C6005746DE5A67CB25F74357F043 /* PagesCollectionViewController.swift */,
-				0D9A7C2A8E42A07F8AB85A68220762F1 /* PagesResponse.swift */,
-				03C92525E45615761A5C450AECE8420C /* PollScheduler.swift */,
-				8610D3618B532ED406270D0DD97E1750 /* PresentationStyle.swift */,
-				44BFABE1064079F890D66C8EDA673E41 /* PreviewViewController.swift */,
-				A1D73779A87FD4C38777CAC456EFAACA /* ResourceError.swift */,
-				C81C7872279A5E553D7D470270F5BA43 /* ReviewViewController.swift */,
-				50C85E9C024CB3DB8FD9C2751CE79C0C /* ScanPage.swift */,
-				89A7103D378EB6863075D0CDB75143EC /* SwitchBackgroundView.swift */,
-				88EBE5055C5F4606427EB8C6CA008E2F /* Token.swift */,
-				72EF334E447CEFA2A88D9FC10BE7FC43 /* TokenUtils.swift */,
-				097B819964660D5A2E824A9BA101B310 /* UIStoryboard+Switch.swift */,
-				B5D5B1B505ED624F121D3FFBD8D4CEC0 /* URL+QueryParameters.swift */,
-				100E9DBA36DE383E2748F9BF928629CA /* User.swift */,
-				F3FFB36BB8633E170553AD613553ACAE /* UserManager.swift */,
-				C93BA62DA582B922AD6026C264501A0C /* WebService.swift */,
+				C36AA17610004F51A3A7E1C8E92871B3 /* Classes */,
 			);
-			path = Classes;
+			name = GiniSwitchSDK;
+			path = GiniSwitchSDK;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				194B9D5B1567FD043D32180B92BC69DE /* Development Pods */,
-				14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */,
-				FBD2D672921284E66F309CA3462F84D6 /* Pods */,
-				8C182A71A582FA819A9358C71DA25E47 /* Products */,
+				19E2A8687D9F8430AEDF9ECF7615B2C6 /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				7DE842D667C3AD778DAEE4621AF646F1 /* Products */,
 				D3DD46ACEFDCBB37DC86B9992EF216DE /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		8C182A71A582FA819A9358C71DA25E47 /* Products */ = {
+		7DE842D667C3AD778DAEE4621AF646F1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8F5B3DD519FB85C558D72EB775023463 /* FBSnapshotTestCase.framework */,
-				6F0B538EA1CC28DE3CB58E7F93F200D9 /* GiniSwitchSDK.framework */,
-				4E837B3527F5EFD836D8F6C7A4376E29 /* Pods_GiniSwitchSDK_Example.framework */,
-				BB6695C84A346D9E786E21F1D4C8AF53 /* Pods_GiniSwitchSDK_Tests.framework */,
+				807F0DA74BD26528B710C54117DB2F99 /* GiniSwitchSDK.framework */,
+				0AC7B2E6227B7FDE7DC1AD2773DE030E /* Pods_GiniSwitchSDK_Example.framework */,
+				C701F1C76E3853BCBD8AC9C9AC6299D8 /* Pods_GiniSwitchSDK_Tests.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8D22B0D091B0427E43C82354D9CA8E06 /* iOS */ = {
+		8F9AB60E08D13492B65EB92F157F0FE9 /* GiniSwitchSDK */ = {
 			isa = PBXGroup;
 			children = (
-				C6E88A450A84E3957158B3B3459740AA /* Foundation.framework */,
-				A27810809BAD71E4022600B21251449F /* QuartzCore.framework */,
-				AA323C90663942983643D7A4D1F697C8 /* UIKit.framework */,
-				3A8F339250A1C3C5C5C5364254007103 /* XCTest.framework */,
+				27ACDF54FC484843B2F18598790A7BF3 /* GiniSwitchSDK */,
+				AA9E14BE3DD72BE1236D2C0F204DCBE5 /* Resources */,
+				1CF81A78B759E9BB0309F086DAD10482 /* Support Files */,
 			);
-			name = iOS;
+			name = GiniSwitchSDK;
+			path = ../../..;
 			sourceTree = "<group>";
 		};
-		99E46DD4AB2256791F111C718CB0EEF8 /* SwiftSupport */ = {
+		AA9E14BE3DD72BE1236D2C0F204DCBE5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D97545C39C4A5EE2631DD9FFECE76A40 /* SwiftSupport.swift */,
+				32A3632A1D3901C7352D504203161254 /* GiniSwitchSDK */,
 			);
-			name = SwiftSupport;
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C36AA17610004F51A3A7E1C8E92871B3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				226DC5B5D668D4BB8D3B95750D965AF5 /* AddPageResponse.swift */,
+				7E2D1D51DDA7BA8B693A22C8AA2310BF /* Authenticator.swift */,
+				85A11DFEAC854B333CEC13A570BEA6FF /* BaseApiResponse.swift */,
+				3E51D79AC5A3745721703F42A7C76722 /* Camera.swift */,
+				E9084333465DB167895BDF0C8C5E7108 /* CameraOptionsViewController.swift */,
+				C7569C8A19BA1551528E02EABECD22D1 /* CameraPreviewView.swift */,
+				4431079AA669EEAB64E82BE2DE704A0F /* CameraViewController.swift */,
+				DBC089CA51FE3AAB37F9D6F9AFF9382F /* CreateOrderResponse.swift */,
+				CD74EF0AAB70743AE03BA11A77A2E90E /* CredentialsStore.swift */,
+				B91F10C34C5C184A2B577E299FEE5648 /* DashOutlineLayer.swift */,
+				785ED907A19DE9479222CD882ACEE602 /* Error.swift */,
+				F2D4DF4AA794D3C5CFDA30B5B601DD42 /* Extraction.swift */,
+				0E242DBA1822918444F06BE010C9EDF5 /* ExtractionCollection.swift */,
+				B9E06E4C2826B286F948D0B81524D225 /* ExtractionResources.swift */,
+				7869FCCEB7B9E3FEF3E4546C37F6658A /* ExtractionsCompletedViewController.swift */,
+				78B065AE268E65017DC3CC99C1BB5D8E /* ExtractionService.swift */,
+				C1D5858C233EF576DE7C9424934E41A0 /* ExtractionsManager.swift */,
+				B17C77B61DA9E5B51629A31B37AA2B3E /* ExtractionStatusResponse.swift */,
+				B6B0856A1F8B57F06E362BA7B95BF71F /* ExtractionValue.swift */,
+				52B15B5965AF3668EB7E80679C5B8C78 /* GiniSwitchAnalytics.swift */,
+				9A9643B00683F5C2A5F775CA97644B34 /* GiniSwitchAppearance.swift */,
+				5AABBA73F0AF6CE9E97788368FEEB29C /* GiniSwitchConfiguration.swift */,
+				2424B973F038582E20870EAC54A18ABB /* GiniSwitchConsoleLogger.swift */,
+				044CE271EE6FBC6B062403C825B6D6D8 /* GiniSwitchLogger.swift */,
+				131F75568089EA4DB8546AAD467BD100 /* GiniSwitchNopAnalytics.swift */,
+				927409559F4BEB06291DD2F2E3839F60 /* GiniSwitchOnboarding.swift */,
+				3279B5206923A222EA13C17925C04CBA /* GiniSwitchSdk.swift */,
+				28CE3CAA655B2D1191C4A16A64CB8CD9 /* GiniSwitchSdkStorage.swift */,
+				4C064540E072D16CF38336888E376C46 /* GiniSwitchUserInterface.swift */,
+				0936F454753BA68C3B280BCB3718EF49 /* HumanReadableError.swift */,
+				A07CB4202E00EE7B39BB956DD14C1E98 /* ImageMetaInformationManager.swift */,
+				8623CA4B620FE732CF32F2E0E60CF5BB /* MultiPageCoordinator.swift */,
+				ADE73DE58938D198EE5F38D660CE5A22 /* MultiPageScanViewController.swift */,
+				431E1A5886A446250FB6217EF707F932 /* OnboardingPageViewController.swift */,
+				001E46407492564BE83FD0D0046BC2FC /* OnboardingViewController.swift */,
+				A64425B27D2A3914A5F1553C6D838F47 /* PageCollection.swift */,
+				6AC9A59DA31C5DE9D9FEAAFC580424D6 /* PageCollectionViewCell.swift */,
+				DF31472ECE53613B48B939DF892241A3 /* PagesCollectionViewController.swift */,
+				30F96676315886B107AA14C0D0BCAD57 /* PagesResponse.swift */,
+				9E913A7BBEA71CC4467BF44EA7BF71AB /* PollScheduler.swift */,
+				DB42B3CC706FB10ECE5A2AAC623063CE /* PresentationStyle.swift */,
+				C35699ABBC533582789BD79C52B96CD7 /* PreviewViewController.swift */,
+				A108FF32FE936C6AFB8C27E22465E683 /* ResourceError.swift */,
+				CF0F62FCF52274790A8F568524B0A234 /* ReviewViewController.swift */,
+				C83BA3273611644B905E58CC3E83A1EA /* ScanPage.swift */,
+				EEAF8368D7E14ED2436422EC0615757F /* SwitchBackgroundView.swift */,
+				D36D360BEFD5904DD4F192013F13AC70 /* Token.swift */,
+				0105EEEFECF79A719028575C007181EC /* TokenUtils.swift */,
+				4E4F77EE1B15CF1F2970586F186AF633 /* UIStoryboard+Switch.swift */,
+				77BB32E4F58E0B65DC5AD64061D798DF /* URL+QueryParameters.swift */,
+				3FBB50E5295781D058B3C4EDA17CEB4D /* User.swift */,
+				1FD9B681B00A40ADBF06D858FD2E433D /* UserManager.swift */,
+				183F841A44F096404D0D4405C380A8ED /* WebService.swift */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		D3DD46ACEFDCBB37DC86B9992EF216DE /* Targets Support Files */ = {
@@ -459,20 +410,6 @@
 				E644DA5A6576B89BF63B8450A45D4930 /* Pods-GiniSwitchSDK_Tests */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		DE6D01C323E76700FF82BFCB25A01C3A /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				CEC2B307CA252AFE8FFC7BF10BB33DBB /* GiniSwitchSDK.modulemap */,
-				D2556DBF8E5FBABD5571311FB873D094 /* GiniSwitchSDK.xcconfig */,
-				18E53BA4820B836ACC66C773B43FCA63 /* GiniSwitchSDK-dummy.m */,
-				4C0507DAB540D4833818460FC2038AE8 /* GiniSwitchSDK-prefix.pch */,
-				B3A1FB02D1DA3AF74B7A5717DAB1DBD6 /* GiniSwitchSDK-umbrella.h */,
-				7A83D3749630EAC55FAF06D593032406 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/GiniSwitchSDK";
 			sourceTree = "<group>";
 		};
 		E644DA5A6576B89BF63B8450A45D4930 /* Pods-GiniSwitchSDK_Tests */ = {
@@ -493,43 +430,22 @@
 			path = "Target Support Files/Pods-GiniSwitchSDK_Tests";
 			sourceTree = "<group>";
 		};
-		F35791481CAFDD8E7715AE1B44687328 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				E37899BD4B349060AA147E2A3721D3A2 /* FBSnapshotTestCase.h */,
-				39577E2B806B8B2D019998DE60728F63 /* FBSnapshotTestCase.m */,
-				7E3DB4D092B985E76E227F7F313C6981 /* FBSnapshotTestCasePlatform.h */,
-				58A2557E7CE20AACCD1B28B1CD1F920D /* FBSnapshotTestCasePlatform.m */,
-				1374B79237CAC07693E99442FBED1F15 /* FBSnapshotTestController.h */,
-				052258A488A96C35531FAC73C4F42924 /* FBSnapshotTestController.m */,
-				B9109B8B333B5A1A3E92EFC09EDC10AC /* UIApplication+StrictKeyWindow.h */,
-				2EECE81A9AEC1ED1057A9C3C88DBCEBE /* UIApplication+StrictKeyWindow.m */,
-				432938111B6FF0189EFFEDF2F845B308 /* UIImage+Compare.h */,
-				3B5E22F9517F21D3A0251F88FCAB281E /* UIImage+Compare.m */,
-				85E250EF19C5B5671AEC10BEB508D087 /* UIImage+Diff.h */,
-				B9CEF7D6C5E08AB80E58DABC75D882BC /* UIImage+Diff.m */,
-				0B161931541BFE46DFEA2092EDDDA815 /* UIImage+Snapshot.h */,
-				3DBFBDCC891B770A2AC9EF0FB164B751 /* UIImage+Snapshot.m */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
-		FBD2D672921284E66F309CA3462F84D6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2287B5EBEAA3C332F8DB9A1E61F5B097 /* FBSnapshotTestCase */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2A563A2FE944929507EC10E4BDAE0394 /* Headers */ = {
+		1079930ECF6A479663569358113FBB45 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6743D516587E460C853D03E92FB0492C /* GiniSwitchSDK-umbrella.h in Headers */,
+				52E5B884461D7CCF756330EB2D400622 /* GiniSwitchSDK-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2613E14EBCE57E5320B805CA9A086B5F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C71DEAEEF5F75A1B0388C682FE7C113B /* Pods-GiniSwitchSDK_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,65 +457,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9DC6F5AC11E37A1EB45C6473C9E800B6 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B758FB09FE2C06C1B8E36A71A9D76D41 /* FBSnapshotTestCase-umbrella.h in Headers */,
-				9673CF780F48C8E4EC2A331717B1F67C /* FBSnapshotTestCase.h in Headers */,
-				BFCE460CC33E8872B7156D4166340178 /* FBSnapshotTestCasePlatform.h in Headers */,
-				2F485B69F51E4F723A38410F31F08550 /* FBSnapshotTestController.h in Headers */,
-				BC952FC04FC963C1294DCD619C9B6B3B /* UIApplication+StrictKeyWindow.h in Headers */,
-				CAFA5E486BCE117A7D8C0FBF9DA6666B /* UIImage+Compare.h in Headers */,
-				051A816D6DD0CAE13496DDCFE0829167 /* UIImage+Diff.h in Headers */,
-				421CDD701AEE0F2458A84200366CDD0F /* UIImage+Snapshot.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B988AA6974BDB0FF1DB0979E12EE4F11 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5690933EF01E583E7995AEF2CF60AD62 /* Pods-GiniSwitchSDK_Tests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		302B20F404379E7E83DCE158B243546F /* Pods-GiniSwitchSDK_Tests */ = {
+		993B4F686DB37FE3E71BE63BA751CA0B /* Pods-GiniSwitchSDK_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BAC96CCC2A99A7D0C51DD6548B73CA0C /* Build configuration list for PBXNativeTarget "Pods-GiniSwitchSDK_Tests" */;
+			buildConfigurationList = 627C53E81A5B4BA988E0A58FC5D8C001 /* Build configuration list for PBXNativeTarget "Pods-GiniSwitchSDK_Tests" */;
 			buildPhases = (
-				9F1DD7D57903AF462B05FA97649395E5 /* Sources */,
-				81067B96F3EA8CF8B74099CDA629BF97 /* Frameworks */,
-				B988AA6974BDB0FF1DB0979E12EE4F11 /* Headers */,
+				1C5F93947ACCEA90EED44E48BE4283B6 /* Sources */,
+				B7EB9BAF00B7A786BF1135D946B3E691 /* Frameworks */,
+				2613E14EBCE57E5320B805CA9A086B5F /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				69B773BF38B97620F409AEAD91D9E2AD /* PBXTargetDependency */,
 			);
 			name = "Pods-GiniSwitchSDK_Tests";
 			productName = "Pods-GiniSwitchSDK_Tests";
-			productReference = BB6695C84A346D9E786E21F1D4C8AF53 /* Pods_GiniSwitchSDK_Tests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		34CD2E3428AB802BACA62286FF5074B1 /* FBSnapshotTestCase */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F28097D43AF5CD8DA838ABD52A053790 /* Build configuration list for PBXNativeTarget "FBSnapshotTestCase" */;
-			buildPhases = (
-				E2E80CCD063D04B57A1A5E140726E8A4 /* Sources */,
-				1D421A30A1BDB7E1C4216F64D0C939B1 /* Frameworks */,
-				9DC6F5AC11E37A1EB45C6473C9E800B6 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = FBSnapshotTestCase;
-			productName = FBSnapshotTestCase;
-			productReference = 8F5B3DD519FB85C558D72EB775023463 /* FBSnapshotTestCase.framework */;
+			productReference = C701F1C76E3853BCBD8AC9C9AC6299D8 /* Pods_GiniSwitchSDK_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		A9097A434C366F5E11FCC72E1B553AD9 /* Pods-GiniSwitchSDK_Example */ = {
@@ -617,17 +492,17 @@
 			);
 			name = "Pods-GiniSwitchSDK_Example";
 			productName = "Pods-GiniSwitchSDK_Example";
-			productReference = 4E837B3527F5EFD836D8F6C7A4376E29 /* Pods_GiniSwitchSDK_Example.framework */;
+			productReference = 0AC7B2E6227B7FDE7DC1AD2773DE030E /* Pods_GiniSwitchSDK_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		C6C30BD9CCFAA8105E8F275E8D4F9291 /* GiniSwitchSDK */ = {
+		B06A543A31444980D0B99AD9FF6120EE /* GiniSwitchSDK */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 11759AA848F2F545D96C42F90E1F922A /* Build configuration list for PBXNativeTarget "GiniSwitchSDK" */;
+			buildConfigurationList = 81C39FA1D8CB1D8760C263CBE2650BA2 /* Build configuration list for PBXNativeTarget "GiniSwitchSDK" */;
 			buildPhases = (
-				EAE5B0BDB5D209C7D1C31FAC45B02E69 /* Sources */,
-				5B399E0F401FCCCB77C1F431C8EA23C9 /* Frameworks */,
-				2A563A2FE944929507EC10E4BDAE0394 /* Headers */,
-				2331C6391F1E009700F0742E /* Resources */,
+				DB75FD3F7C3AC275061C17C1CA7DB13F /* Sources */,
+				B853C3B184A942ACB490D6EAD3A99797 /* Frameworks */,
+				5018037E514535E4DBCCD8E668B51B42 /* Resources */,
+				1079930ECF6A479663569358113FBB45 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -635,7 +510,7 @@
 			);
 			name = GiniSwitchSDK;
 			productName = GiniSwitchSDK;
-			productReference = 6F0B538EA1CC28DE3CB58E7F93F200D9 /* GiniSwitchSDK.framework */;
+			productReference = 807F0DA74BD26528B710C54117DB2F99 /* GiniSwitchSDK.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -655,36 +530,35 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 8C182A71A582FA819A9358C71DA25E47 /* Products */;
+			productRefGroup = 7DE842D667C3AD778DAEE4621AF646F1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				34CD2E3428AB802BACA62286FF5074B1 /* FBSnapshotTestCase */,
-				C6C30BD9CCFAA8105E8F275E8D4F9291 /* GiniSwitchSDK */,
+				B06A543A31444980D0B99AD9FF6120EE /* GiniSwitchSDK */,
 				A9097A434C366F5E11FCC72E1B553AD9 /* Pods-GiniSwitchSDK_Example */,
-				302B20F404379E7E83DCE158B243546F /* Pods-GiniSwitchSDK_Tests */,
+				993B4F686DB37FE3E71BE63BA751CA0B /* Pods-GiniSwitchSDK_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2331C6391F1E009700F0742E /* Resources */ = {
+		5018037E514535E4DBCCD8E668B51B42 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2331C63A1F1E00B200F0742E /* GiniSwitch.storyboard in Resources */,
-				2331C63B1F1E00B200F0742E /* GiniSwitch.xcassets in Resources */,
+				9F611551F1EA4C2AAA3C1A68E0F06447 /* GiniSwitch.storyboard in Resources */,
+				5D08AE1579C832662CC88DA8C47E3DC3 /* GiniSwitch.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9F1DD7D57903AF462B05FA97649395E5 /* Sources */ = {
+		1C5F93947ACCEA90EED44E48BE4283B6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDE568E7A3003B876F19648AECD77474 /* Pods-GiniSwitchSDK_Tests-dummy.m in Sources */,
+				AEAF0BC4E19E9FAA2B830F0415943F0A /* Pods-GiniSwitchSDK_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,80 +570,64 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E2E80CCD063D04B57A1A5E140726E8A4 /* Sources */ = {
+		DB75FD3F7C3AC275061C17C1CA7DB13F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				506D761F91EC3583789A837C559972FE /* FBSnapshotTestCase-dummy.m in Sources */,
-				BE14F2198CDB0DAD98A567981D21C7A1 /* FBSnapshotTestCase.m in Sources */,
-				DB7A106243AC974FC7EBEB00B506C786 /* FBSnapshotTestCasePlatform.m in Sources */,
-				A4F69F3477A935285620AC3031C5C848 /* FBSnapshotTestController.m in Sources */,
-				1AB7934C16CE49DE196FFC7BE7278287 /* SwiftSupport.swift in Sources */,
-				094973D2D2F1E3B2E772F93C8147C6B9 /* UIApplication+StrictKeyWindow.m in Sources */,
-				69DA8B003216466C60F029CBD79897F1 /* UIImage+Compare.m in Sources */,
-				35DD05FD595A6FE7F5A0692D12E319DC /* UIImage+Diff.m in Sources */,
-				756564ABAF2892FE7140C92A1CDDCF65 /* UIImage+Snapshot.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EAE5B0BDB5D209C7D1C31FAC45B02E69 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				336C41A7AAEB845E0AD362406CC8B6AA /* AddPageResponse.swift in Sources */,
-				C839BD8EAE49B7615E5F0D7BE1DC8B79 /* Authenticator.swift in Sources */,
-				CAB4A92E164C8607CBD592D9CAEA51DB /* BaseApiResponse.swift in Sources */,
-				73BDDA8594097F1A335A0EBD09D33018 /* Camera.swift in Sources */,
-				4C2C251C80D2A825D11A4A05D1CCA3D6 /* CameraOptionsViewController.swift in Sources */,
-				C69239EDA103101AF155863CA90520ED /* CameraPreviewView.swift in Sources */,
-				BA424B2EB5381B542F9E95361FBECB5D /* CameraViewController.swift in Sources */,
-				76DF60C3E2CEB3E00F1EBE10099A3A00 /* CreateOrderResponse.swift in Sources */,
-				D5B20615CCC6F49992A462325B8A5107 /* CredentialsStore.swift in Sources */,
-				15F9AEED81E52221340CBB8940113E06 /* DashOutlineLayer.swift in Sources */,
-				7B629CF6743EB08E98D2DAED93769DEB /* Error.swift in Sources */,
-				C845DBE9A8FE508E03538C355B6C2AEB /* Extraction.swift in Sources */,
-				1C7B704295C54138A69F5754E497E0BA /* ExtractionCollection.swift in Sources */,
-				017FEBA85D9851788DA1BBF2FBE13AF8 /* ExtractionResources.swift in Sources */,
-				8255DEC834ADB8780FB95FC84933ADFE /* ExtractionsCompletedViewController.swift in Sources */,
-				7E8D2131730D87E3F5DCF11D278390D6 /* ExtractionService.swift in Sources */,
-				5E96D7B2ECD48DCEF8B434E4B5A84B73 /* ExtractionsManager.swift in Sources */,
-				6E21D745F7659D5CA501F998EC9CEEE7 /* ExtractionStatusResponse.swift in Sources */,
-				22E72C99CDE7E617B07B09CB5D7BE7DE /* ExtractionValue.swift in Sources */,
-				40A4B66481BF0894DA30AB07D5CE3D16 /* GiniSwitchAnalytics.swift in Sources */,
-				1973FD3A4592EF3C7D940B6250112DDD /* GiniSwitchAppearance.swift in Sources */,
-				4E70BF80ADB1218A43EFD7F05281B8BE /* GiniSwitchConfiguration.swift in Sources */,
-				29C01E67B91BDAB236D1B8644882C709 /* GiniSwitchConsoleLogger.swift in Sources */,
-				CE3862DCE00E1CB1B359DCEBEE5C5B61 /* GiniSwitchLogger.swift in Sources */,
-				27CE7B2C3605AD911BDD5ED9189A05A7 /* GiniSwitchNopAnalytics.swift in Sources */,
-				34339526F246F21178652730A3D81C1E /* GiniSwitchOnboarding.swift in Sources */,
-				1E0BFFEF0D7E63AE9BE13DC3F1BF6F1C /* GiniSwitchSDK-dummy.m in Sources */,
-				1CC9F97E669B94F2A42FFA2854A45BFB /* GiniSwitchSdk.swift in Sources */,
-				50C712F9BBF7792FF762C47631649B6A /* GiniSwitchSdkStorage.swift in Sources */,
-				ED7ECE6C99054537BF647A0C2B976A87 /* GiniSwitchUserInterface.swift in Sources */,
-				3E936EB52DF5A4CC36A81D9A61818E7C /* ImageMetaInformationManager.swift in Sources */,
-				3E35EAC2EE6C84B190C5E9ECC46463D8 /* MultiPageCoordinator.swift in Sources */,
-				285874803E80C0D425673A69E71CAF0A /* MultiPageScanViewController.swift in Sources */,
-				5EEACC15D1410D9D24660CC314DAA084 /* OnboardingPageViewController.swift in Sources */,
-				BEA598238C97D7D21F3E444A0B77D5FD /* OnboardingViewController.swift in Sources */,
-				A9E1EE4E520BF77FA73B8C459A39A0B8 /* PageCollection.swift in Sources */,
-				23DCD17D1F1F96CE00C5E2C8 /* HumanReadableError.swift in Sources */,
-				76814CAC84BB100DE0E6E77042B3D432 /* PageCollectionViewCell.swift in Sources */,
-				5F3C458AB0F704332C9976730A267DFB /* PagesCollectionViewController.swift in Sources */,
-				1D3FB1C940FFB76CC88A6EAC6CD854A5 /* PagesResponse.swift in Sources */,
-				F54A7140656F6BCAA9ACFF1B56DDFDE8 /* PollScheduler.swift in Sources */,
-				3F0F035C75BBE801E5F98B547655444D /* PresentationStyle.swift in Sources */,
-				C1194DC354CBC753D0A72CB61BB1AE07 /* PreviewViewController.swift in Sources */,
-				6CDC33ED4F7896A38C83C9D64FE1BE6E /* ResourceError.swift in Sources */,
-				48A8E90D593322EB328880B95BC5D320 /* ReviewViewController.swift in Sources */,
-				8DFE19B4931E3B61A81EBE0E6CA6306F /* ScanPage.swift in Sources */,
-				9ED7553557B8F45A10DD6FEF635A40CF /* SwitchBackgroundView.swift in Sources */,
-				FF640B8887588F46003849E011C19355 /* Token.swift in Sources */,
-				CD5D5D29E648ABFF7A1826DB64626F0F /* TokenUtils.swift in Sources */,
-				DBB434A7C95601A100FEEE47BFA0B1D6 /* UIStoryboard+Switch.swift in Sources */,
-				6DC834295E8ACDF91C69C937E5512D84 /* URL+QueryParameters.swift in Sources */,
-				5C3A9C585C768508BA43A0C39E801B0D /* User.swift in Sources */,
-				917A6C3D4D3FD67B050F0DE824062857 /* UserManager.swift in Sources */,
-				DF3FBD41C077A1D87305E1CC599BDB96 /* WebService.swift in Sources */,
+				9AC97405355BAF130309F7FB162006B8 /* AddPageResponse.swift in Sources */,
+				5B4EDE352375F6F0992277E59780FAA9 /* Authenticator.swift in Sources */,
+				A212A1F4BE680D3B096768CFAA54EF53 /* BaseApiResponse.swift in Sources */,
+				526D850918B924F3DC63A7860DA511F8 /* Camera.swift in Sources */,
+				C204623ACB79F6F255BEF0FA08487C69 /* CameraOptionsViewController.swift in Sources */,
+				AC0FF394C41561AE2A3DAC4320950C6D /* CameraPreviewView.swift in Sources */,
+				2CB91DA7761AD9ED7E7119138F28419C /* CameraViewController.swift in Sources */,
+				9E51B39E140209B7E1EB8CE6AD158FED /* CreateOrderResponse.swift in Sources */,
+				80BDCB7CBF1FB6144A7630EC805E9627 /* CredentialsStore.swift in Sources */,
+				0F05B86574E2D80F2075F758703B7189 /* DashOutlineLayer.swift in Sources */,
+				689E40D2A0FAD89D003B9766B1B99C13 /* Error.swift in Sources */,
+				CB7D34028346C85DCB8F0EC2A520601D /* Extraction.swift in Sources */,
+				A6CBC8D7CD89D8DE97962BD32E3B7EAA /* ExtractionCollection.swift in Sources */,
+				0E3C65D1B3CA996776B82566AF31C468 /* ExtractionResources.swift in Sources */,
+				611B49A2174E53B90FDF61DC5C445CF6 /* ExtractionsCompletedViewController.swift in Sources */,
+				E5034F7A4F2DE0BA6749139E40FC6D16 /* ExtractionService.swift in Sources */,
+				61E4BCB8BBC61A923EBBE2DD3642E37A /* ExtractionsManager.swift in Sources */,
+				C947C8023EC1FF94E432513F8F686D71 /* ExtractionStatusResponse.swift in Sources */,
+				DEBC04C059D89A3DB3A63C41C0316107 /* ExtractionValue.swift in Sources */,
+				69B132AF8144A4105735D41B7AA7B55A /* GiniSwitchAnalytics.swift in Sources */,
+				99EC3FF8A53D6A7DB62DC61E22D538F4 /* GiniSwitchAppearance.swift in Sources */,
+				1C53382013F463B52E345C84E029CF85 /* GiniSwitchConfiguration.swift in Sources */,
+				E7347A33CC7A965EF5187867B7FDBC2B /* GiniSwitchConsoleLogger.swift in Sources */,
+				45FD9CE25FB0163E8BDC647CDA9EEB6B /* GiniSwitchLogger.swift in Sources */,
+				80B2B5963D6C4297AA7C45F89E84D52B /* GiniSwitchNopAnalytics.swift in Sources */,
+				FA6DDCBC331BDF11040C3D681C78D3A9 /* GiniSwitchOnboarding.swift in Sources */,
+				D546A0730CA7960E8AAB5D53DF673F6E /* GiniSwitchSDK-dummy.m in Sources */,
+				677A059B87544EDA068C279A19BE61E3 /* GiniSwitchSdk.swift in Sources */,
+				50C4D8C7A8868F651E48CB4F5D9CE751 /* GiniSwitchSdkStorage.swift in Sources */,
+				321F920A6AB10E5AA020A83639410A54 /* GiniSwitchUserInterface.swift in Sources */,
+				05187E97B8DEC2F3F68FC171041EB26A /* HumanReadableError.swift in Sources */,
+				D2C9A5E37A21A8E235D9251F4B07180E /* ImageMetaInformationManager.swift in Sources */,
+				0D580E4E34230520CB24133188027D63 /* MultiPageCoordinator.swift in Sources */,
+				E4597874508DC9ADEFBA11C8EF6887E7 /* MultiPageScanViewController.swift in Sources */,
+				A64D6257E8CA21942706A128D11EE303 /* OnboardingPageViewController.swift in Sources */,
+				A1733DB46C85CB40531070EDB00B38CA /* OnboardingViewController.swift in Sources */,
+				BE49F9CC93701B9733E62BB50BA06F9B /* PageCollection.swift in Sources */,
+				A75B2206E015EB7C91F862BE326AC18F /* PageCollectionViewCell.swift in Sources */,
+				AE67481A5C122DD5E5F7F019BBE86A1B /* PagesCollectionViewController.swift in Sources */,
+				1061D687E53D14F864248E65D6659537 /* PagesResponse.swift in Sources */,
+				C6114E9A302913620DB48A5FAE3825F9 /* PollScheduler.swift in Sources */,
+				B09B63AB29CEB2728D2E3003C06183A1 /* PresentationStyle.swift in Sources */,
+				DEA87F0DE69451B569271679483A7E81 /* PreviewViewController.swift in Sources */,
+				62A7625DC06964699905BD3E24C9ABE6 /* ResourceError.swift in Sources */,
+				1E31D4170DA581B71544DD153A0B77D8 /* ReviewViewController.swift in Sources */,
+				C02AADA91771F5673283B5CB63CB85DC /* ScanPage.swift in Sources */,
+				7A18B9229986974DA5E68099B88AF7A9 /* SwitchBackgroundView.swift in Sources */,
+				1432832636F9CA554358B7BB53908BC4 /* Token.swift in Sources */,
+				14AC81C69F680A6304023F3997F96660 /* TokenUtils.swift in Sources */,
+				8C7D3978C7CAD90E8F858F822B6A41A9 /* UIStoryboard+Switch.swift in Sources */,
+				80A2A6F68129890889E6DBA139AA06A9 /* URL+QueryParameters.swift in Sources */,
+				973FCD8C3D413043A8FC4B69D2F02D62 /* User.swift in Sources */,
+				E3758E764C8DB35E9177855981D17B91 /* UserManager.swift in Sources */,
+				CDB21DFE09754843E17284B43B545990 /* WebService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -779,14 +637,8 @@
 		0BC6D85E014F2F84DB780B11A76C1CC3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GiniSwitchSDK;
-			target = C6C30BD9CCFAA8105E8F275E8D4F9291 /* GiniSwitchSDK */;
+			target = B06A543A31444980D0B99AD9FF6120EE /* GiniSwitchSDK */;
 			targetProxy = BA616C5B7C0F17B596132CDD48A96B84 /* PBXContainerItemProxy */;
-		};
-		69B773BF38B97620F409AEAD91D9E2AD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = FBSnapshotTestCase;
-			target = 34CD2E3428AB802BACA62286FF5074B1 /* FBSnapshotTestCase */;
-			targetProxy = BCE081F91A70C48562F6E909308E50E4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -877,50 +729,16 @@
 			};
 			name = Debug;
 		};
-		4DB4223650321CD21B6A035A9BEECEA5 /* Release */ = {
+		39D7CF8D437A2790399982B71095BBD0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2556DBF8E5FBABD5571311FB873D094 /* GiniSwitchSDK.xcconfig */;
+			baseConfigurationReference = BDF9DCB9ED701084ECD951F2685E407F /* Pods-GiniSwitchSDK_Tests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/GiniSwitchSDK/GiniSwitchSDK-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/GiniSwitchSDK/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/GiniSwitchSDK/GiniSwitchSDK.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = GiniSwitchSDK;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		65F0B6DB2EC1EE128D508874E312DB71 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29633F7FB62129047199811E75F7A628 /* Pods-GiniSwitchSDK_Tests.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -933,7 +751,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-GiniSwitchSDK_Tests/Pods-GiniSwitchSDK_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -941,13 +759,11 @@
 				PRODUCT_NAME = Pods_GiniSwitchSDK_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		717E77604BFBB04BEAF56608A1CB2EDE /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -993,6 +809,40 @@
 			};
 			name = Release;
 		};
+		8251D649A416134637AFC09BDE33E487 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94D7580F3505D701B5BF723762CD40B0 /* GiniSwitchSDK.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/GiniSwitchSDK/GiniSwitchSDK-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GiniSwitchSDK/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/GiniSwitchSDK/GiniSwitchSDK.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = GiniSwitchSDK;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		86414C05946D21E98107872690D56C42 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0EACE7B5A41679C263D6475CC7F0B96A /* Pods-GiniSwitchSDK_Example.debug.xcconfig */;
@@ -1032,51 +882,16 @@
 			};
 			name = Debug;
 		};
-		BD5CB3691FE92843589F6AF6BCC8DFD5 /* Debug */ = {
+		E77CDC2A75D9A1BD75607092AC4CA09D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DADAF30F2D84FDAAD2ADD2D50C1F40DF /* FBSnapshotTestCase.xcconfig */;
+			baseConfigurationReference = 29633F7FB62129047199811E75F7A628 /* Pods-GiniSwitchSDK_Tests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/FBSnapshotTestCase/FBSnapshotTestCase-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FBSnapshotTestCase/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FBSnapshotTestCase/FBSnapshotTestCase.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = FBSnapshotTestCase;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		D6D7410A7D7EC1CF066C5F781B582707 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BDF9DCB9ED701084ECD951F2685E407F /* Pods-GiniSwitchSDK_Tests.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1089,7 +904,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-GiniSwitchSDK_Tests/Pods-GiniSwitchSDK_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -1097,18 +912,15 @@
 				PRODUCT_NAME = Pods_GiniSwitchSDK_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
-		EFC077625851EB80A137A2DA343F784F /* Debug */ = {
+		FE8EBEE41E9F800B9B0794410354F30B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2556DBF8E5FBABD5571311FB873D094 /* GiniSwitchSDK.xcconfig */;
+			baseConfigurationReference = 94D7580F3505D701B5BF723762CD40B0 /* GiniSwitchSDK.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1141,52 +953,9 @@
 			};
 			name = Debug;
 		};
-		F6DBA53A4511720174B84279A5CEB561 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DADAF30F2D84FDAAD2ADD2D50C1F40DF /* FBSnapshotTestCase.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/FBSnapshotTestCase/FBSnapshotTestCase-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FBSnapshotTestCase/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FBSnapshotTestCase/FBSnapshotTestCase.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = FBSnapshotTestCase;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		11759AA848F2F545D96C42F90E1F922A /* Build configuration list for PBXNativeTarget "GiniSwitchSDK" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EFC077625851EB80A137A2DA343F784F /* Debug */,
-				4DB4223650321CD21B6A035A9BEECEA5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1196,29 +965,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		627C53E81A5B4BA988E0A58FC5D8C001 /* Build configuration list for PBXNativeTarget "Pods-GiniSwitchSDK_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39D7CF8D437A2790399982B71095BBD0 /* Debug */,
+				E77CDC2A75D9A1BD75607092AC4CA09D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81C39FA1D8CB1D8760C263CBE2650BA2 /* Build configuration list for PBXNativeTarget "GiniSwitchSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE8EBEE41E9F800B9B0794410354F30B /* Debug */,
+				8251D649A416134637AFC09BDE33E487 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AFA6201262DA6D96641A43DC6D14A72A /* Build configuration list for PBXNativeTarget "Pods-GiniSwitchSDK_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				86414C05946D21E98107872690D56C42 /* Debug */,
 				22AC915AD495F9C1C7D603E7AF2AA63A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BAC96CCC2A99A7D0C51DD6548B73CA0C /* Build configuration list for PBXNativeTarget "Pods-GiniSwitchSDK_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D6D7410A7D7EC1CF066C5F781B582707 /* Debug */,
-				65F0B6DB2EC1EE128D508874E312DB71 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F28097D43AF5CD8DA838ABD52A053790 /* Build configuration list for PBXNativeTarget "FBSnapshotTestCase" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BD5CB3691FE92843589F6AF6BCC8DFD5 /* Debug */,
-				F6DBA53A4511720174B84279A5CEB561 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
