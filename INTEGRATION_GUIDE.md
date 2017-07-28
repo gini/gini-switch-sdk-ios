@@ -50,10 +50,12 @@ This is the simplest way to instantiate and show the Switch SDK.
 
 ```swift
 self.dismiss(animated: true, completion: nil)
+switchController = nil
+sdk?.terminate()
 sdk = nil
 ```
 
-Just dismiss the view controller you got from the `sdk.instantiateSwitchViewController()` and discard the `GiniSwitchSdk` instance. ARC will take care of the rest.
+Just dismiss the view controller you got from the `sdk.instantiateSwitchViewController()`, terminate and discard the `GiniSwitchSdk` instance. ARC will take care of the rest.
 
 ### Receiving information from the Switch SDK
 
