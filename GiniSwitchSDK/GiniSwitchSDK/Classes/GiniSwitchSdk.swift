@@ -47,19 +47,9 @@ public class GiniSwitchSdk {
     }
     
     /*
-     * Creates an empty GiniSwitchSdk instance. Mostly shouldn't be used. Use
-     * `init(clientId: String, clientSecret: String, domain: String)` instead
-     */
-    public init() {
-        clientId = ""
-        clientSecret = ""
-        clientDomain = ""
-    }
-    
-    /*
      * Creates a GiniSwitchSdk instance based on the provided credentials
      */
-    public init(clientId: String, clientSecret: String, domain: String) {
+    public init(clientId: String = "", clientSecret: String = "", domain: String = "") {
         self.clientId = clientId
         self.clientSecret = clientSecret
         self.clientDomain = domain
