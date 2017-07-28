@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'GiniSwitchSDK'
-  s.version          = '0.6.0'
+  s.version          = '0.9.0'
   s.summary          = 'SDK for scanning and analysing german electricity bills'
 
   s.description      = <<-DESC
