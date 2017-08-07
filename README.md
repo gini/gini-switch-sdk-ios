@@ -88,7 +88,11 @@ Use this header in an Objective-C project by adding
 
 to your implementation or header files. Note that spaces in your project name result in underscores. So `Your Project` becomes `Your_Project-Swift.h`.
 
-## Branches
+### Contribution and Individual Changes
+
+ If you discover ways of improving our SDK we would be more than happy if you let us know e.g. by creating an issue here on Github or creating a pull request.
+
+ Please note that if you are using our SDK together with our API (under a licensed contract), only our official SDK versions are supported. Unfortunately we cannot support your individual changes.
 
 ## License
 
