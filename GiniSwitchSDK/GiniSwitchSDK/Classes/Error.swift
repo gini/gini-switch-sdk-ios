@@ -25,6 +25,7 @@ enum GiniSwitchErrorCode:Int {
     case pageReplaceError
     case extractionsError
     case pageStatusError
+    case feedbackError
 }
 
 extension NSError {

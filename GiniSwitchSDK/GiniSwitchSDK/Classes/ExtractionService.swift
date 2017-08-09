@@ -14,6 +14,7 @@ typealias ExtractionServiceOrderCallback = (_ url:String?, _ error:Error?) -> Vo
 typealias ExtractionServicePageCallback = (_ id:String?, _ error:Error?) -> Void
 typealias ExtractionServiceStatusCallback = (_ status:ExtractionStatusResponse?, _ error:Error?) -> Void    // TODO: should ExtractionStatusResponse be exposed?
 typealias ExtractionServiceExtractionsCallback = (_ collection:ExtractionCollection?, _ error:Error?) -> Void
+typealias ExtractionServiceFeedbackCallback = (_ error:Error?) -> Void
 
 class ExtractionService {
     
@@ -86,6 +87,16 @@ class ExtractionService {
         }
         resourceLoader.load(resource: resources.extractionsFor(orderUrl: order)) { (collection, error) in
             completion(collection, error)
+        }
+    }
+    
+    func sendFeedback(original:ExtractionCollection, feedback:ExtractionCollection, completion:@escaping ExtractionServiceFeedbackCallback) {
+        guard let order = orderUrl else {
+            // no extraction order anymore
+            return
+        }
+        resourceLoader.load(resource: resources.feebackFor(orderUrl: order, extractions: original, feedback: feedback)) { (response, error) in
+            completion(error)
         }
     }
 

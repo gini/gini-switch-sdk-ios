@@ -83,6 +83,10 @@ extension SwitchExampleViewController: GiniSwitchSdkDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
+    func switchSdkDidSendFeedback(sdk:GiniSwitchSdk) {
+        
+    }
+    
 }
 
 extension SwitchExampleViewController: ExtractionsViewControllerDelegate {

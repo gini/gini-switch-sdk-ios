@@ -118,4 +118,16 @@ class ExtractionResources {
             return pageResponse
         })
     }
+    
+    func feebackFor(orderUrl:String, extractions:ExtractionCollection, feedback:ExtractionCollection) -> Resource<FeedbackResponse> {
+        var fullUrl = URL(string:orderUrl)!
+        fullUrl = fullUrl.appendingPathComponent(extractionsExtension)
+        let authHeaders = Token.bearerAuthHeadersDictWith(token: token)
+        let body = ExtractionCollection.feedbackJsonFor(feedback: feedback, original: extractions)
+        return Resource<FeedbackResponse>(url: fullUrl, headers: authHeaders, method: "PUT", body: body, parseJSON: { (json) -> FeedbackResponse? in
+            guard let feedbackDict = json as? JSONDictionary else { return nil }
+            let feedbackResponse = FeedbackResponse(dict:feedbackDict)
+            return feedbackResponse
+        })
+    }
 }

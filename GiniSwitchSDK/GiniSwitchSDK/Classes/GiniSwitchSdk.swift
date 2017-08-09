@@ -19,6 +19,7 @@ public protocol GiniSwitchSdkDelegate: class {
     func switchSdk(sdk:GiniSwitchSdk, didExtractInfo info:ExtractionCollection)
     func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:Error)
     func switchSdkDidCancel(sdk:GiniSwitchSdk)
+    func switchSdkDidSendFeedback(sdk:GiniSwitchSdk)
     
 }
 

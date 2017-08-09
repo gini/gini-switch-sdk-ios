@@ -115,4 +115,8 @@ extension GiniSwitchSdkTests: GiniSwitchSdkDelegate {
         
     }
     
+    func switchSdkDidSendFeedback(sdk:GiniSwitchSdk) {
+        
+    }
+    
 }

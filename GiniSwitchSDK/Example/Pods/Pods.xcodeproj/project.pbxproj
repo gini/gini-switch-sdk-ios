@@ -17,6 +17,8 @@
 		14AC81C69F680A6304023F3997F96660 /* TokenUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105EEEFECF79A719028575C007181EC /* TokenUtils.swift */; };
 		1C53382013F463B52E345C84E029CF85 /* GiniSwitchConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AABBA73F0AF6CE9E97788368FEEB29C /* GiniSwitchConfiguration.swift */; };
 		1E31D4170DA581B71544DD153A0B77D8 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F62FCF52274790A8F568524B0A234 /* ReviewViewController.swift */; };
+		23FA087D1F39F15A00753E39 /* FeedbackResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FA087C1F39F15A00753E39 /* FeedbackResponse.swift */; };
+		23FA087F1F39F5BA00753E39 /* ExtractionCollection+Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FA087E1F39F5BA00753E39 /* ExtractionCollection+Feedback.swift */; };
 		2CB91DA7761AD9ED7E7119138F28419C /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4431079AA669EEAB64E82BE2DE704A0F /* CameraViewController.swift */; };
 		321F920A6AB10E5AA020A83639410A54 /* GiniSwitchUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C064540E072D16CF38336888E376C46 /* GiniSwitchUserInterface.swift */; };
 		45FD9CE25FB0163E8BDC647CDA9EEB6B /* GiniSwitchLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CE271EE6FBC6B062403C825B6D6D8 /* GiniSwitchLogger.swift */; };
@@ -97,6 +99,8 @@
 		1FD9B681B00A40ADBF06D858FD2E433D /* UserManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		2061737229ECEFA0EB9DD977E71E42CA /* GiniSwitchSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GiniSwitchSDK-dummy.m"; sourceTree = "<group>"; };
 		226DC5B5D668D4BB8D3B95750D965AF5 /* AddPageResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddPageResponse.swift; sourceTree = "<group>"; };
+		23FA087C1F39F15A00753E39 /* FeedbackResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackResponse.swift; sourceTree = "<group>"; };
+		23FA087E1F39F5BA00753E39 /* ExtractionCollection+Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExtractionCollection+Feedback.swift"; sourceTree = "<group>"; };
 		2424B973F038582E20870EAC54A18ABB /* GiniSwitchConsoleLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchConsoleLogger.swift; sourceTree = "<group>"; };
 		28CE3CAA655B2D1191C4A16A64CB8CD9 /* GiniSwitchSdkStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchSdkStorage.swift; sourceTree = "<group>"; };
 		29633F7FB62129047199811E75F7A628 /* Pods-GiniSwitchSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GiniSwitchSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -239,6 +243,7 @@
 				77BB32E4F58E0B65DC5AD64061D798DF /* URL+QueryParameters.swift */,
 				0105EEEFECF79A719028575C007181EC /* TokenUtils.swift */,
 				B9E06E4C2826B286F948D0B81524D225 /* ExtractionResources.swift */,
+				23FA087E1F39F5BA00753E39 /* ExtractionCollection+Feedback.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 				DBC089CA51FE3AAB37F9D6F9AFF9382F /* CreateOrderResponse.swift */,
 				226DC5B5D668D4BB8D3B95750D965AF5 /* AddPageResponse.swift */,
 				30F96676315886B107AA14C0D0BCAD57 /* PagesResponse.swift */,
+				23FA087C1F39F15A00753E39 /* FeedbackResponse.swift */,
 			);
 			name = Responses;
 			sourceTree = "<group>";
@@ -635,10 +641,12 @@
 				80B2B5963D6C4297AA7C45F89E84D52B /* GiniSwitchNopAnalytics.swift in Sources */,
 				FA6DDCBC331BDF11040C3D681C78D3A9 /* GiniSwitchOnboarding.swift in Sources */,
 				D546A0730CA7960E8AAB5D53DF673F6E /* GiniSwitchSDK-dummy.m in Sources */,
+				23FA087F1F39F5BA00753E39 /* ExtractionCollection+Feedback.swift in Sources */,
 				677A059B87544EDA068C279A19BE61E3 /* GiniSwitchSdk.swift in Sources */,
 				50C4D8C7A8868F651E48CB4F5D9CE751 /* GiniSwitchSdkStorage.swift in Sources */,
 				321F920A6AB10E5AA020A83639410A54 /* GiniSwitchUserInterface.swift in Sources */,
 				05187E97B8DEC2F3F68FC171041EB26A /* HumanReadableError.swift in Sources */,
+				23FA087D1F39F15A00753E39 /* FeedbackResponse.swift in Sources */,
 				D2C9A5E37A21A8E235D9251F4B07180E /* ImageMetaInformationManager.swift in Sources */,
 				0D580E4E34230520CB24133188027D63 /* MultiPageCoordinator.swift in Sources */,
 				E4597874508DC9ADEFBA11C8EF6887E7 /* MultiPageScanViewController.swift in Sources */,
