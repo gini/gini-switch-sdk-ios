@@ -9,7 +9,7 @@
 /// the domain for all errors that occur in the SDK
 let GiniSwitchErrorDomain = "net.gini.switch"
 
-enum GiniSwitchErrorCode:Int {
+public enum GiniSwitchErrorCode: Int {
     // low level errors
     case unknown
     case network
@@ -85,5 +85,12 @@ extension NSError {
     func isTokenExpiredError() -> Bool {
         return NSError.switchErrorCode(apiCode: code) == .tokenExpired ||
             errorName() == "invalid_token"      // TODO: don't rely on names - check the code only
+    }
+}
+
+public extension NSError {
+    
+    public var switchErrorCode:GiniSwitchErrorCode {
+        return GiniSwitchErrorCode(rawValue: code) ?? .unknown
     }
 }
