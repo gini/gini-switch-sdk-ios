@@ -11,10 +11,10 @@ import Foundation
 extension ExtractionCollection {
     
     func feedbackJson() -> Data {
-        let jsonDict = extractions.reduce([]) { (jsonArray:[JSONDictionary], extraction) -> [JSONDictionary] in
-            var json = jsonArray
-            json.append(extraction.jsonDict)
-            return json
+        let jsonDict = extractions.reduce(JSONDictionary()) { (jsonDict:JSONDictionary, extraction) -> JSONDictionary in
+            var newDict = jsonDict
+            newDict[extraction.name] = extraction.jsonDict as AnyObject
+            return newDict
         }
         return (try? JSONSerialization.data(withJSONObject: jsonDict, options: JSONSerialization.WritingOptions.prettyPrinted)) ?? Data()
     }
@@ -35,7 +35,7 @@ extension ExtractionCollection {
 extension Extraction {
     
     var jsonDict:JSONDictionary {
-        return [name: value.jsonDict as AnyObject]
+        return value.jsonDict
     }
 }
 

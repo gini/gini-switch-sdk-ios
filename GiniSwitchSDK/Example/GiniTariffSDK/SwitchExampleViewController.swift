@@ -42,6 +42,13 @@ class SwitchExampleViewController: UIViewController {
     fileprivate func showExtractions(extractions:ExtractionCollection) {
         navigationController?.pushViewController(createExtractionsScreen(extractions: extractions), animated: false)
     }
+    
+    fileprivate func terminateSdk() {
+        switchController = nil
+        sdk?.terminate()
+        sdk = nil
+        extractions = ExtractionCollection()        // release the collection
+    }
 
 }
 
@@ -84,7 +91,7 @@ extension SwitchExampleViewController: GiniSwitchSdkDelegate {
     }
     
     func switchSdkDidSendFeedback(sdk:GiniSwitchSdk) {
-        
+        terminateSdk()
     }
     
 }
@@ -93,10 +100,13 @@ extension SwitchExampleViewController: ExtractionsViewControllerDelegate {
     
     func extractionsControllerDidSwitch(_ controller:ExtractionsViewController) {
         navigationController?.popViewController(animated: true)
-        switchController = nil
-        sdk?.terminate()
-        sdk = nil
-        extractions = ExtractionCollection()        // release the collection
+        // before the SDK is teminated, send feedback
+        if let feedback = controller.extractionsCollection {
+            sdk?.sendFeedback(feedback)
+        }
+        else {
+            terminateSdk()
+        }
     }
     
     func extractionsControllerDidGoBack(_ controller:ExtractionsViewController) {

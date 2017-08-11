@@ -54,6 +54,7 @@ class ExtractionsManager {
     
     init() {
         importCredentials()
+        setupFeedbackHandler()
     }
     
     deinit {
@@ -242,6 +243,12 @@ class ExtractionsManager {
         clientId = sdk.clientId
         clientSecret = sdk.clientSecret
         clientDomain = sdk.clientDomain
+    }
+    
+    fileprivate func setupFeedbackHandler() {
+        currentSwitchSdk().feedbackHandler = { [weak self] (feedback) in
+            self?.sendFeedback(feedback)
+        }
     }
     
     fileprivate func parseStatus(_ status:ExtractionStatusResponse?) {

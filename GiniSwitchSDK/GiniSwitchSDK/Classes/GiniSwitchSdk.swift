@@ -47,6 +47,8 @@ public class GiniSwitchSdk {
         return configuration.appearance
     }
     
+    var feedbackHandler:((ExtractionCollection) -> Void)! = nil
+    
     /*
      * Creates a GiniSwitchSdk instance based on the provided credentials
      */
@@ -62,6 +64,10 @@ public class GiniSwitchSdk {
      */
     public func instantiateSwitchViewController() -> UIViewController {
         return userInterface.initialViewController
+    }
+    
+    public func sendFeedback(_ feedback:ExtractionCollection) {
+        feedbackHandler(feedback)
     }
     
     /*
