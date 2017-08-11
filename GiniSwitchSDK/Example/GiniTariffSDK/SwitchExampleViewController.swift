@@ -81,10 +81,9 @@ extension SwitchExampleViewController: GiniSwitchSdkDelegate {
         extractions = info
     }
     
-    func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:Error) {
+    func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:NSError) {
         print("Switch SDK did receive an error: \(error.localizedDescription)")
-        let nserror = error as NSError
-        if nserror.switchErrorCode == .feedbackError {
+        if error.switchErrorCode == .feedbackError {
             terminateSdk()
         }
     }
