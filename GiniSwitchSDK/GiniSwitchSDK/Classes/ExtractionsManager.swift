@@ -131,15 +131,16 @@ class ExtractionsManager {
         uploadService?.addPage(data: page.imageData, completion: { [weak self](pageUrl, error) in
             if let error = error {
                 Logger().logError(message: "Page upload failed: \(error.localizedDescription)")
+                page.status = .failed
                 self?.handleError(error, ofType: .cannotUploadPage)
             }
             else {
                 Logger().logInfo(message: "Uploaded page with path\n\(pageUrl ?? "<unknown>")")
                 page.id = pageUrl
                 page.status = .uploaded
-                self?.notifyCollectionChanged()
                 currentSwitchSdk().delegate?.switchSdk(sdk: currentSwitchSdk(), didUpload: page.imageData)
             }
+            self?.notifyCollectionChanged()
         })
     }
     
