@@ -17,6 +17,7 @@ protocol ExtractionsManagerDelegate: class {
     func extractionsManagerDidAuthenticate(_ manager:ExtractionsManager)
     func extractionsManagerDidCreateOrder(_ manager:ExtractionsManager)
     func extractionsManagerDidCompleteExtractions(_ manager:ExtractionsManager)
+    func extractionsManagerDidSendFeedback(_ manager:ExtractionsManager)
     
 }
 
@@ -53,6 +54,7 @@ class ExtractionsManager {
     
     init() {
         importCredentials()
+        setupFeedbackHandler()
     }
     
     deinit {
@@ -192,6 +194,22 @@ class ExtractionsManager {
         }
     }
     
+    func sendFeedback(_ feedback:ExtractionCollection) {
+        guard hasActiveSession else {
+            return
+        }
+        
+        uploadService?.sendFeedback(original: extractions, feedback: feedback, completion: { [weak self] (error) in
+            if let error = error {
+                Logger().logError(message: "Sending feedback failed: \(error.localizedDescription)")
+                self?.handleError(error, ofType: .feedbackError)
+            }
+            else {
+                Logger().logInfo(message: "Feedback sent!")
+            }
+        })
+    }
+    
     func pollStatus() {
         guard hasActiveSession else {
             return
@@ -225,6 +243,12 @@ class ExtractionsManager {
         clientId = sdk.clientId
         clientSecret = sdk.clientSecret
         clientDomain = sdk.clientDomain
+    }
+    
+    fileprivate func setupFeedbackHandler() {
+        currentSwitchSdk().feedbackHandler = { [weak self] (feedback) in
+            self?.sendFeedback(feedback)
+        }
     }
     
     fileprivate func parseStatus(_ status:ExtractionStatusResponse?) {
@@ -271,6 +295,10 @@ class ExtractionsManager {
     
     fileprivate func notifyExtractionsComplete() {
         self.delegate?.extractionsManagerDidCompleteExtractions(self)
+    }
+    
+    fileprivate func notifyFeedbackSent() {
+        self.delegate?.extractionsManagerDidSendFeedback(self)
     }
     
     fileprivate func notifyError(_ error: NSError) {

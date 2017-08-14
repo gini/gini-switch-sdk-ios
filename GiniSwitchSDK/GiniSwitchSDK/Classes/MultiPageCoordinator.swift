@@ -301,4 +301,8 @@ extension MultiPageCoordinator: ExtractionsManagerDelegate {
         extractionsCompleted = true
     }
     
+    func extractionsManagerDidSendFeedback(_ manager:ExtractionsManager) {
+        currentSwitchSdk().delegate?.switchSdkDidSendFeedback(sdk: currentSwitchSdk())
+    }
+    
 }

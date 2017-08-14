@@ -17,8 +17,9 @@ public protocol GiniSwitchSdkDelegate: class {
     func switchSdk(sdk:GiniSwitchSdk, didReview imageData:Data)
     func switchSdkDidComplete(sdk:GiniSwitchSdk)
     func switchSdk(sdk:GiniSwitchSdk, didExtractInfo info:ExtractionCollection)
-    func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:Error)
+    func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:NSError)
     func switchSdkDidCancel(sdk:GiniSwitchSdk)
+    func switchSdkDidSendFeedback(sdk:GiniSwitchSdk)
     
 }
 
@@ -46,6 +47,8 @@ public class GiniSwitchSdk {
         return configuration.appearance
     }
     
+    var feedbackHandler:((ExtractionCollection) -> Void)! = nil
+    
     /*
      * Creates a GiniSwitchSdk instance based on the provided credentials
      */
@@ -61,6 +64,10 @@ public class GiniSwitchSdk {
      */
     public func instantiateSwitchViewController() -> UIViewController {
         return userInterface.initialViewController
+    }
+    
+    public func sendFeedback(_ feedback:ExtractionCollection) {
+        feedbackHandler(feedback)
     }
     
     /*

@@ -107,11 +107,15 @@ extension GiniSwitchSdkTests: GiniSwitchSdkDelegate {
         
     }
     
-    func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:Error) {
+    func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:NSError) {
         
     }
     
     func switchSdkDidCancel(sdk: GiniSwitchSdk) {
+        
+    }
+    
+    func switchSdkDidSendFeedback(sdk:GiniSwitchSdk) {
         
     }
     

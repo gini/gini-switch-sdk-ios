@@ -61,8 +61,13 @@ extension ExtractionsViewController: UITableViewDataSource {
         let extraction = extractionsCollection?.extractions[indexPath.row]
         cell.nameLabel.text = extraction?.name ?? ""
         cell.valueTextField.text = extraction?.valueString ?? ""
+        cell.onExtractionChange = { (newValue: String) -> Void in
+            extraction?.value = ExtractionValue(value: newValue as AnyObject, unit: extraction?.value.unit)
+        }
         
         return cell
     }
     
 }
+
+
