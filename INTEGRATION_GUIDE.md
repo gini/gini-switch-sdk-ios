@@ -46,7 +46,7 @@ This is the simplest way to instantiate and show the Switch SDK.
 
 **NOTE:** The `GiniSwitchSdk` is not singleton. You can create several instances. However, you shouldn't have to.
 
-### Dismiss the SDK
+### <a name="dismiss-sdk"/>Dismiss the SDK
 
 ```swift
 self.dismiss(animated: true, completion: nil)
@@ -110,6 +110,9 @@ If you find an error in the extractions at a later stage in your app, you should
 In order to send feedback, there are several things to consider. After you get the extraction collection from your `GiniSwitchSdk` instance, just change the values of the particular field in the collection. With that new object, call the send feedback method:
 
 ```swift
+let extraction = extractionsCollection?.extractions.first
+// Change the value of the extraction while keeping the old unit (e.g. kWh)
+extraction?.value = ExtractionValue(value: "Stadt Werke Gini GmbH" as AnyObject, unit: extraction?.value.unit)
 sdk.sendFeedback(feedback)
 ```
 
@@ -125,11 +128,23 @@ will be invoked. Please note that it will be called only if the feedback is succ
 func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:Error)
 ```
 
-will be called with an error type of `feedbackError`.
+will be called with an error type of `feedbackError`. In the Gini Switch SDK example app this is handled in the following way:
+
+```swift
+func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:NSError) {
+  print("Switch SDK did receive an error: \(error.localizedDescription)")
+  if error.switchErrorCode == .feedbackError {
+    switchController = nil
+    self.sdk?.terminate()
+    self.sdk = nil
+    extractions = ExtractionCollection()        // release the collection
+  }
+}
+```
 
 Another caveat to sending feedback is that you will have to keep the SDK "alive" until the request goes through. As already discussed in the "Going back" section, even after the SDK's UI is dismissed and the `switchSdkDidComplete` delegate method is invoked, the SDK still cannot be terminated and left to ARC to be cleared.
 
-To properly dispose of the SDK after feedback is sent, wait until the `switchSdkDidSendFeedback` or the `didReceiveError` (with a `feedbackError` error type) to be invoked. Once that happens, terminate the SDK as described in "Dismiss the SDK".
+To properly dispose of the SDK after feedback is sent, wait until the `switchSdkDidSendFeedback` or the `didReceiveError` (with a `feedbackError` error type) to be invoked. Once that happens, terminate the SDK as described in [Dismiss the SDK](#dismiss-sdk).
 
 ## SDK Customizations
 
@@ -157,7 +172,7 @@ Regarding the looks of the SDK, the following values are changeable:
 
 ### Logging
 
-Logging in the Switch SDK is achieved using the `GiniSwitchLogger` protocol. By default, the `GiniSwitchConsoleLogger` class is used. It just prints messages to the console. Feel free to implment the protocol and insert your own implementation. Change the default logger using the code:
+Logging in the Switch SDK is achieved using the `GiniSwitchLogger` protocol. By default, the `GiniSwitchConsoleLogger` class is used. It just prints messages to the console. Feel free to implement the protocol and insert your own implementation. Change the default logger using the code:
 
 ```swift
 sdk.configuration.logging = myCustomLogger
