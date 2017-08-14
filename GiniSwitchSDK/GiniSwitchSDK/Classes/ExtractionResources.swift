@@ -119,15 +119,13 @@ class ExtractionResources {
         })
     }
     
-    func feebackFor(orderUrl:String, extractions:ExtractionCollection, feedback:ExtractionCollection) -> Resource<FeedbackResponse> {
+    func feebackFor(orderUrl:String, extractions:ExtractionCollection, feedback:ExtractionCollection) -> Resource<Bool> {
         var fullUrl = URL(string:orderUrl)!
         fullUrl = fullUrl.appendingPathComponent(extractionsExtension)
         let authHeaders = Token.bearerAuthHeadersDictWith(token: token)
         let body = ExtractionCollection.feedbackJsonFor(feedback: feedback, original: extractions)
-        return Resource<FeedbackResponse>(url: fullUrl, headers: authHeaders, method: "PUT", body: body, parseJSON: { (json) -> FeedbackResponse? in
-            guard let feedbackDict = json as? JSONDictionary else { return nil }
-            let feedbackResponse = FeedbackResponse(dict:feedbackDict)
-            return feedbackResponse
+        return Resource<Bool>(url: fullUrl, headers: authHeaders, method: "PUT", body: body, parseJSON: { (json) -> Bool? in
+            return true
         })
     }
 }
