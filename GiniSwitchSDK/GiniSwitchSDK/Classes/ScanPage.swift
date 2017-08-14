@@ -58,3 +58,11 @@ extension ScanPage: Equatable {
     }
     
 }
+
+extension ScanPage: NSCopying {
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        return ScanPage(imageData: self.imageData, id: self.id, status: self.status)
+    }
+    
+}

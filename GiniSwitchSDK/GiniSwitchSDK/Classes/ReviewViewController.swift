@@ -49,10 +49,6 @@ class ReviewViewController: UIViewController {
     weak var delegate:ReviewViewControllerDelegate? = nil
     
     @IBAction func useButtonTapped() {
-        guard let image = metaInformationManager?.imageData() else {
-            return
-        }
-        page?.imageData = image
         delegate?.reviewController(self, didAcceptPage: page!)
     }
     
