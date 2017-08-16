@@ -232,7 +232,7 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
             pageToReplace = nil
         }
         else {
-            if page != pageToPreUpload,
+            if page.imageData != pageToPreUpload?.imageData,
                 let preuploadedPage = pageToPreUpload {
                 // the page changed after it got pre-uploaded
                 extractionsManager.delete(page: preuploadedPage)
