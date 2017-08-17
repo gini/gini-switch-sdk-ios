@@ -16,6 +16,8 @@ enum ScanPageStatus {
     case failed
     case uploaded
     case analysed
+    case deleted
+    case replaced
 }
 
 class ScanPage {

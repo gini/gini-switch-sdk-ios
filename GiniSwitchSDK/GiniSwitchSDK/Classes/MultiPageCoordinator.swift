@@ -182,7 +182,10 @@ extension MultiPageCoordinator: CameraViewControllerDelegate {
             return
         }
         let newPage = ScanPage(imageData: image, id: nil, status: .taken)
-        extractionsManager.add(page: newPage)
+        if pageToReplace == nil {
+            // don't pre-upload if the image is being replaced
+            extractionsManager.add(page: newPage)
+        }
         pageToPreUpload = newPage
         showReviewScreen(withPage:newPage)
         enableCaptureButton(true)
@@ -235,8 +238,7 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
             if page.imageData != pageToPreUpload?.imageData,
                 let preuploadedPage = pageToPreUpload {
                 // the page changed after it got pre-uploaded
-                extractionsManager.delete(page: preuploadedPage)
-                extractionsManager.add(page: page)
+                extractionsManager.replace(page: preuploadedPage, withPage: page)
             }
             else {
                 // nothing to do - the pre-uploaded image is the desired one

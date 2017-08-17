@@ -137,6 +137,15 @@ class ExtractionsManager {
             else {
                 Logger().logInfo(message: "Uploaded page with path\n\(pageUrl ?? "<unknown>")")
                 page.id = pageUrl
+                if page.status == .deleted {
+                    self?.delete(page: page)
+                    return
+                }
+                if let pageId = pageUrl,
+                    page.status == .replaced {
+                    self?.replace(pageId: pageId, imageData: page.imageData)
+                    return
+                }
                 page.status = .uploaded
                 currentSwitchSdk().delegate?.switchSdk(sdk: currentSwitchSdk(), didUpload: page.imageData)
             }
@@ -166,6 +175,9 @@ class ExtractionsManager {
                 }
             })
         }
+        else {
+            page.status = .deleted
+        }
     }
     
     /// Replacing handles the case where the image was rotated and needs to be re-uploaded
@@ -174,10 +186,8 @@ class ExtractionsManager {
             return
         }
         
-        let index = scannedPages.pages.index(of: page)
-        scannedPages.remove(page)
-        withPage.status = .uploading
-        scannedPages.pages.insert(withPage, at: index ?? scannedPages.pages.endIndex)
+        page.imageData = withPage.imageData
+        page.status = .uploading
         notifyCollectionChanged()
         if let id = page.id {
             uploadService?.replacePage(id: id, newImageData: withPage.imageData, completion: { [weak self] (pageUrl, error) in
@@ -186,13 +196,31 @@ class ExtractionsManager {
                     self?.handleError(error, ofType: .pageReplaceError)
                 }
                 else {
-                    Logger().logInfo(message: "Deleted page\n\(withPage.id ?? "<unknown>")\nwith path\n\(pageUrl ?? "<unknown>")")
+                    Logger().logInfo(message: "Replaced page\n\(withPage.id ?? "<unknown>")\nwith path\n\(pageUrl ?? "<unknown>")")
                     page.id = pageUrl
                     page.status = .uploaded
                     self?.notifyCollectionChanged()
                 }
             })
         }
+        else {
+            page.status = .replaced
+        }
+    }
+    
+    func replace(pageId:String, imageData:Data) {
+        guard hasActiveSession else {
+            return
+        }
+        uploadService?.replacePage(id: pageId, newImageData: imageData, completion: { [weak self] (pageUrl, error) in
+            if let error = error {
+                Logger().logError(message: "Page replace failed: \(error.localizedDescription)")
+                self?.handleError(error, ofType: .pageReplaceError)
+            }
+            else {
+                Logger().logInfo(message: "Replaced page\n\(pageId)\nwith path\n\(pageUrl ?? "<unknown>")")
+            }
+        })
     }
     
     func sendFeedback(_ feedback:ExtractionCollection) {
