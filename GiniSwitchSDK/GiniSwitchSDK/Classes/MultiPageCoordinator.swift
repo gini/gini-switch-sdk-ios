@@ -44,7 +44,6 @@ class MultiPageCoordinator {
         extractionsManager.delegate = self
         extractionsManager.authenticate()
         self.extractionsManager.createExtractionOrder()
-        currentSwitchSdk().delegate?.switchSdkDidStart(sdk: currentSwitchSdk())
         
         if !GiniSwitchOnboarding.hasShownOnboarding {
             scheduleOnboarding()
@@ -117,7 +116,7 @@ class MultiPageCoordinator {
             let delay = DispatchTime.now() + .seconds(extrationsCompletePopupTimeout)
             DispatchQueue.main.asyncAfter(deadline: delay, execute: {
                 myDelegate?.multiPageCoordinator(self, requestedDismissingController: completionController, presentationStyle: .modal, animated: true) {
-                    currentSwitchSdk().delegate?.switchSdkDidComplete(sdk: currentSwitchSdk())
+                    currentSwitchSdk().delegate?.switchSdkDidComplete(currentSwitchSdk())
                 }
             })
         }
@@ -129,7 +128,7 @@ class MultiPageCoordinator {
             
         }
         let leaveAction = UIAlertAction(title: NSLocalizedString("Verlassen", comment: "Leave SDK actionsheet leave title"), style: .destructive) { (action) in
-            currentSwitchSdk().delegate?.switchSdkDidCancel(sdk: currentSwitchSdk())
+            currentSwitchSdk().delegate?.switchSdkDidCancel(currentSwitchSdk())
         }
         let helpAction = UIAlertAction(title: NSLocalizedString("Hilfe", comment: "Leave SDK actionsheet help title"), style: .default) { (action) in
             self.scheduleOnboarding()
@@ -168,7 +167,7 @@ extension MultiPageCoordinator: CameraOptionsViewControllerDelegate {
     
     func cameraControllerIsDone(cameraController:CameraOptionsViewController) {
         extractionsManager.pollExtractions()
-        currentSwitchSdk().delegate?.switchSdkDidComplete(sdk: currentSwitchSdk())
+        currentSwitchSdk().delegate?.switchSdkDidComplete(currentSwitchSdk())
     }
 }
 
@@ -179,7 +178,6 @@ extension MultiPageCoordinator: CameraViewControllerDelegate {
         let newPage = ScanPage(imageData: data, id: nil, status: .taken)
         showReviewScreen(withPage:newPage)
         enableCaptureButton(true)
-        currentSwitchSdk().delegate?.switchSdk(sdk: currentSwitchSdk(), didCapture: data)
     }
     
     func cameraViewController(controller:CameraViewController, didFailWithError error:Error) {
@@ -227,7 +225,6 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
             extractionsManager.add(page: page)
         }
         refreshPagesCollectionView()
-        currentSwitchSdk().delegate?.switchSdk(sdk: currentSwitchSdk(), didReview: page.imageData)
     }
     
     func reviewController(_ controller:ReviewViewController, didRejectPage page:ScanPage) {
@@ -276,7 +273,7 @@ extension MultiPageCoordinator: ExtractionsManagerDelegate {
             alert.addAction(okAction)
             delegate?.multiPageCoordinator(self, requestedShowingController: alert, presentationStyle: .modal, animated: true, completion: nil)
         }
-        currentSwitchSdk().delegate?.switchSdk(sdk: currentSwitchSdk(), didReceiveError: error)
+        currentSwitchSdk().delegate?.switchSdk(currentSwitchSdk(), didReceiveError: error)
     }
     
     func extractionsManager(_ manager:ExtractionsManager, didChangePageCollection collection:PageCollection) {
@@ -302,7 +299,7 @@ extension MultiPageCoordinator: ExtractionsManagerDelegate {
     }
     
     func extractionsManagerDidSendFeedback(_ manager:ExtractionsManager) {
-        currentSwitchSdk().delegate?.switchSdkDidSendFeedback(sdk: currentSwitchSdk())
+        currentSwitchSdk().delegate?.switchSdkDidSendFeedback(currentSwitchSdk())
     }
     
 }

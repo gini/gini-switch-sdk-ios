@@ -10,16 +10,11 @@ import UIKit
 
 public protocol GiniSwitchSdkDelegate: class {
     
-    // TODO: make methods optional
-    func switchSdkDidStart(sdk:GiniSwitchSdk)
-    func switchSdk(sdk:GiniSwitchSdk, didCapture imageData:Data)
-    func switchSdk(sdk:GiniSwitchSdk, didUpload imageData:Data)
-    func switchSdk(sdk:GiniSwitchSdk, didReview imageData:Data)
-    func switchSdkDidComplete(sdk:GiniSwitchSdk)
-    func switchSdk(sdk:GiniSwitchSdk, didExtractInfo info:ExtractionCollection)
-    func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:NSError)
-    func switchSdkDidCancel(sdk:GiniSwitchSdk)
-    func switchSdkDidSendFeedback(sdk:GiniSwitchSdk)
+    func switchSdk(_ sdk:GiniSwitchSdk, didChangeExtractions extractions:ExtractionCollection)
+    func switchSdk(_ sdk:GiniSwitchSdk, didReceiveError error:NSError)
+    func switchSdkDidCancel(_ sdk:GiniSwitchSdk)
+    func switchSdkDidComplete(_ sdk:GiniSwitchSdk)
+    func switchSdkDidSendFeedback(_ sdk:GiniSwitchSdk)
     
 }
 
@@ -48,6 +43,11 @@ public class GiniSwitchSdk {
     }
     
     var feedbackHandler:((ExtractionCollection) -> Void)! = nil
+    
+    /*
+     * The extractions that have been received so far. 
+     */
+    var extractions:ExtractionCollection = ExtractionCollection()
     
     /*
      * Creates a GiniSwitchSdk instance based on the provided credentials

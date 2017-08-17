@@ -138,7 +138,6 @@ class ExtractionsManager {
                 page.id = pageUrl
                 page.status = .uploaded
                 self?.notifyCollectionChanged()
-                currentSwitchSdk().delegate?.switchSdk(sdk: currentSwitchSdk(), didUpload: page.imageData)
             }
         })
     }
@@ -290,7 +289,8 @@ class ExtractionsManager {
     
     fileprivate func notifyExtractionsChanged() {
         self.delegate?.extractionsManager(self, didChangeExtractions: extractions)
-        currentSwitchSdk().delegate?.switchSdk(sdk: currentSwitchSdk(), didExtractInfo: extractions)
+        currentSwitchSdk().extractions = extractions
+        currentSwitchSdk().delegate?.switchSdk(currentSwitchSdk(), didChangeExtractions: extractions)
     }
     
     fileprivate func notifyExtractionsComplete() {
