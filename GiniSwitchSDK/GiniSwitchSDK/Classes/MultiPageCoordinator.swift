@@ -240,9 +240,6 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
                 // the page changed after it got pre-uploaded
                 extractionsManager.replace(page: preuploadedPage, withPage: page)
             }
-            else {
-                // nothing to do - the pre-uploaded image is the desired one
-            }
         }
         pageToPreUpload = nil
         refreshPagesCollectionView()
@@ -256,7 +253,6 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
             }
         }
         if let preuploadedPage = pageToPreUpload {
-            // delete the pre-uploaded image
             extractionsManager.delete(page: preuploadedPage)
         }
         pageToPreUpload = nil
