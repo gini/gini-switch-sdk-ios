@@ -83,39 +83,23 @@ extension GiniSwitchSdkTests {
 
 extension GiniSwitchSdkTests: GiniSwitchSdkDelegate {
     
-    func switchSdkDidStart(sdk:GiniSwitchSdk) {
+    func switchSdkDidComplete(_ sdk:GiniSwitchSdk) {
         
     }
     
-    func switchSdk(sdk:GiniSwitchSdk, didCapture imageData:Data) {
+    func switchSdk(_ sdk:GiniSwitchSdk, didChangeExtractions info:ExtractionCollection) {
         
     }
     
-    func switchSdk(sdk:GiniSwitchSdk, didUpload imageData:Data) {
+    func switchSdk(_ sdk:GiniSwitchSdk, didReceiveError error:NSError) {
         
     }
     
-    func switchSdk(sdk:GiniSwitchSdk, didReview imageData:Data) {
+    func switchSdkDidCancel(_ sdk: GiniSwitchSdk) {
         
     }
     
-    func switchSdkDidComplete(sdk:GiniSwitchSdk) {
-        
-    }
-    
-    func switchSdk(sdk:GiniSwitchSdk, didExtractInfo info:ExtractionCollection) {
-        
-    }
-    
-    func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:NSError) {
-        
-    }
-    
-    func switchSdkDidCancel(sdk: GiniSwitchSdk) {
-        
-    }
-    
-    func switchSdkDidSendFeedback(sdk:GiniSwitchSdk) {
+    func switchSdkDidSendFeedback(_ sdk:GiniSwitchSdk) {
         
     }
     

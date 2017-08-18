@@ -64,15 +64,11 @@ The Gini Switch SDK uses the Delegate design pattern to notify the host app abou
 ```swift
 public protocol GiniSwitchSdkDelegate: class {
 
-    func switchSdkDidStart(sdk:GiniSwitchSdk)
-    func switchSdk(sdk:GiniSwitchSdk, didCapture imageData:Data)
-    func switchSdk(sdk:GiniSwitchSdk, didUpload imageData:Data)
-    func switchSdk(sdk:GiniSwitchSdk, didReview imageData:Data)
-    func switchSdkDidComplete(sdk:GiniSwitchSdk)
-    func switchSdk(sdk:GiniSwitchSdk, didExtractInfo info:ExtractionCollection)
-    func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:Error)
-    func switchSdk(sdk:GiniSwitchSdk, didFailWithError error:Error)
-    func switchSdkDidCancel(sdk:GiniSwitchSdk)
+    func switchSdk(_ sdk:GiniSwitchSdk, didChangeExtractions extractions:ExtractionCollection)
+    func switchSdk(_ sdk:GiniSwitchSdk, didReceiveError error:NSError)
+    func switchSdkDidCancel(_ sdk:GiniSwitchSdk)
+    func switchSdkDidComplete(_ sdk:GiniSwitchSdk)
+    func switchSdkDidSendFeedback(_ sdk:GiniSwitchSdk)
 
 }
 ```
@@ -80,9 +76,9 @@ public protocol GiniSwitchSdkDelegate: class {
 Out of those, as a minimum, the following need to be handled:
 
 ```swift
-func switchSdkDidComplete(sdk:GiniSwitchSdk)
-func switchSdk(sdk:GiniSwitchSdk, didFailWithError error:Error)
-func switchSdkDidCancel(sdk:GiniSwitchSdk)
+func switchSdk(_ sdk:GiniSwitchSdk, didReceiveError error:NSError)
+func switchSdkDidCancel(_ sdk:GiniSwitchSdk)
+func switchSdkDidComplete(_ sdk:GiniSwitchSdk)
 ```
 
 That's where the SDK will be done and it will need to be dismissed.
@@ -92,7 +88,7 @@ That's where the SDK will be done and it will need to be dismissed.
 Naturally, the whole point in displaying the Gini Switch SDK is to get extractions. This is achieved via the
 
 ```swift
-func switchSdk(sdk:GiniSwitchSdk, didExtractInfo info:ExtractionCollection)
+func switchSdk(_ sdk:GiniSwitchSdk, didChangeExtractions extractions:ExtractionCollection)
 ```
 
 method. It can be called multiple time throughout the lifecycle of the SDK - every time there's a change in the extractions. When our service determines that the extractions are complete, it will also call the `switchSdkDidComplete` delegate method. However, even before that, if the host app can determine that it has everything it needs, it is free to dismiss the SDK and continue on its own.
@@ -119,19 +115,19 @@ sdk.sendFeedback(feedback)
 After that, the SDK will send the updated fields to our backend. Upon completion the
 
 ```swift
-func switchSdkDidSendFeedback(sdk:GiniSwitchSdk)
+func switchSdkDidSendFeedback(_ sdk:GiniSwitchSdk)
 ```
 
 will be invoked. Please note that it will be called only if the feedback is successfully received by the backend. if not, the
 
 ```swift
-func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:Error)
+func switchSdk(_ sdk:GiniSwitchSdk, didReceiveError error:NSError)
 ```
 
 will be called with an error type of `feedbackError`. In the Gini Switch SDK example app this is handled in the following way:
 
 ```swift
-func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:NSError) {
+func switchSdk(_ sdk:GiniSwitchSdk, didReceiveError error:NSError) {
   print("Switch SDK did receive an error: \(error.localizedDescription)")
   if error.switchErrorCode == .feedbackError {
     switchController = nil
