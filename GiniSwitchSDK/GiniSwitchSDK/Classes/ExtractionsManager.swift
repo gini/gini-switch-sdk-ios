@@ -197,14 +197,21 @@ class ExtractionsManager {
         guard hasActiveSession else {
             return
         }
-        
-        uploadService?.sendFeedback(original: extractions, feedback: feedback, completion: { [weak self] (error) in
+        guard !feedback.extractions.isEmpty else {
+            // if users don't check if the feedback doesn't contain any extractions, they will call the
+            // sendFeedback method and expect a callback when it's done. So the callback is called
+            // explicitly here and it is "assumed" that it was successful
+            notifyFeedbackSent()
+            return
+        }
+        uploadService?.sendFeedback(feedback, completion: { [weak self] (error) in
             if let error = error {
                 Logger().logError(message: "Sending feedback failed: \(error.localizedDescription)")
                 self?.handleError(error, ofType: .feedbackError)
             }
             else {
                 Logger().logInfo(message: "Feedback sent!")
+                self?.notifyFeedbackSent()
             }
         })
     }
