@@ -26,7 +26,3 @@ public protocol GiniSwitchLogger {
 }
 
 var logger:GiniSwitchLogger = GiniSwitchConsoleLogger()
-
-func Logger() -> GiniSwitchLogger {
-    return logger
-}
