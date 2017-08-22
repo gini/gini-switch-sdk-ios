@@ -64,14 +64,14 @@ class PageCollectionViewCell: UICollectionViewCell {
             case .analysed:
                 pageStatusUnderlineView.isHidden = false
                 pageStatusView.isHidden = false
-                pageStatusUnderlineView.backgroundColor = GiniSwitchSdkStorage.activeSwitchSdk?.appearance.positiveColor
+                pageStatusUnderlineView.backgroundColor = GiniSwitchAppearance.positiveColor
                 // TODO: write a wrapper for accessing the framework bundle
                 pageStatusView.image = pageUploadedImage
                 uploadingIndicator.isHidden = true
             case .failed:
                 pageStatusUnderlineView.isHidden = false
                 pageStatusView.isHidden = false
-                pageStatusUnderlineView.backgroundColor = GiniSwitchSdkStorage.activeSwitchSdk?.appearance.negativeColor
+                pageStatusUnderlineView.backgroundColor = GiniSwitchAppearance.negativeColor
                 pageStatusView.image = pageFailedImage
                 uploadingIndicator.isHidden = true
             case .uploading, .uploaded:

@@ -51,11 +51,11 @@ This is the simplest way to instantiate and show the Switch SDK.
 ```swift
 self.dismiss(animated: true, completion: nil)
 switchController = nil
-sdk?.terminate()
 sdk = nil
+extractions = ExtractionCollection()        // release the collection
 ```
 
-Just dismiss the view controller you got from the `sdk.instantiateSwitchViewController()`, terminate and discard the `GiniSwitchSdk` instance. ARC will take care of the rest.
+Just dismiss the view controller you got from the `sdk.instantiateSwitchViewController()` and discard the `GiniSwitchSdk` instance. ARC will take care of the rest.
 
 ### Receiving information from the Switch SDK
 
@@ -131,14 +131,11 @@ func switchSdk(_ sdk:GiniSwitchSdk, didReceiveError error:NSError) {
   print("Switch SDK did receive an error: \(error.localizedDescription)")
   if error.switchErrorCode == .feedbackError {
     switchController = nil
-    self.sdk?.terminate()
     self.sdk = nil
     extractions = ExtractionCollection()        // release the collection
   }
 }
 ```
-
-Another caveat to sending feedback is that you will have to keep the SDK "alive" until the request goes through. As already discussed in the "Going back" section, even after the SDK's UI is dismissed and the `switchSdkDidComplete` delegate method is invoked, the SDK still cannot be terminated and left to ARC to be cleared.
 
 To properly dispose of the SDK after feedback is sent, wait until the `switchSdkDidSendFeedback` or the `didReceiveError` (with a `feedbackError` error type) to be invoked. Once that happens, terminate the SDK as described in [Dismiss the SDK](#dismiss-sdk).
 

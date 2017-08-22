@@ -52,9 +52,10 @@ class ExtractionsManager {
         return (!clientId.isEmpty && !clientSecret.isEmpty && !clientDomain.isEmpty)
     }
     
-    init() {
-        importCredentials()
-        setupFeedbackHandler()
+    init(clientId:String = "", clientSecret:String = "", clientDomain:String = "") {
+        self.clientId = clientId
+        self.clientSecret = clientSecret
+        self.clientDomain = clientDomain
     }
     
     deinit {
@@ -70,16 +71,16 @@ class ExtractionsManager {
             // assume already trying too log in
             return
         }
-        Logger().logInfo(message: "Authenticating...")
+        logger.logInfo(message: "Authenticating...")
         authenticator = Authenticator(clientId: clientId, secret: clientSecret, domain: clientDomain, credentials: KeychainCredentialsStore())
         authenticator?.authenticate(success: { [weak self] () in
-            Logger().logInfo(message: "Authentication successful")
+            logger.logInfo(message: "Authentication successful")
             if self?.shouldRequestOrder == true {
-                Logger().logInfo(message: "Detected pending extraction order creation")
+                logger.logInfo(message: "Detected pending extraction order creation")
                 self?.createExtractionOrder()
             }
         }, failure: { [weak self] (error) in
-            Logger().logError(message: "Authentication failed: \(error.localizedDescription)")
+            logger.logError(message: "Authentication failed: \(error.localizedDescription)")
             let authError = NSError(errorCode: .authentication, underlyingError: error)
             self?.notifyError(authError)
         })
@@ -97,20 +98,20 @@ class ExtractionsManager {
         }
         shouldRequestOrder = false
         uploadService = ExtractionService(token: token)
-        Logger().logInfo(message: "Creating extraction order...")
+        logger.logInfo(message: "Creating extraction order...")
         uploadService?.createOrder(completion: { [weak self](orderUrl, error) in
             if self?.tryHandleUnauthorizedError(error) == true {
-                Logger().logInfo(message: "Queueing extraction order creating")
+                logger.logInfo(message: "Queueing extraction order creating")
                 self?.shouldRequestOrder = true
                 return
             }
             if error == nil && orderUrl != nil {
-                Logger().logInfo(message: "Created extraction order")
+                logger.logInfo(message: "Created extraction order")
                 self?.startPolling()
                 self?.startQueuedUploads()
             }
             else {
-                Logger().logError(message: "Creating extraction order failed: \(String(describing: error))")
+                logger.logError(message: "Creating extraction order failed: \(String(describing: error))")
                 let orderError = NSError(errorCode: .cannotCreateExtractionOrder, underlyingError:error)
                 self?.notifyError(orderError)
             }
@@ -127,14 +128,14 @@ class ExtractionsManager {
             return
         }
         page.status = .uploading
-        Logger().logInfo(message: "Uploading page")
+        logger.logInfo(message: "Uploading page")
         uploadService?.addPage(data: page.imageData, completion: { [weak self](pageUrl, error) in
             if let error = error {
-                Logger().logError(message: "Page upload failed: \(error.localizedDescription)")
+                logger.logError(message: "Page upload failed: \(error.localizedDescription)")
                 self?.handleError(error, ofType: .cannotUploadPage)
             }
             else {
-                Logger().logInfo(message: "Uploaded page with path\n\(pageUrl ?? "<unknown>")")
+                logger.logInfo(message: "Uploaded page with path\n\(pageUrl ?? "<unknown>")")
                 page.id = pageUrl
                 page.status = .uploaded
                 self?.notifyCollectionChanged()
@@ -154,13 +155,13 @@ class ExtractionsManager {
         if let id = page.id {      // if the page doesn't have an id, it was probably not uploaded
             uploadService?.deletePage(id: id, completion: { [weak self](pageUrl, error) in
                 if let error = error {
-                    Logger().logError(message: "Page delete failed: \(error.localizedDescription)")
+                    logger.logError(message: "Page delete failed: \(error.localizedDescription)")
                     self?.handleError(error, ofType: .pageDeleteError)
                     // TODO: if deleting failed, add the pages to the scan pages array so users see that
                     // it is still there
                 }
                 else {
-                    Logger().logInfo(message: "Deleted page with path\n\(pageUrl ?? "<unknown>")")
+                    logger.logInfo(message: "Deleted page with path\n\(pageUrl ?? "<unknown>")")
                 }
             })
         }
@@ -180,11 +181,11 @@ class ExtractionsManager {
         if let id = page.id {
             uploadService?.replacePage(id: id, newImageData: withPage.imageData, completion: { [weak self] (pageUrl, error) in
                 if let error = error {
-                    Logger().logError(message: "Page replace failed: \(error.localizedDescription)")
+                    logger.logError(message: "Page replace failed: \(error.localizedDescription)")
                     self?.handleError(error, ofType: .pageReplaceError)
                 }
                 else {
-                    Logger().logInfo(message: "Deleted page\n\(withPage.id ?? "<unknown>")\nwith path\n\(pageUrl ?? "<unknown>")")
+                    logger.logInfo(message: "Deleted page\n\(withPage.id ?? "<unknown>")\nwith path\n\(pageUrl ?? "<unknown>")")
                     page.id = pageUrl
                     page.status = .uploaded
                     self?.notifyCollectionChanged()
@@ -197,14 +198,21 @@ class ExtractionsManager {
         guard hasActiveSession else {
             return
         }
-        
-        uploadService?.sendFeedback(original: extractions, feedback: feedback, completion: { [weak self] (error) in
+        guard !feedback.extractions.isEmpty else {
+            // if users don't check if the feedback doesn't contain any extractions, they will call the
+            // sendFeedback method and expect a callback when it's done. So the callback is called
+            // explicitly here and it is "assumed" that it was successful
+            notifyFeedbackSent()
+            return
+        }
+        uploadService?.sendFeedback(feedback, completion: { [weak self] (error) in
             if let error = error {
-                Logger().logError(message: "Sending feedback failed: \(error.localizedDescription)")
+                logger.logError(message: "Sending feedback failed: \(error.localizedDescription)")
                 self?.handleError(error, ofType: .feedbackError)
             }
             else {
-                Logger().logInfo(message: "Feedback sent!")
+                logger.logInfo(message: "Feedback sent!")
+                self?.notifyFeedbackSent()
             }
         })
     }
@@ -237,19 +245,6 @@ class ExtractionsManager {
         })
     }
     
-    fileprivate func importCredentials() {
-        let sdk = currentSwitchSdk()
-        clientId = sdk.clientId
-        clientSecret = sdk.clientSecret
-        clientDomain = sdk.clientDomain
-    }
-    
-    fileprivate func setupFeedbackHandler() {
-        currentSwitchSdk().feedbackHandler = { [weak self] (feedback) in
-            self?.sendFeedback(feedback)
-        }
-    }
-    
     fileprivate func parseStatus(_ status:ExtractionStatusResponse?) {
         // go through all scanned pages and see if their status changed if any way
         var hasChanges = false
@@ -264,11 +259,11 @@ class ExtractionsManager {
             }
         })
         if hasChanges {
-            Logger().logInfo(message: "Order status changed!")
+            logger.logInfo(message: "Order status changed!")
             notifyCollectionChanged()
         }
         if hasJustCompleted {
-            Logger().logInfo(message: "Extractions completed")
+            logger.logInfo(message: "Extractions completed")
             extractionsComplete = true
             notifyExtractionsComplete()
         }
@@ -277,7 +272,7 @@ class ExtractionsManager {
     fileprivate func parseExtractions(_ collection:ExtractionCollection) {
         // see if there's something new and notify if so
         if extractions != collection {
-            Logger().logInfo(message: "Extractions changed!")
+            logger.logInfo(message: "Extractions changed!")
             extractions = collection
             notifyExtractionsChanged()
         }
@@ -289,8 +284,6 @@ class ExtractionsManager {
     
     fileprivate func notifyExtractionsChanged() {
         self.delegate?.extractionsManager(self, didChangeExtractions: extractions)
-        currentSwitchSdk().extractions = extractions
-        currentSwitchSdk().delegate?.switchSdk(currentSwitchSdk(), didChangeExtractions: extractions)
     }
     
     fileprivate func notifyExtractionsComplete() {

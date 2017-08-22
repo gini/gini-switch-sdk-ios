@@ -52,19 +52,9 @@ class GiniSwitchSdkTests: XCTestCase {
         XCTAssertNotNil(initialController, "GiniSwitchSDK should be able to generate view controllers for clients")
     }
     
-    func testHasUserInterface() {
-        let sdk = emptySdk()
-        XCTAssertNotNil(sdk.userInterface, "GiniSwitchSDK should have a User Interface object")
-    }
-    
     func testHasConfiguration() {
         let sdk = emptySdk()
         XCTAssertNotNil(sdk.configuration, "GiniSwitchSDK should have an Configuration object")
-    }
-    
-    func testHasAppearance() {
-        let sdk = emptySdk()
-        XCTAssertNotNil(sdk.appearance, "GiniSwitchSDK should have an Appearance object")
     }
     
 }
