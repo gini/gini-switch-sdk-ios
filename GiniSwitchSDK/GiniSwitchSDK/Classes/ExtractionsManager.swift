@@ -52,9 +52,10 @@ class ExtractionsManager {
         return (!clientId.isEmpty && !clientSecret.isEmpty && !clientDomain.isEmpty)
     }
     
-    init() {
-        importCredentials()
-        setupFeedbackHandler()
+    init(clientId:String = "", clientSecret:String = "", clientDomain:String = "") {
+        self.clientId = clientId
+        self.clientSecret = clientSecret
+        self.clientDomain = clientDomain
     }
     
     deinit {
@@ -244,19 +245,6 @@ class ExtractionsManager {
         })
     }
     
-    fileprivate func importCredentials() {
-        let sdk = currentSwitchSdk()
-        clientId = sdk.clientId
-        clientSecret = sdk.clientSecret
-        clientDomain = sdk.clientDomain
-    }
-    
-    fileprivate func setupFeedbackHandler() {
-        currentSwitchSdk().feedbackHandler = { [weak self] (feedback) in
-            self?.sendFeedback(feedback)
-        }
-    }
-    
     fileprivate func parseStatus(_ status:ExtractionStatusResponse?) {
         // go through all scanned pages and see if their status changed if any way
         var hasChanges = false
@@ -296,8 +284,6 @@ class ExtractionsManager {
     
     fileprivate func notifyExtractionsChanged() {
         self.delegate?.extractionsManager(self, didChangeExtractions: extractions)
-        currentSwitchSdk().extractions = extractions
-        currentSwitchSdk().delegate?.switchSdk(currentSwitchSdk(), didChangeExtractions: extractions)
     }
     
     fileprivate func notifyExtractionsComplete() {

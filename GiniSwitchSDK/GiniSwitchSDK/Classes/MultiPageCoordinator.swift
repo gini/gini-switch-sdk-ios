@@ -10,18 +10,20 @@ import UIKit
 
 protocol MultiPageCoordinatorDelegate:class {
     
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedShowingController:UIViewController, presentationStyle:PresentationStyle, animated:Bool, completion:(() -> Void)?)
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController, presentationStyle:PresentationStyle, animated:Bool, completion: (() -> Void)?)
+    func multiPageCoordinatorDidComplete(_ coordinator:MultiPageCoordinator)
+    func multiPageCoordinatorDidCancel(_ coordinator:MultiPageCoordinator)
+    
 }
 
 class MultiPageCoordinator {
+    
+    let extractionsManager:ExtractionsManager
+    let onboarding:GiniSwitchOnboarding
 
-    let cameraOptionsController:CameraOptionsViewController
-    let cameraController:CameraViewController
-    let pageCollectionController:PagesCollectionViewController
+    let multiPageViewController:MultiPageScanViewController
     var embeddedController:UIViewController? = nil
     
-    var extractionsManager = ExtractionsManager()       // should be able to inject another one
+    var presentationStyle = PresentationStyle.modal
     
     var pageToReplace:ScanPage? = nil
     var extractionsCompleted = false
@@ -29,19 +31,31 @@ class MultiPageCoordinator {
     
     weak var delegate:MultiPageCoordinatorDelegate? = nil
     
-    init(camera:CameraViewController, cameraOptions:CameraOptionsViewController, pagesCollection:PagesCollectionViewController) {
-        cameraOptionsController = cameraOptions
-        cameraController = camera
-        pageCollectionController = pagesCollection
+    var cameraOptionsController:CameraOptionsViewController {
+        return multiPageViewController.cameraOptionsController
+    }
+    
+    var cameraController:CameraViewController {
+        return multiPageViewController.cameraController
+    }
+    
+    var pageCollectionController:PagesCollectionViewController {
+        return multiPageViewController.pagesCollectionController
+    }
+    
+    init(extractionsManager:ExtractionsManager, onboarding:GiniSwitchOnboarding) {
+        self.extractionsManager = extractionsManager
+        self.onboarding = onboarding
+        multiPageViewController = MultiPageCoordinator.contentViewController
+        _ = multiPageViewController.view
         
         cameraOptionsController.delegate = self
-        cameraOptionsController.doneButtonText = currentSwitchAppearance().doneButtonText
-        cameraOptionsController.textColor = currentSwitchAppearance().doneButtonTextColor
+        cameraOptionsController.doneButtonText = GiniSwitchAppearance.doneButtonText
+        cameraOptionsController.textColor = GiniSwitchAppearance.doneButtonTextColor
         cameraController.delegate = self
-        pagesCollection.themeColor = currentSwitchAppearance().primaryColor
-        pagesCollection.delegate = self
+        pageCollectionController.themeColor = GiniSwitchAppearance.primaryColor
+        pageCollectionController.delegate = self
         
-        extractionsManager.delegate = self
         extractionsManager.authenticate()
         self.extractionsManager.createExtractionOrder()
         
@@ -50,13 +64,32 @@ class MultiPageCoordinator {
         }
     }
     
+    var initialViewController:UIViewController {
+        var initialController:UIViewController? = nil
+        switch presentationStyle {
+        case .modal:
+            let navController = UINavigationController(rootViewController:multiPageViewController)
+            initialController = navController
+        case .navigation:
+            initialController = multiPageViewController
+        case .embed:
+            assertionFailure("Embedding is not yet supported")
+        }
+        return initialController!
+    }
+    
+    static private var contentViewController:MultiPageScanViewController {
+        let storyboard = UIStoryboard.switchStoryboard()!
+        return storyboard.instantiateInitialViewController() as! MultiPageScanViewController
+    }
+    
     func showReviewScreen(withPage page:ScanPage) {
         let reviewController = UIStoryboard.switchStoryboard()?.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
         reviewController.page = page
-        reviewController.confirmColor = currentSwitchAppearance().positiveColor
-        reviewController.denyColor = currentSwitchAppearance().negativeColor
+        reviewController.confirmColor = GiniSwitchAppearance.positiveColor
+        reviewController.denyColor = GiniSwitchAppearance.negativeColor
         reviewController.delegate = self
-        delegate?.multiPageCoordinator(self, requestedShowingController: reviewController, presentationStyle: .modal, animated: true, completion: nil)
+        multiPageViewController.present(controller: reviewController, presentationStyle: .modal, animated: true, completion: nil)
     }
     
     func enableCaptureButton(_ enabled:Bool) {
@@ -76,19 +109,30 @@ class MultiPageCoordinator {
         }
     }
     
+    func displayError(_ error:NSError) {
+        let alert = UIAlertController(title: NSLocalizedString("Fehler", comment: "Error alert view title"),
+                                      message: error.humanReadableDescription(),
+                                      preferredStyle: .alert)
+        let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: "Error alert view button title"),
+                                     style: .default,
+                                     handler: nil)
+        alert.addAction(okAction)
+        multiPageViewController.present(controller: alert, presentationStyle: .modal, animated: true, completion: nil)
+    }
+    
     fileprivate func scheduleOnboarding() {
         // remove the camera button so users don't think they can tap on it
         cameraOptionsController.captureButton.isHidden = true
-        let onboarding = OnboardingViewController(onboarding: (GiniSwitchSdkStorage.activeSwitchSdk?.configuration.onboarding)!, completion:nil)
+        let onboardingController = OnboardingViewController(onboarding: onboarding, completion:nil)
         let completionDismiss = {
             GiniSwitchOnboarding.hasShownOnboarding = true
-            self.delegate?.multiPageCoordinator(self, requestedDismissingController: onboarding, presentationStyle: .modal, animated: true, completion:nil)
+            self.multiPageViewController.dismiss(controller: onboardingController, presentationStyle: .modal, animated: true, completion: nil)
             self.cameraOptionsController.captureButton.isHidden = false
         }
-        onboarding.completion = completionDismiss
-        onboarding.modalPresentationStyle = .overFullScreen
+        onboardingController.completion = completionDismiss
+        onboardingController.modalPresentationStyle = .overFullScreen
         DispatchQueue.main.async {
-            self.delegate?.multiPageCoordinator(self, requestedShowingController: onboarding, presentationStyle: .modal, animated: true, completion: nil)
+            self.multiPageViewController.present(controller: onboardingController, presentationStyle: .modal, animated: true, completion: nil)
         }
     }
     
@@ -98,12 +142,11 @@ class MultiPageCoordinator {
             extractionsCompleted = false
             // show the extractions completed screen
             let completionController = UIStoryboard.switchStoryboard()?.instantiateViewController(withIdentifier: "ExtractionsCompletedViewController") as! ExtractionsCompletedViewController
-            completionController.image = currentSwitchAppearance().analyzedImage
-            completionController.text = currentSwitchAppearance().analyzedText
-            completionController.textSize = currentSwitchAppearance().analyzedTextSize
-            completionController.textColor = currentSwitchAppearance().analyzedTextColor
-            let myDelegate = delegate
-            myDelegate?.multiPageCoordinator(self, requestedShowingController: completionController, presentationStyle: .modal, animated: true) { [weak self] in
+            completionController.image = GiniSwitchAppearance.analyzedImage
+            completionController.text = GiniSwitchAppearance.analyzedText
+            completionController.textSize = GiniSwitchAppearance.analyzedTextSize
+            completionController.textColor = GiniSwitchAppearance.analyzedTextColor
+            multiPageViewController.present(controller: completionController, presentationStyle: .modal, animated: true) { [weak self] in
                 // after it is presented, push the extractions screen below it. That way, when it is
                 // automatically dismissed, the extractions will appear below
                 guard let weakSelf = self else {
@@ -115,20 +158,20 @@ class MultiPageCoordinator {
             // wait a few seconds so users can read the text and automatically dismiss
             let delay = DispatchTime.now() + .seconds(extrationsCompletePopupTimeout)
             DispatchQueue.main.asyncAfter(deadline: delay, execute: {
-                myDelegate?.multiPageCoordinator(self, requestedDismissingController: completionController, presentationStyle: .modal, animated: true) {
-                    currentSwitchSdk().delegate?.switchSdkDidComplete(currentSwitchSdk())
+                self.multiPageViewController.dismiss(controller: completionController, presentationStyle: .modal, animated: true) {
+                    self.delegate?.multiPageCoordinatorDidComplete(self)
                 }
             })
         }
     }
     
     fileprivate func overflowMenu() -> UIAlertController {
-        let actionSheet = UIAlertController(title: currentSwitchAppearance().exitActionSheetTitle, message: nil, preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: GiniSwitchAppearance.exitActionSheetTitle, message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: NSLocalizedString("Abbrechen", comment: "Leave SDK actionsheet cancel title"), style: .cancel) { (action) in
             
         }
         let leaveAction = UIAlertAction(title: NSLocalizedString("Verlassen", comment: "Leave SDK actionsheet leave title"), style: .destructive) { (action) in
-            currentSwitchSdk().delegate?.switchSdkDidCancel(currentSwitchSdk())
+            self.delegate?.multiPageCoordinatorDidCancel(self)
         }
         let helpAction = UIAlertAction(title: NSLocalizedString("Hilfe", comment: "Leave SDK actionsheet help title"), style: .default) { (action) in
             self.scheduleOnboarding()
@@ -141,19 +184,19 @@ class MultiPageCoordinator {
     
     fileprivate func showOverflowMenu() {
         let actionSheet = overflowMenu()
-        self.delegate?.multiPageCoordinator(self, requestedShowingController: actionSheet, presentationStyle: .modal, animated: true, completion: nil)
+        multiPageViewController.present(controller: actionSheet, presentationStyle: .modal, animated: true, completion: nil)
     }
     
     fileprivate func embed(controller:UIViewController) {
         embeddedController = controller
-        delegate?.multiPageCoordinator(self, requestedShowingController: controller, presentationStyle: .embed, animated: false, completion: nil)
+        multiPageViewController.present(controller: controller, presentationStyle: .embed, animated: false, completion: nil)
     }
     
     fileprivate func removeEmbededController() {
         guard let controller = embeddedController else {
             return
         }
-        self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .embed, animated: false, completion: nil)
+        multiPageViewController.dismiss(controller: controller, presentationStyle: .embed, animated: false, completion: nil)
         embeddedController = nil
     }
 }
@@ -167,7 +210,7 @@ extension MultiPageCoordinator: CameraOptionsViewControllerDelegate {
     
     func cameraControllerIsDone(cameraController:CameraOptionsViewController) {
         extractionsManager.pollExtractions()
-        currentSwitchSdk().delegate?.switchSdkDidComplete(currentSwitchSdk())
+        delegate?.multiPageCoordinatorDidComplete(self)
     }
 }
 
@@ -195,8 +238,8 @@ extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
         pageController.shouldShowAddIcon = true
         pageController.pagesCollection?.reloadData()
         let previewController = UIStoryboard.switchStoryboard()?.instantiateViewController(withIdentifier: "PreviewViewController") as! PreviewViewController
-        previewController.confirmColor = currentSwitchAppearance().positiveColor
-        previewController.denyColor = currentSwitchAppearance().negativeColor
+        previewController.confirmColor = GiniSwitchAppearance.positiveColor
+        previewController.denyColor = GiniSwitchAppearance.negativeColor
         previewController.page = didSelectPage
         previewController.delegate = self
         embed(controller: previewController)
@@ -212,7 +255,7 @@ extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
 extension MultiPageCoordinator: ReviewViewControllerDelegate {
     
     func reviewController(_ controller:ReviewViewController, didAcceptPage page:ScanPage) {
-        delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .modal, animated: true) {
+        multiPageViewController.dismiss(controller: controller, presentationStyle: .modal, animated: true) {
             DispatchQueue.main.async {
                 self.completeIfReady()
             }
@@ -228,7 +271,7 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
     }
     
     func reviewController(_ controller:ReviewViewController, didRejectPage page:ScanPage) {
-        self.delegate?.multiPageCoordinator(self, requestedDismissingController: controller, presentationStyle: .modal, animated: true) {
+        multiPageViewController.dismiss(controller: controller, presentationStyle: .modal, animated: true) {
             DispatchQueue.main.async {
                 self.completeIfReady()
             }
@@ -257,49 +300,4 @@ extension MultiPageCoordinator: PreviewViewControllerDelegate {
         pageCollectionController.pagesCollection?.reloadData()
         removeEmbededController()
     }
-}
-
-extension MultiPageCoordinator: ExtractionsManagerDelegate {
-    
-    func extractionsManager(_ manager:ExtractionsManager, didEncounterError error:NSError) {
-        // check if it's an error that needs to be shown to the user
-        if error.isHumanReadable {
-            let alert = UIAlertController(title: NSLocalizedString("Fehler", comment: "Error alert view title"),
-                              message: error.humanReadableDescription(),
-                              preferredStyle: .alert)
-            let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: "Error alert view button title"),
-                                         style: .default,
-                                         handler: nil)
-            alert.addAction(okAction)
-            delegate?.multiPageCoordinator(self, requestedShowingController: alert, presentationStyle: .modal, animated: true, completion: nil)
-        }
-        currentSwitchSdk().delegate?.switchSdk(currentSwitchSdk(), didReceiveError: error)
-    }
-    
-    func extractionsManager(_ manager:ExtractionsManager, didChangePageCollection collection:PageCollection) {
-        refreshPagesCollectionView()
-    }
-    
-    func extractionsManager(_ manager:ExtractionsManager, didChangeExtractions extractions:ExtractionCollection) {
-        
-    }
-    
-    func extractionsManagerDidAuthenticate(_ manager:ExtractionsManager) {
-        
-    }
-    
-    func extractionsManagerDidCreateOrder(_ manager:ExtractionsManager) {
-        
-    }
-    
-    func extractionsManagerDidCompleteExtractions(_ manager:ExtractionsManager) {
-        // Don't interrupt the user immediately. Allow them to complete the last action
-        // before notifying them that extractions are complete
-        extractionsCompleted = true
-    }
-    
-    func extractionsManagerDidSendFeedback(_ manager:ExtractionsManager) {
-        currentSwitchSdk().delegate?.switchSdkDidSendFeedback(currentSwitchSdk())
-    }
-    
 }
