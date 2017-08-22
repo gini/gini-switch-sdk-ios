@@ -45,7 +45,6 @@ class SwitchExampleViewController: UIViewController {
     
     fileprivate func terminateSdk() {
         switchController = nil
-        sdk?.terminate()
         sdk = nil
         extractions = ExtractionCollection()        // release the collection
     }

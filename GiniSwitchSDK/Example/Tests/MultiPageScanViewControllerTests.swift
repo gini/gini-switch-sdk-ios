@@ -31,18 +31,8 @@ class MultiPageScanViewControllerTests: XCTestCase {
         // embed in a navigation controller
         _ = UINavigationController(rootViewController: multiPageController)
         _ = multiPageController.view
+        multiPageController.viewWillAppear(true)
         XCTAssertEqual(multiPageController.navigationController?.isNavigationBarHidden ?? false, true, "MultiPageScanViewController is designed to work without a navigation bar")
-    }
-    
-    func testHasMultiPageCoordinator() {
-        _ = multiPageController.view
-        XCTAssertNotNil(multiPageController.coordinator, "MultiPageScanViewController should have a MultiPageCoordinator")
-    }
-    
-    func testIsMultiPageCoordinatorDelegate() {
-        _ = multiPageController.view
-        XCTAssertNotNil(multiPageController as MultiPageCoordinatorDelegate, "MultiPageScanViewController should conform to MultiPageCoordinatorDelegate")
-        XCTAssertTrue(multiPageController.coordinator.delegate === multiPageController, "MultiPageScanViewController should be the coordinator's delegate")
     }
     
     func testPresentingViewControllerViaDelegate() {
@@ -50,8 +40,8 @@ class MultiPageScanViewControllerTests: XCTestCase {
         _ = multiPageController.view
         // the view controller needs to be added to a window, otherwise presenting will fail
         UIApplication.shared.keyWindow?.rootViewController = multiPageController
-        multiPageController.multiPageCoordinator(multiPageController.coordinator, requestedShowingController: testController, presentationStyle: .modal, animated: false, completion: nil)
-        XCTAssertNotNil(multiPageController.presentedViewController, "MultiPageScanViewController should present view controllers provided via the multiPageCoordinator(requestedShowingController:) method")
+        multiPageController.present(controller: testController, presentationStyle: .modal, animated: false, completion: nil)
+        XCTAssertNotNil(multiPageController.presentedViewController, "MultiPageScanViewController should present view controllers provided via the present method")
     }
     
     func testPrefersNoStatusBar() {

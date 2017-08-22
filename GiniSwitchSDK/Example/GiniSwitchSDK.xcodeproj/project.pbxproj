@@ -33,11 +33,9 @@
 		23FA08611F28F3C700753E39 /* ExtractionStatusResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C91F1DFC1800F0742E /* ExtractionStatusResponseTests.swift */; };
 		23FA08621F28F3C700753E39 /* ExtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5CB1F1DFC1800F0742E /* ExtractionTests.swift */; };
 		23FA08631F28F3C700753E39 /* ExtractionValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5CC1F1DFC1800F0742E /* ExtractionValueTests.swift */; };
-		23FA08641F28F3C700753E39 /* GiniSwitchAppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5CD1F1DFC1800F0742E /* GiniSwitchAppearanceTests.swift */; };
 		23FA08651F28F3C700753E39 /* GiniSwitchConsoleLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5CE1F1DFC1800F0742E /* GiniSwitchConsoleLoggerTests.swift */; };
 		23FA08661F28F3C700753E39 /* GiniSwitchOnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5CF1F1DFC1800F0742E /* GiniSwitchOnboardingTests.swift */; };
 		23FA08671F28F3C700753E39 /* GiniSwitchSdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D01F1DFC1800F0742E /* GiniSwitchSdkTests.swift */; };
-		23FA08681F28F3C700753E39 /* GiniSwitchUserInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D11F1DFC1800F0742E /* GiniSwitchUserInterfaceTests.swift */; };
 		23FA08691F28F3C700753E39 /* MultiPageCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D31F1DFC1800F0742E /* MultiPageCoordinatorTests.swift */; };
 		23FA086A1F28F3C700753E39 /* MultiPageScanViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D41F1DFC1800F0742E /* MultiPageScanViewControllerTests.swift */; };
 		23FA086B1F28F3C700753E39 /* OnboardingPageViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D51F1DFC1800F0742E /* OnboardingPageViewControllerTests.swift */; };
@@ -90,11 +88,9 @@
 		2331C5C91F1DFC1800F0742E /* ExtractionStatusResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtractionStatusResponseTests.swift; sourceTree = "<group>"; };
 		2331C5CB1F1DFC1800F0742E /* ExtractionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtractionTests.swift; sourceTree = "<group>"; };
 		2331C5CC1F1DFC1800F0742E /* ExtractionValueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtractionValueTests.swift; sourceTree = "<group>"; };
-		2331C5CD1F1DFC1800F0742E /* GiniSwitchAppearanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiniSwitchAppearanceTests.swift; sourceTree = "<group>"; };
 		2331C5CE1F1DFC1800F0742E /* GiniSwitchConsoleLoggerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiniSwitchConsoleLoggerTests.swift; sourceTree = "<group>"; };
 		2331C5CF1F1DFC1800F0742E /* GiniSwitchOnboardingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiniSwitchOnboardingTests.swift; sourceTree = "<group>"; };
 		2331C5D01F1DFC1800F0742E /* GiniSwitchSdkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiniSwitchSdkTests.swift; sourceTree = "<group>"; };
-		2331C5D11F1DFC1800F0742E /* GiniSwitchUserInterfaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiniSwitchUserInterfaceTests.swift; sourceTree = "<group>"; };
 		2331C5D31F1DFC1800F0742E /* MultiPageCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiPageCoordinatorTests.swift; sourceTree = "<group>"; };
 		2331C5D41F1DFC1800F0742E /* MultiPageScanViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiPageScanViewControllerTests.swift; sourceTree = "<group>"; };
 		2331C5D51F1DFC1800F0742E /* OnboardingPageViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewControllerTests.swift; sourceTree = "<group>"; };
@@ -231,11 +227,9 @@
 				2331C5C91F1DFC1800F0742E /* ExtractionStatusResponseTests.swift */,
 				2331C5CB1F1DFC1800F0742E /* ExtractionTests.swift */,
 				2331C5CC1F1DFC1800F0742E /* ExtractionValueTests.swift */,
-				2331C5CD1F1DFC1800F0742E /* GiniSwitchAppearanceTests.swift */,
 				2331C5CE1F1DFC1800F0742E /* GiniSwitchConsoleLoggerTests.swift */,
 				2331C5CF1F1DFC1800F0742E /* GiniSwitchOnboardingTests.swift */,
 				2331C5D01F1DFC1800F0742E /* GiniSwitchSdkTests.swift */,
-				2331C5D11F1DFC1800F0742E /* GiniSwitchUserInterfaceTests.swift */,
 				2331C5D31F1DFC1800F0742E /* MultiPageCoordinatorTests.swift */,
 				2331C5D41F1DFC1800F0742E /* MultiPageScanViewControllerTests.swift */,
 				2331C5D51F1DFC1800F0742E /* OnboardingPageViewControllerTests.swift */,
@@ -515,7 +509,6 @@
 				23FA085C1F28F3C700753E39 /* ExtractionCollectionTests.swift in Sources */,
 				23FA086F1F28F3C700753E39 /* PagesResponseTests.swift in Sources */,
 				23FA08521F28F3C200753E39 /* FakeCamera.swift in Sources */,
-				23FA08641F28F3C700753E39 /* GiniSwitchAppearanceTests.swift in Sources */,
 				23FA08561F28F3C700753E39 /* AuthenticatorTests.swift in Sources */,
 				23FA08631F28F3C700753E39 /* ExtractionValueTests.swift in Sources */,
 				23FA08571F28F3C700753E39 /* BaseApiResponseTests.swift in Sources */,
@@ -525,7 +518,6 @@
 				23FA08661F28F3C700753E39 /* GiniSwitchOnboardingTests.swift in Sources */,
 				23FA08651F28F3C700753E39 /* GiniSwitchConsoleLoggerTests.swift in Sources */,
 				23FA08531F28F3C200753E39 /* MemoryCredentialsStore.swift in Sources */,
-				23FA08681F28F3C700753E39 /* GiniSwitchUserInterfaceTests.swift in Sources */,
 				23FA085B1F28F3C700753E39 /* ErrorTests.swift in Sources */,
 				23FA085F1F28F3C700753E39 /* ExtractionServiceTests.swift in Sources */,
 				23FA08731F28F3C700753E39 /* TestUtils.swift in Sources */,
