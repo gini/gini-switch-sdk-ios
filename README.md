@@ -1,4 +1,4 @@
-![Gini Vision Library for iOS](https://www.gini.net/assets/GiniVision_Logo.png)
+![Gini Vision Library for iOS](GiniSwitchLogo.png)
 
 # Gini Switch SDK for iOS
 
