@@ -1,0 +1,551 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/BaseApiResponse.swift",
+      "line": 15,
+      "symbol": "BaseApiResponse",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Error.swift",
+      "line": 12,
+      "symbol": "GiniSwitchErrorCode",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Error.swift",
+      "line": 14,
+      "symbol": "GiniSwitchErrorCode.unknown",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Error.swift",
+      "line": 15,
+      "symbol": "GiniSwitchErrorCode.network",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Error.swift",
+      "line": 16,
+      "symbol": "GiniSwitchErrorCode.authentication",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Error.swift",
+      "line": 17,
+      "symbol": "GiniSwitchErrorCode.tokenExpired",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Error.swift",
+      "line": 18,
+      "symbol": "GiniSwitchErrorCode.invalidResponse",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Error.swift",
+      "line": 21,
+      "symbol": "GiniSwitchErrorCode.cannotCreateExtractionOrder",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Error.swift",
+      "line": 22,
+      "symbol": "GiniSwitchErrorCode.cannotUploadPage",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Error.swift",
+      "line": 23,
+      "symbol": "GiniSwitchErrorCode.pageAnalysisFailed",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Error.swift",
+      "line": 24,
+      "symbol": "GiniSwitchErrorCode.pageDeleteError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Error.swift",
+      "line": 25,
+      "symbol": "GiniSwitchErrorCode.pageReplaceError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Error.swift",
+      "line": 26,
+      "symbol": "GiniSwitchErrorCode.extractionsError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Error.swift",
+      "line": 27,
+      "symbol": "GiniSwitchErrorCode.pageStatusError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Error.swift",
+      "line": 28,
+      "symbol": "GiniSwitchErrorCode.feedbackError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Error.swift",
+      "line": 93,
+      "symbol": "NSError.switchErrorCode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Extraction.swift",
+      "line": null,
+      "symbol": "Extraction",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Extraction.swift",
+      "line": 9,
+      "symbol": "Extraction",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Extraction.swift",
+      "line": 11,
+      "symbol": "Extraction.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Extraction.swift",
+      "line": 12,
+      "symbol": "Extraction.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Extraction.swift",
+      "line": 13,
+      "symbol": "Extraction.alternatives",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Extraction.swift",
+      "line": 15,
+      "symbol": "Extraction.valueString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Extraction.swift",
+      "line": 19,
+      "symbol": "Extraction.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Extraction.swift",
+      "line": 23,
+      "symbol": "Extraction.init(name:value:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/ExtractionCollection.swift",
+      "line": null,
+      "symbol": "ExtractionCollection",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/ExtractionCollection.swift",
+      "line": 11,
+      "symbol": "ExtractionCollection",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/ExtractionCollection.swift",
+      "line": 13,
+      "symbol": "ExtractionCollection.extractions",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/ExtractionCollection.swift",
+      "line": 15,
+      "symbol": "ExtractionCollection.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/ExtractionCollection.swift",
+      "line": 20,
+      "symbol": "ExtractionCollection.init(collection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/ExtractionValue.swift",
+      "line": 9,
+      "symbol": "ExtractionValue",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/ExtractionValue.swift",
+      "line": 11,
+      "symbol": "ExtractionValue.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/ExtractionValue.swift",
+      "line": 12,
+      "symbol": "ExtractionValue.unit",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/ExtractionValue.swift",
+      "line": 17,
+      "symbol": "ExtractionValue.valueString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/ExtractionValue.swift",
+      "line": 21,
+      "symbol": "ExtractionValue.init(value:unit:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/ExtractionValue.swift",
+      "line": 43,
+      "symbol": "ExtractionValue.==(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchAppearance.swift",
+      "line": 97,
+      "symbol": "GiniSwitchAppearance.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchConfiguration.swift",
+      "line": 11,
+      "symbol": "GiniSwitchConfiguration",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchConfiguration.swift",
+      "line": 19,
+      "symbol": "GiniSwitchConfiguration.logging",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchConfiguration.swift",
+      "line": 38,
+      "symbol": "GiniSwitchConfiguration.onboarding",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchLogger.swift",
+      "line": 9,
+      "symbol": "LogLevel",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchLogger.swift",
+      "line": 10,
+      "symbol": "LogLevel.verbose",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchLogger.swift",
+      "line": 11,
+      "symbol": "LogLevel.debug",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchLogger.swift",
+      "line": 12,
+      "symbol": "LogLevel.info",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchLogger.swift",
+      "line": 13,
+      "symbol": "LogLevel.warn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchLogger.swift",
+      "line": 14,
+      "symbol": "LogLevel.error",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchLogger.swift",
+      "line": 17,
+      "symbol": "GiniSwitchLogger",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchLogger.swift",
+      "line": 19,
+      "symbol": "GiniSwitchLogger.log(level:message:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchLogger.swift",
+      "line": 20,
+      "symbol": "GiniSwitchLogger.logVerbose(message:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchLogger.swift",
+      "line": 21,
+      "symbol": "GiniSwitchLogger.logDebug(message:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchLogger.swift",
+      "line": 22,
+      "symbol": "GiniSwitchLogger.logInfo(message:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchLogger.swift",
+      "line": 23,
+      "symbol": "GiniSwitchLogger.logWarn(message:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchLogger.swift",
+      "line": 24,
+      "symbol": "GiniSwitchLogger.logError(message:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchOnboarding.swift",
+      "line": null,
+      "symbol": "OnboardingPage",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchOnboarding.swift",
+      "line": 11,
+      "symbol": "OnboardingPage",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchOnboarding.swift",
+      "line": 16,
+      "symbol": "OnboardingPage.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchOnboarding.swift",
+      "line": 20,
+      "symbol": "OnboardingPage.init(image:text:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchOnboarding.swift",
+      "line": 26,
+      "symbol": "GiniSwitchOnboarding",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchOnboarding.swift",
+      "line": 30,
+      "symbol": "GiniSwitchOnboarding.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchOnboarding.swift",
+      "line": 41,
+      "symbol": "GiniSwitchOnboarding.init(pages:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchSdk.swift",
+      "line": 11,
+      "symbol": "GiniSwitchSdkDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchSdk.swift",
+      "line": 13,
+      "symbol": "GiniSwitchSdkDelegate.switchSdk(_:didChangeExtractions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchSdk.swift",
+      "line": 14,
+      "symbol": "GiniSwitchSdkDelegate.switchSdk(_:didReceiveError:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchSdk.swift",
+      "line": 15,
+      "symbol": "GiniSwitchSdkDelegate.switchSdkDidCancel(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchSdk.swift",
+      "line": 16,
+      "symbol": "GiniSwitchSdkDelegate.switchSdkDidComplete(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchSdk.swift",
+      "line": 17,
+      "symbol": "GiniSwitchSdkDelegate.switchSdkDidSendFeedback(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchSdk.swift",
+      "line": 21,
+      "symbol": "GiniSwitchSdk",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchSdk.swift",
+      "line": 47,
+      "symbol": "GiniSwitchSdk.init(clientId:clientSecret:domain:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchSdk.swift",
+      "line": 58,
+      "symbol": "GiniSwitchSdk.instantiateSwitchViewController()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchSdk.swift",
+      "line": 64,
+      "symbol": "GiniSwitchSdk.sendFeedback(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/OnboardingViewController.swift",
+      "line": null,
+      "symbol": "OnboardingViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/OnboardingViewController.swift",
+      "line": 64,
+      "symbol": "OnboardingViewController.pageViewController(_:viewControllerAfter:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/PageCollection.swift",
+      "line": null,
+      "symbol": "PageCollection",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/PagesCollectionViewController.swift",
+      "line": null,
+      "symbol": "PagesCollectionViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/PagesCollectionViewController.swift",
+      "line": 72,
+      "symbol": "PagesCollectionViewController.collectionView(_:numberOfItemsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/PagesCollectionViewController.swift",
+      "line": 83,
+      "symbol": "PagesCollectionViewController.collectionView(_:cellForItemAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/PagesCollectionViewController.swift",
+      "line": 104,
+      "symbol": "PagesCollectionViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/ReviewViewController.swift",
+      "line": null,
+      "symbol": "ReviewViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/ScanPage.swift",
+      "line": null,
+      "symbol": "ScanPage",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/nikolasobadjiev/Projects/TariffSDK"
+}

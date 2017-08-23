@@ -1,6 +1,0 @@
-framework module GiniSwitchSDK {
-  umbrella header "GiniSwitchSDK-umbrella.h"
-
-  export *
-  module * { export * }
-}

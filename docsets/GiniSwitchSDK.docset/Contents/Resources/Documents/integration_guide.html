@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>INTEGRATION_GUIDE  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="INTEGRATION_GUIDE  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">GiniSwitchSDK Docs</a> (25% documented)</p>
+        <p class="header-right"><a href="https://github.com/gini/gini-switch-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">GiniSwitchSDK Reference</a>
+        <img id="carat" src="img/carat.png" />
+        INTEGRATION_GUIDE  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="integration_guide.html">INTEGRATION_GUIDE</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes.html#/s:C13GiniSwitchSDK15BaseApiResponse">BaseApiResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Extraction.html">Extraction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ExtractionCollection.html">ExtractionCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GiniSwitchAppearance.html">GiniSwitchAppearance</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/GiniSwitchSdk.html">GiniSwitchSdk</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/GiniSwitchErrorCode.html">GiniSwitchErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/LogLevel.html">LogLevel</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/NSError.html">NSError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/OnboardingViewController.html">OnboardingViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/PageCollection.html">PageCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/PagesCollectionViewController.html">PagesCollectionViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/ReviewViewController.html">ReviewViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/ScanPage.html">ScanPage</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/GiniSwitchLogger.html">GiniSwitchLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/GiniSwitchSdkDelegate.html">GiniSwitchSdkDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/ExtractionValue.html">ExtractionValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/GiniSwitchConfiguration.html">GiniSwitchConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/GiniSwitchOnboarding.html">GiniSwitchOnboarding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/OnboardingPage.html">OnboardingPage</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <a href='#integration-guide' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='integration-guide'>Integration Guide</h1>
+
+<p>Thank you for choosing Gini GmbH services and being our partner! This document will guide you through integrating our SDK into your project. We have worked hard in order to make it as easy and convenient as possible. However, if you see anything out of the ordinary of you have any wishes, feel free to write us in GitHub or open an issue!</p>
+<a href='#how-we-distribute-our-sdk' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='how-we-distribute-our-sdk'>How we distribute our SDK</h2>
+
+<p>In order to maintain a high level of transparency with our partners, this SDK is open source and released under the permissive MIT license. As main distribution channel, we chose Cocoapods. However, if you don&rsquo;t want to use Cocoapods, you can always build a version yourself, add the source files to your project manually or use git submodules.</p>
+<a href='#cocoapods' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='cocoapods'>Cocoapods</h3>
+
+<p>We chose to use our own <code>podspec</code> repository, you you will have to add it as a source to your <code>PodFile</code>:</p>
+<pre class="highlight ruby"><code><span class="n">source</span> <span class="s1">'https://github.com/gini/gini-podspecs.git'</span>
+<span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
+
+<span class="n">pod</span> <span class="s2">"GiniSwitchSDK"</span>
+</code></pre>
+
+<p>Then, in order to add the SDK as a dependency, just run the following command in the terminal:</p>
+<pre class="highlight shell"><code><span class="gp">$ </span>pod install
+</code></pre>
+
+<p>For more information about that, just go to the <a href="http://cocoapods.org">Cocoapods website</a>.</p>
+<a href='#working-with-the-gini-switch-sdk' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='working-with-the-gini-switch-sdk'>Working with The Gini Switch SDK</h2>
+
+<p>The Gini Switch SDK is designed to be a self-contained and independent part of your app. Therefore, integrating it is relatively simple. A great resource for reference while doing so, is the example app. It&rsquo;s part of the repository and is a very simple container app that shows how to start, stop and receive information from the SDK.</p>
+<a href='#starting-the-sdk' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='starting-the-sdk'>Starting the SDK</h3>
+
+<p>The SDK is designed to take over the whole app navigation once it&rsquo;s started, assist the user in photographing their document and finally notifying the host app that it&rsquo;s done and it can be dismissed. While that&rsquo;s happening, it uses delegation to periodically inform the hosting app about events that are happening (a page has been uploaded, a new extraction is available, etc.).</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">sdk</span> <span class="o">=</span> <span class="kt">GiniSwitchSdk</span><span class="p">(</span><span class="nv">clientId</span><span class="p">:</span> <span class="s">"YourClientID"</span><span class="p">,</span> <span class="nv">clientSecret</span><span class="p">:</span> <span class="s">"YourSecret"</span><span class="p">,</span> <span class="nv">domain</span><span class="p">:</span> <span class="s">"gini.net"</span><span class="p">)</span>
+<span class="n">sdk</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
+<span class="k">let</span> <span class="nv">switchController</span> <span class="o">=</span> <span class="n">sdk</span><span class="o">.</span><span class="nf">instantiateSwitchViewController</span><span class="p">()</span>
+<span class="k">self</span><span class="o">.</span><span class="nf">present</span><span class="p">(</span><span class="n">switchController</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// The SDK is active now!</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>This is the simplest way to instantiate and show the Switch SDK.</p>
+
+<p><strong>NOTE:</strong> The <code>GiniSwitchSdk</code> is not singleton. You can create several instances. However, you shouldn&rsquo;t have to.</p>
+<a href='#a-name-dismiss-sdk-dismiss-the-sdk' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='a-name-dismiss-sdk-dismiss-the-sdk'><a name="dismiss-sdk"/>Dismiss the SDK</h3>
+<pre class="highlight swift"><code><span class="k">self</span><span class="o">.</span><span class="nf">dismiss</span><span class="p">(</span><span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<span class="n">switchController</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="n">sdk</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="n">extractions</span> <span class="o">=</span> <span class="kt">ExtractionCollection</span><span class="p">()</span>        <span class="c1">// release the collection</span>
+</code></pre>
+
+<p>Just dismiss the view controller you got from the <code>sdk.instantiateSwitchViewController()</code> and discard the <code>GiniSwitchSdk</code> instance. ARC will take care of the rest.</p>
+<a href='#receiving-information-from-the-switch-sdk' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='receiving-information-from-the-switch-sdk'>Receiving information from the Switch SDK</h3>
+
+<p>The Gini Switch SDK uses the Delegate design pattern to notify the host app about events happening as it is running. The protocol contains the following methods:</p>
+<pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">GiniSwitchSdkDelegate</span><span class="p">:</span> <span class="kd">class</span> <span class="p">{</span>
+
+    <span class="kd">func</span> <span class="nf">switchSdk</span><span class="p">(</span><span class="n">_</span> <span class="nv">sdk</span><span class="p">:</span><span class="kt">GiniSwitchSdk</span><span class="p">,</span> <span class="n">didChangeExtractions</span> <span class="nv">extractions</span><span class="p">:</span><span class="kt">ExtractionCollection</span><span class="p">)</span>
+    <span class="kd">func</span> <span class="nf">switchSdk</span><span class="p">(</span><span class="n">_</span> <span class="nv">sdk</span><span class="p">:</span><span class="kt">GiniSwitchSdk</span><span class="p">,</span> <span class="n">didReceiveError</span> <span class="nv">error</span><span class="p">:</span><span class="kt">NSError</span><span class="p">)</span>
+    <span class="kd">func</span> <span class="nf">switchSdkDidCancel</span><span class="p">(</span><span class="n">_</span> <span class="nv">sdk</span><span class="p">:</span><span class="kt">GiniSwitchSdk</span><span class="p">)</span>
+    <span class="kd">func</span> <span class="nf">switchSdkDidComplete</span><span class="p">(</span><span class="n">_</span> <span class="nv">sdk</span><span class="p">:</span><span class="kt">GiniSwitchSdk</span><span class="p">)</span>
+    <span class="kd">func</span> <span class="nf">switchSdkDidSendFeedback</span><span class="p">(</span><span class="n">_</span> <span class="nv">sdk</span><span class="p">:</span><span class="kt">GiniSwitchSdk</span><span class="p">)</span>
+
+<span class="p">}</span>
+</code></pre>
+
+<p>Out of those, as a minimum, the following need to be handled:</p>
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">switchSdk</span><span class="p">(</span><span class="n">_</span> <span class="nv">sdk</span><span class="p">:</span><span class="kt">GiniSwitchSdk</span><span class="p">,</span> <span class="n">didReceiveError</span> <span class="nv">error</span><span class="p">:</span><span class="kt">NSError</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">switchSdkDidCancel</span><span class="p">(</span><span class="n">_</span> <span class="nv">sdk</span><span class="p">:</span><span class="kt">GiniSwitchSdk</span><span class="p">)</span>
+<span class="kd">func</span> <span class="nf">switchSdkDidComplete</span><span class="p">(</span><span class="n">_</span> <span class="nv">sdk</span><span class="p">:</span><span class="kt">GiniSwitchSdk</span><span class="p">)</span>
+</code></pre>
+
+<p>That&rsquo;s where the SDK will be done and it will need to be dismissed.</p>
+<a href='#working-with-extractions' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='working-with-extractions'>Working with extractions</h3>
+
+<p>Naturally, the whole point in displaying the Gini Switch SDK is to get extractions. This is achieved via the</p>
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">switchSdk</span><span class="p">(</span><span class="n">_</span> <span class="nv">sdk</span><span class="p">:</span><span class="kt">GiniSwitchSdk</span><span class="p">,</span> <span class="n">didChangeExtractions</span> <span class="nv">extractions</span><span class="p">:</span><span class="kt">ExtractionCollection</span><span class="p">)</span>
+</code></pre>
+
+<p>method. It can be called multiple time throughout the lifecycle of the SDK - every time there&rsquo;s a change in the extractions. When our service determines that the extractions are complete, it will also call the <code>switchSdkDidComplete</code> delegate method. However, even before that, if the host app can determine that it has everything it needs, it is free to dismiss the SDK and continue on its own.</p>
+<a href='#going-back' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='going-back'>Going back</h3>
+
+<p>While in the SDK&rsquo;s UI, users can exit prematurely by tapping on the <q>Done</q> button. They might do so too soon and therefore see that they need to go back and upload some more pictures. Unfortunately, this will happen after the <code>switchSdkDidComplete</code> delegate method call. So if you want to allow users to return to the SDK (And you should), make sure to hold on to the Switch SDK UI (the result from the <code>sdk.instantiateSwitchViewController()</code> statement) until you are sure users will not want to go back. After that, just clear the reference to the view controller and let ARC do the rest.</p>
+<a href='#sending-feedback' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='sending-feedback'>Sending Feedback</h3>
+
+<p>It is always possible that the extractions our services find in the document are not correct. We are continuously working on improving our algorithms and to achieve that we need you!</p>
+
+<p>If you find an error in the extractions at a later stage in your app, you should send us <q>Feedback</q> - the correct values. This will help us train our extractors to better read documents.</p>
+
+<p>In order to send feedback, there are several things to consider. After you get the extraction collection from your <code>GiniSwitchSdk</code> instance, just change the values of the particular field in the collection. With that new object, call the send feedback method:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">extraction</span> <span class="o">=</span> <span class="n">extractionsCollection</span><span class="p">?</span><span class="o">.</span><span class="n">extractions</span><span class="o">.</span><span class="n">first</span>
+<span class="c1">// Change the value of the extraction while keeping the old unit (e.g. kWh)</span>
+<span class="n">extraction</span><span class="p">?</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="kt">ExtractionValue</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="s">"Stadt Werke Gini GmbH"</span> <span class="k">as</span> <span class="kt">AnyObject</span><span class="p">,</span> <span class="nv">unit</span><span class="p">:</span> <span class="n">extraction</span><span class="p">?</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">unit</span><span class="p">)</span>
+<span class="n">sdk</span><span class="o">.</span><span class="nf">sendFeedback</span><span class="p">(</span><span class="n">feedback</span><span class="p">)</span>
+</code></pre>
+
+<p>After that, the SDK will send the updated fields to our backend. Upon completion the</p>
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">switchSdkDidSendFeedback</span><span class="p">(</span><span class="n">_</span> <span class="nv">sdk</span><span class="p">:</span><span class="kt">GiniSwitchSdk</span><span class="p">)</span>
+</code></pre>
+
+<p>will be invoked. Please note that it will be called only if the feedback is successfully received by the backend. if not, the</p>
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">switchSdk</span><span class="p">(</span><span class="n">_</span> <span class="nv">sdk</span><span class="p">:</span><span class="kt">GiniSwitchSdk</span><span class="p">,</span> <span class="n">didReceiveError</span> <span class="nv">error</span><span class="p">:</span><span class="kt">NSError</span><span class="p">)</span>
+</code></pre>
+
+<p>will be called with an error type of <code>feedbackError</code>. In the Gini Switch SDK example app this is handled in the following way:</p>
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">switchSdk</span><span class="p">(</span><span class="n">_</span> <span class="nv">sdk</span><span class="p">:</span><span class="kt">GiniSwitchSdk</span><span class="p">,</span> <span class="n">didReceiveError</span> <span class="nv">error</span><span class="p">:</span><span class="kt">NSError</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">print</span><span class="p">(</span><span class="s">"Switch SDK did receive an error: </span><span class="se">\(</span><span class="n">error</span><span class="o">.</span><span class="n">localizedDescription</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">error</span><span class="o">.</span><span class="n">switchErrorCode</span> <span class="o">==</span> <span class="o">.</span><span class="n">feedbackError</span> <span class="p">{</span>
+    <span class="n">switchController</span> <span class="o">=</span> <span class="kc">nil</span>
+    <span class="k">self</span><span class="o">.</span><span class="n">sdk</span> <span class="o">=</span> <span class="kc">nil</span>
+    <span class="n">extractions</span> <span class="o">=</span> <span class="kt">ExtractionCollection</span><span class="p">()</span>        <span class="c1">// release the collection</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>To properly dispose of the SDK after feedback is sent, wait until the <code>switchSdkDidSendFeedback</code> or the <code>didReceiveError</code> (with a <code>feedbackError</code> error type) to be invoked. Once that happens, terminate the SDK as described in <a href="#dismiss-sdk">Dismiss the SDK</a>.</p>
+<a href='#sdk-customizations' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='sdk-customizations'>SDK Customizations</h2>
+
+<p>The Gini Switch SDK is designed to be an independent part of the hosting application. The overall UI and UX is fixed, but some parameters are customizable.</p>
+<a href='#ui-changes' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='ui-changes'>UI changes</h3>
+
+<p>Regarding the looks of the SDK, the following values are changeable:</p>
+
+<ul>
+<li><code>primaryColor</code> - The primary color is a color that will show up at many places throughout the SDK. It is used at times where an element branded with the main color of your app is appropriate. For instance, for Gini, it would be the blue color we use for our logo.</li>
+<li><code>positiveColor</code> - The positive color is a color that will show up at many places throughout the SDK. It is used every time a component wants to indicate a success or a positive state in any way. For instance - a successful upload, analysis completion, correct extractions.</li>
+<li><code>negativeColor</code> - The positive color is a color that will show up at many places throughout the SDK. It is used every time a component wants to indicate a failure or error state in any way. For instance - a failed upload, incorrect extractions.</li>
+<li><code>screenBackgroundColor</code> - The background color most view controllers are going to use throughout the SDK.</li>
+<li><code>pageAnalysisSuccessImage</code> - Image used for marking successfully analyzed images.</li>
+<li><code>pageAnalysisFailureImage</code> - Image used for marking images that couldn&rsquo;t be analyzed.</li>
+<li><code>doneButtonText</code> - Text for the Done button in the camera screen.</li>
+<li><code>doneButtonTextColor</code> - Text color for the Done button in the camera screen.</li>
+<li><code>imageProcessedText</code> - Text for the Preview screen - a successfully processed image.</li>
+<li><code>imageProcessFailedText</code> - Text for the Preview screen - a failed processing of the image.</li>
+<li><code>analyzedImage</code> - Image for the Analyzing Completed Screen.</li>
+<li><code>analyzedText</code> - Text for the Analyzing Completed Screen.</li>
+<li><code>analyzedTextColor</code> - Text color for the Analyzing Completed Screen.</li>
+<li><code>analyzedTextSize</code> - Text size for the Analyzing Completed Screen.</li>
+<li><code>exitActionSheetTitle</code> - Use this to set a custom title for the cancel dialog.</li>
+</ul>
+<a href='#logging' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='logging'>Logging</h3>
+
+<p>Logging in the Switch SDK is achieved using the <code>GiniSwitchLogger</code> protocol. By default, the <code>GiniSwitchConsoleLogger</code> class is used. It just prints messages to the console. Feel free to implement the protocol and insert your own implementation. Change the default logger using the code:</p>
+<pre class="highlight swift"><code><span class="n">sdk</span><span class="o">.</span><span class="n">configuration</span><span class="o">.</span><span class="n">logging</span> <span class="o">=</span> <span class="n">myCustomLogger</span>
+</code></pre>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://gini.net" target="_blank" rel="external">Gini GmbH</a>. All rights reserved. (Last updated: 2017-08-23)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
