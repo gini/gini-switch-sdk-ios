@@ -141,9 +141,8 @@ class ExtractionsManager {
                     self?.delete(page: page)
                     return
                 }
-                if let pageId = pageUrl,
-                    page.status == .replaced {
-                    self?.replace(pageId: pageId, imageData: page.imageData)
+                if page.status == .replaced {
+                    self?.replace(page: page, withPage: page)
                     return
                 }
                 page.status = .uploaded
@@ -187,7 +186,6 @@ class ExtractionsManager {
         }
         
         page.imageData = withPage.imageData
-        page.status = .uploading
         notifyCollectionChanged()
         if let id = page.id {
             uploadService?.replacePage(id: id, newImageData: withPage.imageData, completion: { [weak self] (pageUrl, error) in
@@ -196,7 +194,7 @@ class ExtractionsManager {
                     self?.handleError(error, ofType: .pageReplaceError)
                 }
                 else {
-                    Logger().logInfo(message: "Replaced page\n\(withPage.id ?? "<unknown>")\nwith path\n\(pageUrl ?? "<unknown>")")
+                    Logger().logInfo(message: "Replaced page\n\(page.id ?? "<unknown>")")
                     page.id = pageUrl
                     page.status = .uploaded
                     self?.notifyCollectionChanged()
@@ -287,7 +285,12 @@ class ExtractionsManager {
         status?.pages.forEach({ (page) in
             if let pageRef = page.href,
                 let scannedPage = scannedPages.page(for: pageRef) {
-                if scannedPage.status != page.pageStatus {
+                // ignore statue changes for pages scheduled for deletion and
+                // replacement. They might be marked as analysed, but since they
+                // will be replaced soon, the status shouldn't be displayed
+                if scannedPage.status != page.pageStatus &&
+                    scannedPage.status != .replaced &&
+                    scannedPage.status != .deleted {
                     hasChanges = true
                     scannedPage.status = page.pageStatus
                 }

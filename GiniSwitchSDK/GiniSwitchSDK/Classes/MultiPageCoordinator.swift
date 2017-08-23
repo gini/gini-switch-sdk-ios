@@ -231,6 +231,7 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
         }
 
         if let toBeReplaced = pageToReplace {
+            toBeReplaced.status = .replaced
             extractionsManager.replace(page: toBeReplaced, withPage: page)
             pageToReplace = nil
         }
@@ -238,6 +239,7 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
             if page.imageData != pageToPreUpload?.imageData,
                 let preuploadedPage = pageToPreUpload {
                 // the page changed after it got pre-uploaded
+                preuploadedPage.status = .replaced
                 extractionsManager.replace(page: preuploadedPage, withPage: page)
             }
         }
