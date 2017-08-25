@@ -120,6 +120,9 @@ class ExtractionsManager {
     func add(page: ScanPage) {
         // adding locally
         page.status = .taken
+        if scannedPages.pages.contains(page) {
+            scannedPages.remove(page)
+        }
         scannedPages.add(element: page)
         notifyCollectionChanged()
         guard hasActiveSession else {
