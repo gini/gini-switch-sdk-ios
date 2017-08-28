@@ -146,6 +146,19 @@ extension PagesCollectionViewController: UICollectionViewDelegate {
             
         }
     }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        guard decelerate == false else {
+            // if the scroll view is still decelerating, the scrollViewDidEndDecelerating will
+            // handle the snapping at the end
+            return
+        }
+        snapToClosestCell()
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        snapToClosestCell()
+    }
 }
 
 // Scrolling positions
@@ -179,5 +192,36 @@ extension PagesCollectionViewController {
             let offset = cell.center.x - collectionView.frame.width / 2.0
             collectionView.setContentOffset(CGPoint(x: offset, y: 0), animated: true)
         }
+    }
+    
+    fileprivate func scrollTo(cell:UICollectionViewCell) {
+        if let collectionView = pagesCollection {
+            let offset = cell.center.x - collectionView.frame.width / 2.0
+            collectionView.setContentOffset(CGPoint(x: offset, y: 0), animated: true)
+        }
+    }
+    
+    fileprivate func snapToClosestCell() {
+        guard let collectionView = pagesCollection else {
+            return
+        }
+        let cells = collectionView.visibleCells
+        var minDistance = collectionView.contentSize.width
+        let closestCell = cells.reduce(nil, { (closestCell, currentCell) -> UICollectionViewCell? in
+            
+            let cellCenter = currentCell.convert(CGPoint(x:currentCell.frame.width / 2.0, y:currentCell.frame.height / 2.0), to: self.view).x
+            let deltaDistance = abs((cellCenter - (collectionView.frame.width / 2.0)))
+            if deltaDistance < minDistance {
+                minDistance = deltaDistance
+                return currentCell
+            }
+            else {
+                return closestCell
+            }
+        })
+        guard let targetCell = closestCell else {
+            return
+        }
+        scrollTo(cell: targetCell)
     }
 }
