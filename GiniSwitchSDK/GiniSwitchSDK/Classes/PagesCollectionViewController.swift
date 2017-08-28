@@ -34,7 +34,8 @@ class PagesCollectionViewController: UIViewController {
             scrollToSeletedCell()
         }
     }
-    var selectedIndexPath = IndexPath(row: 0, section: 1)   // the add page cell
+    static let addPageCellIndexPath = IndexPath(row: 0, section: 1)
+    var selectedIndexPath = addPageCellIndexPath
     
     var shouldShowAddIcon = false
     var themeColor:UIColor?
@@ -52,6 +53,11 @@ class PagesCollectionViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupContentInsets()
+    }
+    
+    func goToAddPage() {
+        selectedIndexPath = PagesCollectionViewController.addPageCellIndexPath
+        scrollToSeletedCell()
     }
     
     fileprivate func setupOptionsButton() {
