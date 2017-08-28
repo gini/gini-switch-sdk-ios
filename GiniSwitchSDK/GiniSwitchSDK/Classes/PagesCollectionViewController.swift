@@ -208,26 +208,35 @@ extension PagesCollectionViewController {
     }
     
     fileprivate func snapToClosestCell() {
-        guard let collectionView = pagesCollection else {
-            return
-        }
-        let cells = collectionView.visibleCells
-        var minDistance = collectionView.contentSize.width
-        let closestCell = cells.reduce(nil, { (closestCell, currentCell) -> UICollectionViewCell? in
+        // do everything async because this method is mostly called by collection/scroll view
+        // delegate methods and calling it directly interferes somehow with its innerworkings,
+        // so selecting/deselecting cell might not work properly.
+        DispatchQueue.main.async {
+            guard let collectionView = self.pagesCollection else {
+                return
+            }
+            let cells = collectionView.visibleCells
+            var minDistance = collectionView.contentSize.width
+            let closestCell = cells.reduce(nil, { (closestCell, currentCell) -> UICollectionViewCell? in
+                
+                let cellCenter = currentCell.convert(CGPoint(x:currentCell.frame.width / 2.0, y:currentCell.frame.height / 2.0), to: self.view).x
+                let deltaDistance = abs((cellCenter - (collectionView.frame.width / 2.0)))
+                if deltaDistance < minDistance {
+                    minDistance = deltaDistance
+                    return currentCell
+                }
+                else {
+                    return closestCell
+                }
+            })
+            guard let targetCell = closestCell else {
+                return
+            }
             
-            let cellCenter = currentCell.convert(CGPoint(x:currentCell.frame.width / 2.0, y:currentCell.frame.height / 2.0), to: self.view).x
-            let deltaDistance = abs((cellCenter - (collectionView.frame.width / 2.0)))
-            if deltaDistance < minDistance {
-                minDistance = deltaDistance
-                return currentCell
-            }
-            else {
-                return closestCell
-            }
-        })
-        guard let targetCell = closestCell else {
-            return
+            self.scrollTo(cell: targetCell)
+            collectionView.cellForItem(at: self.selectedIndexPath)?.isSelected = false
+            self.selectedIndexPath = collectionView.indexPath(for: targetCell)!
+            collectionView.selectItem(at: self.selectedIndexPath, animated: false, scrollPosition: .init(rawValue: 0))
         }
-        scrollTo(cell: targetCell)
     }
 }
