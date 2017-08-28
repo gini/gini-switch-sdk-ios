@@ -139,18 +139,7 @@ extension PagesCollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
         scrollToSeletedCell()
-        
-        switch indexPath.section {
-        case 0:
-            // a page has been selected
-            self.delegate?.pageCollectionController(self, didSelectPage: self.pages.pages[indexPath.row])
-        case 1:
-            // the add page button is selected
-            self.delegate?.pageCollectionControllerDidRequestAddPage(self)
-            break
-        default: break
-            
-        }
+        notifyChangedSelection(indexPath: indexPath)
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -229,14 +218,30 @@ extension PagesCollectionViewController {
                     return closestCell
                 }
             })
-            guard let targetCell = closestCell else {
-                return
+            guard let targetCell = closestCell,
+                let newSelectionIndexPath = collectionView.indexPath(for: targetCell) else {
+                    return
             }
             
             self.scrollTo(cell: targetCell)
             collectionView.cellForItem(at: self.selectedIndexPath)?.isSelected = false
-            self.selectedIndexPath = collectionView.indexPath(for: targetCell)!
+            self.selectedIndexPath = newSelectionIndexPath
             collectionView.selectItem(at: self.selectedIndexPath, animated: false, scrollPosition: .init(rawValue: 0))
+            self.notifyChangedSelection(indexPath: newSelectionIndexPath)
+        }
+    }
+    
+    fileprivate func notifyChangedSelection(indexPath:IndexPath) {
+        switch indexPath.section {
+        case 0:
+            // a page has been selected
+            self.delegate?.pageCollectionController(self, didSelectPage: self.pages.pages[indexPath.row])
+        case 1:
+            // the add page button is selected
+            self.delegate?.pageCollectionControllerDidRequestAddPage(self)
+            break
+        default: break
+            
         }
     }
 }
