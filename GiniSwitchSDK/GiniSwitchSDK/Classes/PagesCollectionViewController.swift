@@ -207,7 +207,6 @@ extension PagesCollectionViewController {
             let cells = collectionView.visibleCells
             var minDistance = collectionView.contentSize.width
             let closestCell = cells.reduce(nil, { (closestCell, currentCell) -> UICollectionViewCell? in
-                
                 let cellCenter = currentCell.convert(CGPoint(x:currentCell.frame.width / 2.0, y:currentCell.frame.height / 2.0), to: self.view).x
                 let deltaDistance = abs((cellCenter - (collectionView.frame.width / 2.0)))
                 if deltaDistance < minDistance {
