@@ -90,12 +90,12 @@ class ExtractionService {
         }
     }
     
-    func sendFeedback(original:ExtractionCollection, feedback:ExtractionCollection, completion:@escaping ExtractionServiceFeedbackCallback) {
+    func sendFeedback(_ feedback:ExtractionCollection, completion:@escaping ExtractionServiceFeedbackCallback) {
         guard let order = orderUrl else {
             // no extraction order anymore
             return
         }
-        resourceLoader.load(resource: resources.feebackFor(orderUrl: order, extractions: original, feedback: feedback)) { (response, error) in
+        resourceLoader.load(resource: resources.feebackFor(orderUrl: order, feedback: feedback)) { (response, error) in
             completion(error)
         }
     }

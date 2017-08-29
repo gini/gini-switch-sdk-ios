@@ -58,7 +58,7 @@ class PagesCollectionViewController: UIViewController {
         // change the color of the button's image to make it reflect the
         // app's theme
         guard let buttonImage = optionsButton.image(for: .normal) else {
-            Logger().logError(message: "Options button didn't have an image")
+            logger.logError(message: "Options button didn't have an image")
             return
         }
         optionsButton.setImage(buttonImage.withRenderingMode(.alwaysTemplate), for: .normal)

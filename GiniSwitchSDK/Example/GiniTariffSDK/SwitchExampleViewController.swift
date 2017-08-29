@@ -45,7 +45,6 @@ class SwitchExampleViewController: UIViewController {
     
     fileprivate func terminateSdk() {
         switchController = nil
-        sdk?.terminate()
         sdk = nil
         extractions = ExtractionCollection()        // release the collection
     }
@@ -54,46 +53,30 @@ class SwitchExampleViewController: UIViewController {
 
 extension SwitchExampleViewController: GiniSwitchSdkDelegate {
     
-    func switchSdkDidStart(sdk:GiniSwitchSdk) {
-        print("Switch SDK did start")
-    }
-    
-    func switchSdk(sdk:GiniSwitchSdk, didCapture imageData:Data) {
-        print("Switch SDK captured an image")
-    }
-    
-    func switchSdk(sdk:GiniSwitchSdk, didUpload imageData:Data) {
-        print("Switch SDK uploaded an image")
-    }
-    
-    func switchSdk(sdk:GiniSwitchSdk, didReview imageData:Data) {
-        print("Switch SDK reviewed an image")
-    }
-    
-    func switchSdkDidComplete(sdk:GiniSwitchSdk) {
+    func switchSdkDidComplete(_ sdk:GiniSwitchSdk) {
         print("Switch SDK completed")
         self.showExtractions(extractions: self.extractions)
         self.dismiss(animated: true, completion: nil)
     }
     
-    func switchSdk(sdk:GiniSwitchSdk, didExtractInfo info:ExtractionCollection) {
+    func switchSdk(_ sdk:GiniSwitchSdk, didChangeExtractions info:ExtractionCollection) {
         print("Switch SDK did receive extractions")
         extractions = info
     }
     
-    func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:NSError) {
+    func switchSdk(_ sdk:GiniSwitchSdk, didReceiveError error:NSError) {
         print("Switch SDK did receive an error: \(error.localizedDescription)")
         if error.switchErrorCode == .feedbackError {
             terminateSdk()
         }
     }
     
-    func switchSdkDidCancel(sdk:GiniSwitchSdk) {
+    func switchSdkDidCancel(_ sdk:GiniSwitchSdk) {
         print("Switch SDK interrupted")
         self.dismiss(animated: true, completion: nil)
     }
     
-    func switchSdkDidSendFeedback(sdk:GiniSwitchSdk) {
+    func switchSdkDidSendFeedback(_ sdk:GiniSwitchSdk) {
         terminateSdk()
     }
     

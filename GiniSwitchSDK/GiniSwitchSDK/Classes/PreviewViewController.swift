@@ -24,8 +24,8 @@ class PreviewViewController: UIViewController {
     weak var delegate:PreviewViewControllerDelegate? = nil
     
     //titles
-    let analysedPageTitle = currentSwitchAppearance().imageProcessedText
-    let failedPageTitle = currentSwitchAppearance().imageProcessFailedText
+    let analysedPageTitle = GiniSwitchAppearance.imageProcessedText
+    let failedPageTitle = GiniSwitchAppearance.imageProcessFailedText
     
     var page:ScanPage? = nil {
         didSet {

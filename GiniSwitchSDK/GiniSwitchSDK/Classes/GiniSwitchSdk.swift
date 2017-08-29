@@ -10,16 +10,11 @@ import UIKit
 
 public protocol GiniSwitchSdkDelegate: class {
     
-    // TODO: make methods optional
-    func switchSdkDidStart(sdk:GiniSwitchSdk)
-    func switchSdk(sdk:GiniSwitchSdk, didCapture imageData:Data)
-    func switchSdk(sdk:GiniSwitchSdk, didUpload imageData:Data)
-    func switchSdk(sdk:GiniSwitchSdk, didReview imageData:Data)
-    func switchSdkDidComplete(sdk:GiniSwitchSdk)
-    func switchSdk(sdk:GiniSwitchSdk, didExtractInfo info:ExtractionCollection)
-    func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:NSError)
-    func switchSdkDidCancel(sdk:GiniSwitchSdk)
-    func switchSdkDidSendFeedback(sdk:GiniSwitchSdk)
+    func switchSdk(_ sdk:GiniSwitchSdk, didChangeExtractions extractions:ExtractionCollection)
+    func switchSdk(_ sdk:GiniSwitchSdk, didReceiveError error:NSError)
+    func switchSdkDidCancel(_ sdk:GiniSwitchSdk)
+    func switchSdkDidComplete(_ sdk:GiniSwitchSdk)
+    func switchSdkDidSendFeedback(_ sdk:GiniSwitchSdk)
     
 }
 
@@ -35,19 +30,16 @@ public class GiniSwitchSdk {
     /// The delegate object, receiving callbacks about events happening in the SDK
     public weak var delegate:GiniSwitchSdkDelegate? = nil
     
-    /// The object responsible for creating the SDK's UI
-    let userInterface = GiniSwitchUserInterface()
     /// Contains some configuration objects that can be used to customize the SDK
     public var configuration = GiniSwitchConfiguration()
     
-    /*
-     * Convenience getter for the appearance object in the configuration
-     */
-    public var appearance:GiniSwitchAppearance {
-        return configuration.appearance
-    }
+    let extractionsManager:ExtractionsManager
+    var coordinator:MultiPageCoordinator? = nil
     
-    var feedbackHandler:((ExtractionCollection) -> Void)! = nil
+    /*
+     * The extractions that have been received so far. 
+     */
+    var extractions:ExtractionCollection = ExtractionCollection()
     
     /*
      * Creates a GiniSwitchSdk instance based on the provided credentials
@@ -56,26 +48,72 @@ public class GiniSwitchSdk {
         self.clientId = clientId
         self.clientSecret = clientSecret
         self.clientDomain = domain
-        GiniSwitchSdkStorage.activeSwitchSdk = self     // TODO: Don't use GiniSwitchSdkStorage - find a better solution
+        extractionsManager = ExtractionsManager(clientId: clientId, clientSecret: clientSecret, clientDomain: clientDomain)
+        extractionsManager.delegate = self
     }
     
     /*
      * Convenience method for creating the SDK's UI
      */
     public func instantiateSwitchViewController() -> UIViewController {
-        return userInterface.initialViewController
+        coordinator = MultiPageCoordinator(extractionsManager: extractionsManager, onboarding: configuration.onboarding)
+        coordinator?.delegate = self
+        return coordinator!.initialViewController
     }
     
     public func sendFeedback(_ feedback:ExtractionCollection) {
-        feedbackHandler(feedback)
-    }
-    
-    /*
-     * Disposes of the current SDK object. Should be called after clients are done with the SDK
-     * in order to clean up
-     */
-    public func terminate() {
-        GiniSwitchSdkStorage.activeSwitchSdk = nil     // TODO: Don't use GiniSwitchSdkStorage - find a better solution
+        extractionsManager.sendFeedback(feedback)
     }
 
+}
+
+extension GiniSwitchSdk: ExtractionsManagerDelegate {
+    
+    func extractionsManager(_ manager:ExtractionsManager, didEncounterError error:NSError) {
+        // check if it's an error that needs to be shown to the user
+        if error.isHumanReadable {
+            coordinator?.displayError(error)
+        }
+        delegate?.switchSdk(self, didReceiveError: error)
+    }
+    
+    func extractionsManager(_ manager:ExtractionsManager, didChangePageCollection collection:PageCollection) {
+        coordinator?.refreshPagesCollectionView()
+    }
+    
+    func extractionsManager(_ manager:ExtractionsManager, didChangeExtractions extractions:ExtractionCollection) {
+        self.extractions = extractions
+        delegate?.switchSdk(self, didChangeExtractions: extractions)
+    }
+    
+    func extractionsManagerDidAuthenticate(_ manager:ExtractionsManager) {
+        
+    }
+    
+    func extractionsManagerDidCreateOrder(_ manager:ExtractionsManager) {
+        
+    }
+    
+    func extractionsManagerDidCompleteExtractions(_ manager:ExtractionsManager) {
+        // Don't interrupt the user immediately. Allow them to complete the last action
+        // before notifying them that extractions are complete
+        coordinator?.extractionsCompleted = true
+    }
+    
+    func extractionsManagerDidSendFeedback(_ manager:ExtractionsManager) {
+        delegate?.switchSdkDidSendFeedback(self)
+    }
+    
+}
+
+extension GiniSwitchSdk: MultiPageCoordinatorDelegate {
+    
+    func multiPageCoordinatorDidComplete(_ coordinator:MultiPageCoordinator) {
+        delegate?.switchSdkDidComplete(self)
+    }
+    
+    func multiPageCoordinatorDidCancel(_ coordinator:MultiPageCoordinator) {
+        delegate?.switchSdkDidCancel(self)
+    }
+    
 }

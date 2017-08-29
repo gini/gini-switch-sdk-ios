@@ -52,19 +52,9 @@ class GiniSwitchSdkTests: XCTestCase {
         XCTAssertNotNil(initialController, "GiniSwitchSDK should be able to generate view controllers for clients")
     }
     
-    func testHasUserInterface() {
-        let sdk = emptySdk()
-        XCTAssertNotNil(sdk.userInterface, "GiniSwitchSDK should have a User Interface object")
-    }
-    
     func testHasConfiguration() {
         let sdk = emptySdk()
         XCTAssertNotNil(sdk.configuration, "GiniSwitchSDK should have an Configuration object")
-    }
-    
-    func testHasAppearance() {
-        let sdk = emptySdk()
-        XCTAssertNotNil(sdk.appearance, "GiniSwitchSDK should have an Appearance object")
     }
     
 }
@@ -83,39 +73,23 @@ extension GiniSwitchSdkTests {
 
 extension GiniSwitchSdkTests: GiniSwitchSdkDelegate {
     
-    func switchSdkDidStart(sdk:GiniSwitchSdk) {
+    func switchSdkDidComplete(_ sdk:GiniSwitchSdk) {
         
     }
     
-    func switchSdk(sdk:GiniSwitchSdk, didCapture imageData:Data) {
+    func switchSdk(_ sdk:GiniSwitchSdk, didChangeExtractions info:ExtractionCollection) {
         
     }
     
-    func switchSdk(sdk:GiniSwitchSdk, didUpload imageData:Data) {
+    func switchSdk(_ sdk:GiniSwitchSdk, didReceiveError error:NSError) {
         
     }
     
-    func switchSdk(sdk:GiniSwitchSdk, didReview imageData:Data) {
+    func switchSdkDidCancel(_ sdk: GiniSwitchSdk) {
         
     }
     
-    func switchSdkDidComplete(sdk:GiniSwitchSdk) {
-        
-    }
-    
-    func switchSdk(sdk:GiniSwitchSdk, didExtractInfo info:ExtractionCollection) {
-        
-    }
-    
-    func switchSdk(sdk:GiniSwitchSdk, didReceiveError error:NSError) {
-        
-    }
-    
-    func switchSdkDidCancel(sdk: GiniSwitchSdk) {
-        
-    }
-    
-    func switchSdkDidSendFeedback(sdk:GiniSwitchSdk) {
+    func switchSdkDidSendFeedback(_ sdk:GiniSwitchSdk) {
         
     }
     

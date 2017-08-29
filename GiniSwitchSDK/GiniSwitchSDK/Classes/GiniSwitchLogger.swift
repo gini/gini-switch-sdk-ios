@@ -24,3 +24,5 @@ public protocol GiniSwitchLogger {
     func logError(message:String)
     
 }
+
+var logger:GiniSwitchLogger = GiniSwitchConsoleLogger()

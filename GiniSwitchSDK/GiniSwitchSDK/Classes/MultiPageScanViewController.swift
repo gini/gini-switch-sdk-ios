@@ -10,8 +10,6 @@ import UIKit
 
 class MultiPageScanViewController: UIViewController {
     
-    var coordinator:MultiPageCoordinator! = nil
-    
     var cameraController:CameraViewController! = nil
     var cameraOptionsController:CameraOptionsViewController! = nil
     var pagesCollectionController:PagesCollectionViewController! = nil
@@ -21,13 +19,9 @@ class MultiPageScanViewController: UIViewController {
     @IBOutlet var pageCollectionContainerView:UIView! = nil
     @IBOutlet var cameraOptionsContainerView:UIView! = nil
     
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
-        coordinator = MultiPageCoordinator(camera: cameraController, cameraOptions: cameraOptionsController, pagesCollection: pagesCollectionController)
-        coordinator.delegate = self
     }
     
     override var prefersStatusBarHidden:Bool {
@@ -48,6 +42,47 @@ class MultiPageScanViewController: UIViewController {
             // do nothing
             break
         }
+    }
+
+}
+
+extension MultiPageScanViewController {
+    
+    func present(controller:UIViewController, presentationStyle:PresentationStyle, animated:Bool, completion: (() -> Void)?) {
+        switch presentationStyle {
+        case .modal:
+            // there might be a controller already presented. If so, this one needs to be presented on top of it
+            let presentationController = self.presentedViewController ?? self
+            presentationController.present(controller, animated: animated, completion: completion)
+        case .navigation:
+            self.navigationController?.pushViewController(controller, animated: animated)
+        case .embed:
+            setInEmbedView(controller)
+            break
+        }
+    }
+    
+    func dismiss(controller:UIViewController, presentationStyle:PresentationStyle, animated:Bool, completion: (() -> Void)?) {
+        switch presentationStyle {
+        case .modal:
+            controller.presentingViewController?.dismiss(animated: animated, completion: completion)
+        case .navigation:
+            if self.navigationController?.topViewController == controller {
+                self.navigationController?.popViewController(animated: animated)
+            }
+            else {
+                let requestedIndex = self.navigationController?.viewControllers.index(of: controller)
+                guard let index = requestedIndex,
+                let prevIndex = self.navigationController?.viewControllers.index(before: index),
+                let prevController = self.navigationController?.viewControllers[prevIndex] else {
+                    return
+                }
+                self.navigationController?.popToViewController(prevController, animated: animated)
+            }
+        case .embed:
+            dismissEmbeddedController(controller)
+        }
+        
     }
     
     func setInEmbedView(_ childController:UIViewController) {
@@ -70,47 +105,6 @@ class MultiPageScanViewController: UIViewController {
         embedView.isHidden = true
         cameraContainerView.isHidden = false
         cameraOptionsContainerView.isHidden = false
-    }
-
-}
-
-extension MultiPageScanViewController: MultiPageCoordinatorDelegate {
-    
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedShowingController:UIViewController, presentationStyle:PresentationStyle, animated:Bool, completion: (() -> Void)?) {
-        switch presentationStyle {
-        case .modal:
-            // there might be a controller already presented. If so, this one needs to be presented on top of it
-            let presentationController = self.presentedViewController ?? self
-            presentationController.present(requestedShowingController, animated: animated, completion: completion)
-        case .navigation:
-            self.navigationController?.pushViewController(requestedShowingController, animated: animated)
-        case .embed:
-            setInEmbedView(requestedShowingController)
-            break
-        }
-    }
-    
-    func multiPageCoordinator(_ coordinator:MultiPageCoordinator, requestedDismissingController:UIViewController, presentationStyle:PresentationStyle, animated:Bool, completion: (() -> Void)?) {
-        switch presentationStyle {
-        case .modal:
-            requestedDismissingController.presentingViewController?.dismiss(animated: animated, completion: completion)
-        case .navigation:
-            if self.navigationController?.topViewController == requestedDismissingController {
-                self.navigationController?.popViewController(animated: animated)
-            }
-            else {
-                let requestedIndex = self.navigationController?.viewControllers.index(of: requestedDismissingController)
-                guard let index = requestedIndex,
-                let prevIndex = self.navigationController?.viewControllers.index(before: index),
-                let prevController = self.navigationController?.viewControllers[prevIndex] else {
-                    return
-                }
-                self.navigationController?.popToViewController(prevController, animated: animated)
-            }
-        case .embed:
-            dismissEmbeddedController(requestedDismissingController)
-        }
-        
     }
     
 }
