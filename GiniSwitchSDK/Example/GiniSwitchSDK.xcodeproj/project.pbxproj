@@ -197,7 +197,7 @@
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for GiniSwitchSDK";
-			path = GiniSwitchSDK;
+			path = GiniTariffSDK;
 			sourceTree = "<group>";
 		};
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
