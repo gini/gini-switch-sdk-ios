@@ -16,6 +16,8 @@ enum ScanPageStatus {
     case failed
     case uploaded
     case analysed
+    case deleted
+    case replaced
 }
 
 class ScanPage {
@@ -55,6 +57,14 @@ extension ScanPage: Equatable {
     
     public static func ==(lhs: ScanPage, rhs: ScanPage) -> Bool {
         return lhs.imageData == rhs.imageData && lhs.id == rhs.id && lhs.status == rhs.status
+    }
+    
+}
+
+extension ScanPage: NSCopying {
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        return ScanPage(imageData: self.imageData, id: self.id, status: self.status)
     }
     
 }

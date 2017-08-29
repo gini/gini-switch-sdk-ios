@@ -26,6 +26,7 @@ class MultiPageCoordinator {
     var presentationStyle = PresentationStyle.modal
     
     var pageToReplace:ScanPage? = nil
+    var pageToPreUpload:ScanPage? = nil
     var extractionsCompleted = false
     let extrationsCompletePopupTimeout = 4
     
@@ -85,7 +86,7 @@ class MultiPageCoordinator {
     
     func showReviewScreen(withPage page:ScanPage) {
         let reviewController = UIStoryboard.switchStoryboard()?.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
-        reviewController.page = page
+        reviewController.page = page.copy() as? ScanPage
         reviewController.confirmColor = GiniSwitchAppearance.positiveColor
         reviewController.denyColor = GiniSwitchAppearance.negativeColor
         reviewController.delegate = self
@@ -217,8 +218,17 @@ extension MultiPageCoordinator: CameraOptionsViewControllerDelegate {
 extension MultiPageCoordinator: CameraViewControllerDelegate {
     
     func cameraViewController(controller:CameraViewController, didCaptureImage data:Data) {
-        // create a new scan page
-        let newPage = ScanPage(imageData: data, id: nil, status: .taken)
+        // create a new scan page and put all the EXIF tags (the image metadata)
+        let metaInformationManager = ImageMetaInformationManager(imageData:data)
+        guard let image = metaInformationManager.imageData() else {
+            return
+        }
+        let newPage = ScanPage(imageData: image, id: nil, status: .taken)
+        if pageToReplace == nil {
+            // don't pre-upload if the image is being replaced
+            extractionsManager.add(page: newPage)
+        }
+        pageToPreUpload = newPage
         showReviewScreen(withPage:newPage)
         enableCaptureButton(true)
     }
@@ -260,13 +270,21 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
                 self.completeIfReady()
             }
         }
+
         if let toBeReplaced = pageToReplace {
+            toBeReplaced.status = .replaced
             extractionsManager.replace(page: toBeReplaced, withPage: page)
             pageToReplace = nil
         }
         else {
-            extractionsManager.add(page: page)
+            if page.imageData != pageToPreUpload?.imageData,
+                let preuploadedPage = pageToPreUpload {
+                // the page changed after it got pre-uploaded
+                preuploadedPage.status = .replaced
+                extractionsManager.replace(page: preuploadedPage, withPage: page)
+            }
         }
+        pageToPreUpload = nil
         refreshPagesCollectionView()
     }
     
@@ -276,6 +294,10 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
                 self.completeIfReady()
             }
         }
+        if let preuploadedPage = pageToPreUpload {
+            extractionsManager.delete(page: preuploadedPage)
+        }
+        pageToPreUpload = nil
     }
     
     func reviewControllerDidRequestOptions(_ controller:ReviewViewController) {

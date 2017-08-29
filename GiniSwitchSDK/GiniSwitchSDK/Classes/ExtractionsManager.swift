@@ -121,6 +121,9 @@ class ExtractionsManager {
     func add(page: ScanPage) {
         // adding locally
         page.status = .taken
+        if scannedPages.pages.contains(page) {
+            scannedPages.remove(page)
+        }
         scannedPages.add(element: page)
         notifyCollectionChanged()
         guard hasActiveSession else {
@@ -131,15 +134,24 @@ class ExtractionsManager {
         logger.logInfo(message: "Uploading page")
         uploadService?.addPage(data: page.imageData, completion: { [weak self](pageUrl, error) in
             if let error = error {
+                page.status = .failed
                 logger.logError(message: "Page upload failed: \(error.localizedDescription)")
                 self?.handleError(error, ofType: .cannotUploadPage)
             }
             else {
                 logger.logInfo(message: "Uploaded page with path\n\(pageUrl ?? "<unknown>")")
                 page.id = pageUrl
+                if page.status == .deleted {
+                    self?.delete(page: page)
+                    return
+                }
+                if page.status == .replaced {
+                    self?.replace(page: page, withPage: page)
+                    return
+                }
                 page.status = .uploaded
-                self?.notifyCollectionChanged()
             }
+            self?.notifyCollectionChanged()
         })
     }
     
@@ -165,6 +177,9 @@ class ExtractionsManager {
                 }
             })
         }
+        else {
+            page.status = .deleted
+        }
     }
     
     /// Replacing handles the case where the image was rotated and needs to be re-uploaded
@@ -173,10 +188,7 @@ class ExtractionsManager {
             return
         }
         
-        let index = scannedPages.pages.index(of: page)
-        scannedPages.remove(page)
-        withPage.status = .uploading
-        scannedPages.pages.insert(withPage, at: index ?? scannedPages.pages.endIndex)
+        page.imageData = withPage.imageData
         notifyCollectionChanged()
         if let id = page.id {
             uploadService?.replacePage(id: id, newImageData: withPage.imageData, completion: { [weak self] (pageUrl, error) in
@@ -185,13 +197,31 @@ class ExtractionsManager {
                     self?.handleError(error, ofType: .pageReplaceError)
                 }
                 else {
-                    logger.logInfo(message: "Deleted page\n\(withPage.id ?? "<unknown>")\nwith path\n\(pageUrl ?? "<unknown>")")
+                    logger.logInfo(message: "Replaced page\n\(page.id ?? "<unknown>")")
                     page.id = pageUrl
                     page.status = .uploaded
                     self?.notifyCollectionChanged()
                 }
             })
         }
+        else {
+            page.status = .replaced
+        }
+    }
+    
+    func replace(pageId:String, imageData:Data) {
+        guard hasActiveSession else {
+            return
+        }
+        uploadService?.replacePage(id: pageId, newImageData: imageData, completion: { [weak self] (pageUrl, error) in
+            if let error = error {
+                logger.logError(message: "Page replace failed: \(error.localizedDescription)")
+                self?.handleError(error, ofType: .pageReplaceError)
+            }
+            else {
+                logger.logInfo(message: "Replaced page\n\(pageId)\nwith path\n\(pageUrl ?? "<unknown>")")
+            }
+        })
     }
     
     func sendFeedback(_ feedback:ExtractionCollection) {
@@ -252,7 +282,7 @@ class ExtractionsManager {
         status?.pages.forEach({ (page) in
             if let pageRef = page.href,
                 let scannedPage = scannedPages.page(for: pageRef) {
-                if scannedPage.status != page.pageStatus {
+                if shouldChangeStatus(from:scannedPage.status, to: page.pageStatus) {
                     hasChanges = true
                     scannedPage.status = page.pageStatus
                 }
@@ -332,6 +362,15 @@ class ExtractionsManager {
     fileprivate func queuedPages() -> [ScanPage] {
         let queued = scannedPages.pages.filter { $0.status == .taken }
         return queued
+    }
+    
+    fileprivate func shouldChangeStatus(from:ScanPageStatus, to: ScanPageStatus) -> Bool {
+        // ignore status changes for pages scheduled for deletion and
+        // replacement. They might be marked as analysed, but since they
+        // will be replaced soon, the status shouldn't be displayed
+        return from != to &&
+            from != .replaced &&
+            from != .deleted
     }
     
     fileprivate func handleError(_ error:Error?, ofType type: GiniSwitchErrorCode) {

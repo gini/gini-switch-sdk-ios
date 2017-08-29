@@ -74,7 +74,7 @@ class PageCollectionViewCell: UICollectionViewCell {
                 pageStatusUnderlineView.backgroundColor = GiniSwitchAppearance.negativeColor
                 pageStatusView.image = pageFailedImage
                 uploadingIndicator.isHidden = true
-            case .uploading, .uploaded:
+            case .uploading, .uploaded, .replaced:
                 pageStatusUnderlineView.isHidden = true
                 pageStatusView.isHidden = true
                 uploadingIndicator.isHidden = false
