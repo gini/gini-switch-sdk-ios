@@ -34,7 +34,8 @@ class PagesCollectionViewController: UIViewController {
             scrollToSeletedCell()
         }
     }
-    var selectedIndexPath = IndexPath(row: 0, section: 1)   // the add page cell
+    static let addPageCellIndexPath = IndexPath(row: 0, section: 1)
+    var selectedIndexPath = addPageCellIndexPath
     
     var shouldShowAddIcon = false
     var themeColor:UIColor?
@@ -52,6 +53,11 @@ class PagesCollectionViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupContentInsets()
+    }
+    
+    func goToAddPage() {
+        selectedIndexPath = PagesCollectionViewController.addPageCellIndexPath
+        scrollToSeletedCell()
     }
     
     fileprivate func setupOptionsButton() {
@@ -133,18 +139,20 @@ extension PagesCollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
         scrollToSeletedCell()
-        
-        switch indexPath.section {
-        case 0:
-            // a page has been selected
-            self.delegate?.pageCollectionController(self, didSelectPage: self.pages.pages[indexPath.row])
-        case 1:
-            // the add page button is selected
-            self.delegate?.pageCollectionControllerDidRequestAddPage(self)
-            break
-        default: break
-            
+        notifyChangedSelection(indexPath: indexPath)
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        guard decelerate == false else {
+            // if the scroll view is still decelerating, the scrollViewDidEndDecelerating will
+            // handle the snapping at the end
+            return
         }
+        snapToClosestCell()
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        snapToClosestCell()
     }
 }
 
@@ -178,6 +186,61 @@ extension PagesCollectionViewController {
             let cell = collectionView.cellForItem(at: selectedIndexPath) {
             let offset = cell.center.x - collectionView.frame.width / 2.0
             collectionView.setContentOffset(CGPoint(x: offset, y: 0), animated: true)
+        }
+    }
+    
+    fileprivate func scrollTo(cell:UICollectionViewCell) {
+        if let collectionView = pagesCollection {
+            let offset = cell.center.x - collectionView.frame.width / 2.0
+            collectionView.setContentOffset(CGPoint(x: offset, y: 0), animated: true)
+        }
+    }
+    
+    fileprivate func snapToClosestCell() {
+        // do everything async because this method is mostly called by collection/scroll view
+        // delegate methods and calling it directly interferes somehow with its innerworkings,
+        // so selecting/deselecting cell might not work properly.
+        DispatchQueue.main.async {
+            guard let collectionView = self.pagesCollection else {
+                return
+            }
+            let cells = collectionView.visibleCells
+            var minDistance = collectionView.contentSize.width
+            let closestCell = cells.reduce(nil, { (closestCell, currentCell) -> UICollectionViewCell? in
+                let cellCenter = currentCell.convert(CGPoint(x:currentCell.frame.width / 2.0, y:currentCell.frame.height / 2.0), to: self.view).x
+                let deltaDistance = abs((cellCenter - (collectionView.frame.width / 2.0)))
+                if deltaDistance < minDistance {
+                    minDistance = deltaDistance
+                    return currentCell
+                }
+                else {
+                    return closestCell
+                }
+            })
+            guard let targetCell = closestCell,
+                let newSelectionIndexPath = collectionView.indexPath(for: targetCell) else {
+                    return
+            }
+            
+            self.scrollTo(cell: targetCell)
+            collectionView.cellForItem(at: self.selectedIndexPath)?.isSelected = false
+            self.selectedIndexPath = newSelectionIndexPath
+            collectionView.selectItem(at: self.selectedIndexPath, animated: false, scrollPosition: .init(rawValue: 0))
+            self.notifyChangedSelection(indexPath: newSelectionIndexPath)
+        }
+    }
+    
+    fileprivate func notifyChangedSelection(indexPath:IndexPath) {
+        switch indexPath.section {
+        case 0:
+            // a page has been selected
+            self.delegate?.pageCollectionController(self, didSelectPage: self.pages.pages[indexPath.row])
+        case 1:
+            // the add page button is selected
+            self.delegate?.pageCollectionControllerDidRequestAddPage(self)
+            break
+        default: break
+            
         }
     }
 }

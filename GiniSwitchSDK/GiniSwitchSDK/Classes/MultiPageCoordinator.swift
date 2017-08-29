@@ -275,6 +275,9 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
             toBeReplaced.status = .replaced
             extractionsManager.replace(page: toBeReplaced, withPage: page)
             pageToReplace = nil
+            // the camera view will be shown after this, so the add page cell needs to be selected.
+            // Otherwise, the page that was just replaced, will remain in selected state
+            pageCollectionController.goToAddPage()
         }
         else {
             if page.imageData != pageToPreUpload?.imageData,
