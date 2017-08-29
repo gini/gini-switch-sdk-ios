@@ -288,12 +288,7 @@ class ExtractionsManager {
         status?.pages.forEach({ (page) in
             if let pageRef = page.href,
                 let scannedPage = scannedPages.page(for: pageRef) {
-                // ignore statue changes for pages scheduled for deletion and
-                // replacement. They might be marked as analysed, but since they
-                // will be replaced soon, the status shouldn't be displayed
-                if scannedPage.status != page.pageStatus &&
-                    scannedPage.status != .replaced &&
-                    scannedPage.status != .deleted {
+                if shouldChangeStatus(from:scannedPage.status, to: page.pageStatus) {
                     hasChanges = true
                     scannedPage.status = page.pageStatus
                 }
@@ -374,6 +369,15 @@ class ExtractionsManager {
     fileprivate func queuedPages() -> [ScanPage] {
         let queued = scannedPages.pages.filter { $0.status == .taken }
         return queued
+    }
+    
+    fileprivate func shouldChangeStatus(from:ScanPageStatus, to: ScanPageStatus) -> Bool {
+        // ignore status changes for pages scheduled for deletion and
+        // replacement. They might be marked as analysed, but since they
+        // will be replaced soon, the status shouldn't be displayed
+        return from != to &&
+            from != .replaced &&
+            from != .deleted
     }
     
     fileprivate func handleError(_ error:Error?, ofType type: GiniSwitchErrorCode) {
