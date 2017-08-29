@@ -48,7 +48,13 @@ Gini Switch SDK can either be installed by using CocoaPods or by manually draggi
 
 ### Swift versions
 
-The Gini Switch SDK is entirely written in **Swift 3**.
+#### Swift 3
+
+The Gini Switch SDK is entirely written in **Swift 3**. Develop, the main branch and all official releases, are currently in Swift 3 syntax.
+
+#### Swift 4
+
+Currently, Swift 4 is still **not** the official language for the SDK, but you can find a Swift 4 version in the `swift-4` branch.
 
 ### CocoaPods
 
