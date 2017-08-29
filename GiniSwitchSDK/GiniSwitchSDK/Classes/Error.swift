@@ -46,7 +46,7 @@ extension NSError {
     }
     
     convenience init(errorCode:GiniSwitchErrorCode, underlyingError:Error? = nil) {
-        var userDict:[AnyHashable : Any] = [:]
+        var userDict:[String : Any] = [:]
         if let error = underlyingError {
             userDict[NSUnderlyingErrorKey] = error
         }

@@ -21,21 +21,21 @@ public class GiniSwitchAppearance {
      * It is used at times where an element branded with the main color of your app is appropriate
      * For instance, for Gini, it would be the blue color we use for our logo
      */
-    static public var primaryColor:UIColor? = UIColor(colorLiteralRed: 22.0 / 255.0, green: 157.0 / 255.0, blue: 217.0 / 255.0, alpha: 1.0)
+    static public var primaryColor:UIColor? = UIColor(red: 22.0 / 255.0, green: 157.0 / 255.0, blue: 217.0 / 255.0, alpha: 1.0)
     
     /**
      * The positive color is a color that will show up at many places throughout the SDK.
      * It is used every time a component wants to indicate a success or a positive state in
      * any way. For instance - a successful upload, analysis completion, correct extractions.
      */
-    static public var positiveColor:UIColor? = UIColor(colorLiteralRed: 32.0 / 255.0, green: 186.0 / 255.0, blue: 167.0 / 255.0, alpha: 1.0)
+    static public var positiveColor:UIColor? = UIColor(red: 32.0 / 255.0, green: 186.0 / 255.0, blue: 167.0 / 255.0, alpha: 1.0)
     
     /**
      * The positive color is a color that will show up at many places throughout the SDK.
      * It is used every time a component wants to indicate a failure or error state in
      * any way. For instance - a failed upload, incorrect extractions.
      */
-    static public var negativeColor:UIColor? = UIColor(colorLiteralRed: 204.0 / 255.0, green: 33.0 / 255.0, blue: 102.0 / 255.0, alpha: 1.0)
+    static public var negativeColor:UIColor? = UIColor(red: 204.0 / 255.0, green: 33.0 / 255.0, blue: 102.0 / 255.0, alpha: 1.0)
     
     /**
      * The background color most view controllers are going to use throughout the SDK.
@@ -57,7 +57,7 @@ public class GiniSwitchAppearance {
     /**
      * Text color for the Done button in the camera screen.
      */
-    static public var doneButtonTextColor:UIColor? = UIColor(colorLiteralRed: 22.0 / 255.0, green: 157.0 / 255.0, blue: 217.0 / 255.0, alpha: 1.0)
+    static public var doneButtonTextColor:UIColor? = UIColor(red: 22.0 / 255.0, green: 157.0 / 255.0, blue: 217.0 / 255.0, alpha: 1.0)
     
     /**
      * Text for the Preview screen - a successfully processed image.
