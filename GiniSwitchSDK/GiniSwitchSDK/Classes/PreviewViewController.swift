@@ -16,7 +16,7 @@ protocol PreviewViewControllerDelegate:class {
 
 class PreviewViewController: UIViewController {
     
-    @IBOutlet var pagePreview:UIImageView! = nil
+    @IBOutlet var pagePreview:ZoomableImageView! = nil
     @IBOutlet var titleLabel:UILabel! = nil
     @IBOutlet var retakeButton:UIButton! = nil
     @IBOutlet var deleteButton:UIButton! = nil
@@ -40,6 +40,12 @@ class PreviewViewController: UIViewController {
         super.viewDidLoad()
         populate(with: page)
         setupButtonColors()
+    }
+    
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        pagePreview.updateMinZoomScaleForSize(pagePreview.bounds.size)
     }
     
     private func populate(with page:ScanPage?) {
