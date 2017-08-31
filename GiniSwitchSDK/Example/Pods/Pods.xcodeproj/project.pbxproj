@@ -17,6 +17,7 @@
 		14AC81C69F680A6304023F3997F96660 /* TokenUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0105EEEFECF79A719028575C007181EC /* TokenUtils.swift */; };
 		1C53382013F463B52E345C84E029CF85 /* GiniSwitchConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AABBA73F0AF6CE9E97788368FEEB29C /* GiniSwitchConfiguration.swift */; };
 		1E31D4170DA581B71544DD153A0B77D8 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F62FCF52274790A8F568524B0A234 /* ReviewViewController.swift */; };
+		23A2A3CD1F56CA2E00A4E105 /* ZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A2A3CC1F56CA2E00A4E105 /* ZoomableImageView.swift */; };
 		23FA087F1F39F5BA00753E39 /* ExtractionCollection+Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FA087E1F39F5BA00753E39 /* ExtractionCollection+Feedback.swift */; };
 		2CB91DA7761AD9ED7E7119138F28419C /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4431079AA669EEAB64E82BE2DE704A0F /* CameraViewController.swift */; };
 		45FD9CE25FB0163E8BDC647CDA9EEB6B /* GiniSwitchLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CE271EE6FBC6B062403C825B6D6D8 /* GiniSwitchLogger.swift */; };
@@ -96,6 +97,7 @@
 		1FD9B681B00A40ADBF06D858FD2E433D /* UserManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		2061737229ECEFA0EB9DD977E71E42CA /* GiniSwitchSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GiniSwitchSDK-dummy.m"; sourceTree = "<group>"; };
 		226DC5B5D668D4BB8D3B95750D965AF5 /* AddPageResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddPageResponse.swift; sourceTree = "<group>"; };
+		23A2A3CC1F56CA2E00A4E105 /* ZoomableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomableImageView.swift; sourceTree = "<group>"; };
 		23FA087E1F39F5BA00753E39 /* ExtractionCollection+Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExtractionCollection+Feedback.swift"; sourceTree = "<group>"; };
 		2424B973F038582E20870EAC54A18ABB /* GiniSwitchConsoleLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchConsoleLogger.swift; sourceTree = "<group>"; };
 		29633F7FB62129047199811E75F7A628 /* Pods-GiniSwitchSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GiniSwitchSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				0936F454753BA68C3B280BCB3718EF49 /* HumanReadableError.swift */,
 				4E4F77EE1B15CF1F2970586F186AF633 /* UIStoryboard+Switch.swift */,
 				DB42B3CC706FB10ECE5A2AAC623063CE /* PresentationStyle.swift */,
+				23A2A3CC1F56CA2E00A4E105 /* ZoomableImageView.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -652,6 +655,7 @@
 				C02AADA91771F5673283B5CB63CB85DC /* ScanPage.swift in Sources */,
 				7A18B9229986974DA5E68099B88AF7A9 /* SwitchBackgroundView.swift in Sources */,
 				1432832636F9CA554358B7BB53908BC4 /* Token.swift in Sources */,
+				23A2A3CD1F56CA2E00A4E105 /* ZoomableImageView.swift in Sources */,
 				14AC81C69F680A6304023F3997F96660 /* TokenUtils.swift in Sources */,
 				8C7D3978C7CAD90E8F858F822B6A41A9 /* UIStoryboard+Switch.swift in Sources */,
 				80A2A6F68129890889E6DBA139AA06A9 /* URL+QueryParameters.swift in Sources */,
@@ -858,7 +862,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/GiniSwitchSDK/GiniSwitchSDK-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/GiniSwitchSDK/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/GiniSwitchSDK/GiniSwitchSDK.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -967,7 +971,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/GiniSwitchSDK/GiniSwitchSDK-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/GiniSwitchSDK/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/GiniSwitchSDK/GiniSwitchSDK.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
