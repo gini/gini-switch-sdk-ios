@@ -35,9 +35,7 @@ class Authenticator {
     var clientId:String? = nil
     var clientSecret:String? = nil
     var clientDomain:String? = nil
-    var user:User? = nil
     var clientToken:String? = nil
-    var userToken:String? = nil
     var credentials:CredentialsStore
     var completionCallback:AuthenticatorSuccessCallback? = nil
     var failureCallback:AuthenticatorErrorCallback? = nil
@@ -61,7 +59,7 @@ class Authenticator {
     }
     
     var userLogin:Resource<Token> {
-        user = user ?? userManager.user
+        let user = userManager.user
         assert(user != nil, "Attempting to login without user credentials")
         var fullUrl = baseUrl.appendingPathComponent(authUrlExtension)
         fullUrl = fullUrl.appendingQueryParameter(name: loginTypeParameter, value: loginTypePassword)!
@@ -75,7 +73,7 @@ class Authenticator {
     
     var createUser:Resource<Bool> {
         assert(clientToken != nil, "Attempting to create user without a client token")
-        user = userManager.user
+        let user = userManager.user
         assert(user != nil, "Attempting to create user without credentials")
         let fullUrl = baseUrl.appendingPathComponent(createUserUrlExtension)
         let authHeaders = Token.bearerAuthHeadersDictWith(token:clientToken!)
@@ -103,13 +101,11 @@ class Authenticator {
     }
     
     func importCredentials() {
-        userToken = credentials.accessToken
-        if userToken?.isEmpty == false {
+        if credentials.accessToken?.isEmpty == false {
             authState = .userToken
             return
         }
-        user = credentials.user
-        if user != nil {
+        if credentials.user != nil {
             authState = .userCredentials
             return
         }
@@ -119,13 +115,6 @@ class Authenticator {
         // No check for a client token. It is not saved. If the client previously had one,
         // a new one will be requested nevertheless
         authState = .none
-    }
-    
-    func saveCredentials() {
-        // the initial, client token, is not saved. If the login is interrupted at that stage,
-        // a new client token will be generated next time
-        credentials.accessToken = userToken
-        credentials.user = user
     }
     
     public func authenticate() {
@@ -172,11 +161,19 @@ class Authenticator {
         case .userCredentials:
             webService.load(resource: userLogin, completion: { [weak self] (token, error) in
                 if let error = error {
-                    self?.failureCallback?(error)
+                    if (error as NSError).isInvalidUserError() {
+                        self?.authState = .none
+                        self?.credentials.user = nil
+                        self?.credentials.accessToken = nil
+                        self?.proceedWithAuthentication()
+                    }
+                    else {
+                        self?.failureCallback?(error)
+                    }
                 }
                 else {
                     self?.authState = .userToken
-                    self?.userToken = token?.accessToken
+                    self?.credentials.accessToken = token?.accessToken
                     self?.proceedWithAuthentication()
                 }
             })
@@ -187,7 +184,6 @@ class Authenticator {
             completionCallback?()
             break
         }
-        saveCredentials()
     }
 }
 

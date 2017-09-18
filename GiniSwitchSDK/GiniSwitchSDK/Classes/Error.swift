@@ -15,6 +15,7 @@ public enum GiniSwitchErrorCode: Int {
     case network
     case authentication
     case tokenExpired
+    case grantInvalid
     case invalidResponse
     
     // high level error
@@ -85,6 +86,11 @@ extension NSError {
     func isTokenExpiredError() -> Bool {
         return NSError.switchErrorCode(apiCode: code) == .tokenExpired ||
             errorName() == "invalid_token"      // TODO: don't rely on names - check the code only
+    }
+    
+    func isInvalidUserError() -> Bool {
+        return NSError.switchErrorCode(apiCode: code) == .grantInvalid ||
+        errorName() == "invalid_grant"
     }
 }
 

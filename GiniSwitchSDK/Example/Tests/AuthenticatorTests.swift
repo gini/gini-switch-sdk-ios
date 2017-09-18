@@ -30,22 +30,4 @@ class AuthenticatorTests: XCTestCase {
         XCTAssertEqual(tokenResource.headers["Authorization"], "Basic dGVzdElkOnNlY3JldA==", "The client token request should have a basic authentication header")
     }
     
-    func testCreatingUser() {
-        auth.clientToken = "testToken"
-        let userResource = auth.createUser
-        XCTAssertEqual(userResource.url, URL(string: "\(auth.baseUrl.absoluteString)/api/users"), "The create user request URL doesn't match")
-        XCTAssertEqual(userResource.method, "POST", "The create user request method doesn't match")
-        XCTAssertEqual(String(data: userResource.body!, encoding: .utf8), "{\n  \"password\" : \"\(auth.user?.password ?? "")\",\n  \"email\" : \"\(auth.user?.email ?? "")\"\n}", "The create user request should contain user credentials in it's payload")
-        XCTAssertEqual(userResource.headers["Authorization"], "Bearer testToken", "The create user request should have a bearer authentication header")
-    }
-    
-    func testLoggingInUser() {
-        auth.user = User(email: "test@gini.net", password: "password")
-        let userResource = auth.userLogin
-        XCTAssertEqual(userResource.url, URL(string: "\(auth.baseUrl.absoluteString)/oauth/token?grant_type=password"), "The login user request URL doesn't match")
-        XCTAssertEqual(userResource.method, "POST", "The create user request method doesn't match")
-        XCTAssertEqual(String(data: userResource.body!, encoding: .utf8), "username=test@gini.net&password=password", "The login user request should contain user credentials in it's payload")
-        XCTAssertEqual(userResource.headers["Authorization"], "Basic dGVzdElkOnNlY3JldA==", "The login user request should have a bearer authentication header")
-    }
-    
 }
