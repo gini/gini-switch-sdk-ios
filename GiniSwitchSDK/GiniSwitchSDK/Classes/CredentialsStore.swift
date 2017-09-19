@@ -34,7 +34,7 @@ class KeychainCredentialsStore : CredentialsStore {
                 _ = save(service: accessTokenService, userName: tokenAccountField, secret: token)
             }
             else {
-                _ = delete(service: accessTokenService)
+                delete(service: accessTokenService)
             }
         }
         get {
@@ -46,7 +46,7 @@ class KeychainCredentialsStore : CredentialsStore {
         set {
             // TODO: if nil is set, delete the token?
             // TODO: look at the returned value
-            _ = save(service: refreshTokenService, userName: tokenAccountField, secret: newValue ?? "")
+            save(service: refreshTokenService, userName: tokenAccountField, secret: newValue ?? "")
         }
         get {
             return load(service: refreshTokenService, accountName: tokenAccountField)?.secret
@@ -57,7 +57,7 @@ class KeychainCredentialsStore : CredentialsStore {
         set {
             // TODO: if nil is set, delete the token?
             // TODO: look at the returned value
-            _ = save(service: expirationService, userName: tokenAccountField, secret: "\(newValue ?? 0)")
+            save(service: expirationService, userName: tokenAccountField, secret: "\(newValue ?? 0)")
         }
         get {
             guard let expirationString = load(service: expirationService, accountName: tokenAccountField)?.secret else {
@@ -74,7 +74,7 @@ class KeychainCredentialsStore : CredentialsStore {
                     _ = delete(service: userService)
                     return
             }
-            _ = save(service: userService, userName: email, secret: password)
+            save(service: userService, userName: email, secret: password)
         }
         get {
             if let (username, pass) = load(service: userService),
@@ -89,7 +89,7 @@ class KeychainCredentialsStore : CredentialsStore {
 
 extension CredentialsStore {
     
-    func save(service: String, userName: String, secret: String) -> Bool {
+    func save(service: String, userName: String, secret: String) {
         let keychainQuery = queryFor(service: service, secret: secret)
         SecItemDelete(keychainQuery as CFDictionary)
         // Note that it was important to delete the old entries BEFORE specifying the user name.
@@ -97,14 +97,12 @@ extension CredentialsStore {
         keychainQuery[kSecAttrAccount as NSString] = userName
         
         // Add the new keychain item
-        let status = SecItemAdd(keychainQuery as CFDictionary, nil)
-        return (status == errSecSuccess)
+        SecItemAdd(keychainQuery as CFDictionary, nil)
     }
     
-    func delete(service: String) -> Bool {
+    func delete(service: String) {
         let keychainQuery = queryFor(service: service)
-        let status = SecItemDelete(keychainQuery as CFDictionary)
-        return (status == errSecSuccess)
+        SecItemDelete(keychainQuery as CFDictionary)
     }
     
     func load(service: String, accountName:String? = nil) -> (accountName:String?, secret:String)? {
