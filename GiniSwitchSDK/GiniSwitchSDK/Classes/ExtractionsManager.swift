@@ -88,7 +88,7 @@ class ExtractionsManager {
     
     func createExtractionOrder() {
         guard authenticator?.isLoggedIn == true,
-        let token = authenticator?.userToken else {
+        let token = authenticator?.credentials.accessToken else {
             // not logged in
             shouldRequestOrder = true
             return

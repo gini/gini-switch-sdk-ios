@@ -86,6 +86,10 @@ extension NSError {
         return NSError.switchErrorCode(apiCode: code) == .tokenExpired ||
             errorName() == "invalid_token"      // TODO: don't rely on names - check the code only
     }
+    
+    func isInvalidUserError() -> Bool {
+        return errorName() == "invalid_grant"
+    }
 }
 
 public extension NSError {

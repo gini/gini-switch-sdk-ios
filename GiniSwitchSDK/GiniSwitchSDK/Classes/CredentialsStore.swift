@@ -30,9 +30,12 @@ class KeychainCredentialsStore : CredentialsStore {
     
     var accessToken:String? {
         set {
-            // TODO: if nil is set, delete the token?
-            // TODO: look at the returned value
-            _ = save(service: accessTokenService, userName: tokenAccountField, secret: newValue ?? "")
+            if let token = newValue {
+                _ = save(service: accessTokenService, userName: tokenAccountField, secret: token)
+            }
+            else {
+                delete(service: accessTokenService)
+            }
         }
         get {
             return load(service: accessTokenService, accountName: tokenAccountField)?.secret
@@ -43,7 +46,7 @@ class KeychainCredentialsStore : CredentialsStore {
         set {
             // TODO: if nil is set, delete the token?
             // TODO: look at the returned value
-            _ = save(service: refreshTokenService, userName: tokenAccountField, secret: newValue ?? "")
+            save(service: refreshTokenService, userName: tokenAccountField, secret: newValue ?? "")
         }
         get {
             return load(service: refreshTokenService, accountName: tokenAccountField)?.secret
@@ -54,7 +57,7 @@ class KeychainCredentialsStore : CredentialsStore {
         set {
             // TODO: if nil is set, delete the token?
             // TODO: look at the returned value
-            _ = save(service: expirationService, userName: tokenAccountField, secret: "\(newValue ?? 0)")
+            save(service: expirationService, userName: tokenAccountField, secret: "\(newValue ?? 0)")
         }
         get {
             guard let expirationString = load(service: expirationService, accountName: tokenAccountField)?.secret else {
@@ -68,9 +71,10 @@ class KeychainCredentialsStore : CredentialsStore {
         set {
             guard let email = newValue?.email,
                 let password = newValue?.password else {
+                    _ = delete(service: userService)
                     return
             }
-            _ = save(service: userService, userName: email, secret: password)
+            save(service: userService, userName: email, secret: password)
         }
         get {
             if let (username, pass) = load(service: userService),
@@ -85,24 +89,20 @@ class KeychainCredentialsStore : CredentialsStore {
 
 extension CredentialsStore {
     
-    func save(service: String, userName: String, secret: String) -> Bool {
-        guard let dataFromString = secret.data(using: String.Encoding.utf8, allowLossyConversion: false) else {
-            // TODO: this is probably a serious error, but not a fatal one
-            return false
-        }
-        // Instantiate a new default keychain query
-        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPassword, service, dataFromString], forKeys: [kSecClass as NSString, kSecAttrService as NSString, kSecValueData as NSString])
-        
-        // Delete any existing items
+    func save(service: String, userName: String, secret: String) {
+        let keychainQuery = queryFor(service: service, secret: secret)
         SecItemDelete(keychainQuery as CFDictionary)
-        
         // Note that it was important to delete the old entries BEFORE specifying the user name.
         // Otherwise, if a user with a different name is saved, the old one will remain in the keychain
         keychainQuery[kSecAttrAccount as NSString] = userName
         
         // Add the new keychain item
-        let status = SecItemAdd(keychainQuery as CFDictionary, nil)
-        return (status == errSecSuccess)
+        SecItemAdd(keychainQuery as CFDictionary, nil)
+    }
+    
+    func delete(service: String) {
+        let keychainQuery = queryFor(service: service)
+        SecItemDelete(keychainQuery as CFDictionary)
     }
     
     func load(service: String, accountName:String? = nil) -> (accountName:String?, secret:String)? {
@@ -127,6 +127,16 @@ extension CredentialsStore {
             }
         }
         return nil
+    }
+    
+    func queryFor(service: String, secret: String? = nil) -> NSMutableDictionary {
+        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPassword, service], forKeys: [kSecClass as NSString, kSecAttrService as NSString])
+        
+        if let pass = secret,
+            let dataFromString = pass.data(using: String.Encoding.utf8, allowLossyConversion: false) {
+            keychainQuery.setObject(dataFromString, forKey: kSecValueData as NSString)
+        }
+        return keychainQuery
     }
     
 }

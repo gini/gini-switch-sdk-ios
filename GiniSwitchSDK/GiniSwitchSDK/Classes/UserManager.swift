@@ -32,7 +32,9 @@ struct UserManager {
         }
         
         // generate a new one, if there is no user
-        return createNewUser()
+        let user = createNewUser()
+        credentials.user = user
+        return user
     }
     
     private func createNewUser() -> User {
