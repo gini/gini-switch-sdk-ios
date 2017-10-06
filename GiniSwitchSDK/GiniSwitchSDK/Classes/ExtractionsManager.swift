@@ -48,6 +48,12 @@ class ExtractionsManager {
             (uploadService?.hasExtractionOrder ?? false)
     }
     
+    var isProcessing:Bool {
+        return scannedPages.pages.reduce(false) { (processing, currentPage) in
+            return processing || (currentPage.status != .analysed && currentPage.status != .failed)
+        }
+    }
+    
     var hasCredentials:Bool {
         return (!clientId.isEmpty && !clientSecret.isEmpty && !clientDomain.isEmpty)
     }

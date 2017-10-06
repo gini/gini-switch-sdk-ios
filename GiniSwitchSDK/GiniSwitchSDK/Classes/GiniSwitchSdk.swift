@@ -33,6 +33,16 @@ public class GiniSwitchSdk {
     /// Contains some configuration objects that can be used to customize the SDK
     public var configuration = GiniSwitchConfiguration()
     
+    /*
+     * Indicates that the SDK is currently processing images (or not).
+     * "Processing" might mean uploading or analysing the image.
+     * Additionally, images currently being reviewed are also considered processing.
+     * Images marked as "failed", are NOT considered processing.
+     */
+    public var isProcessing:Bool {
+        return extractionsManager.isProcessing
+    }
+    
     let extractionsManager:ExtractionsManager
     var coordinator:MultiPageCoordinator? = nil
     
