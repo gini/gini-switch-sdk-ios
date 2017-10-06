@@ -139,6 +139,16 @@ func switchSdk(_ sdk:GiniSwitchSdk, didReceiveError error:NSError) {
 
 To properly dispose of the SDK after feedback is sent, wait until the `switchSdkDidSendFeedback` or the `didReceiveError` (with a `feedbackError` error type) to be invoked. Once that happens, terminate the SDK as described in [Dismiss the SDK](#dismiss-sdk).
 
+#### Adding missing extractions
+
+If you receive extractions from the Switch SDK, but realize that something's missing, you can add that field as part of the feedback to let us know that we failed to extract something from the document. To do that, create an `Extraction` object with the desired values and add it to the `extractions` array in your `ExtractionCollection`. For example:
+
+```swift
+let missingExtraction = Extraction(name: "companyName", value: "Stadtwerke Gini")
+feedback.extractions.append(missingExtraction)
+sdk?.sendFeedback(feedback)
+```
+
 ## SDK Customizations
 
 The Gini Switch SDK is designed to be an independent part of the hosting application. The overall UI and UX is fixed, but some parameters are customizable.
