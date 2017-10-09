@@ -68,12 +68,9 @@ class PagesCollectionViewController: UIViewController {
     fileprivate func setupOptionsButton() {
         // change the color of the button's image to make it reflect the
         // app's theme
-        guard let button = optionsButton,
-            let buttonImage = button.image(for: .normal) else {
-            return
+        if let color = themeColor {
+            optionsButton.imageColor = color
         }
-        optionsButton.setImage(buttonImage.withRenderingMode(.alwaysTemplate), for: .normal)
-        optionsButton.tintColor = themeColor
     }
 
 }

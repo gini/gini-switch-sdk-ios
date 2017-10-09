@@ -36,6 +36,7 @@ class ReviewViewController: UIViewController {
         }
     }
     
+    var themeColor:UIColor? = nil
     var confirmColor:UIColor? = nil
     var denyColor:UIColor? = nil
 
@@ -96,6 +97,9 @@ class ReviewViewController: UIViewController {
         }
         if let denyColor = denyColor {
             retakeButton.backgroundColor = denyColor
+        }
+        if let theme = themeColor {
+            moreButton.imageColor = theme
         }
     }
 }
