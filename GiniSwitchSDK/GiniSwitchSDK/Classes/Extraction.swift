@@ -9,7 +9,7 @@
 public class  Extraction {
 
     public let name:String
-    public var value:ExtractionValue = ExtractionValue(value: "" as AnyObject, unit: nil)
+    public var value:ExtractionValue = ExtractionValue(value: "", unit: nil)
     public var alternatives:[ExtractionValue] = []
     
     public var valueString:String {
@@ -17,10 +17,10 @@ public class  Extraction {
     }
     
     public convenience init() {
-        self.init(name: "", value: "" as AnyObject)
+        self.init(name: "", value: "")
     }
     
-    public init(name:String, value:AnyObject) {
+    public init(name:String, value:Any) {
         self.name = name
         self.value = ExtractionValue(value: value, unit: nil)
         alternatives = []
@@ -39,7 +39,7 @@ extension Extraction {
     
     func parseValue(_ dict:JSONDictionary) {
         if let stringValue = dict["value"] as? String {
-            value = ExtractionValue(value: stringValue as AnyObject, unit: nil)
+            value = ExtractionValue(value: stringValue, unit: nil)
         }
         else if let objValue = ExtractionValue(dictionary: dict) {
             value = objValue
