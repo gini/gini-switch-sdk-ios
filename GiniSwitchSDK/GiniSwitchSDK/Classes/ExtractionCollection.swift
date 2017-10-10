@@ -10,7 +10,7 @@ import UIKit
 
 public class ExtractionCollection:BaseApiResponse {
 
-    public let extractions:[Extraction]
+    public var extractions:[Extraction]
     
     public init() {
         extractions = []

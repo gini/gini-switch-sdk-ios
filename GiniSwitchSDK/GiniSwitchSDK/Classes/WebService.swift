@@ -8,7 +8,7 @@
 
 import UIKit
 
-typealias JSONDictionary = [String: AnyObject?]
+typealias JSONDictionary = [String: Any?]
 
 struct Resource<A> {
     let url: URL

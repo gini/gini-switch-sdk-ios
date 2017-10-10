@@ -8,7 +8,7 @@
 
 public struct ExtractionValue {
     
-    public let value:AnyObject
+    public let value:Any
     public let unit:String?
     
     static let valueKey = "value"
@@ -18,15 +18,16 @@ public struct ExtractionValue {
         return "\(value)"
     }
     
-    public init(value val:AnyObject, unit:String?) {
+    public init(value val:Any, unit:String?) {
         self.value = val
         self.unit = unit
     }
     
     init?(dictionary:JSONDictionary) {
         // In any case, there needs to be a "value" key
-        guard let val = dictionary[ExtractionValue.valueKey] as AnyObject? else {
-            return nil
+        guard let dictValue = dictionary[ExtractionValue.valueKey],
+            let val = dictValue else {
+                return nil
         }
         // Also, the value might be a value/unit pair
         if let json = dictionary[ExtractionValue.valueKey] as? JSONDictionary,

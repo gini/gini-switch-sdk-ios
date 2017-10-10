@@ -33,7 +33,7 @@ extension ExtractionValue {
     var jsonDict:JSONDictionary {
         var valueDict = [ExtractionValue.valueKey: value]
         if let unit = unit {
-            valueDict[ExtractionValue.unitKey] = unit as AnyObject
+            valueDict[ExtractionValue.unitKey] = unit
         }
         return valueDict
     }
