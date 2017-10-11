@@ -13,7 +13,7 @@ extension ExtractionCollection {
     func feedbackJson() -> Data {
         let jsonDict = extractions.reduce(JSONDictionary()) { (jsonDict:JSONDictionary, extraction) -> JSONDictionary in
             var newDict = jsonDict
-            newDict[extraction.name] = extraction.jsonDict as AnyObject
+            newDict[extraction.name] = extraction.jsonDict
             return newDict
         }
         return (try? JSONSerialization.data(withJSONObject: jsonDict, options: JSONSerialization.WritingOptions.prettyPrinted)) ?? Data()

@@ -62,7 +62,10 @@ extension ExtractionsViewController: UITableViewDataSource {
         cell.nameLabel.text = extraction?.name ?? ""
         cell.valueTextField.text = extraction?.valueString ?? ""
         cell.onExtractionChange = { (newValue: String) -> Void in
-            extraction?.value = ExtractionValue(value: newValue as AnyObject, unit: extraction?.value.unit)
+            // Since the data is shown in a text field, all entries are strings. However, it is
+            // important to NOT change the data type in the extraction collection
+            // (otherwise the backend might reject the data)
+            extraction?.value = ExtractionValue(value: Double(newValue) ?? newValue, unit: extraction?.value.unit)
         }
         
         return cell
