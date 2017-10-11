@@ -32,8 +32,10 @@ public struct ExtractionValue {
         // Also, the value might be a value/unit pair
         if let json = dictionary[ExtractionValue.valueKey] as? JSONDictionary,
             let jsonValue = json[ExtractionValue.valueKey],
+            let jsonUnit = json[ExtractionValue.unitKey],
+            let unit = jsonUnit as? String,
             let value = jsonValue {
-            self.init(value:value, unit: dictionary[ExtractionValue.unitKey] as? String)
+            self.init(value:value, unit: unit)
         }
         // Lastly, the value might be just a top level object
         else {
