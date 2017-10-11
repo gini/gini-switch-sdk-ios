@@ -87,6 +87,7 @@ class MultiPageCoordinator {
     func showReviewScreen(withPage page:ScanPage) {
         let reviewController = UIStoryboard.switchStoryboard()?.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
         reviewController.page = page.copy() as? ScanPage
+        reviewController.themeColor = GiniSwitchAppearance.primaryColor
         reviewController.confirmColor = GiniSwitchAppearance.positiveColor
         reviewController.denyColor = GiniSwitchAppearance.negativeColor
         reviewController.delegate = self

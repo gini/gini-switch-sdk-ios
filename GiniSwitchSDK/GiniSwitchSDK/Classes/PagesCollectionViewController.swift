@@ -38,7 +38,12 @@ class PagesCollectionViewController: UIViewController {
     var selectedIndexPath = addPageCellIndexPath
     
     var shouldShowAddIcon = false
-    var themeColor:UIColor?
+    var themeColor:UIColor? {
+        didSet {
+            setupOptionsButton()
+            pagesCollection?.reloadData()
+        }
+    }
     weak var delegate:PagesCollectionViewControllerDelegate? = nil
     
     @IBAction func onOptionsTapped() {
@@ -63,12 +68,9 @@ class PagesCollectionViewController: UIViewController {
     fileprivate func setupOptionsButton() {
         // change the color of the button's image to make it reflect the
         // app's theme
-        guard let buttonImage = optionsButton.image(for: .normal) else {
-            logger.logError(message: "Options button didn't have an image")
-            return
+        if let color = themeColor {
+            optionsButton.imageColor = color
         }
-        optionsButton.setImage(buttonImage.withRenderingMode(.alwaysTemplate), for: .normal)
-        optionsButton.tintColor = themeColor
     }
 
 }
