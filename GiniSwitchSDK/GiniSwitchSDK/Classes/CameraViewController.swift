@@ -50,7 +50,7 @@ class CameraViewController: UIViewController {
         // Configure preview view
         if let validCamera = camera {
             cameraPreview.session = validCamera.session
-            (cameraPreview.layer as! AVCaptureVideoPreviewLayer).videoGravity = AVLayerVideoGravityResizeAspect
+            (cameraPreview.layer as! AVCaptureVideoPreviewLayer).videoGravity = AVLayerVideoGravity.resizeAspect
         }
     }
 

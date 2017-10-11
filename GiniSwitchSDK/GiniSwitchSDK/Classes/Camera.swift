@@ -51,7 +51,7 @@ internal class Camera {
         }
     }
     
-    func focusWithMode(_ focusMode: AVCaptureFocusMode, exposeWithMode exposureMode: AVCaptureExposureMode, atDevicePoint point: CGPoint, monitorSubjectAreaChange: Bool) {
+    func focusWithMode(_ focusMode: AVCaptureDevice.FocusMode, exposeWithMode exposureMode: AVCaptureDevice.ExposureMode, atDevicePoint point: CGPoint, monitorSubjectAreaChange: Bool) {
         sessionQueue.async {
             guard let device = self.videoDeviceInput?.device else { return }
             guard case .some = try? device.lockForConfiguration() else { return print("Could not lock device for configuration") }
@@ -74,13 +74,13 @@ internal class Camera {
     func captureStillImage(_ completion: @escaping (Data) -> Void) {
         sessionQueue.async {
             // Connection will be `nil` when there is no valid input device; for example on iOS simulator
-            guard let connection = self.stillImageOutput?.connection(withMediaType: AVMediaTypeVideo) else {
+            guard let connection = self.stillImageOutput?.connection(with: AVMediaType.video) else {
                 return completion(Data())   // TODO return an error
             }
             self.videoDeviceInput?.device.setFlashModeSecurely(.on)
             self.stillImageOutput?.captureStillImageAsynchronously(from: connection) { (imageDataSampleBuffer: CMSampleBuffer?, error: Error?) -> Void in
                 guard error == nil else { return completion(Data()) }  // TODO return an error
-                let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
+                let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer!)
                 guard let data = imageData else {
                     return completion(Data())   // TODO return an error
                 }
@@ -109,15 +109,15 @@ internal class Camera {
     
     func setupSession() throws {
         // Setup is not performed asynchronously because of KVOs
-        func deviceWithMediaType(_ mediaType: String, preferringPosition position: AVCaptureDevicePosition) -> AVCaptureDevice? {
-            let devices = AVCaptureDevice.devices(withMediaType: mediaType).filter { ($0 as? AVCaptureDevice)?.position == position }
-            guard let device = devices.first as? AVCaptureDevice else { return nil }
+        func deviceWithMediaType(_ mediaType: String, preferringPosition position: AVCaptureDevice.Position) -> AVCaptureDevice? {
+            let devices = AVCaptureDevice.devices(for: AVMediaType(rawValue: mediaType)).filter { $0.position == position }
+            guard let device = devices.first else { return nil }
             return device
         }
         
-        let videoDevice = deviceWithMediaType(AVMediaTypeVideo, preferringPosition: .back)
+        let videoDevice = deviceWithMediaType(AVMediaType.video.rawValue, preferringPosition: .back)
         do {
-            self.videoDeviceInput = try AVCaptureDeviceInput(device: videoDevice)
+            self.videoDeviceInput = try AVCaptureDeviceInput(device: videoDevice!)
         } catch let error as NSError {
             print("Could not create video device input \(error)")
             if error.code == AVError.Code.applicationIsNotAuthorizedToUseDevice.rawValue {
@@ -129,9 +129,9 @@ internal class Camera {
         
         self.session.beginConfiguration()
         // Specify that we are capturing a photo, this will reset the format to be 4:3
-        self.session.sessionPreset = AVCaptureSessionPresetPhoto
-        if self.session.canAddInput(self.videoDeviceInput) {
-            self.session.addInput(self.videoDeviceInput)
+        self.session.sessionPreset = AVCaptureSession.Preset.photo
+        if self.session.canAddInput(self.videoDeviceInput!) {
+            self.session.addInput(self.videoDeviceInput!)
         } else {
             print("Could not add video device input to the session")
         }
@@ -152,7 +152,7 @@ internal class Camera {
 // TODO: is this the best way?
 internal extension AVCaptureDevice {
     
-    func setFlashModeSecurely(_ mode: AVCaptureFlashMode) {
+    func setFlashModeSecurely(_ mode: AVCaptureDevice.FlashMode) {
         guard hasFlash && isFlashModeSupported(mode) else { return }
         guard case .some = try? lockForConfiguration() else { return print("Could not lock device for configuration") }
         flashMode = mode
