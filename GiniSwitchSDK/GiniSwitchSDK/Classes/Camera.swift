@@ -116,8 +116,11 @@ internal class Camera {
         }
         
         let videoDevice = deviceWithMediaType(AVMediaType.video.rawValue, preferringPosition: .back)
+        guard let device = videoDevice else {
+            return
+        }
         do {
-            self.videoDeviceInput = try AVCaptureDeviceInput(device: videoDevice!)
+            self.videoDeviceInput = try AVCaptureDeviceInput(device: device)
         } catch let error as NSError {
             print("Could not create video device input \(error)")
             if error.code == AVError.Code.applicationIsNotAuthorizedToUseDevice.rawValue {
