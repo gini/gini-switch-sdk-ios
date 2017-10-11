@@ -65,12 +65,7 @@ extension ExtractionsViewController: UITableViewDataSource {
             // Since the data is shown in a text field, all entries are strings. However, it is
             // important to NOT change the data type in the extraction collection
             // (otherwise the backend might reject the data)
-            var replacementValue:Any = newValue
-            let doubleValue = Double(newValue)
-            if let doubleValue = doubleValue {
-                replacementValue = doubleValue
-            }
-            extraction?.value = ExtractionValue(value: replacementValue, unit: extraction?.value.unit)
+            extraction?.value = ExtractionValue(value: Double(newValue) ?? newValue, unit: extraction?.value.unit)
         }
         
         return cell
