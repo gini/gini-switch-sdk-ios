@@ -28,6 +28,7 @@ class MultiPageCoordinator {
     var pageToReplace:ScanPage? = nil
     var pageToPreUpload:ScanPage? = nil
     var extractionsCompleted = false
+    var shouldShowCompletionScreen = true
     let extrationsCompletePopupTimeout = 4
     
     weak var delegate:MultiPageCoordinatorDelegate? = nil
@@ -142,28 +143,33 @@ class MultiPageCoordinator {
         if extractionsCompleted {
             // reset the flag just in case
             extractionsCompleted = false
-            // show the extractions completed screen
-            let completionController = UIStoryboard.switchStoryboard()?.instantiateViewController(withIdentifier: "ExtractionsCompletedViewController") as! ExtractionsCompletedViewController
-            completionController.image = GiniSwitchAppearance.analyzedImage
-            completionController.text = GiniSwitchAppearance.analyzedText
-            completionController.textSize = GiniSwitchAppearance.analyzedTextSize
-            completionController.textColor = GiniSwitchAppearance.analyzedTextColor
-            multiPageViewController.present(controller: completionController, presentationStyle: .modal, animated: true) { [weak self] in
-                // after it is presented, push the extractions screen below it. That way, when it is
-                // automatically dismissed, the extractions will appear below
-                guard let weakSelf = self else {
-                    return
+            if shouldShowCompletionScreen {
+                // show the extractions completed screen
+                let completionController = UIStoryboard.switchStoryboard()?.instantiateViewController(withIdentifier: "ExtractionsCompletedViewController") as! ExtractionsCompletedViewController
+                completionController.image = GiniSwitchAppearance.analyzedImage
+                completionController.text = GiniSwitchAppearance.analyzedText
+                completionController.textSize = GiniSwitchAppearance.analyzedTextSize
+                completionController.textColor = GiniSwitchAppearance.analyzedTextColor
+                multiPageViewController.present(controller: completionController, presentationStyle: .modal, animated: true) { [weak self] in
+                    // after it is presented, push the extractions screen below it. That way, when it is
+                    // automatically dismissed, the extractions will appear below
+                    guard let weakSelf = self else {
+                        return
+                    }
+                    weakSelf.extractionsManager.pollExtractions()
                 }
-                weakSelf.extractionsManager.pollExtractions()
+                
+                // wait a few seconds so users can read the text and automatically dismiss
+                let delay = DispatchTime.now() + .seconds(extrationsCompletePopupTimeout)
+                DispatchQueue.main.asyncAfter(deadline: delay, execute: {
+                    self.multiPageViewController.dismiss(controller: completionController, presentationStyle: .modal, animated: true) {
+                        self.delegate?.multiPageCoordinatorDidComplete(self)
+                    }
+                })
             }
-            
-            // wait a few seconds so users can read the text and automatically dismiss
-            let delay = DispatchTime.now() + .seconds(extrationsCompletePopupTimeout)
-            DispatchQueue.main.asyncAfter(deadline: delay, execute: {
-                self.multiPageViewController.dismiss(controller: completionController, presentationStyle: .modal, animated: true) {
-                    self.delegate?.multiPageCoordinatorDidComplete(self)
-                }
-            })
+            else {
+                self.delegate?.multiPageCoordinatorDidComplete(self)
+            }
         }
     }
     
