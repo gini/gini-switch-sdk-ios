@@ -68,6 +68,7 @@ public class GiniSwitchSdk {
     public func instantiateSwitchViewController() -> UIViewController {
         coordinator = MultiPageCoordinator(extractionsManager: extractionsManager, onboarding: configuration.onboarding)
         coordinator?.delegate = self
+        coordinator?.shouldShowCompletionScreen = configuration.shouldShowAnalyzingCompleteScreen
         return coordinator!.initialViewController
     }
     

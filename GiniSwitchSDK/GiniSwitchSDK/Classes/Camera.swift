@@ -117,7 +117,7 @@ internal class Camera {
         
         let videoDevice = deviceWithMediaType(AVMediaType.video.rawValue, preferringPosition: .back)
         guard let device = videoDevice else {
-            return
+            throw CameraError.unknown
         }
         do {
             self.videoDeviceInput = try AVCaptureDeviceInput(device: device)
