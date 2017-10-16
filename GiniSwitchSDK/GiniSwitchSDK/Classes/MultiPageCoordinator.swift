@@ -153,10 +153,10 @@ class MultiPageCoordinator {
                 multiPageViewController.present(controller: completionController, presentationStyle: .modal, animated: true) { [weak self] in
                     // after it is presented, push the extractions screen below it. That way, when it is
                     // automatically dismissed, the extractions will appear below
-                    guard let weakSelf = self else {
+                    guard let `self` = self else {
                         return
                     }
-                    weakSelf.extractionsManager.pollExtractions()
+                    self.extractionsManager.pollExtractions()
                 }
                 
                 // wait a few seconds so users can read the text and automatically dismiss
