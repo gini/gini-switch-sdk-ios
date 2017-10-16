@@ -40,8 +40,8 @@ public struct GiniSwitchConfiguration {
     /*
      * After all extractions have been retrieved by the extraction service, the "Analyzing completed"
      * screen is shown by default. If you choose to show your own, you can choose to not show the
-     * built-in version by setting `shouldShowExctractionsCompleteScreen` = false
+     * built-in version by setting `shouldShowAnalyzingCompleteScreen` = false
      */
-    public var shouldShowExctractionsCompleteScreen = true
+    public var shouldShowAnalyzingCompleteScreen = true
     
 }
