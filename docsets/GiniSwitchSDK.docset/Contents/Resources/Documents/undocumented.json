@@ -107,7 +107,7 @@
     },
     {
       "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/Error.swift",
-      "line": 93,
+      "line": 97,
       "symbol": "NSError.switchErrorCode",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -240,7 +240,7 @@
     },
     {
       "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/ExtractionValue.swift",
-      "line": 43,
+      "line": 46,
       "symbol": "ExtractionValue.==(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
@@ -257,20 +257,6 @@
       "line": 11,
       "symbol": "GiniSwitchConfiguration",
       "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchConfiguration.swift",
-      "line": 19,
-      "symbol": "GiniSwitchConfiguration.logging",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchConfiguration.swift",
-      "line": 38,
-      "symbol": "GiniSwitchConfiguration.onboarding",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
@@ -464,21 +450,7 @@
     },
     {
       "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchSdk.swift",
-      "line": 47,
-      "symbol": "GiniSwitchSdk.init(clientId:clientSecret:domain:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchSdk.swift",
-      "line": 58,
-      "symbol": "GiniSwitchSdk.instantiateSwitchViewController()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/GiniSwitchSdk.swift",
-      "line": 64,
+      "line": 75,
       "symbol": "GiniSwitchSdk.sendFeedback(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -513,36 +485,36 @@
     },
     {
       "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/PagesCollectionViewController.swift",
-      "line": 72,
+      "line": 80,
       "symbol": "PagesCollectionViewController.collectionView(_:numberOfItemsInSection:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/PagesCollectionViewController.swift",
-      "line": 83,
+      "line": 91,
       "symbol": "PagesCollectionViewController.collectionView(_:cellForItemAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/PagesCollectionViewController.swift",
-      "line": 104,
+      "line": 112,
       "symbol": "PagesCollectionViewController.numberOfSections(in:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/ReviewViewController.swift",
-      "line": null,
-      "symbol": "ReviewViewController",
-      "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/ScanPage.swift",
       "line": null,
       "symbol": "ScanPage",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nikolasobadjiev/Projects/TariffSDK/GiniSwitchSDK/GiniSwitchSDK/Classes/ZoomableImageView.swift",
+      "line": null,
+      "symbol": "ZoomableImageView",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     }
