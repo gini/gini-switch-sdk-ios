@@ -33,7 +33,7 @@ public class GiniSwitchSdk {
     /// Contains some configuration objects that can be used to customize the SDK
     public var configuration = GiniSwitchConfiguration()
     
-    /*
+    /**
      * Indicates that the SDK is currently processing images (or not).
      * "Processing" might mean uploading or analysing the image.
      * Additionally, images currently being reviewed are also considered processing.
@@ -46,12 +46,12 @@ public class GiniSwitchSdk {
     let extractionsManager:ExtractionsManager
     var coordinator:MultiPageCoordinator? = nil
     
-    /*
+    /**
      * The extractions that have been received so far. 
      */
     var extractions:ExtractionCollection = ExtractionCollection()
     
-    /*
+    /**
      * Creates a GiniSwitchSdk instance based on the provided credentials
      */
     public init(clientId: String = "", clientSecret: String = "", domain: String = "") {
@@ -62,7 +62,7 @@ public class GiniSwitchSdk {
         extractionsManager.delegate = self
     }
     
-    /*
+    /**
      * Convenience method for creating the SDK's UI
      */
     public func instantiateSwitchViewController() -> UIViewController {

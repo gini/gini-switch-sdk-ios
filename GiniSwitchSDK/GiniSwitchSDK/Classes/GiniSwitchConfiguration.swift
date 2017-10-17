@@ -10,7 +10,7 @@ import UIKit
 
 public struct GiniSwitchConfiguration {
     
-    /*
+    /**
      * Logging is the object the Switch SDK will be using to write diagnostics information.
      * By default, GiniSwitchConsoleLogger will be used - it will just write to the standard output
      * and also have a basic support for log levels. Clients are free to replace that with their
@@ -25,19 +25,19 @@ public struct GiniSwitchConfiguration {
         }
     }
     
-    /*
+    /**
      * By default, the Switch SDK doesn't send analytics events. You can change that by implementing
      * the GiniSwitchAnalytics protocol and replacing the analytics property here.
      */
     var analytics:GiniSwitchAnalytics = GiniSwitchNopAnalytics()
     
-    /*
+    /**
      * During the SDK's first run, an onboarding sequence will be shown. While a default content is
      * provided, clients can override that and use their own data using a GiniSwitchOnboarding object
      */
     public var onboarding = GiniSwitchOnboarding()
     
-    /*
+    /**
      * After all extractions have been retrieved by the extraction service, the "Analyzing completed"
      * screen is shown by default. If you choose to show your own, you can choose to not show the
      * built-in version by setting `shouldShowAnalyzingCompleteScreen` = false
