@@ -5,6 +5,8 @@ pipeline {
       steps {
         sh 'xcodebuild -workspace GiniSwitchSDK/Example/GiniSwitchSDK.xcworkspace -scheme "GiniSwitchSDK-Example" -destination \'platform=iOS Simulator,name=iPhone 6\''
       }
+    }
+    stage('Test') {
       steps {
         sh 'xcodebuild -workspace GiniSwitchSDK/Example/GiniSwitchSDK.xcworkspace -scheme "GiniSwitchSDK-Example" -destination \'platform=iOS Simulator,name=iPhone 6\' test'
       }
