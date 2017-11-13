@@ -77,7 +77,7 @@ public class GiniSwitchAppearance {
     /**
      * Text for the Analysing Completed Screen.
      */
-    static public var analyzedText:String? = NSLocalizedString("Wir haben Alles was wir für deinen Strom Anbieter Wechseln benötigen.", comment: "Text for the Analysing Completed Screen")
+    static public var analyzedText:String? = NSLocalizedString("Wir haben alles, was für den Anbieterwechsel benötigt wird.", comment: "Text for the Analysing Completed Screen")
     
     /**
      * Text color for the Analysing Completed Screen.
