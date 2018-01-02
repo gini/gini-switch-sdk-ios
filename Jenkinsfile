@@ -11,5 +11,34 @@ pipeline {
         sh 'xcodebuild -workspace GiniSwitchSDK/Example/GiniSwitchSDK.xcworkspace -scheme "GiniSwitchSDK-Example" -destination \'platform=iOS Simulator,name=iPhone 6\' test'
       }
     }
+    stage('Hockey deployment') {
+      when {
+        branch 'develop'
+      }
+      environment {
+         # TODO: Not the real environment variable names. Add the real ones
+         # before using
+         HOCKEYAPP_ID = credentials('SwitchIOSHockeyAppID')
+         HOCKEYAPP_API_KEY = credentials('SwitchIOSHockeyAPIKey')
+         CLIENT_ID = credentials('SwitchClientID')
+         CLIENT_PASSWORD = credentials('SwitchClientPassword')
+      }
+      steps {
+        sh 'rm -rf build'
+        sh 'mkdir build'
+        sh 'scripts/generateCredentialsFile.sh ${CLIENT_ID} ${CLIENT_PASSWORD} gini.net GiniSwitchSDK/Example/GiniTariffSDK/Credentials.plist'
+        sh 'scripts/buildNumberIncrement.sh ${HOCKEYAPP_API_KEY} ${HOCKEYAPP_ID} GiniSwitchSDK/Example/GiniTariffSDK/Info.plist'
+        sh 'xcodebuild -workspace GiniSwitchSDK/Example/GiniSwitchSDK.xcworkspace -scheme GiniSwitchSDK-Example -configuration Release archive -archivePath build/GiniSwitchSDKExample.xcarchive | /usr/local/bin/xcpretty -c'
+        sh 'xcodebuild -exportArchive -archivePath build/GiniSwitchSDKExample.xcarchive -exportOptionsPlist scripts/exportOptionsEnterprise.plist -exportPath build -allowProvisioningUpdates | /usr/local/bin/xcpretty -c'
+        step([$class: 'HockeyappRecorder', applications: [[apiToken: env.HOCKEYAPP_API_KEY, downloadAllowed: true, filePath: 'build/GiniSwitchSDK-Example.ipa', mandatory: false, notifyTeam: false, releaseNotesMethod: [$class: 'NoReleaseNotes'], uploadMethod: [$class: 'VersionCreation', appId: env.HOCKEYAPP_ID]]], debugMode: false, failGracefully: false])
+
+      }
+      post {
+        always {
+          sh 'rm -rf build'
+          sh 'rm GiniSwitchSDK/Example/GiniTariffSDK/Credentials.plist || true'
+        }
+      }
+    }
   }
 }
