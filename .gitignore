@@ -20,3 +20,5 @@ DerivedData
 *.ipa
 .env
 
+# Credentials
+GiniSwitchSDK/Example/GiniTariffSDK/Credentials.plist
