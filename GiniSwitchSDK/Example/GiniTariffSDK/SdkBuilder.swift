@@ -10,9 +10,14 @@ import UIKit
 import GiniSwitchSDK
 
 struct SdkBuilder {
+    
+    static let clientIDKey = "ClientID";
+    static let clientSecretKey = "ClientSecret";
+    static let clientDomainKey = "ClientDomain";
 
     static func customizedSwitchSdk() -> GiniSwitchSdk {
-        let sdk = GiniSwitchSdk(clientId: "TestId", clientSecret: "secret", domain: "gini.net")
+        let credentails = self.clientCredentials()
+        let sdk = GiniSwitchSdk(clientId: credentails.clientId, clientSecret: credentails.clientSecret, domain: credentails.clientDomain)
         
         // Change the main colors
         GiniSwitchAppearance.positiveColor = UIColor(red: 32.0 / 255.0, green: 186.0 / 255.0, blue: 167.0 / 255.0, alpha: 1.0)
@@ -29,5 +34,21 @@ struct SdkBuilder {
         // sdk.configuration.onboarding = GiniSwitchOnboarding(pages: [onboarding1, onboarding2, onboarding3])
         
         return sdk
+    }
+    
+    static func clientCredentials() -> (clientId:String, clientSecret:String, clientDomain:String) {
+        if let path = Bundle.main.path(forResource: "Credentials", ofType: "plist"),
+            let keys = NSDictionary(contentsOfFile: path),
+            let clientId = keys[self.clientIDKey] as? String,
+            let clientSecret = keys[self.clientSecretKey] as? String,
+            let clientDomain = keys[self.clientDomainKey] as? String,
+            !clientId.isEmpty,
+            !clientSecret.isEmpty,
+            !clientDomain.isEmpty {
+            return (clientId, clientSecret, clientDomain)
+        }
+        else {
+            return ("", "", "")
+        }
     }
 }

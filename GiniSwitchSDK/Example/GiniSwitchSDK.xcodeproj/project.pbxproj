@@ -13,6 +13,7 @@
 		2331C5AE1F1DF53200F0742E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2331C5AD1F1DF53200F0742E /* Images.xcassets */; };
 		2331C5B51F1DF60500F0742E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2331C5B11F1DF60500F0742E /* LaunchScreen.xib */; };
 		2331C5B91F1DF66500F0742E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2331C5B71F1DF66500F0742E /* Main.storyboard */; };
+		2379C7CE1FFB8CEA008108E8 /* Credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2379C7CD1FFB8CEA008108E8 /* Credentials.plist */; };
 		23DCD19D1F2747E300C5E2C8 /* ExtractionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DCD19C1F2747E300C5E2C8 /* ExtractionsViewController.swift */; };
 		23DCD19F1F274BE300C5E2C8 /* ExtractionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DCD19E1F274BE300C5E2C8 /* ExtractionsTableViewCell.swift */; };
 		23FA08521F28F3C200753E39 /* FakeCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C6071F1DFC2C00F0742E /* FakeCamera.swift */; };
@@ -108,6 +109,7 @@
 		2331C6071F1DFC2C00F0742E /* FakeCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FakeCamera.swift; path = Mocks/FakeCamera.swift; sourceTree = "<group>"; };
 		2331C6081F1DFC2C00F0742E /* MemoryCredentialsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemoryCredentialsStore.swift; path = Mocks/MemoryCredentialsStore.swift; sourceTree = "<group>"; };
 		2331C6091F1DFC2C00F0742E /* NoOpWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoOpWebService.swift; path = Mocks/NoOpWebService.swift; sourceTree = "<group>"; };
+		2379C7CD1FFB8CEA008108E8 /* Credentials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Credentials.plist; sourceTree = "<group>"; };
 		23DCD19C1F2747E300C5E2C8 /* ExtractionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtractionsViewController.swift; path = GiniTariffSDK/ExtractionsViewController.swift; sourceTree = SOURCE_ROOT; };
 		23DCD19E1F274BE300C5E2C8 /* ExtractionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExtractionsTableViewCell.swift; path = GiniTariffSDK/ExtractionsTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		270685DAFB8C30C5BDDFFF9B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				2331C5BA1F1DF75100F0742E /* Info.plist */,
+				2379C7CD1FFB8CEA008108E8 /* Credentials.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2331C5B91F1DF66500F0742E /* Main.storyboard in Resources */,
+				2379C7CE1FFB8CEA008108E8 /* Credentials.plist in Resources */,
 				2331C5B51F1DF60500F0742E /* LaunchScreen.xib in Resources */,
 				2331C5AE1F1DF53200F0742E /* Images.xcassets in Resources */,
 			);
