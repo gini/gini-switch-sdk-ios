@@ -41,10 +41,7 @@ struct SdkBuilder {
             let keys = NSDictionary(contentsOfFile: path),
             let clientId = keys[self.clientIDKey] as? String,
             let clientSecret = keys[self.clientSecretKey] as? String,
-            let clientDomain = keys[self.clientDomainKey] as? String,
-            !clientId.isEmpty,
-            !clientSecret.isEmpty,
-            !clientDomain.isEmpty {
+            let clientDomain = keys[self.clientDomainKey] as? String {
             return (clientId, clientSecret, clientDomain)
         }
         else {
