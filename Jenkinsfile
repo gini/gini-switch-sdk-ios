@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Hockey deployment') {
       when {
-        branch 'develop'
+        branch 'feature-inject-creds'
       }
       environment {
          HOCKEYAPP_ID = credentials('SwitchIOSHockeyAppID')
