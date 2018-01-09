@@ -16,12 +16,10 @@ pipeline {
         branch 'develop'
       }
       environment {
-         # TODO: Not the real environment variable names. Add the real ones
-         # before using
          HOCKEYAPP_ID = credentials('SwitchIOSHockeyAppID')
-         HOCKEYAPP_API_KEY = credentials('SwitchIOSHockeyAPIKey')
-         CLIENT_ID = credentials('SwitchClientID')
-         CLIENT_PASSWORD = credentials('SwitchClientPassword')
+         HOCKEYAPP_API_KEY = credentials('SwitchHockeyappAPIKey')
+         CLIENT_ID = credentials('SwitchSdkClientId')
+         CLIENT_PASSWORD = credentials('SwitchSdkClientSecret')
       }
       steps {
         sh 'rm -rf build'
