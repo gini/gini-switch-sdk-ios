@@ -16,8 +16,10 @@ struct SdkBuilder {
     static let clientDomainKey = "ClientDomain";
 
     static func customizedSwitchSdk() -> GiniSwitchSdk {
-        let credentails = self.clientCredentials()
-        let sdk = GiniSwitchSdk(clientId: credentails.clientId, clientSecret: credentails.clientSecret, domain: credentails.clientDomain)
+        let credentials = self.clientCredentials()
+        let sdk = GiniSwitchSdk(clientId: credentials.clientId,
+                                clientSecret: credentials.clientSecret,
+                                domain: credentials.clientDomain)
         
         // Change the main colors
         GiniSwitchAppearance.positiveColor = UIColor(red: 32.0 / 255.0, green: 186.0 / 255.0, blue: 167.0 / 255.0, alpha: 1.0)
