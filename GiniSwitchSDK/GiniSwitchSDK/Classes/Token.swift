@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Token {
+struct Token : Codable {
     
     let accessToken:String
     let refreshToken:String?
@@ -20,13 +20,10 @@ struct Token {
         self.expiration = expiration
     }
     
-    init?(_ dictionary:JSONDictionary) {
-        guard let access = dictionary["access_token"] as? String,
-            let expirationTime = dictionary["expires_in"] as? Int else {
-                return nil
-        }
-        let refresh = dictionary["refresh_token"] as? String    // the refresh token is not mandatory
-        self.init(accessToken: access, refreshToken: refresh, expiration: expirationTime)
+    private enum CodingKeys : String, CodingKey {
+        case accessToken = "access_token"
+        case refreshToken = "refresh_token"
+        case expiration = "expires_in"
     }
     
 }

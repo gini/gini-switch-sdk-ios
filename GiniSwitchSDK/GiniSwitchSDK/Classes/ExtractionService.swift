@@ -35,7 +35,7 @@ class ExtractionService {
     
     func createOrder(completion:@escaping ExtractionServiceOrderCallback) {
         resourceLoader.load(resource: resources.createExtractionOrder) { [weak self] (response, error) in
-            self?.orderUrl = response?.href
+            self?.orderUrl = response?.links.selfLink?.href
             completion(self?.orderUrl, error)
         }
     }
@@ -46,7 +46,7 @@ class ExtractionService {
             return
         }
         resourceLoader.load(resource: resources.addPage(imageData: data, toOrder: order)) { (response, error) in
-            completion(response?.href, error)
+            completion(response?.links.selfLink?.href, error)
         }
     }
     

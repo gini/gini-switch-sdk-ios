@@ -19,6 +19,9 @@
 		1E31D4170DA581B71544DD153A0B77D8 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0F62FCF52274790A8F568524B0A234 /* ReviewViewController.swift */; };
 		230D73D01F8BA64600D5E6E4 /* UIButton+ImageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230D73CF1F8BA64600D5E6E4 /* UIButton+ImageColor.swift */; };
 		23A2A3CD1F56CA2E00A4E105 /* ZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A2A3CC1F56CA2E00A4E105 /* ZoomableImageView.swift */; };
+		23A69C5820076950009F266C /* ResponseLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A69C5720076950009F266C /* ResponseLinks.swift */; };
+		23A69C5A200769B8009F266C /* SelfLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A69C59200769B8009F266C /* SelfLink.swift */; };
+		23E1AF9F200F5E7900EFB289 /* NoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1AF9E200F5E7900EFB289 /* NoResponse.swift */; };
 		23FA087F1F39F5BA00753E39 /* ExtractionCollection+Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FA087E1F39F5BA00753E39 /* ExtractionCollection+Feedback.swift */; };
 		2CB91DA7761AD9ED7E7119138F28419C /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4431079AA669EEAB64E82BE2DE704A0F /* CameraViewController.swift */; };
 		45FD9CE25FB0163E8BDC647CDA9EEB6B /* GiniSwitchLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044CE271EE6FBC6B062403C825B6D6D8 /* GiniSwitchLogger.swift */; };
@@ -45,7 +48,6 @@
 		9E51B39E140209B7E1EB8CE6AD158FED /* CreateOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC089CA51FE3AAB37F9D6F9AFF9382F /* CreateOrderResponse.swift */; };
 		9F611551F1EA4C2AAA3C1A68E0F06447 /* GiniSwitch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 711FF982CEF5AC7E6EDFA6A4EC54FDBB /* GiniSwitch.storyboard */; };
 		A1733DB46C85CB40531070EDB00B38CA /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001E46407492564BE83FD0D0046BC2FC /* OnboardingViewController.swift */; };
-		A212A1F4BE680D3B096768CFAA54EF53 /* BaseApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A11DFEAC854B333CEC13A570BEA6FF /* BaseApiResponse.swift */; };
 		A64D6257E8CA21942706A128D11EE303 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431E1A5886A446250FB6217EF707F932 /* OnboardingPageViewController.swift */; };
 		A6CBC8D7CD89D8DE97962BD32E3B7EAA /* ExtractionCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E242DBA1822918444F06BE010C9EDF5 /* ExtractionCollection.swift */; };
 		A75B2206E015EB7C91F862BE326AC18F /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC9A59DA31C5DE9D9FEAAFC580424D6 /* PageCollectionViewCell.swift */; };
@@ -100,6 +102,9 @@
 		226DC5B5D668D4BB8D3B95750D965AF5 /* AddPageResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddPageResponse.swift; sourceTree = "<group>"; };
 		230D73CF1F8BA64600D5E6E4 /* UIButton+ImageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+ImageColor.swift"; sourceTree = "<group>"; };
 		23A2A3CC1F56CA2E00A4E105 /* ZoomableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomableImageView.swift; sourceTree = "<group>"; };
+		23A69C5720076950009F266C /* ResponseLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseLinks.swift; sourceTree = "<group>"; };
+		23A69C59200769B8009F266C /* SelfLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfLink.swift; sourceTree = "<group>"; };
+		23E1AF9E200F5E7900EFB289 /* NoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResponse.swift; sourceTree = "<group>"; };
 		23FA087E1F39F5BA00753E39 /* ExtractionCollection+Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExtractionCollection+Feedback.swift"; sourceTree = "<group>"; };
 		2424B973F038582E20870EAC54A18ABB /* GiniSwitchConsoleLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchConsoleLogger.swift; sourceTree = "<group>"; };
 		29633F7FB62129047199811E75F7A628 /* Pods-GiniSwitchSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GiniSwitchSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,7 +135,6 @@
 		78B065AE268E65017DC3CC99C1BB5D8E /* ExtractionService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExtractionService.swift; sourceTree = "<group>"; };
 		7E2D1D51DDA7BA8B693A22C8AA2310BF /* Authenticator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		807F0DA74BD26528B710C54117DB2F99 /* GiniSwitchSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GiniSwitchSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		85A11DFEAC854B333CEC13A570BEA6FF /* BaseApiResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseApiResponse.swift; sourceTree = "<group>"; };
 		8623CA4B620FE732CF32F2E0E60CF5BB /* MultiPageCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MultiPageCoordinator.swift; sourceTree = "<group>"; };
 		927409559F4BEB06291DD2F2E3839F60 /* GiniSwitchOnboarding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GiniSwitchOnboarding.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -250,10 +254,12 @@
 			isa = PBXGroup;
 			children = (
 				B17C77B61DA9E5B51629A31B37AA2B3E /* ExtractionStatusResponse.swift */,
-				85A11DFEAC854B333CEC13A570BEA6FF /* BaseApiResponse.swift */,
 				DBC089CA51FE3AAB37F9D6F9AFF9382F /* CreateOrderResponse.swift */,
 				226DC5B5D668D4BB8D3B95750D965AF5 /* AddPageResponse.swift */,
 				30F96676315886B107AA14C0D0BCAD57 /* PagesResponse.swift */,
+				23A69C5720076950009F266C /* ResponseLinks.swift */,
+				23A69C59200769B8009F266C /* SelfLink.swift */,
+				23E1AF9E200F5E7900EFB289 /* NoResponse.swift */,
 			);
 			name = Responses;
 			sourceTree = "<group>";
@@ -618,7 +624,6 @@
 			files = (
 				9AC97405355BAF130309F7FB162006B8 /* AddPageResponse.swift in Sources */,
 				5B4EDE352375F6F0992277E59780FAA9 /* Authenticator.swift in Sources */,
-				A212A1F4BE680D3B096768CFAA54EF53 /* BaseApiResponse.swift in Sources */,
 				526D850918B924F3DC63A7860DA511F8 /* Camera.swift in Sources */,
 				C204623ACB79F6F255BEF0FA08487C69 /* CameraOptionsViewController.swift in Sources */,
 				AC0FF394C41561AE2A3DAC4320950C6D /* CameraPreviewView.swift in Sources */,
@@ -654,12 +659,15 @@
 				BE49F9CC93701B9733E62BB50BA06F9B /* PageCollection.swift in Sources */,
 				A75B2206E015EB7C91F862BE326AC18F /* PageCollectionViewCell.swift in Sources */,
 				230D73D01F8BA64600D5E6E4 /* UIButton+ImageColor.swift in Sources */,
+				23A69C5820076950009F266C /* ResponseLinks.swift in Sources */,
 				AE67481A5C122DD5E5F7F019BBE86A1B /* PagesCollectionViewController.swift in Sources */,
 				1061D687E53D14F864248E65D6659537 /* PagesResponse.swift in Sources */,
 				C6114E9A302913620DB48A5FAE3825F9 /* PollScheduler.swift in Sources */,
 				B09B63AB29CEB2728D2E3003C06183A1 /* PresentationStyle.swift in Sources */,
 				DEA87F0DE69451B569271679483A7E81 /* PreviewViewController.swift in Sources */,
 				62A7625DC06964699905BD3E24C9ABE6 /* ResourceError.swift in Sources */,
+				23A69C5A200769B8009F266C /* SelfLink.swift in Sources */,
+				23E1AF9F200F5E7900EFB289 /* NoResponse.swift in Sources */,
 				1E31D4170DA581B71544DD153A0B77D8 /* ReviewViewController.swift in Sources */,
 				C02AADA91771F5673283B5CB63CB85DC /* ScanPage.swift in Sources */,
 				7A18B9229986974DA5E68099B88AF7A9 /* SwitchBackgroundView.swift in Sources */,

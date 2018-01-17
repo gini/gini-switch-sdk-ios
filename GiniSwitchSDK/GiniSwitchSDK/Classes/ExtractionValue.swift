@@ -6,45 +6,69 @@
 //
 //
 
-public struct ExtractionValue {
+public struct ContractAddressValue : ExtractionValue {
+    public let name:String
+    public let city:String
+    public let postCode:String
+    public let country:String
+    public let address:AddressValue
     
-    public let value:Any
-    public let unit:String?
-    
-    static let valueKey = "value"
-    static let unitKey = "unit"
-    
-    public var valueString:String {
-        return "\(value)"
+    public var valueString: String {
+        return "\(name), \(address.valueString), \(city), \(postCode), \(country)"
     }
     
-    public init(value val:Any, unit:String?) {
-        self.value = val
-        self.unit = unit
+    public static func ==(lhs: ContractAddressValue, rhs: ContractAddressValue) -> Bool {
+        return lhs.valueString == rhs.valueString
     }
-    
-    init?(dictionary:JSONDictionary) {
-        // In any case, there needs to be a "value" key
-        guard let dictValue = dictionary[ExtractionValue.valueKey],
-            let val = dictValue else {
-                return nil
-        }
-        // Also, the value might be a value/unit pair
-        if let json = dictionary[ExtractionValue.valueKey] as? JSONDictionary,
-            let jsonValue = json[ExtractionValue.valueKey],
-            let jsonUnit = json[ExtractionValue.unitKey],
-            let unit = jsonUnit as? String,
-            let value = jsonValue {
-            self.init(value:value, unit: unit)
-        }
-        // Lastly, the value might be just a top level object
-        else {
-            self.init(value:val, unit: dictionary[ExtractionValue.unitKey] as? String)
-        }
-    }
-    
-    public static func ==(lhs: ExtractionValue, rhs: ExtractionValue) -> Bool {
-        return lhs.unit == rhs.unit && lhs.valueString == rhs.valueString
-    }
-
 }
+
+public struct AddressValue : ExtractionValue {
+    
+    public let address:String
+    public let houseNumber:String
+    
+    public var valueString: String {
+        return "\(address) \(houseNumber)"
+    }
+    
+    public static func ==(lhs: AddressValue, rhs: AddressValue) -> Bool {
+        return lhs.valueString == rhs.valueString
+    }
+}
+
+public struct AmountValue : ExtractionValue {
+    public let value:Double
+    public let unit:String
+    
+    public var valueString: String {
+        return "\(value) \(unit)"
+    }
+    
+    public static func ==(lhs: AmountValue, rhs: AmountValue) -> Bool {
+        return lhs.valueString == rhs.valueString
+    }
+}
+
+public struct StringValue : ExtractionValue {
+    public let value:String?
+    
+    private enum CodingKeys : String, CodingKey {
+        case value = "value"
+    }
+    
+    public var valueString: String {
+        return value!
+    }
+    
+    public static func ==(lhs: StringValue, rhs: StringValue) -> Bool {
+        return lhs.valueString == rhs.valueString
+    }
+}
+
+public protocol ExtractionValue : Equatable, Codable {
+    
+    var valueString:String { get }
+    
+}
+
+

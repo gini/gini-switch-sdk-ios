@@ -49,7 +49,7 @@ public class GiniSwitchSdk {
     /*
      * The extractions that have been received so far. 
      */
-    var extractions:ExtractionCollection = ExtractionCollection()
+    var extractions:ExtractionCollection?
     
     /*
      * Creates a GiniSwitchSdk instance based on the provided credentials

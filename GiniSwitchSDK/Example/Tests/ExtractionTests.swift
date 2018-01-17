@@ -11,14 +11,14 @@ import XCTest
 
 class ExtractionTests: XCTestCase {
     
-    var extraction:Extraction! = nil
+    var extraction:Extraction<StringValue>! = nil
     let testName = "email"
     let testValue = "hello@gini.net"
     let testValueAlternative = "hi@gini.net"
     
     override func setUp() {
         super.setUp()
-        extraction = Extraction(name: testName, value: testValue as AnyObject)
+        extraction = createExtraction()
     }
     
     func testHasName() {
@@ -29,20 +29,7 @@ class ExtractionTests: XCTestCase {
         XCTAssertEqual(extraction.valueString, testValue, "An Extraction should have a value")
     }
     
-    func testInitWithParameters() {
-        extraction = Extraction(name:testName, value:testValue as AnyObject)
-        XCTAssertEqual(extraction.name, testName, "An Extraction should use the name provided in the init")
-        XCTAssertEqual(extraction.valueString, testValue, "An Extraction should use the value provided in the init")
-    }
-    
-    func testInitWithDict() {
-        extraction = Extraction(name:testName, dict:extractionDict())
-        XCTAssertEqual(extraction.name, testName, "An Extraction should use the name provided in the init")
-        XCTAssertEqual(extraction.valueString, testValue, "An Extraction should use the value provided in the init")
-    }
-    
     func testHasAlternatives() {
-        extraction = Extraction(name:testName, dict:extractionDict())
         let alternative = extraction.alternatives.first
         XCTAssertEqual(alternative?.valueString, testValueAlternative, "Extraction should be able to parse the alternatives")
     }
@@ -50,7 +37,11 @@ class ExtractionTests: XCTestCase {
 
 extension ExtractionTests {
     
-    func extractionDict() -> JSONDictionary {
-        return ["value": testValue as AnyObject, "alternatives": [["value": testValueAlternative, "unit": "mails"]] as AnyObject]
+    func createExtraction() -> Extraction<StringValue> {
+        let extraction = Extraction<StringValue>()
+        extraction.name = testName
+        extraction.value = StringValue(value: testValue)
+        extraction.alternatives = [StringValue(value: testValueAlternative), StringValue(value: testValueAlternative)]
+        return extraction
     }
 }

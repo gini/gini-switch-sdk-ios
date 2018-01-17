@@ -32,11 +32,7 @@ class ExtractionResources {
         let authHeaders = Token.bearerAuthHeadersDictWith(token: token)
         // currently the API doesn't accept empty bodies. Just add an empty json
         let body = try! JSONSerialization.data(withJSONObject: [:], options: .prettyPrinted)
-        return Resource<CreateOrderResponse>(url: fullUrl, headers: authHeaders, method: "POST", body: body, parseJSON: { json in
-            guard let orderDict = json as? JSONDictionary else { return nil }
-            let orderResponse = CreateOrderResponse(dict:orderDict)
-            return orderResponse
-        })
+        return Resource<CreateOrderResponse>(url: fullUrl, headers: authHeaders, method: "POST", body: body)
     }
     
     func addPage(imageData:Data, toOrder orderUrl:String) -> Resource<AddPageResponse> {
@@ -50,11 +46,7 @@ class ExtractionResources {
         var authHeaders = Token.bearerAuthHeadersDictWith(token: token)
         authHeaders["Content-Type"] = "image/jpeg"
         let body = imageData
-        return Resource<AddPageResponse>(url: fullUrl, headers: authHeaders, method: "POST", body: body, parseJSON: { (json) -> AddPageResponse? in
-            guard let pageDict = json as? JSONDictionary else { return nil }
-            let pageResponse = AddPageResponse(dict:pageDict)
-            return pageResponse
-        })
+        return Resource<AddPageResponse>(url: fullUrl, headers: authHeaders, method: "POST", body: body)
     }
     
     func statusFor(orderUrl:String) -> Resource<ExtractionStatusResponse> {
@@ -65,11 +57,7 @@ class ExtractionResources {
 //        }
         let fullUrl = URL(string:orderUrl)!
         let authHeaders = Token.bearerAuthHeadersDictWith(token: token)
-        return Resource<ExtractionStatusResponse>(url: fullUrl, headers: authHeaders, method: "GET", body: nil, parseJSON: { (json) in
-            guard let statusDict = json as? JSONDictionary else { return nil }
-            let statusResponse = ExtractionStatusResponse(dict:statusDict)
-            return statusResponse
-        })
+        return Resource<ExtractionStatusResponse>(url: fullUrl, headers: authHeaders, method: "GET", body: nil)
     }
     
     func extractionsFor(orderUrl:String) -> Resource<ExtractionCollection> {
@@ -81,14 +69,10 @@ class ExtractionResources {
         var fullUrl = URL(string:orderUrl)!
         fullUrl = fullUrl.appendingPathComponent(extractionsExtension)
         let authHeaders = Token.bearerAuthHeadersDictWith(token: token)
-        return Resource<ExtractionCollection>(url: fullUrl, headers: authHeaders, method: "GET", body: nil, parseJSON: { (json) in
-            guard let extractionsDict = json as? JSONDictionary else { return nil }
-            let extractionsResponse = ExtractionCollection(dictionary: extractionsDict)
-            return extractionsResponse
-        })
+        return Resource<ExtractionCollection>(url: fullUrl, headers: authHeaders, method: "GET", body: nil)
     }
     
-    func deletePageWith(id:String, orderUrl:String) -> Resource<Bool> {
+    func deletePageWith(id:String, orderUrl:String) -> Resource<NoResponse> {
         // TODO: Figure out how to return a failing Resource
 //        guard let fullUrl = URL(string:orderUrl) else {
 //            // TODO: return error
@@ -96,10 +80,7 @@ class ExtractionResources {
 //        }
         let fullUrl = URL(string:id)!
         let authHeaders = Token.bearerAuthHeadersDictWith(token: token)
-        return Resource<Bool>(url: fullUrl, headers: authHeaders, method: "DELETE", body: nil, parseJSON: { (json) -> Bool? in
-            // TODO: check for errors
-            return true
-        })
+        return Resource<NoResponse>(url: fullUrl, headers: authHeaders, method: "DELETE", body: nil)
     }
     
     func replacePageWith(id:String, orderUrl:String, imageData:Data) -> Resource<AddPageResponse> {
@@ -112,20 +93,14 @@ class ExtractionResources {
         var authHeaders = Token.bearerAuthHeadersDictWith(token: token)
         authHeaders["Content-Type"] = "image/jpeg"
         let body = imageData
-        return Resource<AddPageResponse>(url: fullUrl, headers: authHeaders, method: "PUT", body: body, parseJSON: { (json) -> AddPageResponse? in
-            guard let pageDict = json as? JSONDictionary else { return nil }
-            let pageResponse = AddPageResponse(dict:pageDict)
-            return pageResponse
-        })
+        return Resource<AddPageResponse>(url: fullUrl, headers: authHeaders, method: "PUT", body: body)
     }
     
-    func feebackFor(orderUrl:String, feedback:ExtractionCollection) -> Resource<Bool> {
+    func feebackFor(orderUrl:String, feedback:ExtractionCollection) -> Resource<NoResponse> {
         var fullUrl = URL(string:orderUrl)!
         fullUrl = fullUrl.appendingPathComponent(extractionsExtension)
         let authHeaders = Token.bearerAuthHeadersDictWith(token: token)
         let body = feedback.feedbackJson()
-        return Resource<Bool>(url: fullUrl, headers: authHeaders, method: "PUT", body: body, parseJSON: { (json) -> Bool? in
-            return true
-        })
+        return Resource<NoResponse>(url: fullUrl, headers: authHeaders, method: "PUT", body: body)
     }
 }

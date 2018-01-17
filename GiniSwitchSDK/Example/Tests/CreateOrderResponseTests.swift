@@ -14,26 +14,43 @@ class CreateOrderResponseTests: XCTestCase {
     let selfHref = "testSelf"
     let pagesHref = "myPages"
     var response:CreateOrderResponse! = nil
+    let testDecoder = JSONDecoder()
     
     func testInitWithDict() {
-        let testDict:JSONDictionary = ["_links": ["pages": ["href": pagesHref], "self": ["href": selfHref]] as AnyObject]
-        response = CreateOrderResponse(dict: testDict)
-        XCTAssertEqual(response.href, selfHref, "CreateOrderResponse should be able to parse the href from a dictionary")
-        XCTAssertEqual(response.pages.href, pagesHref, "CreateOrderResponse should be able to parse the pages href from a dictionary")
+        let testJSON =
+        """
+        {
+            "_links": {
+                "self": {
+                    "href": "\(selfHref)"
+                },
+                "pages": {
+                    "href": "\(pagesHref)"
+                },
+            },
+            "extractionsComplete": false
+        }
+        """
+        response = try? testDecoder.decode(CreateOrderResponse.self, from: testJSON.data(using: .utf8)!)
+        XCTAssertEqual(response.links.selfLink?.href, selfHref, "CreateOrderResponse should be able to parse the href from a JSON")
+        XCTAssertEqual(response.links.pages?.href, pagesHref, "CreateOrderResponse should be able to parse the pages href from a JSON")
     }
     
     func testEmptyDictionary() {
-        let testDict:JSONDictionary = [:]
-        response = CreateOrderResponse(dict: testDict)
-        XCTAssertNil(response.href, "CreateOrderResponse's self href should be nil if it's not present in the dictionary")
-        XCTAssertNil(response.pages.href, "CreateOrderResponse's pages link should be nil if it's not present in the dictionary")
+        let testJSON = ""
+        response = try? testDecoder.decode(CreateOrderResponse.self, from: testJSON.data(using: .utf8)!)
+        XCTAssertNil(response, "CreateOrderResponse should be nil if it's not present in the JSON")
     }
     
     func testDictionaryWithoutHref() {
-        let testDict:JSONDictionary = ["my": ["dictionary": "fun"] as AnyObject]
-        response = CreateOrderResponse(dict: testDict)
-        XCTAssertNil(response.href, "CreateOrderResponse's self href should be nil if it's not present in the dictionary")
-        XCTAssertNil(response.pages.href, "CreateOrderResponse's pages link should be nil if it's not present in the dictionary")
+        let testJSON =
+        """
+        {
+            "myJson": "fun"
+        }
+        """
+        response = try? testDecoder.decode(CreateOrderResponse.self, from: testJSON.data(using: .utf8)!)
+        XCTAssertNil(response, "CreateOrderResponse should be nil if it's not present in the JSON")
     }
     
 }

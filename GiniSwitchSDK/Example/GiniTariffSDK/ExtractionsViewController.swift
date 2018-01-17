@@ -23,7 +23,24 @@ class ExtractionsViewController: UIViewController {
     @IBOutlet var backButton:UIButton! = nil
     @IBOutlet var switchButton:UIButton! = nil
     
-    var extractionsCollection:ExtractionCollection? = nil
+    var extractions:[(name:String, value: String)] = []
+    var extractionsCollection:ExtractionCollection? = nil {
+        didSet {
+            var allExtractions:[(name:String?, value: String?)] = []
+            allExtractions.append((name: extractionsCollection?.companyName?.name, value: extractionsCollection?.companyName?.value?.value))
+            allExtractions.append((name: extractionsCollection?.customerAddress?.name, value: extractionsCollection?.customerAddress?.value?.valueString))
+            allExtractions.append((name: extractionsCollection?.energyMeterNumber?.name, value: extractionsCollection?.energyMeterNumber?.value?.valueString))
+            allExtractions.append((name: extractionsCollection?.consumption?.name, value: extractionsCollection?.consumption?.value?.valueString))
+            allExtractions.append((name: extractionsCollection?.consumptionDuration?.name, value: extractionsCollection?.consumptionDuration?.value?.valueString))
+            allExtractions.append((name: extractionsCollection?.paidAmount?.name, value: extractionsCollection?.paidAmount?.value?.valueString))
+            allExtractions.append((name: extractionsCollection?.amountToPay?.name, value: extractionsCollection?.amountToPay?.value?.valueString))
+            allExtractions.append((name: extractionsCollection?.billingAmount?.name, value: extractionsCollection?.billingAmount?.value?.valueString))
+            allExtractions.append((name: extractionsCollection?.documentDate?.name, value: extractionsCollection?.documentDate?.value?.valueString))
+            extractions = allExtractions.filter({ $0.name != nil && $0.value != nil}).map({ (element) -> (name:String, value: String) in
+                return (name:element.name!, value:element.value!)
+            })
+        }
+    }
     weak var delegate:ExtractionsViewControllerDelegate? = nil
 
     override func viewDidLoad() {
@@ -53,19 +70,20 @@ extension ExtractionsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return extractionsCollection?.extractions.count ?? 0
+        return extractions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExtractionsTableViewCell", for: indexPath) as! ExtractionsTableViewCell
-        let extraction = extractionsCollection?.extractions[indexPath.row]
-        cell.nameLabel.text = extraction?.name ?? ""
-        cell.valueTextField.text = extraction?.valueString ?? ""
+        let extraction = extractions[indexPath.row]
+        cell.nameLabel.text = extraction.name
+        cell.valueTextField.text = extraction.value
         cell.onExtractionChange = { (newValue: String) -> Void in
             // Since the data is shown in a text field, all entries are strings. However, it is
             // important to NOT change the data type in the extraction collection
             // (otherwise the backend might reject the data)
-            extraction?.value = ExtractionValue(value: Double(newValue) ?? newValue, unit: extraction?.value.unit)
+            // TODO: apply the changes in the extraction collection
+//            extraction?.value = ExtractionValue(value: Double(newValue) ?? newValue, unit: extraction?.value.unit)
         }
         
         return cell
