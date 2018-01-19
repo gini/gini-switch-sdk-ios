@@ -7,11 +7,11 @@
 //
 
 public struct ContractAddressValue : ExtractionValue {
-    public let name:String
-    public let city:String
-    public let postalCode:String
-    public let country:String
-    public let street:AddressValue
+    public var name:String
+    public var city:String
+    public var postalCode:String
+    public var country:String
+    public var street:AddressValue
     
     public var valueString: String {
         return "\(name), \(street.valueString), \(city), \(postalCode), \(country)"
@@ -24,8 +24,8 @@ public struct ContractAddressValue : ExtractionValue {
 
 public struct AddressValue : ExtractionValue {
     
-    public let streetName:String
-    public let streetNumber:String
+    public var streetName:String
+    public var streetNumber:String
     
     public var valueString: String {
         return "\(streetName) \(streetNumber)"
@@ -37,8 +37,8 @@ public struct AddressValue : ExtractionValue {
 }
 
 public struct AmountValue : ExtractionValue {
-    public let value:Double
-    public let unit:String
+    public var value:Double
+    public var unit:String
     
     public var valueString: String {
         return "\(value) \(unit)"

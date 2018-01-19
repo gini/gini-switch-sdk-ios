@@ -23,21 +23,64 @@ class ExtractionsViewController: UIViewController {
     @IBOutlet var backButton:UIButton! = nil
     @IBOutlet var switchButton:UIButton! = nil
     
-    var extractions:[(name:String, value: String)] = []
+    var extractions:[(name:String, value: String, changeBlock: (String) -> Void)] = []
     var extractionsCollection:ExtractionCollection? = nil {
         didSet {
-            var allExtractions:[(name:String?, value: String?)] = []
-            allExtractions.append((name: "Company name", value: extractionsCollection?.companyName?.value?.valueString))
-            allExtractions.append((name: "Customer address", value: extractionsCollection?.customerAddress?.value?.valueString))
-            allExtractions.append((name: "Energy meter number", value: extractionsCollection?.energyMeterNumber?.value?.valueString))
-            allExtractions.append((name: "Comsumption", value: extractionsCollection?.consumption?.value?.valueString))
-            allExtractions.append((name: "Consumption duration", value: extractionsCollection?.consumptionDuration?.value?.valueString))
-            allExtractions.append((name: "Paid amount", value: extractionsCollection?.paidAmount?.value?.valueString))
-            allExtractions.append((name: "Amount to pay", value: extractionsCollection?.amountToPay?.value?.valueString))
-            allExtractions.append((name: "Billing amount", value: extractionsCollection?.billingAmount?.value?.valueString))
-            allExtractions.append((name: "Document date", value: extractionsCollection?.documentDate?.value?.valueString))
-            extractions = allExtractions.filter({ $0.name != nil && $0.value != nil}).map({ (element) -> (name:String, value: String) in
-                return (name:element.name!, value:element.value!)
+            var allExtractions:[(name:String?, value: String?, changeBlock: (String) -> Void)] = []
+            allExtractions.append((name: "Company name", value: extractionsCollection?.companyName?.value?.valueString, changeBlock: { [weak self] (changedValue) in
+                self?.extractionsCollection?.companyName?.value = changedValue
+            }))
+            allExtractions.append((name: "Customer name", value: extractionsCollection?.customerAddress?.value?.name, changeBlock: { [weak self] (changedValue) in
+                self?.extractionsCollection?.customerAddress?.value?.name = changedValue
+            }))
+            allExtractions.append((name: "Customer street name", value: extractionsCollection?.customerAddress?.value?.street.streetName, changeBlock: { [weak self] (changedValue) in
+                self?.extractionsCollection?.customerAddress?.value?.street.streetName = changedValue
+            }))
+            allExtractions.append((name: "Customer street number", value: extractionsCollection?.customerAddress?.value?.street.streetNumber, changeBlock: { [weak self] (changedValue) in
+                self?.extractionsCollection?.customerAddress?.value?.street.streetNumber = changedValue
+            }))
+            allExtractions.append((name: "Customer city", value: extractionsCollection?.customerAddress?.value?.city, changeBlock: { [weak self] (changedValue) in
+                self?.extractionsCollection?.customerAddress?.value?.city = changedValue
+            }))
+            allExtractions.append((name: "Customer country", value: extractionsCollection?.customerAddress?.value?.country, changeBlock: { [weak self] (changedValue) in
+                self?.extractionsCollection?.customerAddress?.value?.country = changedValue
+            }))
+            allExtractions.append((name: "Customer postal code", value: extractionsCollection?.customerAddress?.value?.postalCode, changeBlock: { [weak self] (changedValue) in
+                self?.extractionsCollection?.customerAddress?.value?.postalCode = changedValue
+            }))
+            allExtractions.append((name: "Energy meter number", value: extractionsCollection?.energyMeterNumber?.value?.valueString, changeBlock: { [weak self] (changedValue) in
+                self?.extractionsCollection?.energyMeterNumber?.value = changedValue
+            }))
+            allExtractions.append((name: "Comsumption", value: extractionsCollection?.consumption?.value?.valueString, changeBlock: { [weak self] (changedValue) in
+                if let numberValue = Double(changedValue) {
+                    self?.extractionsCollection?.consumption?.value?.value = numberValue
+                }
+            }))
+            allExtractions.append((name: "Consumption duration", value: extractionsCollection?.consumptionDuration?.value?.valueString, changeBlock: { [weak self] (changedValue) in
+                if let numberValue = Double(changedValue) {
+                    self?.extractionsCollection?.consumptionDuration?.value?.value = numberValue
+                }
+            }))
+            allExtractions.append((name: "Paid amount", value: extractionsCollection?.paidAmount?.value?.valueString, changeBlock: { [weak self] (changedValue) in
+                if let numberValue = Double(changedValue) {
+                    self?.extractionsCollection?.paidAmount?.value?.value = numberValue
+                }
+            }))
+            allExtractions.append((name: "Amount to pay", value: extractionsCollection?.amountToPay?.value?.valueString, changeBlock: { [weak self] (changedValue) in
+                if let numberValue = Double(changedValue) {
+                    self?.extractionsCollection?.amountToPay?.value?.value = numberValue
+                }
+            }))
+            allExtractions.append((name: "Billing amount", value: extractionsCollection?.billingAmount?.value?.valueString, changeBlock: { [weak self] (changedValue) in
+                if let numberValue = Double(changedValue) {
+                    self?.extractionsCollection?.billingAmount?.value?.value = numberValue
+                }
+            }))
+            allExtractions.append((name: "Document date", value: extractionsCollection?.documentDate?.value?.valueString, changeBlock: { [weak self] (changedValue) in
+                self?.extractionsCollection?.documentDate?.value = changedValue
+            }))
+            extractions = allExtractions.filter({ $0.name != nil && $0.value != nil}).map({ (element) in
+                return (name:element.name!, value:element.value!, changeBlock:element.changeBlock)
             })
         }
     }
@@ -79,11 +122,7 @@ extension ExtractionsViewController: UITableViewDataSource {
         cell.nameLabel.text = extraction.name
         cell.valueTextField.text = extraction.value
         cell.onExtractionChange = { (newValue: String) -> Void in
-            // Since the data is shown in a text field, all entries are strings. However, it is
-            // important to NOT change the data type in the extraction collection
-            // (otherwise the backend might reject the data)
-            // TODO: apply the changes in the extraction collection
-//            extraction?.value = ExtractionValue(value: Double(newValue) ?? newValue, unit: extraction?.value.unit)
+            extraction.changeBlock(newValue)
         }
         
         return cell
