@@ -62,7 +62,6 @@ public class ExtractionCollection: Codable {
             extraction.value = value
             return extraction
         } catch {
-            print(error)
             return nil
         }
     }

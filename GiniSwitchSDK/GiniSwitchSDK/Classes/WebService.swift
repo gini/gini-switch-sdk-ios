@@ -49,13 +49,7 @@ extension Resource {
     
     static fileprivate func resourceFrom(data:Data) -> A? {
         let jsonDecoder = JSONDecoder()
-        do {
-            return try jsonDecoder.decode(A.self, from: data)
-        }
-        catch {
-            print("Parse error: \(error)");
-            return nil
-        }
+        return try? jsonDecoder.decode(A.self, from: data)
     }
 }
 
