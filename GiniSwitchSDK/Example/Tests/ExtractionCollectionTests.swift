@@ -26,13 +26,7 @@ class ExtractionCollectionTests: XCTestCase {
     func testInitWithJson() {
         XCTAssertNotNil(extractionCollection, "ExtractionCollection should be able to get parsed from a JSON")
         let extraction = extractionCollection.companyName
-        XCTAssertEqual(extraction?.name, extractionName, "ExtractionCollection should be able to parse the extraction's name")
         XCTAssertEqual(extraction?.valueString, testName, "ExtractionCollection should be able to parse the extraction's value")
-    }
-
-    func testInitExtractionName() {
-        let extraction = extractionCollection.energyMeterNumber
-        XCTAssertEqual(extraction?.name, extractionEnergyMeter, "ExtractionCollection should be able to parse the extraction's name")
     }
 
     func testInitExtractionValue() {

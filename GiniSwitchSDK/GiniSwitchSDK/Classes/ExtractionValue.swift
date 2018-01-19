@@ -9,12 +9,12 @@
 public struct ContractAddressValue : ExtractionValue {
     public let name:String
     public let city:String
-    public let postCode:String
+    public let postalCode:String
     public let country:String
-    public let address:AddressValue
+    public let street:AddressValue
     
     public var valueString: String {
-        return "\(name), \(address.valueString), \(city), \(postCode), \(country)"
+        return "\(name), \(street.valueString), \(city), \(postalCode), \(country)"
     }
     
     public static func ==(lhs: ContractAddressValue, rhs: ContractAddressValue) -> Bool {
@@ -24,11 +24,11 @@ public struct ContractAddressValue : ExtractionValue {
 
 public struct AddressValue : ExtractionValue {
     
-    public let address:String
-    public let houseNumber:String
+    public let streetName:String
+    public let streetNumber:String
     
     public var valueString: String {
-        return "\(address) \(houseNumber)"
+        return "\(streetName) \(streetNumber)"
     }
     
     public static func ==(lhs: AddressValue, rhs: AddressValue) -> Bool {
@@ -49,20 +49,12 @@ public struct AmountValue : ExtractionValue {
     }
 }
 
-public struct StringValue : ExtractionValue {
-    public let value:String?
+extension String:ExtractionValue {
     
-    private enum CodingKeys : String, CodingKey {
-        case value = "value"
+    public var valueString:String {
+        return self
     }
     
-    public var valueString: String {
-        return value!
-    }
-    
-    public static func ==(lhs: StringValue, rhs: StringValue) -> Bool {
-        return lhs.valueString == rhs.valueString
-    }
 }
 
 public protocol ExtractionValue : Equatable, Codable {

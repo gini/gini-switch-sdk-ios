@@ -27,15 +27,15 @@ class ExtractionsViewController: UIViewController {
     var extractionsCollection:ExtractionCollection? = nil {
         didSet {
             var allExtractions:[(name:String?, value: String?)] = []
-            allExtractions.append((name: extractionsCollection?.companyName?.name, value: extractionsCollection?.companyName?.value?.value))
-            allExtractions.append((name: extractionsCollection?.customerAddress?.name, value: extractionsCollection?.customerAddress?.value?.valueString))
-            allExtractions.append((name: extractionsCollection?.energyMeterNumber?.name, value: extractionsCollection?.energyMeterNumber?.value?.valueString))
-            allExtractions.append((name: extractionsCollection?.consumption?.name, value: extractionsCollection?.consumption?.value?.valueString))
-            allExtractions.append((name: extractionsCollection?.consumptionDuration?.name, value: extractionsCollection?.consumptionDuration?.value?.valueString))
-            allExtractions.append((name: extractionsCollection?.paidAmount?.name, value: extractionsCollection?.paidAmount?.value?.valueString))
-            allExtractions.append((name: extractionsCollection?.amountToPay?.name, value: extractionsCollection?.amountToPay?.value?.valueString))
-            allExtractions.append((name: extractionsCollection?.billingAmount?.name, value: extractionsCollection?.billingAmount?.value?.valueString))
-            allExtractions.append((name: extractionsCollection?.documentDate?.name, value: extractionsCollection?.documentDate?.value?.valueString))
+            allExtractions.append((name: "Company name", value: extractionsCollection?.companyName?.value?.valueString))
+            allExtractions.append((name: "Customer address", value: extractionsCollection?.customerAddress?.value?.valueString))
+            allExtractions.append((name: "Energy meter number", value: extractionsCollection?.energyMeterNumber?.value?.valueString))
+            allExtractions.append((name: "Comsumption", value: extractionsCollection?.consumption?.value?.valueString))
+            allExtractions.append((name: "Consumption duration", value: extractionsCollection?.consumptionDuration?.value?.valueString))
+            allExtractions.append((name: "Paid amount", value: extractionsCollection?.paidAmount?.value?.valueString))
+            allExtractions.append((name: "Amount to pay", value: extractionsCollection?.amountToPay?.value?.valueString))
+            allExtractions.append((name: "Billing amount", value: extractionsCollection?.billingAmount?.value?.valueString))
+            allExtractions.append((name: "Document date", value: extractionsCollection?.documentDate?.value?.valueString))
             extractions = allExtractions.filter({ $0.name != nil && $0.value != nil}).map({ (element) -> (name:String, value: String) in
                 return (name:element.name!, value:element.value!)
             })

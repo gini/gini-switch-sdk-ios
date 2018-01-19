@@ -11,7 +11,7 @@ import XCTest
 
 class ExtractionTests: XCTestCase {
     
-    var extraction:Extraction<StringValue>! = nil
+    var extraction:Extraction<String>! = nil
     let testName = "email"
     let testValue = "hello@gini.net"
     let testValueAlternative = "hi@gini.net"
@@ -19,10 +19,6 @@ class ExtractionTests: XCTestCase {
     override func setUp() {
         super.setUp()
         extraction = createExtraction()
-    }
-    
-    func testHasName() {
-        XCTAssertEqual(extraction.name, testName, "An Extraction should have a name")
     }
     
     func testHasValue() {
@@ -37,11 +33,10 @@ class ExtractionTests: XCTestCase {
 
 extension ExtractionTests {
     
-    func createExtraction() -> Extraction<StringValue> {
-        let extraction = Extraction<StringValue>()
-        extraction.name = testName
-        extraction.value = StringValue(value: testValue)
-        extraction.alternatives = [StringValue(value: testValueAlternative), StringValue(value: testValueAlternative)]
+    func createExtraction() -> Extraction<String> {
+        let extraction = Extraction<String>()
+        extraction.value = testValue
+        extraction.alternatives = [testValueAlternative, testValueAlternative]
         return extraction
     }
 }

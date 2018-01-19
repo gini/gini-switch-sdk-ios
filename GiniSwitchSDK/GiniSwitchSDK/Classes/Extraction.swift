@@ -8,7 +8,6 @@
 
 public class  Extraction<T: ExtractionValue> : Codable {
 
-    public var name:String = ""
     public var value:T? = nil
     public var alternatives:[T] = []
     
@@ -25,8 +24,7 @@ extension Extraction:Equatable {
         for (val1, val2) in zip(lhs.alternatives, rhs.alternatives) {
             equalAlternatives = equalAlternatives && val1 == val2
         }
-        return lhs.name == rhs.name &&
-            lhs.value == rhs.value &&
+        return lhs.value == rhs.value &&
             equalAlternatives &&
             lhs.alternatives.count == rhs.alternatives.count
     }
