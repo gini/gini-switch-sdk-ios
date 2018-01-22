@@ -19,3 +19,14 @@ public struct ResponseLinks : Codable {
         case pages = "pages"
     }
 }
+
+extension ResponseLinks : Equatable {
+    
+    public static func ==(lhs: ResponseLinks, rhs: ResponseLinks) -> Bool {
+        return lhs.selfLink == rhs.selfLink &&
+            lhs.pages == rhs.pages &&
+            lhs.href == rhs.href
+    }
+    
+    
+}

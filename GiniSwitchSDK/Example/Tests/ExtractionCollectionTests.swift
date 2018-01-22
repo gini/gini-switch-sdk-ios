@@ -14,7 +14,7 @@ class ExtractionCollectionTests: XCTestCase {
     var extractionCollection:ExtractionCollection! = nil
     let testName = "Lechwerke AG"
     let testEnergyMeter = "A1234"
-    let testValueAlternative = "hi@gini.net"
+    let testValueAlternative = "A12345"
     let extractionName = "companyName"
     let extractionEnergyMeter = "energyMeterNumber"
     
@@ -34,16 +34,15 @@ class ExtractionCollectionTests: XCTestCase {
         XCTAssertEqual(extraction?.valueString, testEnergyMeter, "ExtractionCollection should be able to parse the extraction's value")
     }
 
-    // TODO: fix alternatives
-//    func testInitAlternatives() {
-//        let extraction = extractionCollection.energyMeterNumber
-//        XCTAssertEqual(extraction?.alternatives.count, 2, "ExtractionCollection should be able to parse the extraction's alternative values")
-//    }
-//
-//    func testinitAlternativeValue() {
-//        let extraction = extractionCollection.energyMeterNumber
-//        XCTAssertEqual(extraction?.alternatives.first?.valueString, testValueAlternative, "ExtractionCollection should be able to parse the extraction's alternative value")
-//    }
+    func testInitAlternatives() {
+        let extraction = extractionCollection.energyMeterNumber
+        XCTAssertEqual(extraction?.alternatives.count, 2, "ExtractionCollection should be able to parse the extraction's alternative values")
+    }
+
+    func testinitAlternativeValue() {
+        let extraction = extractionCollection.energyMeterNumber
+        XCTAssertEqual(extraction?.alternatives.first?.valueString, testValueAlternative, "ExtractionCollection should be able to parse the extraction's alternative value")
+    }
 }
 
 extension ExtractionCollectionTests {
@@ -58,7 +57,7 @@ extension ExtractionCollectionTests {
             },
             "\(extractionEnergyMeter)" : {
                 "value" : "\(testEnergyMeter)",
-                "alternatives" : [ "\(testEnergyMeter)", "\(testEnergyMeter)" ]
+                "alternatives" : [ "\(testValueAlternative)", "\(testValueAlternative)" ]
             },
             "_links" : {
                 "self" : {

@@ -58,8 +58,10 @@ public class ExtractionCollection: Codable {
         do {
             let values = try container.nestedContainer(keyedBy: ValueKeys.self, forKey: key)
             let value = try values.decode(T.self, forKey: .value)
+            let alternatives = try values.decode([T].self, forKey: .alternatives)
             let extraction = Extraction<T>()
             extraction.value = value
+            extraction.alternatives = alternatives
             return extraction
         } catch {
             return nil
@@ -76,12 +78,6 @@ public class ExtractionCollection: Codable {
     var amountToPayKey = "amountToPay"
     var documentDateKey = "documentDate"
     
-    func isEmpty() -> Bool {
-        let emptyJson = "{}".data(using: .utf8)!
-        let emptyCollection = try? JSONDecoder().decode(ExtractionCollection.self, from: emptyJson)
-        return self == emptyCollection
-    }
-    
 }
 
 extension ExtractionCollection:Equatable {
@@ -95,7 +91,9 @@ extension ExtractionCollection:Equatable {
             lhs.billingAmount == rhs.billingAmount &&
             lhs.paidAmount == rhs.paidAmount &&
             lhs.amountToPay == rhs.amountToPay &&
-            lhs.documentDate == rhs.documentDate);
+            lhs.documentDate == rhs.documentDate &&
+            lhs.links == rhs.links);
     }
     
 }
+
