@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2306FCE72018973C00C0046E /* ExtractionValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2306FCE62018973C00C0046E /* ExtractionValueTests.swift */; };
 		2331C5AA1F1DF51D00F0742E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5A71F1DF51D00F0742E /* AppDelegate.swift */; };
 		2331C5AB1F1DF51D00F0742E /* SdkBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5A81F1DF51D00F0742E /* SdkBuilder.swift */; };
 		2331C5AC1F1DF51D00F0742E /* SwitchExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5A91F1DF51D00F0742E /* SwitchExampleViewController.swift */; };
@@ -65,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		07132A2B21166EF7556446A1 /* Pods-GiniSwitchSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniSwitchSDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniSwitchSDK_Example/Pods-GiniSwitchSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		2306FCE62018973C00C0046E /* ExtractionValueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractionValueTests.swift; sourceTree = "<group>"; };
 		2331C5A71F1DF51D00F0742E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = GiniTariffSDK/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		2331C5A81F1DF51D00F0742E /* SdkBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SdkBuilder.swift; path = GiniTariffSDK/SdkBuilder.swift; sourceTree = SOURCE_ROOT; };
 		2331C5A91F1DF51D00F0742E /* SwitchExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchExampleViewController.swift; path = GiniTariffSDK/SwitchExampleViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -224,6 +226,7 @@
 				2331C5C71F1DFC1800F0742E /* ExtractionsManagerTests.swift */,
 				2331C5C91F1DFC1800F0742E /* ExtractionStatusResponseTests.swift */,
 				2331C5CB1F1DFC1800F0742E /* ExtractionTests.swift */,
+				2306FCE62018973C00C0046E /* ExtractionValueTests.swift */,
 				2331C5CE1F1DFC1800F0742E /* GiniSwitchConsoleLoggerTests.swift */,
 				2331C5CF1F1DFC1800F0742E /* GiniSwitchOnboardingTests.swift */,
 				2331C5D01F1DFC1800F0742E /* GiniSwitchSdkTests.swift */,
@@ -516,6 +519,7 @@
 				23FA08531F28F3C200753E39 /* MemoryCredentialsStore.swift in Sources */,
 				23FA085B1F28F3C700753E39 /* ErrorTests.swift in Sources */,
 				23FA085F1F28F3C700753E39 /* ExtractionServiceTests.swift in Sources */,
+				2306FCE72018973C00C0046E /* ExtractionValueTests.swift in Sources */,
 				23FA08731F28F3C700753E39 /* TestUtils.swift in Sources */,
 				23FA08611F28F3C700753E39 /* ExtractionStatusResponseTests.swift in Sources */,
 				23FA086A1F28F3C700753E39 /* MultiPageScanViewControllerTests.swift in Sources */,
