@@ -33,11 +33,11 @@ class ExtractionsViewController: UIViewController {
             allExtractions.append((name: "Customer name", value: extractionsCollection?.customerAddress?.value?.name, changeBlock: { [weak self] (changedValue) in
                 self?.extractionsCollection?.customerAddress?.value?.name = changedValue
             }))
-            allExtractions.append((name: "Customer street name", value: extractionsCollection?.customerAddress?.value?.street.streetName, changeBlock: { [weak self] (changedValue) in
-                self?.extractionsCollection?.customerAddress?.value?.street.streetName = changedValue
+            allExtractions.append((name: "Customer street name", value: extractionsCollection?.customerAddress?.value?.street?.streetName, changeBlock: { [weak self] (changedValue) in
+                self?.extractionsCollection?.customerAddress?.value?.street?.streetName = changedValue
             }))
-            allExtractions.append((name: "Customer street number", value: extractionsCollection?.customerAddress?.value?.street.streetNumber, changeBlock: { [weak self] (changedValue) in
-                self?.extractionsCollection?.customerAddress?.value?.street.streetNumber = changedValue
+            allExtractions.append((name: "Customer street number", value: extractionsCollection?.customerAddress?.value?.street?.streetNumber, changeBlock: { [weak self] (changedValue) in
+                self?.extractionsCollection?.customerAddress?.value?.street?.streetNumber = changedValue
             }))
             allExtractions.append((name: "Customer city", value: extractionsCollection?.customerAddress?.value?.city, changeBlock: { [weak self] (changedValue) in
                 self?.extractionsCollection?.customerAddress?.value?.city = changedValue
@@ -79,9 +79,12 @@ class ExtractionsViewController: UIViewController {
             allExtractions.append((name: "Document date", value: extractionsCollection?.documentDate?.value?.valueString, changeBlock: { [weak self] (changedValue) in
                 self?.extractionsCollection?.documentDate?.value = changedValue
             }))
-            extractions = allExtractions.filter({ $0.name != nil && $0.value != nil}).map({ (element) in
-                return (name:element.name!, value:element.value!, changeBlock:element.changeBlock)
-            })
+            extractions = allExtractions.flatMap {
+                if let name = $0.name, let value = $0.value {
+                    return (name: name, value: value, changeBlock:$0.changeBlock)
+                }
+                return nil
+            }
         }
     }
     weak var delegate:ExtractionsViewControllerDelegate? = nil

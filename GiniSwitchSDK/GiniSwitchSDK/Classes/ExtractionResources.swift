@@ -32,7 +32,7 @@ class ExtractionResources {
         let authHeaders = Token.bearerAuthHeadersDictWith(token: token)
         // currently the API doesn't accept empty bodies. Just add an empty json
         let body = try! JSONSerialization.data(withJSONObject: [:], options: .prettyPrinted)
-        return Resource<CreateOrderResponse>(url: fullUrl, headers: authHeaders, method: "POST", body: body)
+        return Resource<CreateOrderResponse>(url: fullUrl, headers: authHeaders, method: .POST, body: body)
     }
     
     func addPage(imageData:Data, toOrder orderUrl:String) -> Resource<AddPageResponse> {
@@ -46,7 +46,7 @@ class ExtractionResources {
         var authHeaders = Token.bearerAuthHeadersDictWith(token: token)
         authHeaders["Content-Type"] = "image/jpeg"
         let body = imageData
-        return Resource<AddPageResponse>(url: fullUrl, headers: authHeaders, method: "POST", body: body)
+        return Resource<AddPageResponse>(url: fullUrl, headers: authHeaders, method: .POST, body: body)
     }
     
     func statusFor(orderUrl:String) -> Resource<ExtractionStatusResponse> {
@@ -57,7 +57,7 @@ class ExtractionResources {
 //        }
         let fullUrl = URL(string:orderUrl)!
         let authHeaders = Token.bearerAuthHeadersDictWith(token: token)
-        return Resource<ExtractionStatusResponse>(url: fullUrl, headers: authHeaders, method: "GET", body: nil)
+        return Resource<ExtractionStatusResponse>(url: fullUrl, headers: authHeaders, method: .GET, body: nil)
     }
     
     func extractionsFor(orderUrl:String) -> Resource<ExtractionCollection> {
@@ -69,7 +69,7 @@ class ExtractionResources {
         var fullUrl = URL(string:orderUrl)!
         fullUrl = fullUrl.appendingPathComponent(extractionsExtension)
         let authHeaders = Token.bearerAuthHeadersDictWith(token: token)
-        return Resource<ExtractionCollection>(url: fullUrl, headers: authHeaders, method: "GET", body: nil)
+        return Resource<ExtractionCollection>(url: fullUrl, headers: authHeaders, method: .GET, body: nil)
     }
     
     func deletePageWith(id:String, orderUrl:String) -> Resource<NoResponse> {
@@ -80,7 +80,7 @@ class ExtractionResources {
 //        }
         let fullUrl = URL(string:id)!
         let authHeaders = Token.bearerAuthHeadersDictWith(token: token)
-        return Resource<NoResponse>(url: fullUrl, headers: authHeaders, method: "DELETE", body: nil)
+        return Resource<NoResponse>(url: fullUrl, headers: authHeaders, method: .DELETE, body: nil)
     }
     
     func replacePageWith(id:String, orderUrl:String, imageData:Data) -> Resource<AddPageResponse> {
@@ -93,7 +93,7 @@ class ExtractionResources {
         var authHeaders = Token.bearerAuthHeadersDictWith(token: token)
         authHeaders["Content-Type"] = "image/jpeg"
         let body = imageData
-        return Resource<AddPageResponse>(url: fullUrl, headers: authHeaders, method: "PUT", body: body)
+        return Resource<AddPageResponse>(url: fullUrl, headers: authHeaders, method: .PUT, body: body)
     }
     
     func feebackFor(orderUrl:String, feedback:ExtractionCollection) -> Resource<NoResponse> {
@@ -101,6 +101,6 @@ class ExtractionResources {
         fullUrl = fullUrl.appendingPathComponent(extractionsExtension)
         let authHeaders = Token.bearerAuthHeadersDictWith(token: token)
         let body = feedback.feedbackJson()
-        return Resource<NoResponse>(url: fullUrl, headers: authHeaders, method: "PUT", body: body)
+        return Resource<NoResponse>(url: fullUrl, headers: authHeaders, method: .PUT, body: body)
     }
 }

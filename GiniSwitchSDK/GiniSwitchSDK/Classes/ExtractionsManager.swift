@@ -312,7 +312,11 @@ class ExtractionsManager {
     }
     
     fileprivate func notifyExtractionsChanged() {
-        self.delegate?.extractionsManager(self, didChangeExtractions: extractions!)
+        guard let extractions = extractions else {
+            logger.logError(message: "Notifying that extractions are changed with a nil extractions object")
+            return
+        }
+        self.delegate?.extractionsManager(self, didChangeExtractions: extractions)
     }
     
     fileprivate func notifyExtractionsComplete() {

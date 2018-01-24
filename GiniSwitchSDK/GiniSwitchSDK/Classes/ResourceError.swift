@@ -20,7 +20,7 @@ extension Resource {
         self.init(url: url, parseError: Resource.errorJsonParser())
     }
     
-    init(url: URL, headers: Dictionary<String, String>, method: String?, body: Data?) {
+    init(url: URL, headers: Dictionary<String, String>, method: HTTPMethod, body: Data?) {
         self.init(url: url, headers: headers, method: method, body: body, parseError: Resource.errorJsonParser())
     }
 }

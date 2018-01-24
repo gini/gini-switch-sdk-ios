@@ -52,7 +52,7 @@ class Authenticator {
 
         var authHeaders = basicAuthHeadersDictFor(user: clientId!, pass: clientSecret!)
         authHeaders["Accept"] = "application/json"      // TODO: don't hardcode
-        return Resource<Token>(url: fullUrl, headers: authHeaders, method: "GET", body: nil)
+        return Resource<Token>(url: fullUrl, headers: authHeaders, method: .GET, body: nil)
     }
     
     var userLogin:Resource<Token> {
@@ -62,7 +62,7 @@ class Authenticator {
         fullUrl = fullUrl.appendingQueryParameter(name: loginTypeParameter, value: loginTypePassword)!
         let authHeaders = basicAuthHeadersDictFor(user: clientId!, pass: clientSecret!)
         let payload = userCredentialsPayloadFor(user:user!)
-        return Resource<Token>(url: fullUrl, headers: authHeaders, method: "POST", body: payload)
+        return Resource<Token>(url: fullUrl, headers: authHeaders, method: .POST, body: payload)
     }
     
     var createUser:Resource<Bool> {
@@ -72,7 +72,7 @@ class Authenticator {
         let fullUrl = baseUrl.appendingPathComponent(createUserUrlExtension)
         let authHeaders = Token.bearerAuthHeadersDictWith(token:clientToken!)
         let body = userCredentialsJsonData(for: user!)
-        return Resource<Bool>(url: fullUrl, headers: authHeaders, method: "POST", body: body)
+        return Resource<Bool>(url: fullUrl, headers: authHeaders, method: .POST, body: body)
     }
     
     var isLoggedIn:Bool {

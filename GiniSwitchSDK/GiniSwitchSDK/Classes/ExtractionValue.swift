@@ -7,14 +7,21 @@
 //
 
 public struct ContractAddressValue : ExtractionValue {
-    public var name:String
-    public var city:String
-    public var postalCode:String
-    public var country:String
-    public var street:AddressValue
+    public var name:String?
+    public var city:String?
+    public var postalCode:String?
+    public var country:String?
+    public var street:AddressValue?
     
     public var valueString: String {
-        return "\(name), \(street.valueString), \(city), \(postalCode), \(country)"
+        let components = [name, street?.valueString, city, postalCode, country].flatMap({
+            if let component = $0,
+                !component.isEmpty {
+                return component
+            }
+            return nil
+        })
+        return components.joined(separator: ", ")
     }
     
     public static func ==(lhs: ContractAddressValue, rhs: ContractAddressValue) -> Bool {
@@ -24,11 +31,17 @@ public struct ContractAddressValue : ExtractionValue {
 
 public struct AddressValue : ExtractionValue {
     
-    public var streetName:String
-    public var streetNumber:String
+    public var streetName:String?
+    public var streetNumber:String?
     
     public var valueString: String {
-        return "\(streetName) \(streetNumber)"
+        let components:[String] = [streetName, streetNumber].flatMap({
+            if let component = $0 {
+                return component
+            }
+            return nil
+        })
+        return components.joined(separator: " ")
     }
     
     public static func ==(lhs: AddressValue, rhs: AddressValue) -> Bool {

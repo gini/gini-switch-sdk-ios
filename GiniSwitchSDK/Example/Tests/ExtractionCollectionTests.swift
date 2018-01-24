@@ -39,7 +39,7 @@ class ExtractionCollectionTests: XCTestCase {
         XCTAssertEqual(extraction?.alternatives.count, 2, "ExtractionCollection should be able to parse the extraction's alternative values")
     }
 
-    func testinitAlternativeValue() {
+    func testInitAlternativeValue() {
         let extraction = extractionCollection.energyMeterNumber
         XCTAssertEqual(extraction?.alternatives.first?.valueString, testValueAlternative, "ExtractionCollection should be able to parse the extraction's alternative value")
     }

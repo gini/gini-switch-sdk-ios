@@ -10,10 +10,18 @@ import UIKit
 
 public typealias JSONDictionary = [String: Any?]
 
+enum HTTPMethod : String {
+    case GET = "GET"
+    case POST = "POST"
+    case DELETE = "DELETE"
+    case PUT = "PUT"
+    case HEAD = "HEAD"
+}
+
 struct Resource<A : Decodable> {
     let url: URL
     let headers: Dictionary<String, String>
-    let method:String?
+    let method:HTTPMethod
     let body:Data?
     let maxRetries = 2          // original attempt + 2 retries = 3 requests in total
     let parseError: (Data) -> Error?
@@ -24,7 +32,7 @@ extension Resource {
     init(url: URL, parseError: @escaping (Any) -> Error?) {
         self.url = url
         self.headers = [:]
-        method = "GET"
+        method = .GET
         self.body = nil
         self.parseError = { data in
             let json = Resource.jsonFrom(data: data)
@@ -32,7 +40,7 @@ extension Resource {
         }
     }
     
-    init(url: URL, headers: Dictionary<String, String>, method: String?, body: Data?, parseError: @escaping (Any) -> Error?) {
+    init(url: URL, headers: Dictionary<String, String>, method: HTTPMethod, body: Data?, parseError: @escaping (Any) -> Error?) {
         self.url = url
         self.headers = headers
         self.method = method
@@ -77,9 +85,7 @@ final class UrlSessionWebService : WebService {
     
     func tryLoad<A>(resource: Resource<A>, completion: @escaping (A?, Error?) -> (), attemptNumber:Int) {
         var request = URLRequest(url: resource.url)
-        if let method = resource.method {
-            request.httpMethod = method
-        }
+        request.httpMethod = resource.method.rawValue
         request.httpBody = resource.body
         for (header, value) in resource.headers {
             request.setValue(value, forHTTPHeaderField: header)

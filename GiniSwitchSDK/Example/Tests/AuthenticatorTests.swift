@@ -25,7 +25,7 @@ class AuthenticatorTests: XCTestCase {
     func testRequestingClientToken() {
         let tokenResource = auth.createClientToken
         XCTAssertEqual(tokenResource.url, URL(string: "\(auth.baseUrl.absoluteString)/oauth/token?grant_type=client_credentials"), "The client token request URL doesn't match")
-        XCTAssertEqual(tokenResource.method, "GET", "The client token request method doesn't match")
+        XCTAssertEqual(tokenResource.method, .GET, "The client token request method doesn't match")
         XCTAssertNil(tokenResource.body, "The client token request shouldn't have a body")
         XCTAssertEqual(tokenResource.headers["Authorization"], "Basic dGVzdElkOnNlY3JldA==", "The client token request should have a basic authentication header")
     }
