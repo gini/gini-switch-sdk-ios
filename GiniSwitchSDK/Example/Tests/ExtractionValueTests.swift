@@ -1,9 +1,9 @@
 //
 //  ExtractionValueTests.swift
-//  Gini Switch SDK
+//  GiniSwitchSDK_Tests
 //
-//  Created by Gini GmbH on 15.06.17.
-//  Copyright © 2017 Gini GmbH. All rights reserved.
+//  Created by Nikola Sobadjiev on 24.01.18.
+//  Copyright © 2018 CocoaPods. All rights reserved.
 //
 
 import XCTest
@@ -11,26 +11,32 @@ import XCTest
 
 class ExtractionValueTests: XCTestCase {
     
-    let extraction = ExtractionValue(value:11.34 as AnyObject, unit:"sample data")
-    
-    func testHasAccessValue() {
-        XCTAssertEqual(extraction.value as? Double, 11.34, "ExtractionValue objects should have a value property")
+    func testAddressProperties() {
+        let extraction = createExtraction()
+        XCTAssertEqual(extraction.value?.name, "testName", "Contract address name mismatched")
+        XCTAssertNil(extraction.value?.city, "Contract address city should be nil")
+        XCTAssertEqual(extraction.value?.street?.streetNumber, "23A", "Contract address street number mismatched")
     }
     
-    func testHasUnit() {
-        XCTAssertEqual(extraction.unit, "sample data", "Token objects should have a unit property")
+    func testStreetStringValue() {
+        let extraction = createExtraction()
+        XCTAssertEqual(extraction.value?.street?.valueString, "23A", "If the street name is missing it should be omitted")
     }
     
-    func testInitFromDictionary() {
-        let dict:JSONDictionary = ["value": Float(123.121) as AnyObject, "unit": "myUnit" as AnyObject]
-        let dictExtraction = ExtractionValue(dictionary: dict)
-        XCTAssertNotNil(dictExtraction, "Should be able to initialize an ExtractionValue from a dictionary")
+    func testAddressStringValue() {
+        let extraction = createExtraction()
+        XCTAssertEqual(extraction.value?.valueString, "testName, 23A, 80366", "The address striing should omit missing fields")
     }
+
+}
+
+extension ExtractionValueTests {
     
-    func testUnitIsOptional() {
-        let dict:JSONDictionary = ["value": Float(123.121) as AnyObject]
-        let dictExtraction = ExtractionValue(dictionary: dict)
-        XCTAssertNotNil(dictExtraction, "Should be able to initialize an ExtractionValue from a dictionary without a unit")
+    func createExtraction() -> Extraction<ContractAddressValue> {
+        let extraction = Extraction<ContractAddressValue>()
+        let address = AddressValue(streetName: nil, streetNumber: "23A")
+        let addressValue = ContractAddressValue(name: "testName", city: nil, postalCode: "80366", country: nil, street: address)
+        extraction.value = addressValue
+        return extraction
     }
-    
 }

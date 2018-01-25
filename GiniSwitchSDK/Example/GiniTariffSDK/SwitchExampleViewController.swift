@@ -11,7 +11,7 @@ import GiniSwitchSDK
 
 class SwitchExampleViewController: UIViewController {
     
-    var extractions = ExtractionCollection()
+    var extractions:ExtractionCollection?
     var switchController:UIViewController? = nil
     var sdk:GiniSwitchSdk? = nil
 
@@ -32,21 +32,21 @@ class SwitchExampleViewController: UIViewController {
         self.present(switchController!, animated: true, completion: nil)
     }
     
-    fileprivate func createExtractionsScreen(extractions:ExtractionCollection) -> ExtractionsViewController {
+    fileprivate func createExtractionsScreen(extractions:ExtractionCollection?) -> ExtractionsViewController {
         let extractionsController = storyboard?.instantiateViewController(withIdentifier: "ExtractionsViewController") as! ExtractionsViewController
         extractionsController.extractionsCollection = extractions
         extractionsController.delegate = self
         return extractionsController
     }
     
-    fileprivate func showExtractions(extractions:ExtractionCollection) {
+    fileprivate func showExtractions(extractions:ExtractionCollection?) {
         navigationController?.pushViewController(createExtractionsScreen(extractions: extractions), animated: false)
     }
     
     fileprivate func terminateSdk() {
         switchController = nil
         sdk = nil
-        extractions = ExtractionCollection()        // release the collection
+        extractions = nil        // release the collection
     }
 
 }

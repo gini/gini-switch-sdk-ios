@@ -29,7 +29,7 @@ class ExtractionsManager {
 
     var scannedPages = PageCollection()
     var extractionsComplete = false
-    var extractions = ExtractionCollection()
+    var extractions:ExtractionCollection?
     var authenticator:Authenticator? = nil
     var uploadService:ExtractionService? = nil
     
@@ -234,13 +234,6 @@ class ExtractionsManager {
         guard hasActiveSession else {
             return
         }
-        guard !feedback.extractions.isEmpty else {
-            // if users don't check if the feedback doesn't contain any extractions, they will call the
-            // sendFeedback method and expect a callback when it's done. So the callback is called
-            // explicitly here and it is "assumed" that it was successful
-            notifyFeedbackSent()
-            return
-        }
         uploadService?.sendFeedback(feedback, completion: { [weak self] (error) in
             if let error = error {
                 logger.logError(message: "Sending feedback failed: \(error.localizedDescription)")
@@ -284,9 +277,9 @@ class ExtractionsManager {
     fileprivate func parseStatus(_ status:ExtractionStatusResponse?) {
         // go through all scanned pages and see if their status changed if any way
         var hasChanges = false
-        let hasJustCompleted = !extractionsComplete && (status?.extractionCompleted ?? false)
+        let hasJustCompleted = !extractionsComplete && (status?.extractionsComplete ?? false)
         status?.pages.forEach({ (page) in
-            if let pageRef = page.href,
+            if let pageRef = page.links.selfLink?.href,
                 let scannedPage = scannedPages.page(for: pageRef) {
                 if shouldChangeStatus(from:scannedPage.status, to: page.pageStatus) {
                     hasChanges = true
@@ -319,6 +312,10 @@ class ExtractionsManager {
     }
     
     fileprivate func notifyExtractionsChanged() {
+        guard let extractions = extractions else {
+            logger.logError(message: "Notifying that extractions are changed with a nil extractions object")
+            return
+        }
         self.delegate?.extractionsManager(self, didChangeExtractions: extractions)
     }
     

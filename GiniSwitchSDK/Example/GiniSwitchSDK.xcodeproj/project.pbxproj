@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2306FCE72018973C00C0046E /* ExtractionValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2306FCE62018973C00C0046E /* ExtractionValueTests.swift */; };
 		2331C5AA1F1DF51D00F0742E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5A71F1DF51D00F0742E /* AppDelegate.swift */; };
 		2331C5AB1F1DF51D00F0742E /* SdkBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5A81F1DF51D00F0742E /* SdkBuilder.swift */; };
 		2331C5AC1F1DF51D00F0742E /* SwitchExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5A91F1DF51D00F0742E /* SwitchExampleViewController.swift */; };
@@ -21,7 +22,6 @@
 		23FA08541F28F3C200753E39 /* NoOpWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C6091F1DFC2C00F0742E /* NoOpWebService.swift */; };
 		23FA08551F28F3C700753E39 /* AddPageResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5BC1F1DFC1800F0742E /* AddPageResponseTests.swift */; };
 		23FA08561F28F3C700753E39 /* AuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5BD1F1DFC1800F0742E /* AuthenticatorTests.swift */; };
-		23FA08571F28F3C700753E39 /* BaseApiResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5BE1F1DFC1800F0742E /* BaseApiResponseTests.swift */; };
 		23FA08581F28F3C700753E39 /* CameraOptionsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5BF1F1DFC1800F0742E /* CameraOptionsViewControllerTests.swift */; };
 		23FA08591F28F3C700753E39 /* CameraViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C01F1DFC1800F0742E /* CameraViewControllerTests.swift */; };
 		23FA085A1F28F3C700753E39 /* CreateOrderResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C11F1DFC1800F0742E /* CreateOrderResponseTests.swift */; };
@@ -33,7 +33,6 @@
 		23FA08601F28F3C700753E39 /* ExtractionsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C71F1DFC1800F0742E /* ExtractionsManagerTests.swift */; };
 		23FA08611F28F3C700753E39 /* ExtractionStatusResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5C91F1DFC1800F0742E /* ExtractionStatusResponseTests.swift */; };
 		23FA08621F28F3C700753E39 /* ExtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5CB1F1DFC1800F0742E /* ExtractionTests.swift */; };
-		23FA08631F28F3C700753E39 /* ExtractionValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5CC1F1DFC1800F0742E /* ExtractionValueTests.swift */; };
 		23FA08651F28F3C700753E39 /* GiniSwitchConsoleLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5CE1F1DFC1800F0742E /* GiniSwitchConsoleLoggerTests.swift */; };
 		23FA08661F28F3C700753E39 /* GiniSwitchOnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5CF1F1DFC1800F0742E /* GiniSwitchOnboardingTests.swift */; };
 		23FA08671F28F3C700753E39 /* GiniSwitchSdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2331C5D01F1DFC1800F0742E /* GiniSwitchSdkTests.swift */; };
@@ -67,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		07132A2B21166EF7556446A1 /* Pods-GiniSwitchSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiniSwitchSDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiniSwitchSDK_Example/Pods-GiniSwitchSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		2306FCE62018973C00C0046E /* ExtractionValueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractionValueTests.swift; sourceTree = "<group>"; };
 		2331C5A71F1DF51D00F0742E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = GiniTariffSDK/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		2331C5A81F1DF51D00F0742E /* SdkBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SdkBuilder.swift; path = GiniTariffSDK/SdkBuilder.swift; sourceTree = SOURCE_ROOT; };
 		2331C5A91F1DF51D00F0742E /* SwitchExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchExampleViewController.swift; path = GiniTariffSDK/SwitchExampleViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -76,7 +76,6 @@
 		2331C5BA1F1DF75100F0742E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = GiniTariffSDK/Info.plist; sourceTree = SOURCE_ROOT; };
 		2331C5BC1F1DFC1800F0742E /* AddPageResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPageResponseTests.swift; sourceTree = "<group>"; };
 		2331C5BD1F1DFC1800F0742E /* AuthenticatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatorTests.swift; sourceTree = "<group>"; };
-		2331C5BE1F1DFC1800F0742E /* BaseApiResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseApiResponseTests.swift; sourceTree = "<group>"; };
 		2331C5BF1F1DFC1800F0742E /* CameraOptionsViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraOptionsViewControllerTests.swift; sourceTree = "<group>"; };
 		2331C5C01F1DFC1800F0742E /* CameraViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewControllerTests.swift; sourceTree = "<group>"; };
 		2331C5C11F1DFC1800F0742E /* CreateOrderResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateOrderResponseTests.swift; sourceTree = "<group>"; };
@@ -88,7 +87,6 @@
 		2331C5C71F1DFC1800F0742E /* ExtractionsManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtractionsManagerTests.swift; sourceTree = "<group>"; };
 		2331C5C91F1DFC1800F0742E /* ExtractionStatusResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtractionStatusResponseTests.swift; sourceTree = "<group>"; };
 		2331C5CB1F1DFC1800F0742E /* ExtractionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtractionTests.swift; sourceTree = "<group>"; };
-		2331C5CC1F1DFC1800F0742E /* ExtractionValueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtractionValueTests.swift; sourceTree = "<group>"; };
 		2331C5CE1F1DFC1800F0742E /* GiniSwitchConsoleLoggerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiniSwitchConsoleLoggerTests.swift; sourceTree = "<group>"; };
 		2331C5CF1F1DFC1800F0742E /* GiniSwitchOnboardingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiniSwitchOnboardingTests.swift; sourceTree = "<group>"; };
 		2331C5D01F1DFC1800F0742E /* GiniSwitchSdkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiniSwitchSdkTests.swift; sourceTree = "<group>"; };
@@ -217,7 +215,6 @@
 				2331C6061F1DFC2000F0742E /* Mocks */,
 				2331C5BC1F1DFC1800F0742E /* AddPageResponseTests.swift */,
 				2331C5BD1F1DFC1800F0742E /* AuthenticatorTests.swift */,
-				2331C5BE1F1DFC1800F0742E /* BaseApiResponseTests.swift */,
 				2331C5BF1F1DFC1800F0742E /* CameraOptionsViewControllerTests.swift */,
 				2331C5C01F1DFC1800F0742E /* CameraViewControllerTests.swift */,
 				2331C5C11F1DFC1800F0742E /* CreateOrderResponseTests.swift */,
@@ -229,7 +226,7 @@
 				2331C5C71F1DFC1800F0742E /* ExtractionsManagerTests.swift */,
 				2331C5C91F1DFC1800F0742E /* ExtractionStatusResponseTests.swift */,
 				2331C5CB1F1DFC1800F0742E /* ExtractionTests.swift */,
-				2331C5CC1F1DFC1800F0742E /* ExtractionValueTests.swift */,
+				2306FCE62018973C00C0046E /* ExtractionValueTests.swift */,
 				2331C5CE1F1DFC1800F0742E /* GiniSwitchConsoleLoggerTests.swift */,
 				2331C5CF1F1DFC1800F0742E /* GiniSwitchOnboardingTests.swift */,
 				2331C5D01F1DFC1800F0742E /* GiniSwitchSdkTests.swift */,
@@ -514,8 +511,6 @@
 				23FA086F1F28F3C700753E39 /* PagesResponseTests.swift in Sources */,
 				23FA08521F28F3C200753E39 /* FakeCamera.swift in Sources */,
 				23FA08561F28F3C700753E39 /* AuthenticatorTests.swift in Sources */,
-				23FA08631F28F3C700753E39 /* ExtractionValueTests.swift in Sources */,
-				23FA08571F28F3C700753E39 /* BaseApiResponseTests.swift in Sources */,
 				23FA08751F28F3C700753E39 /* UserManagerTests.swift in Sources */,
 				23FA08591F28F3C700753E39 /* CameraViewControllerTests.swift in Sources */,
 				23FA086C1F28F3C700753E39 /* PageCollectionTests.swift in Sources */,
@@ -524,6 +519,7 @@
 				23FA08531F28F3C200753E39 /* MemoryCredentialsStore.swift in Sources */,
 				23FA085B1F28F3C700753E39 /* ErrorTests.swift in Sources */,
 				23FA085F1F28F3C700753E39 /* ExtractionServiceTests.swift in Sources */,
+				2306FCE72018973C00C0046E /* ExtractionValueTests.swift in Sources */,
 				23FA08731F28F3C700753E39 /* TestUtils.swift in Sources */,
 				23FA08611F28F3C700753E39 /* ExtractionStatusResponseTests.swift in Sources */,
 				23FA086A1F28F3C700753E39 /* MultiPageScanViewControllerTests.swift in Sources */,

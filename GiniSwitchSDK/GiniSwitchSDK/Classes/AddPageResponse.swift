@@ -7,15 +7,16 @@
 //
 
 
-class AddPageResponse: BaseApiResponse {
+class AddPageResponse: Codable {
 
     static let statusMapping = ["processing": ScanPageStatus.uploading, "processed": .analysed, "failed": .failed]
     
     let status:String?  // TODO: the status should be mandatory
+    let links:ResponseLinks
     
-    override init(dict: JSONDictionary) {
-        status = dict["status"] as? String
-        super.init(dict: dict)
+    private enum CodingKeys : String, CodingKey {
+        case links = "_links"
+        case status = "status"
     }
     
     var pageStatus:ScanPageStatus {

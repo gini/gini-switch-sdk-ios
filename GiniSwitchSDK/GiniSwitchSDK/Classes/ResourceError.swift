@@ -16,11 +16,11 @@ extension Resource {
         }
     }
     
-    init(url: URL, parseJSON: @escaping (Any) -> A?) {
-        self.init(url: url, parseJSON: parseJSON, parseError: Resource.errorJsonParser())
+    init(url: URL) {
+        self.init(url: url, parseError: Resource.errorJsonParser())
     }
     
-    init(url: URL, headers: Dictionary<String, String>, method: String?, body: Data?, parseJSON: @escaping (Any) -> A?) {
-        self.init(url: url, headers: headers, method: method, body: body, parseJSON: parseJSON, parseError: Resource.errorJsonParser())
+    init(url: URL, headers: Dictionary<String, String>, method: HTTPMethod, body: Data?) {
+        self.init(url: url, headers: headers, method: method, body: body, parseError: Resource.errorJsonParser())
     }
 }

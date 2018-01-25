@@ -25,9 +25,22 @@ class TokenTests: XCTestCase {
         XCTAssertNotEqual(token.expiration, 0, "Token objects should have an expiration period")
     }
     
-    func testInitFromDictionary() {
-        let dictToken = Token(["access_token": "exampleToken" as AnyObject, "refresh_token": "exampleToken" as AnyObject, "expires_in": 123 as AnyObject])
-        XCTAssertNotNil(dictToken, "Should be able to initialize a Token from a dictionary")
+    func testInitFromJson() {
+        let tokenValue1 = "exampleToken1"
+        let tokenValue2 = "exampleToken2"
+        let tokenTTL = 123
+        let testJson = """
+        {
+            "access_token": "\(tokenValue1)",
+            "refresh_token": "\(tokenValue2)",
+            "expires_in": \(tokenTTL)
+        }
+        """
+        let decoder = JSONDecoder()
+        let token = try? decoder.decode(Token.self, from: testJson.data(using: .utf8)!)
+        XCTAssertEqual(token?.accessToken, tokenValue1, "The access token should be parsed from access_token")
+        XCTAssertEqual(token?.refreshToken, tokenValue2, "The refresh token should be parsed from refresh_token")
+        XCTAssertEqual(token?.expiration, tokenTTL, "The token expiration should be parsed from expires_in")
     }
     
 }

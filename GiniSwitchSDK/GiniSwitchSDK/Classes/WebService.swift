@@ -8,44 +8,43 @@
 
 import UIKit
 
-typealias JSONDictionary = [String: Any?]
+public typealias JSONDictionary = [String: Any?]
 
-struct Resource<A> {
+enum HTTPMethod : String {
+    case GET = "GET"
+    case POST = "POST"
+    case DELETE = "DELETE"
+    case PUT = "PUT"
+    case HEAD = "HEAD"
+}
+
+struct Resource<A : Decodable> {
     let url: URL
     let headers: Dictionary<String, String>
-    let method:String?
+    let method:HTTPMethod
     let body:Data?
     let maxRetries = 2          // original attempt + 2 retries = 3 requests in total
-    let parseData: (Data) -> A?
     let parseError: (Data) -> Error?
 }
 
 extension Resource {
     
-    init(url: URL, parseJSON: @escaping (Any) -> A?, parseError: @escaping (Any) -> Error?) {
+    init(url: URL, parseError: @escaping (Any) -> Error?) {
         self.url = url
         self.headers = [:]
-        method = "GET"
+        method = .GET
         self.body = nil
-        self.parseData = { data in
-            let json = Resource.jsonFrom(data: data)
-            return json.flatMap(parseJSON)
-        }
         self.parseError = { data in
             let json = Resource.jsonFrom(data: data)
             return json.flatMap(parseError)
         }
     }
     
-    init(url: URL, headers: Dictionary<String, String>, method: String?, body: Data?, parseJSON: @escaping (Any) -> A?, parseError: @escaping (Any) -> Error?) {
+    init(url: URL, headers: Dictionary<String, String>, method: HTTPMethod, body: Data?, parseError: @escaping (Any) -> Error?) {
         self.url = url
         self.headers = headers
         self.method = method
         self.body = body
-        self.parseData = { data in
-            let json = Resource.jsonFrom(data: data)
-            return parseJSON(json ?? [:])
-        }
         self.parseError = { data in
             let json = Resource.jsonFrom(data: data)
             return json.flatMap(parseError)
@@ -54,6 +53,11 @@ extension Resource {
     
     static fileprivate func jsonFrom(data:Data) -> Any? {
         return try? JSONSerialization.jsonObject(with: data, options: [])
+    }
+    
+    static fileprivate func resourceFrom(data:Data) -> A? {
+        let jsonDecoder = JSONDecoder()
+        return try? jsonDecoder.decode(A.self, from: data)
     }
 }
 
@@ -81,9 +85,7 @@ final class UrlSessionWebService : WebService {
     
     func tryLoad<A>(resource: Resource<A>, completion: @escaping (A?, Error?) -> (), attemptNumber:Int) {
         var request = URLRequest(url: resource.url)
-        if let method = resource.method {
-            request.httpMethod = method
-        }
+        request.httpMethod = resource.method.rawValue
         request.httpBody = resource.body
         for (header, value) in resource.headers {
             request.setValue(value, forHTTPHeaderField: header)
@@ -108,13 +110,13 @@ final class UrlSessionWebService : WebService {
                 return
             }
             // then try to parse the response
-            let responseObject = resource.parseData(data)
+            let responseObject = Resource<A>.resourceFrom(data: data)
             if let parsedData = responseObject {
                 completion(parsedData, nil)
             }
             else {
                 // return an "invalid JSON" error
-                let parseError = NSError(errorCode: .invalidResponse)
+                let parseError = data.isEmpty ? nil : NSError(errorCode: .invalidResponse)
                 completion(nil, parseError)
             }
             }.resume()

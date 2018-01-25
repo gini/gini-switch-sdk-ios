@@ -11,30 +11,9 @@ import Foundation
 extension ExtractionCollection {
     
     func feedbackJson() -> Data {
-        let jsonDict = extractions.reduce(JSONDictionary()) { (jsonDict:JSONDictionary, extraction) -> JSONDictionary in
-            var newDict = jsonDict
-            newDict[extraction.name] = extraction.jsonDict
-            return newDict
-        }
-        return (try? JSONSerialization.data(withJSONObject: jsonDict, options: JSONSerialization.WritingOptions.prettyPrinted)) ?? Data()
+        let jsonEncoder = JSONEncoder()
+        let feedbackData = try? jsonEncoder.encode(self)
+        return feedbackData ?? Data()
     }
     
-}
-
-extension Extraction {
-    
-    var jsonDict:JSONDictionary {
-        return value.jsonDict
-    }
-}
-
-extension ExtractionValue {
-    
-    var jsonDict:JSONDictionary {
-        var valueDict = [ExtractionValue.valueKey: value]
-        if let unit = unit {
-            valueDict[ExtractionValue.unitKey] = unit
-        }
-        return valueDict
-    }
 }

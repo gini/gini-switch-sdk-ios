@@ -8,25 +8,29 @@
 
 import UIKit
 
-class ExtractionStatusResponse: BaseApiResponse {
+class ExtractionStatusResponse: Decodable {
     
     let pages:[AddPageResponse]
-    let orderPageLinks:PagesResponse
-    let extractionCompleted:Bool
+    let extractionsComplete:Bool
+    let links:ResponseLinks
     
-    override init(dict: JSONDictionary) {
-        orderPageLinks = PagesResponse(dict: dict)
-        extractionCompleted = (dict["extractionsComplete"] as? Bool) ?? false
-        if let embedded = dict["_embedded"] as? JSONDictionary,
-            let pagesArray = embedded["pages"] as? [JSONDictionary] {
-            pages = pagesArray.map { (pageDict) -> AddPageResponse in
-                return AddPageResponse(dict: pageDict)
-            }
-        }
-        else {
-            pages = []
-        }
-        super.init(dict: dict)
+    private enum CodingKeys : String, CodingKey {
+        case pages = "pages"
+        case extractionsComplete = "extractionsComplete"
+        case links = "_links"
+        case embedded = "_embedded"
+    }
+    
+    enum EmbeddedKeys: String, CodingKey {
+        case pages
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        extractionsComplete = try values.decode(Bool.self, forKey: .extractionsComplete)
+        links = try values.decode(ResponseLinks.self, forKey: .links)
+        let embeddedPages = try? values.nestedContainer(keyedBy: EmbeddedKeys.self, forKey: .embedded)
+        pages = try embeddedPages?.decode([AddPageResponse].self, forKey: .pages) ?? []
     }
 
 }

@@ -6,45 +6,74 @@
 //
 //
 
-public struct ExtractionValue {
+public struct ContractAddressValue : ExtractionValue {
+    public var name:String?
+    public var city:String?
+    public var postalCode:String?
+    public var country:String?
+    public var street:AddressValue?
     
-    public let value:Any
-    public let unit:String?
+    public var valueString: String {
+        let components = [name, street?.valueString, city, postalCode, country].flatMap({
+            if let component = $0,
+                !component.isEmpty {
+                return component
+            }
+            return nil
+        })
+        return components.joined(separator: ", ")
+    }
     
-    static let valueKey = "value"
-    static let unitKey = "unit"
+    public static func ==(lhs: ContractAddressValue, rhs: ContractAddressValue) -> Bool {
+        return lhs.valueString == rhs.valueString
+    }
+}
+
+public struct AddressValue : ExtractionValue {
+    
+    public var streetName:String?
+    public var streetNumber:String?
+    
+    public var valueString: String {
+        let components:[String] = [streetName, streetNumber].flatMap({
+            if let component = $0 {
+                return component
+            }
+            return nil
+        })
+        return components.joined(separator: " ")
+    }
+    
+    public static func ==(lhs: AddressValue, rhs: AddressValue) -> Bool {
+        return lhs.valueString == rhs.valueString
+    }
+}
+
+public struct AmountValue : ExtractionValue {
+    public var value:Double
+    public var unit:String
+    
+    public var valueString: String {
+        return "\(value) \(unit)"
+    }
+    
+    public static func ==(lhs: AmountValue, rhs: AmountValue) -> Bool {
+        return lhs.valueString == rhs.valueString
+    }
+}
+
+extension String:ExtractionValue {
     
     public var valueString:String {
-        return "\(value)"
+        return self
     }
     
-    public init(value val:Any, unit:String?) {
-        self.value = val
-        self.unit = unit
-    }
-    
-    init?(dictionary:JSONDictionary) {
-        // In any case, there needs to be a "value" key
-        guard let dictValue = dictionary[ExtractionValue.valueKey],
-            let val = dictValue else {
-                return nil
-        }
-        // Also, the value might be a value/unit pair
-        if let json = dictionary[ExtractionValue.valueKey] as? JSONDictionary,
-            let jsonValue = json[ExtractionValue.valueKey],
-            let jsonUnit = json[ExtractionValue.unitKey],
-            let unit = jsonUnit as? String,
-            let value = jsonValue {
-            self.init(value:value, unit: unit)
-        }
-        // Lastly, the value might be just a top level object
-        else {
-            self.init(value:val, unit: dictionary[ExtractionValue.unitKey] as? String)
-        }
-    }
-    
-    public static func ==(lhs: ExtractionValue, rhs: ExtractionValue) -> Bool {
-        return lhs.unit == rhs.unit && lhs.valueString == rhs.valueString
-    }
-
 }
+
+public protocol ExtractionValue : Equatable, Codable {
+    
+    var valueString:String { get }
+    
+}
+
+

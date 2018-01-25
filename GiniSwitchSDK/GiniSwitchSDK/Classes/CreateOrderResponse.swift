@@ -8,13 +8,14 @@
 
 import UIKit
 
-class CreateOrderResponse: BaseApiResponse {
+struct CreateOrderResponse: Codable {
     
-    let pages:PagesResponse
+    let links:ResponseLinks
+    let extractionsComplete:Bool
     
-    override init(dict: JSONDictionary) {
-        pages = PagesResponse(dict: dict)
-        super.init(dict: dict)
+    private enum CodingKeys : String, CodingKey {
+        case links = "_links"
+        case extractionsComplete = "extractionsComplete"
     }
-
+    
 }

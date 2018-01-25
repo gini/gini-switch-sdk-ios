@@ -47,6 +47,7 @@ struct SdkBuilder {
             return (clientId, clientSecret, clientDomain)
         }
         else {
+            assertionFailure("Cannot build an SDK without credentials");
             return ("", "", "")
         }
     }
