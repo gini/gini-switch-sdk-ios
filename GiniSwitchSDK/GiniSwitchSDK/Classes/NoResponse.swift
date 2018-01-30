@@ -7,6 +7,6 @@
 
 import UIKit
 
-class NoResponse: Codable {
+final class NoResponse: Codable {
     
 }

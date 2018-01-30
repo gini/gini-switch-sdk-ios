@@ -6,7 +6,7 @@
 //
 //
 
-public class  Extraction<T: ExtractionValue> : Codable {
+public final class  Extraction<T: ExtractionValue> : Codable {
 
     public var value:T?
     public var alternatives:[T] = []

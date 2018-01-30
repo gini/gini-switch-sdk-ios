@@ -14,7 +14,7 @@ protocol PreviewViewControllerDelegate:class {
     func previewController(previewController:PreviewViewController, didRequestRetake page:ScanPage)
 }
 
-class PreviewViewController: UIViewController {
+final class PreviewViewController: UIViewController {
     
     @IBOutlet var pagePreview:ZoomableImageView! = nil
     @IBOutlet var titleLabel:UILabel! = nil

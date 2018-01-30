@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class ScanPageTests: XCTestCase {
+final class ScanPageTests: XCTestCase {
     
     var page:ScanPage! = nil
     

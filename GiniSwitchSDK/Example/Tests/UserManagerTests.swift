@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class UserManagerTests: XCTestCase {
+final class UserManagerTests: XCTestCase {
     
     let id = "testId"
     let secret = "secret"

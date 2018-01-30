@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class ExtractionTests: XCTestCase {
+final class ExtractionTests: XCTestCase {
     
     var extraction:Extraction<String>! = nil
     let testName = "email"

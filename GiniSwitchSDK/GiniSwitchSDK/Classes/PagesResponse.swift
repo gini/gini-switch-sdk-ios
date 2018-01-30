@@ -10,7 +10,7 @@
  * PagesResponse is a class that contains JSON sub-elements present in the pages section
  * in many responses within the Switch API.
  */
-class PagesResponse : Codable {
+struct PagesResponse : Codable {
     
     let links:ResponseLinks
     

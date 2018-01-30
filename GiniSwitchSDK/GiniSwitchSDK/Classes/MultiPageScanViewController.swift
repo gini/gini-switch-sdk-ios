@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MultiPageScanViewController: UIViewController {
+final class MultiPageScanViewController: UIViewController {
     
     var cameraController:CameraViewController! = nil
     var cameraOptionsController:CameraOptionsViewController! = nil

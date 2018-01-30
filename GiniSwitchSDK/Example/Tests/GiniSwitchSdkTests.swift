@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class GiniSwitchSdkTests: XCTestCase {
+final class GiniSwitchSdkTests: XCTestCase {
     
     let testClientId = "myTariffFun"
     let testClientSecret = "myTariffSecret"

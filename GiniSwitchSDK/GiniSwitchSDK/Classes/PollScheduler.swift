@@ -11,7 +11,7 @@ import UIKit
 typealias PollCondition = () -> Bool
 typealias PollAction = () -> Void
 
-class PollScheduler {
+final class PollScheduler {
 
     let condition:PollCondition
     let action:PollAction

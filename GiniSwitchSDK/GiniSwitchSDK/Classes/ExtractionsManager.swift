@@ -20,7 +20,7 @@ protocol ExtractionsManagerDelegate: class {
     
 }
 
-class ExtractionsManager {
+final class ExtractionsManager {
     
     var clientId:String = ""
     var clientSecret:String = ""

@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class ReviewViewControllerTests: XCTestCase {
+final class ReviewViewControllerTests: XCTestCase {
     
     let storyboard = UIStoryboard.switchStoryboard()
     var reviewController:ReviewViewController! = nil

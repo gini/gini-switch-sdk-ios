@@ -12,7 +12,7 @@ import UIKit
  * The GiniSwitchAppearance class contains resources, texts and colors used for customizing the
  * SDKs UI to match the hosting app it is used with.
  */
-public class GiniSwitchAppearance {
+final public class GiniSwitchAppearance {
     
     /**
      * The primary color is a color that will show up at many places throughout the SDK.

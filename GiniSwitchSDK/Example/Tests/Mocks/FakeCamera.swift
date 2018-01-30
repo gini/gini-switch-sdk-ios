@@ -9,7 +9,7 @@
 import UIKit
 @testable import GiniSwitchSDK
 
-class FakeCamera: Camera {
+final class FakeCamera: Camera {
     
     var isStarted = false
     var hasCaptured = false

@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class PagesResponseTests: XCTestCase {
+final class PagesResponseTests: XCTestCase {
     
     let href = "testHref"
     var response:PagesResponse! = nil

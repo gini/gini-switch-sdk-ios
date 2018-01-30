@@ -18,7 +18,7 @@ enum AuthenticatorState {
 typealias AuthenticatorSuccessCallback = () -> Void
 typealias AuthenticatorErrorCallback = (_ error:Error) -> Void
 
-class Authenticator {
+final class Authenticator {
     
     // urls
     let baseUrl = URL(string:"https://user.gini.net")!

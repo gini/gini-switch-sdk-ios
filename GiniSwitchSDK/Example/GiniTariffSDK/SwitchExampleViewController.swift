@@ -9,7 +9,7 @@
 import UIKit
 import GiniSwitchSDK
 
-class SwitchExampleViewController: UIViewController {
+final class SwitchExampleViewController: UIViewController {
     
     var extractions:ExtractionCollection?
     var switchController:UIViewController? = nil

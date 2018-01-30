@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class GiniSwitchOnboardingTests: XCTestCase {
+final class GiniSwitchOnboardingTests: XCTestCase {
     
     let testImage = UIImage()
     let testText = "Go onboard yourself"

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OnboardingViewController: UIPageViewController {
+final class OnboardingViewController: UIPageViewController {
     
     var onboarding = GiniSwitchOnboarding()
     var completion:(() -> Void)?

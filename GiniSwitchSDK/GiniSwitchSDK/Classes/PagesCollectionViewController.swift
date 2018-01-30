@@ -16,7 +16,7 @@ protocol PagesCollectionViewControllerDelegate:class {
     
 }
 
-class PagesCollectionViewController: UIViewController {
+final class PagesCollectionViewController: UIViewController {
     
     @IBOutlet var optionsButton:UIButton! = nil
     @IBOutlet var pagesCollection:UICollectionView? = nil {

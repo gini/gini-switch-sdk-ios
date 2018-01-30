@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class PageCollectionViewCellTests: XCTestCase {
+final class PageCollectionViewCellTests: XCTestCase {
     
     let storyboard = UIStoryboard.switchStoryboard()
     var pageCell:PageCollectionViewCell! = nil

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExtractionResources {
+struct ExtractionResources {
 
     var token:String = ""
     

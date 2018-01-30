@@ -16,7 +16,7 @@ typealias ExtractionServiceStatusCallback = (_ status:ExtractionStatusResponse?,
 typealias ExtractionServiceExtractionsCallback = (_ collection:ExtractionCollection?, _ error:Error?) -> Void
 typealias ExtractionServiceFeedbackCallback = (_ error:Error?) -> Void
 
-class ExtractionService {
+final class ExtractionService {
     
     let token:String
     let resources:ExtractionResources

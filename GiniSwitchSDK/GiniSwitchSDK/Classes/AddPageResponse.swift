@@ -6,7 +6,7 @@
 //
 //
 
-class AddPageResponse: Codable {
+struct AddPageResponse: Codable {
 
     static let statusMapping = ["processing": ScanPageStatus.uploading, "processed": .analysed, "failed": .failed]
     

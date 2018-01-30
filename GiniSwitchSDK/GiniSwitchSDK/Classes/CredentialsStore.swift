@@ -19,7 +19,7 @@ protocol CredentialsStore {
     var user:User? {get set}
 }
 
-class KeychainCredentialsStore : CredentialsStore {
+final class KeychainCredentialsStore : CredentialsStore {
     
     let accessTokenService = "AccessToken"
     let refreshTokenService = "RefreshToken"

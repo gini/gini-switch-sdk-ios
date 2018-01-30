@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class ExtractionsCompletedViewControllerTests: XCTestCase {
+final class ExtractionsCompletedViewControllerTests: XCTestCase {
     
     let storyboard = switchStoryboard()
     var completionViewController:ExtractionsCompletedViewController! = nil

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GiniSwitchNopAnalytics: GiniSwitchAnalytics {
+final class GiniSwitchNopAnalytics: GiniSwitchAnalytics {
     
     func sendAnalyticsEvent(type:AnalyticsEventType, eventName:String) {
         

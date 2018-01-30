@@ -15,7 +15,7 @@ protocol MultiPageCoordinatorDelegate:class {
     
 }
 
-class MultiPageCoordinator {
+final class MultiPageCoordinator {
     
     let extractionsManager:ExtractionsManager
     let onboarding:GiniSwitchOnboarding

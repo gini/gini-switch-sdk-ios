@@ -16,7 +16,7 @@ protocol ReviewViewControllerDelegate:class {
     
 }
 
-class ReviewViewController: UIViewController {
+final class ReviewViewController: UIViewController {
     
     @IBOutlet var useButton:UIButton! = nil
     @IBOutlet var retakeButton:UIButton! = nil

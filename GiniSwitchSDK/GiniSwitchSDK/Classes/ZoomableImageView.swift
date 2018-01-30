@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ZoomableImageView: UIScrollView {
+final class ZoomableImageView: UIScrollView {
     
     var imageView:UIImageView! = nil
     var image:UIImage? = nil {

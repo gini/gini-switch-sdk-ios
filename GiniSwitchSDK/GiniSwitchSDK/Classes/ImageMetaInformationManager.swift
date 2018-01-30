@@ -139,7 +139,7 @@ typealias MetaInformation = NSMutableDictionary
 /// is specified in imageData(withCompression:)
 let JPEGDefaultCompression:CGFloat = 0.4
 
-internal class ImageMetaInformationManager {
+final internal class ImageMetaInformationManager {
     
     var imageData: Data?
     var metaInformation: MetaInformation?

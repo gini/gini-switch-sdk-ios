@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class UserTests: XCTestCase {
+final class UserTests: XCTestCase {
     
     var user = User()
     
