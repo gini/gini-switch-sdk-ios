@@ -22,11 +22,10 @@ public struct ResponseLinks : Codable {
 
 extension ResponseLinks : Equatable {
     
-    public static func ==(lhs: ResponseLinks, rhs: ResponseLinks) -> Bool {
+    public static func == (lhs: ResponseLinks, rhs: ResponseLinks) -> Bool {
         return lhs.selfLink == rhs.selfLink &&
             lhs.pages == rhs.pages &&
             lhs.href == rhs.href
     }
-    
-    
+
 }

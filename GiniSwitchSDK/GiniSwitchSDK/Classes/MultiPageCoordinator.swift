@@ -21,17 +21,17 @@ class MultiPageCoordinator {
     let onboarding:GiniSwitchOnboarding
 
     let multiPageViewController:MultiPageScanViewController
-    var embeddedController:UIViewController? = nil
+    var embeddedController:UIViewController?
     
     var presentationStyle = PresentationStyle.modal
     
-    var pageToReplace:ScanPage? = nil
-    var pageToPreUpload:ScanPage? = nil
+    var pageToReplace:ScanPage?
+    var pageToPreUpload:ScanPage?
     var extractionsCompleted = false
     var shouldShowCompletionScreen = true
     let extrationsCompletePopupTimeout = 4
     
-    weak var delegate:MultiPageCoordinatorDelegate? = nil
+    weak var delegate:MultiPageCoordinatorDelegate?
     
     var cameraOptionsController:CameraOptionsViewController {
         return multiPageViewController.cameraOptionsController
@@ -86,13 +86,17 @@ class MultiPageCoordinator {
     }
     
     func showReviewScreen(withPage page:ScanPage) {
-        let reviewController = UIStoryboard.switchStoryboard()?.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
+        let reviewController = UIStoryboard.switchStoryboard()?
+            .instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
         reviewController.page = page.copy() as? ScanPage
         reviewController.themeColor = GiniSwitchAppearance.primaryColor
         reviewController.confirmColor = GiniSwitchAppearance.positiveColor
         reviewController.denyColor = GiniSwitchAppearance.negativeColor
         reviewController.delegate = self
-        multiPageViewController.present(controller: reviewController, presentationStyle: .modal, animated: true, completion: nil)
+        multiPageViewController.present(controller: reviewController,
+                                        presentationStyle: .modal,
+                                        animated: true,
+                                        completion: nil)
     }
     
     func enableCaptureButton(_ enabled:Bool) {
@@ -129,13 +133,19 @@ class MultiPageCoordinator {
         let onboardingController = OnboardingViewController(onboarding: onboarding, completion:nil)
         let completionDismiss = {
             GiniSwitchOnboarding.hasShownOnboarding = true
-            self.multiPageViewController.dismiss(controller: onboardingController, presentationStyle: .modal, animated: true, completion: nil)
+            self.multiPageViewController.dismiss(controller: onboardingController,
+                                                 presentationStyle: .modal,
+                                                 animated: true,
+                                                 completion: nil)
             self.cameraOptionsController.captureButton.isHidden = false
         }
         onboardingController.completion = completionDismiss
         onboardingController.modalPresentationStyle = .overFullScreen
         DispatchQueue.main.async {
-            self.multiPageViewController.present(controller: onboardingController, presentationStyle: .modal, animated: true, completion: nil)
+            self.multiPageViewController.present(controller: onboardingController,
+                                                 presentationStyle: .modal,
+                                                 animated: true,
+                                                 completion: nil)
         }
     }
     
@@ -145,12 +155,16 @@ class MultiPageCoordinator {
             extractionsCompleted = false
             if shouldShowCompletionScreen {
                 // show the extractions completed screen
-                let completionController = UIStoryboard.switchStoryboard()?.instantiateViewController(withIdentifier: "ExtractionsCompletedViewController") as! ExtractionsCompletedViewController
+                let completionController = UIStoryboard.switchStoryboard()?
+                    .instantiateViewController(withIdentifier: "ExtractionsCompletedViewController")
+                    as! ExtractionsCompletedViewController
                 completionController.image = GiniSwitchAppearance.analyzedImage
                 completionController.text = GiniSwitchAppearance.analyzedText
                 completionController.textSize = GiniSwitchAppearance.analyzedTextSize
                 completionController.textColor = GiniSwitchAppearance.analyzedTextColor
-                multiPageViewController.present(controller: completionController, presentationStyle: .modal, animated: true) { [weak self] in
+                multiPageViewController.present(controller: completionController,
+                                                presentationStyle: .modal,
+                                                animated: true) { [weak self] in
                     // after it is presented, push the extractions screen below it. That way, when it is
                     // automatically dismissed, the extractions will appear below
                     guard let `self` = self else {
@@ -162,26 +176,35 @@ class MultiPageCoordinator {
                 // wait a few seconds so users can read the text and automatically dismiss
                 let delay = DispatchTime.now() + .seconds(extrationsCompletePopupTimeout)
                 DispatchQueue.main.asyncAfter(deadline: delay, execute: {
-                    self.multiPageViewController.dismiss(controller: completionController, presentationStyle: .modal, animated: true) {
+                    self.multiPageViewController.dismiss(controller: completionController,
+                                                         presentationStyle: .modal,
+                                                         animated: true) {
                         self.delegate?.multiPageCoordinatorDidComplete(self)
                     }
                 })
-            }
-            else {
+            } else {
                 self.delegate?.multiPageCoordinatorDidComplete(self)
             }
         }
     }
     
     fileprivate func overflowMenu() -> UIAlertController {
-        let actionSheet = UIAlertController(title: GiniSwitchAppearance.exitActionSheetTitle, message: nil, preferredStyle: .actionSheet)
-        let cancelAction = UIAlertAction(title: NSLocalizedString("Abbrechen", comment: "Leave SDK actionsheet cancel title"), style: .cancel) { (action) in
+        let actionSheet = UIAlertController(title: GiniSwitchAppearance.exitActionSheetTitle,
+                                            message: nil,
+                                            preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Abbrechen",
+                                                                  comment: "Leave SDK actionsheet cancel title"),
+                                         style: .cancel) { (_) in
             
         }
-        let leaveAction = UIAlertAction(title: NSLocalizedString("Verlassen", comment: "Leave SDK actionsheet leave title"), style: .destructive) { (action) in
+        let leaveAction = UIAlertAction(title: NSLocalizedString("Verlassen",
+                                                                 comment: "Leave SDK actionsheet leave title"),
+                                        style: .destructive) { (_) in
             self.delegate?.multiPageCoordinatorDidCancel(self)
         }
-        let helpAction = UIAlertAction(title: NSLocalizedString("Hilfe", comment: "Leave SDK actionsheet help title"), style: .default) { (action) in
+        let helpAction = UIAlertAction(title: NSLocalizedString("Hilfe",
+                                                                comment: "Leave SDK actionsheet help title"),
+                                       style: .default) { (_) in
             self.scheduleOnboarding()
         }
         actionSheet.addAction(cancelAction)
@@ -192,19 +215,28 @@ class MultiPageCoordinator {
     
     fileprivate func showOverflowMenu() {
         let actionSheet = overflowMenu()
-        multiPageViewController.present(controller: actionSheet, presentationStyle: .modal, animated: true, completion: nil)
+        multiPageViewController.present(controller: actionSheet,
+                                        presentationStyle: .modal,
+                                        animated: true,
+                                        completion: nil)
     }
     
     fileprivate func embed(controller:UIViewController) {
         embeddedController = controller
-        multiPageViewController.present(controller: controller, presentationStyle: .embed, animated: false, completion: nil)
+        multiPageViewController.present(controller: controller,
+                                        presentationStyle: .embed,
+                                        animated: false,
+                                        completion: nil)
     }
     
     fileprivate func removeEmbededController() {
         guard let controller = embeddedController else {
             return
         }
-        multiPageViewController.dismiss(controller: controller, presentationStyle: .embed, animated: false, completion: nil)
+        multiPageViewController.dismiss(controller: controller,
+                                        presentationStyle: .embed,
+                                        animated: false,
+                                        completion: nil)
         embeddedController = nil
     }
 }
@@ -254,7 +286,8 @@ extension MultiPageCoordinator: PagesCollectionViewControllerDelegate {
     func pageCollectionController(_ pageController:PagesCollectionViewController, didSelectPage:ScanPage) {
         pageController.shouldShowAddIcon = true
         pageController.pagesCollection?.reloadData()
-        let previewController = UIStoryboard.switchStoryboard()?.instantiateViewController(withIdentifier: "PreviewViewController") as! PreviewViewController
+        let previewController = UIStoryboard.switchStoryboard()?
+            .instantiateViewController(withIdentifier: "PreviewViewController") as! PreviewViewController
         previewController.confirmColor = GiniSwitchAppearance.positiveColor
         previewController.denyColor = GiniSwitchAppearance.negativeColor
         previewController.page = didSelectPage
@@ -285,8 +318,7 @@ extension MultiPageCoordinator: ReviewViewControllerDelegate {
             // the camera view will be shown after this, so the add page cell needs to be selected.
             // Otherwise, the page that was just replaced, will remain in selected state
             pageCollectionController.goToAddPage()
-        }
-        else {
+        } else {
             if page.imageData != pageToPreUpload?.imageData,
                 let preuploadedPage = pageToPreUpload {
                 // the page changed after it got pre-uploaded

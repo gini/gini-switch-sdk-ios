@@ -20,7 +20,7 @@ class CameraOptionsViewController: UIViewController {
     @IBOutlet var captureButton:UIButton! = nil
     @IBOutlet var doneButton:UIButton! = nil
     
-    weak var delegate:CameraOptionsViewControllerDelegate? = nil
+    weak var delegate:CameraOptionsViewControllerDelegate?
     
     var textColor:UIColor? {
         didSet {

@@ -29,12 +29,21 @@ public struct GiniSwitchOnboarding {
     
     public init() {
         // init with default pages
-        let onboarding1 = OnboardingPage(image:UIImage(named:"onboardingPage1", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil)!,
-                                         text: NSLocalizedString("Jede Seite\nflach fotografieren", comment: "Onboarding page one text"))
-        let onboarding2 = OnboardingPage(image:UIImage(named:"onboardingPage2", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil)!,
-                                         text: NSLocalizedString("Handy parallel\nzur Seite halten", comment: "Onboarding page two text"))
-        let onboarding3 = OnboardingPage(image:UIImage(named:"onboardingPage3", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil)!,
-                                         text: NSLocalizedString("Seite vollständig in\nRahmen einpassen", comment: "Onboarding page three text"))
+        let onboarding1 = OnboardingPage(image:UIImage(named:"onboardingPage1",
+                                                       in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"),
+                                                       compatibleWith: nil)!,
+                                         text: NSLocalizedString("Jede Seite\nflach fotografieren",
+                                                                 comment: "Onboarding page one text"))
+        let onboarding2 = OnboardingPage(image:UIImage(named:"onboardingPage2",
+                                                       in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"),
+                                                       compatibleWith: nil)!,
+                                         text: NSLocalizedString("Handy parallel\nzur Seite halten",
+                                                                 comment: "Onboarding page two text"))
+        let onboarding3 = OnboardingPage(image:UIImage(named:"onboardingPage3",
+                                                       in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"),
+                                                       compatibleWith: nil)!,
+                                         text: NSLocalizedString("Seite vollständig in\nRahmen einpassen",
+                                                                 comment: "Onboarding page three text"))
         self.init(pages: [onboarding1, onboarding2, onboarding3])
     }
     
@@ -64,10 +73,9 @@ extension GiniSwitchOnboarding {
     }
 }
 
-
 extension OnboardingPage: Equatable {
     
-    public static func ==(lhs: OnboardingPage, rhs: OnboardingPage) -> Bool {
+    public static func == (lhs: OnboardingPage, rhs: OnboardingPage) -> Bool {
         return lhs.image == rhs.image && lhs.text == rhs.text
     }
     

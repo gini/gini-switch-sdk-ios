@@ -56,7 +56,7 @@ class PageCollection {
 
 extension PageCollection: Equatable {
     
-    public static func ==(lhs: PageCollection, rhs: PageCollection) -> Bool {
+    public static func == (lhs: PageCollection, rhs: PageCollection) -> Bool {
         return lhs.pages == rhs.pages
     }
 }

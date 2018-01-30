@@ -44,7 +44,7 @@ class PagesCollectionViewController: UIViewController {
             pagesCollection?.reloadData()
         }
     }
-    weak var delegate:PagesCollectionViewControllerDelegate? = nil
+    weak var delegate:PagesCollectionViewControllerDelegate?
     
     @IBAction func onOptionsTapped() {
         self.delegate?.pageCollectionControllerDidRequestOptions(self)
@@ -88,8 +88,10 @@ extension PagesCollectionViewController: UICollectionViewDataSource {
         }
     }
     
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PageCollectionViewCell", for: indexPath) as! PageCollectionViewCell
+    public func collectionView(_ collectionView: UICollectionView,
+                               cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PageCollectionViewCell",
+                                                      for: indexPath) as! PageCollectionViewCell
         switch indexPath.section {
         case 0:
             // page cell
@@ -180,7 +182,7 @@ extension PagesCollectionViewController {
         
         // The right inset of always enough to let the last cell float to the center of the view
         let rightInset = pagesCollection!.frame.width / 2.0 - onePageWidth / 2.0
-        pagesCollection?.contentInset = UIEdgeInsetsMake(0, leftInset, 0, rightInset)
+        pagesCollection?.contentInset = UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
     }
     
     fileprivate func scrollToSeletedCell() {
@@ -209,13 +211,14 @@ extension PagesCollectionViewController {
             let cells = collectionView.visibleCells
             var minDistance = collectionView.contentSize.width
             let closestCell = cells.reduce(nil, { (closestCell, currentCell) -> UICollectionViewCell? in
-                let cellCenter = currentCell.convert(CGPoint(x:currentCell.frame.width / 2.0, y:currentCell.frame.height / 2.0), to: self.view).x
+                let cellCenter = currentCell.convert(CGPoint(x:currentCell.frame.width / 2.0,
+                                                             y:currentCell.frame.height / 2.0),
+                                                     to: self.view).x
                 let deltaDistance = abs((cellCenter - (collectionView.frame.width / 2.0)))
                 if deltaDistance < minDistance {
                     minDistance = deltaDistance
                     return currentCell
-                }
-                else {
+                } else {
                     return closestCell
                 }
             })
@@ -240,7 +243,6 @@ extension PagesCollectionViewController {
         case 1:
             // the add page button is selected
             self.delegate?.pageCollectionControllerDidRequestAddPage(self)
-            break
         default: break
             
         }

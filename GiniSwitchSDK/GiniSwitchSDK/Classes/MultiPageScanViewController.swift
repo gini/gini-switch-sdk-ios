@@ -13,7 +13,7 @@ class MultiPageScanViewController: UIViewController {
     var cameraController:CameraViewController! = nil
     var cameraOptionsController:CameraOptionsViewController! = nil
     var pagesCollectionController:PagesCollectionViewController! = nil
-    var embeddedViewController:UIViewController? = nil
+    var embeddedViewController:UIViewController?
     @IBOutlet var embedView:UIView! = nil
     @IBOutlet var cameraContainerView:UIView! = nil
     @IBOutlet var pageCollectionContainerView:UIView! = nil
@@ -48,7 +48,10 @@ class MultiPageScanViewController: UIViewController {
 
 extension MultiPageScanViewController {
     
-    func present(controller:UIViewController, presentationStyle:PresentationStyle, animated:Bool, completion: (() -> Void)?) {
+    func present(controller:UIViewController,
+                 presentationStyle:PresentationStyle,
+                 animated:Bool,
+                 completion: (() -> Void)?) {
         switch presentationStyle {
         case .modal:
             // there might be a controller already presented. If so, this one needs to be presented on top of it
@@ -58,19 +61,20 @@ extension MultiPageScanViewController {
             self.navigationController?.pushViewController(controller, animated: animated)
         case .embed:
             setInEmbedView(controller)
-            break
         }
     }
     
-    func dismiss(controller:UIViewController, presentationStyle:PresentationStyle, animated:Bool, completion: (() -> Void)?) {
+    func dismiss(controller:UIViewController,
+                 presentationStyle:PresentationStyle,
+                 animated:Bool,
+                 completion: (() -> Void)?) {
         switch presentationStyle {
         case .modal:
             controller.presentingViewController?.dismiss(animated: animated, completion: completion)
         case .navigation:
             if self.navigationController?.topViewController == controller {
                 self.navigationController?.popViewController(animated: animated)
-            }
-            else {
+            } else {
                 let requestedIndex = self.navigationController?.viewControllers.index(of: controller)
                 guard let index = requestedIndex,
                 let prevIndex = self.navigationController?.viewControllers.index(before: index),

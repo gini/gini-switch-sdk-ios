@@ -24,7 +24,7 @@ public struct ContractAddressValue : ExtractionValue {
         return components.joined(separator: ", ")
     }
     
-    public static func ==(lhs: ContractAddressValue, rhs: ContractAddressValue) -> Bool {
+    public static func == (lhs: ContractAddressValue, rhs: ContractAddressValue) -> Bool {
         return lhs.valueString == rhs.valueString
     }
 }
@@ -44,7 +44,7 @@ public struct AddressValue : ExtractionValue {
         return components.joined(separator: " ")
     }
     
-    public static func ==(lhs: AddressValue, rhs: AddressValue) -> Bool {
+    public static func == (lhs: AddressValue, rhs: AddressValue) -> Bool {
         return lhs.valueString == rhs.valueString
     }
 }
@@ -57,7 +57,7 @@ public struct AmountValue : ExtractionValue {
         return "\(value) \(unit)"
     }
     
-    public static func ==(lhs: AmountValue, rhs: AmountValue) -> Bool {
+    public static func == (lhs: AmountValue, rhs: AmountValue) -> Bool {
         return lhs.valueString == rhs.valueString
     }
 }
@@ -75,5 +75,3 @@ public protocol ExtractionValue : Equatable, Codable {
     var valueString:String { get }
     
 }
-
-

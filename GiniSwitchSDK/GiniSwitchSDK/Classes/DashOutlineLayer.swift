@@ -10,7 +10,10 @@ import UIKit
 
 extension CAShapeLayer {
 
-    static func dashOutlineLayer(frame:CGRect, color:UIColor, lineWidth:CGFloat = 2, dashLength:NSNumber = 4) -> CAShapeLayer {
+    static func dashOutlineLayer(frame:CGRect,
+                                 color:UIColor,
+                                 lineWidth:CGFloat = 2,
+                                 dashLength:NSNumber = 4) -> CAShapeLayer {
         let layer = CAShapeLayer()
         layer.frame = frame
         layer.path = CGPath(rect: frame, transform: nil)

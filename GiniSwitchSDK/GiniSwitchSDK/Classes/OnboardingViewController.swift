@@ -11,10 +11,10 @@ import UIKit
 class OnboardingViewController: UIPageViewController {
     
     var onboarding = GiniSwitchOnboarding()
-    var completion:(() -> Void)? = nil
+    var completion:(() -> Void)?
     
-    var currentPage:OnboardingPage? = nil
-    var pageControl:UIPageControl? = nil
+    var currentPage:OnboardingPage?
+    var pageControl:UIPageControl?
     
     convenience init(onboarding:GiniSwitchOnboarding, completion: (() -> Void)? = nil) {
         self.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
@@ -41,8 +41,20 @@ class OnboardingViewController: UIPageViewController {
         updatePageControl()
         view.addSubview(pageControl!)
         pageControl?.translatesAutoresizingMaskIntoConstraints = false
-        let bottomConstraint = NSLayoutConstraint(item: view, attribute: .bottomMargin, relatedBy: .equal, toItem: pageControl, attribute: .bottom, multiplier: 1.0, constant: 20)
-        let centerConstraint = NSLayoutConstraint(item: view, attribute: .centerX, relatedBy: .equal, toItem: pageControl, attribute: .centerX, multiplier: 1.0, constant: 0.0)
+        let bottomConstraint = NSLayoutConstraint(item: view,
+                                                  attribute: .bottomMargin,
+                                                  relatedBy: .equal,
+                                                  toItem: pageControl,
+                                                  attribute: .bottom,
+                                                  multiplier: 1.0,
+                                                  constant: 20)
+        let centerConstraint = NSLayoutConstraint(item: view,
+                                                  attribute: .centerX,
+                                                  relatedBy: .equal,
+                                                  toItem: pageControl,
+                                                  attribute: .centerX,
+                                                  multiplier: 1.0,
+                                                  constant: 0.0)
         view.addConstraints([bottomConstraint, centerConstraint])
     }
     
@@ -57,17 +69,21 @@ class OnboardingViewController: UIPageViewController {
 
 extension OnboardingViewController: UIPageViewControllerDataSource {
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerBefore viewController: UIViewController) -> UIViewController? {
         return nextPage(direction: -1, currentController: viewController)
     }
     
-    public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    public func pageViewController(_ pageViewController: UIPageViewController,
+                                   viewControllerAfter viewController: UIViewController) -> UIViewController? {
         return nextPage(direction: 1, currentController: viewController)
     }
     
     func onboardingPageController(with page:OnboardingPage?) -> OnboardingPageViewController? {
         guard let page = page,
-            let pageController = UIStoryboard.switchStoryboard()?.instantiateViewController(withIdentifier: "OnboardingPageViewController") as? OnboardingPageViewController else {
+            let pageController = UIStoryboard.switchStoryboard()?
+                .instantiateViewController(withIdentifier: "OnboardingPageViewController")
+                as? OnboardingPageViewController else {
                 return nil
         }
         pageController.page = page
@@ -99,16 +115,21 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
 
 extension OnboardingViewController: UIPageViewControllerDelegate {
     
-    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            willTransitionTo pendingViewControllers: [UIViewController]) {
         // keep track of the currently displayed page
-        // For a UIPageViewController it is possible to show several pages at the same time, hence pendingViewControllers is an array
-        // OnboardingViewController only shows one and that probably wont change but just to be sure, take the last page -
-        // it should be the right-most one
+        // For a UIPageViewController it is possible to show several pages at the same time,
+        // hence pendingViewControllers is an array
+        // OnboardingViewController only shows one and that probably wont change but just to be sure,
+        // take the last page - it should be the right-most one
         currentPage = (pendingViewControllers.last as? OnboardingPageViewController)?.page
         updatePageControl()
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            didFinishAnimating finished: Bool,
+                            previousViewControllers: [UIViewController],
+                            transitionCompleted completed: Bool) {
         if currentPage == onboarding.pages.last {
             completion?()
         }

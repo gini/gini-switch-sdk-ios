@@ -32,13 +32,13 @@ class Authenticator {
     let loginTypePassword = "password"
     
     // input
-    var clientId:String? = nil
-    var clientSecret:String? = nil
-    var clientDomain:String? = nil
-    var clientToken:String? = nil
+    var clientId:String?
+    var clientSecret:String?
+    var clientDomain:String?
+    var clientToken:String?
     var credentials:CredentialsStore
-    var completionCallback:AuthenticatorSuccessCallback? = nil
-    var failureCallback:AuthenticatorErrorCallback? = nil
+    var completionCallback:AuthenticatorSuccessCallback?
+    var failureCallback:AuthenticatorErrorCallback?
     
     var authState = AuthenticatorState.none
     var webService:WebService = UrlSessionWebService()     // should be a var to allow injection
@@ -100,8 +100,7 @@ class Authenticator {
         if credentials.user != nil {
             authState = .userCredentials
             return
-        }
-        else {
+        } else {
             
         }
         // No check for a client token. It is not saved. If the client previously had one,
@@ -120,7 +119,8 @@ class Authenticator {
         proceedWithAuthentication()
     }
     
-    public func authenticate(success:@escaping AuthenticatorSuccessCallback, failure:@escaping AuthenticatorErrorCallback) {
+    public func authenticate(success:@escaping AuthenticatorSuccessCallback,
+                             failure:@escaping AuthenticatorErrorCallback) {
         completionCallback = success
         failureCallback = failure
         authenticate()
@@ -132,19 +132,17 @@ class Authenticator {
             webService.load(resource: createClientToken, completion: { [weak self] (token, error) in
                 if let error = error {
                     self?.failureCallback?(error)
-                }
-                else {
+                } else {
                     self?.authState = .clientToken
                     self?.clientToken = token?.accessToken
                     self?.proceedWithAuthentication()
                 }
             })
         case .clientToken:
-            webService.load(resource: createUser, completion: { [weak self] (isCreated, error) in
+            webService.load(resource: createUser, completion: { [weak self] (_, error) in
                 if let error = error {
                     self?.failureCallback?(error)
-                }
-                else {
+                } else {
                     self?.authState = .userCredentials
                     // self?.user - user should already be there - credentials are client generated
                     self?.proceedWithAuthentication()
@@ -158,12 +156,10 @@ class Authenticator {
                         self?.credentials.user = nil
                         self?.credentials.accessToken = nil
                         self?.proceedWithAuthentication()
-                    }
-                    else {
+                    } else {
                         self?.failureCallback?(error)
                     }
-                }
-                else {
+                } else {
                     self?.authState = .userToken
                     self?.credentials.accessToken = token?.accessToken
                     self?.proceedWithAuthentication()
@@ -174,7 +170,6 @@ class Authenticator {
             // if the token has expired, the next request is going to fail with an authentication
             // error and login will be done again
             completionCallback?()
-            break
         }
     }
 }

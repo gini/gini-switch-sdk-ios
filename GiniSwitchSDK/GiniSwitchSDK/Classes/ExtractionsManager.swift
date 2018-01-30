@@ -1,4 +1,3 @@
-
 //
 //  ExtractionsManager.swift
 //  Gini Switch SDK
@@ -30,14 +29,14 @@ class ExtractionsManager {
     var scannedPages = PageCollection()
     var extractionsComplete = false
     var extractions:ExtractionCollection?
-    var authenticator:Authenticator? = nil
-    var uploadService:ExtractionService? = nil
+    var authenticator:Authenticator?
+    var uploadService:ExtractionService?
     
     // polling
-    var statusScheduler:PollScheduler? = nil
-    var extractionsScheduler:PollScheduler? = nil
+    var statusScheduler:PollScheduler?
+    var extractionsScheduler:PollScheduler?
     
-    weak var delegate:ExtractionsManagerDelegate? = nil
+    weak var delegate:ExtractionsManagerDelegate?
     
     // if the create extraction order call comes before the client is authenticated
     // it needs to be queued. shouldRequestOrder is used for that
@@ -78,7 +77,10 @@ class ExtractionsManager {
             return
         }
         logger.logInfo(message: "Authenticating...")
-        authenticator = Authenticator(clientId: clientId, secret: clientSecret, domain: clientDomain, credentials: KeychainCredentialsStore())
+        authenticator = Authenticator(clientId: clientId,
+                                      secret: clientSecret,
+                                      domain: clientDomain,
+                                      credentials: KeychainCredentialsStore())
         authenticator?.authenticate(success: { [weak self] () in
             logger.logInfo(message: "Authentication successful")
             if self?.shouldRequestOrder == true {
@@ -115,8 +117,7 @@ class ExtractionsManager {
                 logger.logInfo(message: "Created extraction order")
                 self?.startPolling()
                 self?.startQueuedUploads()
-            }
-            else {
+            } else {
                 logger.logError(message: "Creating extraction order failed: \(String(describing: error))")
                 let orderError = NSError(errorCode: .cannotCreateExtractionOrder, underlyingError:error)
                 self?.notifyError(orderError)
@@ -143,8 +144,7 @@ class ExtractionsManager {
                 page.status = .failed
                 logger.logError(message: "Page upload failed: \(error.localizedDescription)")
                 self?.handleError(error, ofType: .cannotUploadPage)
-            }
-            else {
+            } else {
                 logger.logInfo(message: "Uploaded page with path\n\(pageUrl ?? "<unknown>")")
                 page.id = pageUrl
                 if page.status == .deleted {
@@ -177,69 +177,59 @@ class ExtractionsManager {
                     self?.handleError(error, ofType: .pageDeleteError)
                     // TODO: if deleting failed, add the pages to the scan pages array so users see that
                     // it is still there
-                }
-                else {
+                } else {
                     logger.logInfo(message: "Deleted page with path\n\(pageUrl ?? "<unknown>")")
                 }
             })
-        }
-        else {
+        } else {
             page.status = .deleted
         }
     }
     
     /// Replacing handles the case where the image was rotated and needs to be re-uploaded
     func replace(page: ScanPage, withPage:ScanPage) {
-        guard hasActiveSession else {
-            return
-        }
+        guard hasActiveSession else { return }
         
         page.imageData = withPage.imageData
         notifyCollectionChanged()
         if let id = page.id {
-            uploadService?.replacePage(id: id, newImageData: withPage.imageData, completion: { [weak self] (pageUrl, error) in
+            uploadService?.replacePage(id: id,
+                                       newImageData: withPage.imageData,
+                                       completion: { [weak self] (pageUrl, error) in
                 if let error = error {
                     logger.logError(message: "Page replace failed: \(error.localizedDescription)")
                     self?.handleError(error, ofType: .pageReplaceError)
-                }
-                else {
+                } else {
                     logger.logInfo(message: "Replaced page\n\(page.id ?? "<unknown>")")
                     page.id = pageUrl
                     page.status = .uploaded
                     self?.notifyCollectionChanged()
                 }
             })
-        }
-        else {
+        } else {
             page.status = .replaced
         }
     }
     
     func replace(pageId:String, imageData:Data) {
-        guard hasActiveSession else {
-            return
-        }
+        guard hasActiveSession else { return }
         uploadService?.replacePage(id: pageId, newImageData: imageData, completion: { [weak self] (pageUrl, error) in
             if let error = error {
                 logger.logError(message: "Page replace failed: \(error.localizedDescription)")
                 self?.handleError(error, ofType: .pageReplaceError)
-            }
-            else {
+            } else {
                 logger.logInfo(message: "Replaced page\n\(pageId)\nwith path\n\(pageUrl ?? "<unknown>")")
             }
         })
     }
     
     func sendFeedback(_ feedback:ExtractionCollection) {
-        guard hasActiveSession else {
-            return
-        }
+        guard hasActiveSession else { return }
         uploadService?.sendFeedback(feedback, completion: { [weak self] (error) in
             if let error = error {
                 logger.logError(message: "Sending feedback failed: \(error.localizedDescription)")
                 self?.handleError(error, ofType: .feedbackError)
-            }
-            else {
+            } else {
                 logger.logInfo(message: "Feedback sent!")
                 self?.notifyFeedbackSent()
             }
@@ -247,28 +237,22 @@ class ExtractionsManager {
     }
     
     func pollStatus() {
-        guard hasActiveSession else {
-            return
-        }
+        guard hasActiveSession else { return }
         uploadService?.fetchOrderStatus(completion: { [weak self](status, error) in
             if let _ = error {
                 self?.handleError(error, ofType: .pageStatusError)
-            }
-            else if let newStatus = status {
+            } else if let newStatus = status {
                 self?.parseStatus(newStatus)
             }
         })
     }
     
     func pollExtractions() {
-        guard hasActiveSession else {
-            return
-        }
+        guard hasActiveSession else { return }
         uploadService?.fetchExtractions(completion: { [weak self](collection, error) in
             if let _ = error {
                 self?.handleError(error, ofType: .extractionsError)
-            }
-            else if let newExtractions = collection {
+            } else if let newExtractions = collection {
                 self?.parseExtractions(newExtractions)
             }
         })
@@ -332,25 +316,41 @@ class ExtractionsManager {
     }
     
     fileprivate func startQueuedUploads() {
-        queuedPages().forEach { (page) in
-            add(page: page)
-        }
+        queuedPages().forEach { add(page: $0) }
     }
+    
+    fileprivate func queuedPages() -> [ScanPage] {
+        return scannedPages.pages.filter { $0.status == .taken }
+    }
+    
+    fileprivate func shouldChangeStatus(from:ScanPageStatus, to: ScanPageStatus) -> Bool {
+        // ignore status changes for pages scheduled for deletion and
+        // replacement. They might be marked as analysed, but since they
+        // will be replaced soon, the status shouldn't be displayed
+        return from != to && from != .replaced && from != .deleted
+    }
+    
+}
+
+/// Polling
+extension ExtractionsManager {
     
     fileprivate func startPolling() {
         statusScheduler = PollScheduler(condition: { [weak self]() -> Bool in
             let analysingPages = self?.scannedPages.pages.filter {$0.status == .uploaded || $0.status == .uploading}
-            return (self?.hasActiveSession == true) && (self?.extractionsComplete == false || !(analysingPages?.isEmpty ?? true))
-        }) { [weak self]() in
-            self?.pollStatus()
-        }
+            return (self?.hasActiveSession == true) &&
+                (self?.extractionsComplete == false ||
+                    !(analysingPages?.isEmpty ?? true))
+            }, action: { [weak self]() in
+                self?.pollStatus()
+        })
         statusScheduler?.start()
         extractionsScheduler = PollScheduler(condition: { [weak self]() -> Bool in
             // only poll if there's an order and at least one uploaded page
             let uploadedPages = self?.scannedPages.pages.filter {$0.status == .uploaded || $0.status == .analysed}
             return (self?.hasActiveSession == true) && (uploadedPages?.isEmpty == false)
-        }, action: { [weak self]() in
-            self?.pollExtractions()
+            }, action: { [weak self]() in
+                self?.pollExtractions()
         })
         extractionsScheduler?.start()
     }
@@ -362,19 +362,10 @@ class ExtractionsManager {
         extractionsScheduler = nil
     }
     
-    fileprivate func queuedPages() -> [ScanPage] {
-        let queued = scannedPages.pages.filter { $0.status == .taken }
-        return queued
-    }
-    
-    fileprivate func shouldChangeStatus(from:ScanPageStatus, to: ScanPageStatus) -> Bool {
-        // ignore status changes for pages scheduled for deletion and
-        // replacement. They might be marked as analysed, but since they
-        // will be replaced soon, the status shouldn't be displayed
-        return from != to &&
-            from != .replaced &&
-            from != .deleted
-    }
+}
+
+/// Error handling
+extension ExtractionsManager {
     
     fileprivate func handleError(_ error:Error?, ofType type: GiniSwitchErrorCode) {
         let handled = tryHandleUnauthorizedError(error)
@@ -393,4 +384,5 @@ class ExtractionsManager {
         }
         return false
     }
+    
 }

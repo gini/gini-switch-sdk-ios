@@ -33,14 +33,13 @@ extension NSError {
     /// Try to initialize an error from an API response
     convenience init?(dictionary:JSONDictionary) {
         if let errorName = dictionary["error"] as? String {
-            let errorCode = dictionary["status"] as? Int     // TODO: might become mandatory after implemented in the backend
+            let errorCode = dictionary["status"] as? Int
             let errorDesc = dictionary["error_description"] as? String
             let inAppErrorCode = NSError.switchErrorCode(apiCode:errorCode ?? 0)
             let userDict = [NSLocalizedDescriptionKey: errorName,
                             NSLocalizedFailureReasonErrorKey: errorDesc ?? ""]
             self.init(domain: GiniSwitchErrorDomain, code: inAppErrorCode.rawValue, userInfo: userDict)
-        }
-        else {
+        } else {
             return nil
         }
     }

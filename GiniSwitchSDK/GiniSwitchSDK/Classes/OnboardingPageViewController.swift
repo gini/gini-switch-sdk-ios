@@ -10,8 +10,8 @@ import UIKit
 
 class OnboardingPageViewController: UIViewController {
     
-    @IBOutlet var imageView:UIImageView? = nil
-    @IBOutlet var textLabel:UILabel? = nil
+    @IBOutlet var imageView:UIImageView?
+    @IBOutlet var textLabel:UILabel?
     
     var page:OnboardingPage = OnboardingPage() {
         didSet {

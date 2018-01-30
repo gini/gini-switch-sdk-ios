@@ -16,7 +16,7 @@ class PollScheduler {
     let condition:PollCondition
     let action:PollAction
     let interval:TimeInterval
-    var timer:Timer? = nil
+    var timer:Timer?
     
     init(interval:TimeInterval = 1.0, condition:@escaping PollCondition, action:@escaping PollAction) {
         self.condition = condition
@@ -33,7 +33,11 @@ class PollScheduler {
             guard let weakSelf = self else {
                 return
             }
-            weakSelf.timer = Timer.scheduledTimer(timeInterval: weakSelf.interval, target: weakSelf, selector: #selector(weakSelf.onTimerTick), userInfo: nil, repeats: true)
+            weakSelf.timer = Timer.scheduledTimer(timeInterval: weakSelf.interval,
+                                                  target: weakSelf,
+                                                  selector: #selector(weakSelf.onTimerTick),
+                                                  userInfo: nil,
+                                                  repeats: true)
         }
     }
     

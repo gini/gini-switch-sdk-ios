@@ -11,7 +11,7 @@ import ImageIO
 import AVFoundation
 import MobileCoreServices
 
-fileprivate var cfExifKeys: [CFString] {
+private var cfExifKeys: [CFString] {
     return [
         kCGImagePropertyExifLensMake,
         kCGImagePropertyExifLensModel,
@@ -25,7 +25,7 @@ fileprivate var cfExifKeys: [CFString] {
     ]
 }
 
-fileprivate var cfTiffKeys: [CFString] {
+private var cfTiffKeys: [CFString] {
     return [
         kCGImagePropertyTIFFMake,
         kCGImagePropertyTIFFModel,
@@ -168,7 +168,8 @@ internal class ImageMetaInformationManager {
     func rotate(degrees:Int, imageOrientation: UIImageOrientation) {
         update(imageOrientation: imageOrientation)
         let information = metaInformation
-        information?.set(metaInformation: userComment(rotationDegrees: degrees) as AnyObject?, forKey: kCGImagePropertyExifUserComment as String)
+        information?.set(metaInformation: userComment(rotationDegrees: degrees) as AnyObject?,
+                         forKey: kCGImagePropertyExifUserComment as String)
     }
     
     func update(imageOrientation orientation: UIImageOrientation) {
@@ -180,8 +181,10 @@ internal class ImageMetaInformationManager {
     fileprivate func update(_ orientation: Int, onMetaInformation information: MetaInformation) -> MetaInformation {
         guard let updatedInformation = information.mutableCopy() as? NSMutableDictionary else { return information }
         // Set both keys in case one is changed in the future all orientations will still be set correctly
-        updatedInformation.set(metaInformation: orientation as AnyObject?, forKey: kCGImagePropertyTIFFOrientation as String)
-        updatedInformation.set(metaInformation: orientation as AnyObject?, forKey: kCGImagePropertyOrientation as String)
+        updatedInformation.set(metaInformation: orientation as AnyObject?,
+                               forKey: kCGImagePropertyTIFFOrientation as String)
+        updatedInformation.set(metaInformation: orientation as AnyObject?,
+                               forKey: kCGImagePropertyOrientation as String)
         return updatedInformation
     }
     
@@ -192,7 +195,8 @@ internal class ImageMetaInformationManager {
         return defaultInformation
     }
     
-    fileprivate func add(requiredValuesWithKeys keys: [String], toMetaInformation information: MetaInformation) -> MetaInformation {
+    fileprivate func add(requiredValuesWithKeys keys: [String],
+                         toMetaInformation information: MetaInformation) -> MetaInformation {
         guard let addedInformation = information.mutableCopy() as? NSMutableDictionary else { return information }
         for key in keys {
             if let _ = addedInformation.getMetaInformation(forKey: key) {
@@ -209,7 +213,8 @@ internal class ImageMetaInformationManager {
         return filteredInformation as MetaInformation
     }
     
-    fileprivate func generateImage(withMetaInformation information: MetaInformation?, andCompression compression: CGFloat) -> Data? {
+    fileprivate func generateImage(withMetaInformation information: MetaInformation?,
+                                   andCompression compression: CGFloat) -> Data? {
         guard let image = imageData else { return nil }
         guard let information = information else { return nil }
         
@@ -252,7 +257,8 @@ internal class ImageMetaInformationManager {
         let platform = "iOS"
         let osVersion = UIDevice.current.systemVersion
         let uuid = imageUUID()
-        var comment = "Platform=\(platform),OSVer=\(osVersion),GiniVisionVer=\(sdkVersion()),\(userCommentContentId)=\(uuid)"
+        var comment = "Platform=\(platform),OSVer=\(osVersion),GiniVisionVer=\(sdkVersion())," +
+        "\(userCommentContentId)=\(uuid)"
         if let rotationDegrees = rotationDegrees {
             // normalize the rotation to 0-360
             let rotation = imageRotationDeltaDegrees() + rotationDegrees
@@ -295,8 +301,8 @@ internal class ImageMetaInformationManager {
     fileprivate func deviceName() -> String? {
         var systemInfo = utsname()
         uname(&systemInfo)
-        let code = withUnsafeMutablePointer(to: &systemInfo.machine) {
-            ptr in String(cString: UnsafeRawPointer(ptr).assumingMemoryBound(to: CChar.self))
+        let code = withUnsafeMutablePointer(to: &systemInfo.machine) { ptr in
+            String(cString: UnsafeRawPointer(ptr).assumingMemoryBound(to: CChar.self))
         }
         return code
     }
