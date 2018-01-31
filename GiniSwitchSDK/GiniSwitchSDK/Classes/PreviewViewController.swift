@@ -14,14 +14,14 @@ protocol PreviewViewControllerDelegate:class {
     func previewController(previewController:PreviewViewController, didRequestRetake page:ScanPage)
 }
 
-class PreviewViewController: UIViewController {
+final class PreviewViewController: UIViewController {
     
     @IBOutlet var pagePreview:ZoomableImageView! = nil
     @IBOutlet var titleLabel:UILabel! = nil
     @IBOutlet var retakeButton:UIButton! = nil
     @IBOutlet var deleteButton:UIButton! = nil
     
-    weak var delegate:PreviewViewControllerDelegate? = nil
+    weak var delegate:PreviewViewControllerDelegate?
     
     //titles
     let analysedPageTitle = GiniSwitchAppearance.imageProcessedText
@@ -33,8 +33,8 @@ class PreviewViewController: UIViewController {
         }
     }
     
-    var confirmColor:UIColor? = nil
-    var denyColor:UIColor? = nil
+    var confirmColor:UIColor?
+    var denyColor:UIColor?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,11 +57,9 @@ class PreviewViewController: UIViewController {
         case .analysed:
             // change the title text accordingly
             titleView.text = analysedPageTitle
-            break
         case .failed:
             // change the title text accordingly
             titleView.text = failedPageTitle
-            break
         default:
             break
         }

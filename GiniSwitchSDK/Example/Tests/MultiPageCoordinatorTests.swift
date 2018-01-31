@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class MultiPageCoordinatorTests: XCTestCase {
+final class MultiPageCoordinatorTests: XCTestCase {
     
     var coordinator:MultiPageCoordinator! = nil
     var fakeCamera:FakeCamera! = nil

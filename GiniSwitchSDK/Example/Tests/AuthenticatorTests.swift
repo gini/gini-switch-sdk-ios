@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class AuthenticatorTests: XCTestCase {
+final class AuthenticatorTests: XCTestCase {
     
     let id = "testId"
     let secret = "secret"

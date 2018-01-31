@@ -1,0 +1,22 @@
+included:
+  - ../GiniSwitchSDK
+excluded:
+  - Pods/
+disabled_rules: # rule identifiers to exclude from running
+  - trailing_newline
+  - trailing_whitespace
+  - identifier_name
+  - colon
+  - force_cast
+  - unused_optional_binding
+  - todo
+
+force_cast: warning # implicitly
+force_try:
+  severity: warning # explicitly
+  line_length:
+    - 120 # warning
+    - 600 # error
+
+identifier_name: warning
+shorthand_operator: warning

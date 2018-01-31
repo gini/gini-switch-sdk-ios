@@ -24,25 +24,22 @@ class CameraViewController: UIViewController {
     var camera:Camera! = nil
     var isCameraAvailable = true
     
-    weak var delegate:CameraViewControllerDelegate? = nil
+    weak var delegate:CameraViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         if camera == nil {
             do {
                 try camera = Camera()
-            }
-            catch let error as CameraError {
+            } catch let error as CameraError {
                 switch error {
                 case .notAuthorizedToUseDevice:
                     isCameraAvailable = false
                     addNotAuthorizedView()
                 default:
                     isCameraAvailable = false
-                    break
                 }
-            }
-            catch _ {
+            } catch _ {
                 assertionFailure("Failed to initialize camera")
             }
         }
@@ -71,7 +68,9 @@ class CameraViewController: UIViewController {
             #if DEBUG
                 // This will most likely happen when debugging on the Simulator. Just inject
                 // a sample document
-                if let image = UIImage(named: "sampleDocument", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil),
+                if let image = UIImage(named: "sampleDocument",
+                                       in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"),
+                                       compatibleWith: nil),
                     let imageData = UIImageJPEGRepresentation(image, 1) {
                     DispatchQueue.main.async {
                         self.delegate?.cameraViewController(controller: self, didCaptureImage: imageData)

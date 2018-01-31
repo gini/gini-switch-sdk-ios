@@ -8,7 +8,7 @@
 
 import XCTest
 
-class ExtractionsManagerTests: XCTestCase {
+final class ExtractionsManagerTests: XCTestCase {
     
     // TODO: write unit tests for ExtractionsManager
     

@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class PageCollectionTests: XCTestCase {
+final class PageCollectionTests: XCTestCase {
     
     var pages:PageCollection! = nil
     

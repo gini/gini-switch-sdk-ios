@@ -16,7 +16,7 @@ protocol ReviewViewControllerDelegate:class {
     
 }
 
-class ReviewViewController: UIViewController {
+final class ReviewViewController: UIViewController {
     
     @IBOutlet var useButton:UIButton! = nil
     @IBOutlet var retakeButton:UIButton! = nil
@@ -25,7 +25,7 @@ class ReviewViewController: UIViewController {
     @IBOutlet var moreButton:UIButton! = nil
     @IBOutlet var previewImageView:ZoomableImageView! = nil
     
-    fileprivate var metaInformationManager: ImageMetaInformationManager? = nil
+    fileprivate var metaInformationManager: ImageMetaInformationManager?
     
     var page:ScanPage? = nil {
         didSet {
@@ -36,11 +36,11 @@ class ReviewViewController: UIViewController {
         }
     }
     
-    var themeColor:UIColor? = nil
-    var confirmColor:UIColor? = nil
-    var denyColor:UIColor? = nil
+    var themeColor:UIColor?
+    var confirmColor:UIColor?
+    var denyColor:UIColor?
 
-    weak var delegate:ReviewViewControllerDelegate? = nil
+    weak var delegate:ReviewViewControllerDelegate?
     
     @IBAction func useButtonTapped() {
         delegate?.reviewController(self, didAcceptPage: page!)

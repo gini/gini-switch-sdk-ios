@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class ExtractionServiceTests: XCTestCase {
+final class ExtractionServiceTests: XCTestCase {
     
     let token = "testToken"
     let testOrderUrl = "https://switch.gini.net/extractionOrders/201be303-a693-44ac-b96f-31b03313ab22"

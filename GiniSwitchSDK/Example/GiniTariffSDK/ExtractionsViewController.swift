@@ -16,7 +16,7 @@ protocol ExtractionsViewControllerDelegate:class {
     
 }
 
-class ExtractionsViewController: UIViewController {
+final class ExtractionsViewController: UIViewController {
     
     @IBOutlet var titleHintLabel:UILabel! = nil
     @IBOutlet var extractionsTable:UITableView! = nil

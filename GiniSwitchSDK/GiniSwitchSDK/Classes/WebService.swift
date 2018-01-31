@@ -11,16 +11,16 @@ import UIKit
 public typealias JSONDictionary = [String: Any?]
 
 enum HTTPMethod : String {
-    case GET = "GET"
-    case POST = "POST"
-    case DELETE = "DELETE"
-    case PUT = "PUT"
-    case HEAD = "HEAD"
+    case GET
+    case POST
+    case DELETE
+    case PUT
+    case HEAD
 }
 
 struct Resource<A : Decodable> {
     let url: URL
-    let headers: Dictionary<String, String>
+    let headers: [String: String]
     let method:HTTPMethod
     let body:Data?
     let maxRetries = 2          // original attempt + 2 retries = 3 requests in total
@@ -40,7 +40,7 @@ extension Resource {
         }
     }
     
-    init(url: URL, headers: Dictionary<String, String>, method: HTTPMethod, body: Data?, parseError: @escaping (Any) -> Error?) {
+    init(url: URL, headers: [String: String], method: HTTPMethod, body: Data?, parseError: @escaping (Any) -> Error?) {
         self.url = url
         self.headers = headers
         self.method = method
@@ -63,27 +63,31 @@ extension Resource {
 
 extension Resource: Equatable {
     
-    static func ==(lhs: Resource, rhs: Resource) -> Bool {
-        return (lhs.url == rhs.url) && (lhs.headers == rhs.headers) && (lhs.method == rhs.method) && (lhs.body == rhs.body)
+    static func == (lhs: Resource, rhs: Resource) -> Bool {
+        return (lhs.url == rhs.url) &&
+            (lhs.headers == rhs.headers) &&
+            (lhs.method == rhs.method) &&
+            (lhs.body == rhs.body)
     }
 }
 
 /*
- * A networking layer inspired by objc.io and their Swift Talk episode (https://github.com/objcio/S01E01-networking/blob/master/Networking.playground/Contents.swift)
+ * A networking layer inspired by objc.io and their Swift Talk episode
+ * (https://github.com/objcio/S01E01-networking/blob/master/Networking.playground/Contents.swift)
  */
 
 protocol WebService {
     
-    func load<A>(resource: Resource<A>, completion: @escaping (A?, Error?) -> ())
+    func load<A>(resource: Resource<A>, completion: @escaping (A?, Error?) -> Void)
 }
 
 final class UrlSessionWebService : WebService {
     
-    func load<A>(resource: Resource<A>, completion: @escaping (A?, Error?) -> ()) {
+    func load<A>(resource: Resource<A>, completion: @escaping (A?, Error?) -> Void) {
         tryLoad(resource: resource, completion: completion, attemptNumber: 1)
     }
     
-    func tryLoad<A>(resource: Resource<A>, completion: @escaping (A?, Error?) -> (), attemptNumber:Int) {
+    func tryLoad<A>(resource: Resource<A>, completion: @escaping (A?, Error?) -> Void, attemptNumber:Int) {
         var request = URLRequest(url: resource.url)
         request.httpMethod = resource.method.rawValue
         request.httpBody = resource.body
@@ -91,7 +95,7 @@ final class UrlSessionWebService : WebService {
             request.setValue(value, forHTTPHeaderField: header)
         }
         
-        URLSession.shared.dataTask(with: request) { [weak self](data, response, error) in
+        URLSession.shared.dataTask(with: request) { [weak self](data, _, error) in
             // first check if there's an error in the response body
             if let nsError = error as NSError?,
                 nsError.isRetriableError(),
@@ -113,8 +117,7 @@ final class UrlSessionWebService : WebService {
             let responseObject = Resource<A>.resourceFrom(data: data)
             if let parsedData = responseObject {
                 completion(parsedData, nil)
-            }
-            else {
+            } else {
                 // return an "invalid JSON" error
                 let parseError = data.isEmpty ? nil : NSError(errorCode: .invalidResponse)
                 completion(nil, parseError)

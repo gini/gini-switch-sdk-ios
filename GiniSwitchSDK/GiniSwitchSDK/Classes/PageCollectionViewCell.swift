@@ -17,15 +17,19 @@ class PageCollectionViewCell: UICollectionViewCell {
     @IBOutlet var uploadingIndicator:UIActivityIndicatorView! = nil
     @IBOutlet var pageNumberLabel:UILabel! = nil
     
-    var pageSelectionLayer:CAShapeLayer? = nil
+    var pageSelectionLayer:CAShapeLayer?
     var pageSelectionColor:UIColor = UIColor.white {
         didSet {
             pageSelectionLayer?.changeOutlineColor(with:pageSelectionColor)
         }
     }
     
-    var pageUploadedImage = UIImage(named: "pageUploadSuccessCheckmarkCircle", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil)
-    var pageFailedImage = UIImage(named: "pageUploadFailedCrossCircle", in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"), compatibleWith: nil)
+    var pageUploadedImage = UIImage(named: "pageUploadSuccessCheckmarkCircle",
+                                    in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"),
+                                    compatibleWith: nil)
+    var pageFailedImage = UIImage(named: "pageUploadFailedCrossCircle",
+                                  in: Bundle(identifier: "org.cocoapods.GiniSwitchSDK"),
+                                  compatibleWith: nil)
     
     var image:UIImage? = nil {
         didSet {
@@ -37,7 +41,6 @@ class PageCollectionViewCell: UICollectionViewCell {
         didSet {
             guard let data = page?.imageData,
             let pageStatus = page?.status else {
-                // TODO log error
                 return
             }
             image = UIImage(data: data)
@@ -51,8 +54,7 @@ class PageCollectionViewCell: UICollectionViewCell {
             if let number = pageNumber {
                 let photoString = NSLocalizedString("Foto", comment: "Page collection cell page number text")
                 pageNumberLabel.text = "\(photoString) \(number)"
-            }
-            else {
+            } else {
                 pageNumberLabel.text = ""
             }
         }
@@ -65,7 +67,6 @@ class PageCollectionViewCell: UICollectionViewCell {
                 pageStatusUnderlineView.isHidden = false
                 pageStatusView.isHidden = false
                 pageStatusUnderlineView.backgroundColor = GiniSwitchAppearance.positiveColor
-                // TODO: write a wrapper for accessing the framework bundle
                 pageStatusView.image = pageUploadedImage
                 uploadingIndicator.isHidden = true
             case .failed:

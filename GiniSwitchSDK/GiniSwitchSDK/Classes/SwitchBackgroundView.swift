@@ -15,5 +15,4 @@ import UIKit
  */
 class SwitchBackgroundView: UIView {
 
-
 }

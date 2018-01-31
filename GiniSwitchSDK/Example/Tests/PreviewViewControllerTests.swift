@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class PreviewViewControllerTests: XCTestCase {
+final class PreviewViewControllerTests: XCTestCase {
     
     let storyboard = switchStoryboard()
     var previewController:PreviewViewController! = nil

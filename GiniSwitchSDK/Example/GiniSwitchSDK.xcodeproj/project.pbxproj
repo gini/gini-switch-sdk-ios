@@ -287,6 +287,7 @@
 			buildPhases = (
 				92E801A26484A61D84C72568 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
+				23CB16102020BEDB00FFA2AE /* ShellScript */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				026FA625CD25DBCC2809B14C /* [CP] Embed Pods Frameworks */,
@@ -415,6 +416,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GiniSwitchSDK_Example/Pods-GiniSwitchSDK_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		23CB16102020BEDB00FFA2AE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		4CF3094CC066B22FA95D81C0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

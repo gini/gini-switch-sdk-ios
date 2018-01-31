@@ -6,7 +6,7 @@
 //
 //
 
-class GiniSwitchConsoleLogger: GiniSwitchLogger {
+final class GiniSwitchConsoleLogger: GiniSwitchLogger {
     
     var minLogLevel = LogLevel.info
     

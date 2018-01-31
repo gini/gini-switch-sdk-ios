@@ -28,7 +28,7 @@ public class GiniSwitchSdk {
     public let clientDomain: String
     
     /// The delegate object, receiving callbacks about events happening in the SDK
-    public weak var delegate:GiniSwitchSdkDelegate? = nil
+    public weak var delegate:GiniSwitchSdkDelegate?
     
     /// Contains some configuration objects that can be used to customize the SDK
     public var configuration = GiniSwitchConfiguration()
@@ -44,7 +44,7 @@ public class GiniSwitchSdk {
     }
     
     let extractionsManager:ExtractionsManager
-    var coordinator:MultiPageCoordinator? = nil
+    var coordinator:MultiPageCoordinator?
     
     /*
      * The extractions that have been received so far. 
@@ -58,7 +58,9 @@ public class GiniSwitchSdk {
         self.clientId = clientId
         self.clientSecret = clientSecret
         self.clientDomain = domain
-        extractionsManager = ExtractionsManager(clientId: clientId, clientSecret: clientSecret, clientDomain: clientDomain)
+        extractionsManager = ExtractionsManager(clientId: clientId,
+                                                clientSecret: clientSecret,
+                                                clientDomain: clientDomain)
         extractionsManager.delegate = self
     }
     

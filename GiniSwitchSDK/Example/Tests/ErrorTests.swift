@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class ErrorTests: XCTestCase {
+final class ErrorTests: XCTestCase {
     
     let errorName = "my API error"
     let errorDesc = "I'm so sorry"

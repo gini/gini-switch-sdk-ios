@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class OnboardingPageViewControllerTests: XCTestCase {
+final class OnboardingPageViewControllerTests: XCTestCase {
     
     var onboadingPage:OnboardingPageViewController! = nil
     let storyboard = switchStoryboard()

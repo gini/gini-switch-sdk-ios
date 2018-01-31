@@ -35,26 +35,58 @@ public class ExtractionCollection: Codable {
     }
     
     private enum ValueKeys : String, CodingKey {
-        case value = "value"
-        case alternatives = "alternatives"
+        case value
+        case alternatives
     }
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         links = try container.decode(ResponseLinks.self, forKey: .links)
-        companyName = ExtractionCollection.parse(type: String.self, decoder: decoder, key: .companyName, name: companyNameKey, container: container)
-        customerAddress = ExtractionCollection.parse(type: ContractAddressValue.self, decoder: decoder, key: .customerAddress, name: customerAddressKey, container: container)
-        energyMeterNumber = ExtractionCollection.parse(type: String.self, decoder: decoder, key: .energyMeterNumber, name: energyMeterNumberKey, container: container)
-        consumption = ExtractionCollection.parse(type: AmountValue.self, decoder: decoder, key: .consumption, name: consumptionKey, container: container)
-        consumptionDuration = ExtractionCollection.parse(type: AmountValue.self, decoder: decoder, key: .consumptionDuration, name: consumptionDurationKey, container: container)
-        billingAmount = ExtractionCollection.parse(type: AmountValue.self, decoder: decoder, key: .billingAmount, name: billingAmountKey, container: container)
-        paidAmount = ExtractionCollection.parse(type: AmountValue.self, decoder: decoder, key: .paidAmount, name: paidAmountKey, container: container)
-        amountToPay = ExtractionCollection.parse(type: AmountValue.self, decoder: decoder, key: .amountToPay, name: amountToPayKey, container: container)
-        documentDate = ExtractionCollection.parse(type: String.self, decoder: decoder, key: .documentDate, name: documentDateKey, container: container)
+        companyName = ExtractionCollection.parse(type: String.self, decoder: decoder,
+                                                 key: .companyName,
+                                                 name: companyNameKey,
+                                                 container: container)
+        customerAddress = ExtractionCollection.parse(type: ContractAddressValue.self, decoder: decoder,
+                                                     key: .customerAddress,
+                                                     name: customerAddressKey,
+                                                     container: container)
+        energyMeterNumber = ExtractionCollection.parse(type: String.self, decoder: decoder,
+                                                       key: .energyMeterNumber,
+                                                       name: energyMeterNumberKey,
+                                                       container: container)
+        consumption = ExtractionCollection.parse(type: AmountValue.self,
+                                                 decoder: decoder,
+                                                 key: .consumption,
+                                                 name: consumptionKey,
+                                                 container: container)
+        consumptionDuration = ExtractionCollection.parse(type: AmountValue.self, decoder: decoder,
+                                                         key: .consumptionDuration,
+                                                         name: consumptionDurationKey,
+                                                         container: container)
+        billingAmount = ExtractionCollection.parse(type: AmountValue.self, decoder: decoder,
+                                                   key: .billingAmount,
+                                                   name: billingAmountKey,
+                                                   container: container)
+        paidAmount = ExtractionCollection.parse(type: AmountValue.self, decoder: decoder,
+                                                key: .paidAmount,
+                                                name: paidAmountKey,
+                                                container: container)
+        amountToPay = ExtractionCollection.parse(type: AmountValue.self, decoder: decoder,
+                                                 key: .amountToPay,
+                                                 name: amountToPayKey,
+                                                 container: container)
+        documentDate = ExtractionCollection.parse(type: String.self, decoder: decoder,
+                                                  key: .documentDate,
+                                                  name: documentDateKey,
+                                                  container: container)
         
     }
     
-    private static func parse<T: ExtractionValue>(type: T.Type, decoder: Decoder, key: CodingKeys, name: String, container: KeyedDecodingContainer<CodingKeys>) -> Extraction<T>? {
+    private static func parse<T: ExtractionValue>(type: T.Type,
+                                                  decoder: Decoder,
+                                                  key: CodingKeys,
+                                                  name: String,
+                                                  container: KeyedDecodingContainer<CodingKeys>) -> Extraction<T>? {
         do {
             let values = try container.nestedContainer(keyedBy: ValueKeys.self, forKey: key)
             let value = try values.decode(T.self, forKey: .value)
@@ -82,7 +114,7 @@ public class ExtractionCollection: Codable {
 
 extension ExtractionCollection:Equatable {
     
-    public static func ==(lhs: ExtractionCollection, rhs: ExtractionCollection) -> Bool {
+    public static func == (lhs: ExtractionCollection, rhs: ExtractionCollection) -> Bool {
         return (lhs.companyName == rhs.companyName &&
             lhs.customerAddress == rhs.customerAddress &&
             lhs.energyMeterNumber == rhs.energyMeterNumber &&
@@ -92,7 +124,7 @@ extension ExtractionCollection:Equatable {
             lhs.paidAmount == rhs.paidAmount &&
             lhs.amountToPay == rhs.amountToPay &&
             lhs.documentDate == rhs.documentDate &&
-            lhs.links == rhs.links);
+            lhs.links == rhs.links)
     }
     
 }

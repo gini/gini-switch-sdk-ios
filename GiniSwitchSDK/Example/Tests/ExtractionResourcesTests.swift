@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class ExtractionResourcesTests: XCTestCase {
+final class ExtractionResourcesTests: XCTestCase {
     
     let token = "testToken"
     var service = ExtractionResources()

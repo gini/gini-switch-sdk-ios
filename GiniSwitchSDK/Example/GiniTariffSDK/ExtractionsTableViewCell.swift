@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExtractionsTableViewCell: UITableViewCell {
+final class ExtractionsTableViewCell: UITableViewCell {
     
     @IBOutlet var nameLabel:UILabel! = nil
     @IBOutlet var valueTextField:UITextField! = nil {

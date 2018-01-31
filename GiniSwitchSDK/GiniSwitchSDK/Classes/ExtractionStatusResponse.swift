@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExtractionStatusResponse: Decodable {
+struct ExtractionStatusResponse: Decodable {
     
     let pages:[AddPageResponse]
     let extractionsComplete:Bool
@@ -25,7 +25,7 @@ class ExtractionStatusResponse: Decodable {
         case pages
     }
     
-    required init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         extractionsComplete = try values.decode(Bool.self, forKey: .extractionsComplete)
         links = try values.decode(ResponseLinks.self, forKey: .links)

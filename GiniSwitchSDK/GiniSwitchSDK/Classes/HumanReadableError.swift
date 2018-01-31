@@ -6,7 +6,13 @@
 //
 //
 
-let humanReadableErrors:[GiniSwitchErrorCode] = [.network, .authentication, .cannotCreateExtractionOrder, .cannotUploadPage, .pageAnalysisFailed, .pageDeleteError, .pageReplaceError]
+let humanReadableErrors:[GiniSwitchErrorCode] = [.network,
+                                                 .authentication,
+                                                 .cannotCreateExtractionOrder,
+                                                 .cannotUploadPage,
+                                                 .pageAnalysisFailed,
+                                                 .pageDeleteError,
+                                                 .pageReplaceError]
 
 extension NSError {
     
@@ -18,17 +24,23 @@ extension NSError {
     func humanReadableDescription() -> String {
         switch GiniSwitchErrorCode(rawValue: code) ?? .unknown {
         case .unknown:
-            return NSLocalizedString("Es ist ein unbekannter Fehler aufgetreten", comment: "Decription of an unknown error")
+            return NSLocalizedString("Es ist ein unbekannter Fehler aufgetreten",
+                                     comment: "Decription of an unknown error")
         case .network, .authentication, .cannotCreateExtractionOrder:
-            return NSLocalizedString("Es ist ein interner Fehler aufgetreten", comment: "Decription of anetwork, extraction order or authentication error")
+            return NSLocalizedString("Es ist ein interner Fehler aufgetreten",
+                                     comment: "Decription of anetwork, extraction order or authentication error")
         case .cannotUploadPage, .pageAnalysisFailed:
-            return NSLocalizedString("Fehler beim Verarbeiten der Seite", comment: "Decription of a page upload or analysis error")
+            return NSLocalizedString("Fehler beim Verarbeiten der Seite",
+                                     comment: "Decription of a page upload or analysis error")
         case .pageDeleteError:
-            return NSLocalizedString("Fehler beim Löschen der Seite", comment: "Decription for a page deletion error")
+            return NSLocalizedString("Fehler beim Löschen der Seite",
+                                     comment: "Decription for a page deletion error")
         case .pageReplaceError:
-            return NSLocalizedString("Fehler beim Ersetzen der Seite", comment: "Decription for a page replacement error")
+            return NSLocalizedString("Fehler beim Ersetzen der Seite",
+                                     comment: "Decription for a page replacement error")
         default:
-            return NSLocalizedString("Ooops! Es ist ein Fehler aufgetreten", comment: "Decription for a default error")
+            return NSLocalizedString("Ooops! Es ist ein Fehler aufgetreten",
+                                     comment: "Decription for a default error")
         }
     }
 }

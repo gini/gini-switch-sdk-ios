@@ -19,8 +19,8 @@ internal class CameraPreviewView: UIView {
     let guideColor = UIColor.white
     let frameColor = UIColor(white: 0.0, alpha: 0.4)
     
-    var guidesLayer:CAShapeLayer? = nil
-    var frameLayer:CAShapeLayer? = nil
+    var guidesLayer:CAShapeLayer?
+    var frameLayer:CAShapeLayer?
     
     override class var layerClass : AnyClass {
         return AVCaptureVideoPreviewLayer.classForCoder()
@@ -107,8 +107,7 @@ extension CameraPreviewView {
         let maxHeight = wholeFrame.height * guideLineSize
         if maxHeight > maxWidth {
             return CGRect(x: 0, y: 0, width: maxHeight * a4Ratio, height: maxHeight)
-        }
-        else {
+        } else {
             return CGRect(x: 0, y: 0, width: maxWidth, height: maxWidth / a4Ratio)
         }
     }

@@ -24,9 +24,9 @@ class ScanPage {
     
     static var thumbSize = 100
     
-    var thumbnail:UIImage? = nil
+    var thumbnail:UIImage?
     var imageData:Data = Data()
-    var id:String? = nil
+    var id:String?
     var status = ScanPageStatus.none
     
     init() {
@@ -43,10 +43,11 @@ class ScanPage {
     func generateThumbnail() {
         let imagesSource = CGImageSourceCreateWithData(imageData as CFData, nil)
         guard let source = imagesSource else {return}
-        let imageOptions:[String: AnyObject] = [kCGImageSourceShouldAllowFloat as String: true as NSNumber,
-                                                kCGImageSourceCreateThumbnailWithTransform as String: true as NSNumber,
-                                                kCGImageSourceCreateThumbnailFromImageAlways as String: true as NSNumber,
-                                                kCGImageSourceThumbnailMaxPixelSize as String: ScanPage.thumbSize as NSNumber]
+        let imageOptions:[String: AnyObject] =
+            [kCGImageSourceShouldAllowFloat as String: true as NSNumber,
+             kCGImageSourceCreateThumbnailWithTransform as String: true as NSNumber,
+             kCGImageSourceCreateThumbnailFromImageAlways as String: true as NSNumber,
+             kCGImageSourceThumbnailMaxPixelSize as String: ScanPage.thumbSize as NSNumber]
         let thumbnailImage = CGImageSourceCreateThumbnailAtIndex(source, 0, imageOptions as CFDictionary)
         guard let cgThumb = thumbnailImage else { return }
         thumbnail = UIImage(cgImage: cgThumb)
@@ -55,7 +56,7 @@ class ScanPage {
 
 extension ScanPage: Equatable {
     
-    public static func ==(lhs: ScanPage, rhs: ScanPage) -> Bool {
+    public static func == (lhs: ScanPage, rhs: ScanPage) -> Bool {
         return lhs.imageData == rhs.imageData && lhs.id == rhs.id && lhs.status == rhs.status
     }
     

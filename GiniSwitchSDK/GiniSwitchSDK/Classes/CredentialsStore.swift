@@ -19,7 +19,7 @@ protocol CredentialsStore {
     var user:User? {get set}
 }
 
-class KeychainCredentialsStore : CredentialsStore {
+final class KeychainCredentialsStore : CredentialsStore {
     
     let accessTokenService = "AccessToken"
     let refreshTokenService = "RefreshToken"
@@ -27,13 +27,11 @@ class KeychainCredentialsStore : CredentialsStore {
     let userService = "UserCredentials"
     let tokenAccountField = "bearerToken"
     
-    
     var accessToken:String? {
         set {
             if let token = newValue {
                 _ = save(service: accessTokenService, userName: tokenAccountField, secret: token)
-            }
-            else {
+            } else {
                 delete(service: accessTokenService)
             }
         }
@@ -109,13 +107,24 @@ extension CredentialsStore {
         // Instantiate a new default keychain query
         // Tell the query to return a result
         // Limit our results to one item
-        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPassword, service, kCFBooleanTrue, kCFBooleanTrue, kSecMatchLimitOne], forKeys: [kSecClass as NSString, kSecAttrService as NSString, kSecReturnAttributes as NSString, kSecReturnData as NSString, kSecMatchLimit as NSString])
+        let keychainQuery = NSMutableDictionary(objects: [kSecClassGenericPassword,
+                                                          service,
+                                                          kCFBooleanTrue,
+                                                          kCFBooleanTrue,
+                                                          kSecMatchLimitOne],
+                                                forKeys: [kSecClass as NSString,
+                                                          kSecAttrService as NSString,
+                                                          kSecReturnAttributes as NSString,
+                                                          kSecReturnData as NSString,
+                                                          kSecMatchLimit as NSString])
         if let name = accountName {
             keychainQuery[kSecAttrAccount as NSString] = name
         }
         
         var result: AnyObject?
-        let status = withUnsafeMutablePointer(to: &result) { SecItemCopyMatching(keychainQuery, UnsafeMutablePointer($0)) }
+        let status = withUnsafeMutablePointer(to: &result) {
+            SecItemCopyMatching(keychainQuery, UnsafeMutablePointer($0))
+        }
         
         if status == errSecSuccess {
             if let result = result as? NSDictionary {
@@ -130,7 +139,10 @@ extension CredentialsStore {
     }
     
     func queryFor(service: String, secret: String? = nil) -> NSMutableDictionary {
-        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPassword, service], forKeys: [kSecClass as NSString, kSecAttrService as NSString])
+        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPassword,
+                                                                               service],
+                                                                     forKeys: [kSecClass as NSString,
+                                                                               kSecAttrService as NSString])
         
         if let pass = secret,
             let dataFromString = pass.data(using: String.Encoding.utf8, allowLossyConversion: false) {

@@ -15,7 +15,7 @@ struct SelfLink: Codable {
 
 extension SelfLink: Equatable {
     
-    static func ==(lhs: SelfLink, rhs: SelfLink) -> Bool {
+    static func == (lhs: SelfLink, rhs: SelfLink) -> Bool {
         return lhs.href == rhs.href
     }
     

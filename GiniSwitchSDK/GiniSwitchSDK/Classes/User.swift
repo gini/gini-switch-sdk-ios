@@ -10,8 +10,8 @@ import UIKit
 
 struct User {
 
-    var email:String? = nil
-    var password:String? = nil
+    var email:String?
+    var password:String?
     
     init() {
         email = nil

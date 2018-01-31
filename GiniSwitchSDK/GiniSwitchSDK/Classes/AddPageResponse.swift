@@ -6,12 +6,11 @@
 //
 //
 
-
-class AddPageResponse: Codable {
+struct AddPageResponse: Codable {
 
     static let statusMapping = ["processing": ScanPageStatus.uploading, "processed": .analysed, "failed": .failed]
     
-    let status:String?  // TODO: the status should be mandatory
+    let status:String
     let links:ResponseLinks
     
     private enum CodingKeys : String, CodingKey {
@@ -20,11 +19,9 @@ class AddPageResponse: Codable {
     }
     
     var pageStatus:ScanPageStatus {
-        if let status = self.status,
-            let pageStatus = AddPageResponse.statusMapping[status] {
+        if let pageStatus = AddPageResponse.statusMapping[status] {
             return pageStatus
-        }
-        else {
+        } else {
             return .none
         }
     }

@@ -9,7 +9,7 @@
 import UIKit
 @testable import GiniSwitchSDK
 
-class MemoryCredentialsStore: CredentialsStore {
+final class MemoryCredentialsStore: CredentialsStore {
     
     var accessToken:String?
     

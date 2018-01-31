@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class CameraViewControllerTests: XCTestCase {
+final class CameraViewControllerTests: XCTestCase {
   
     let storyboard = UIStoryboard.switchStoryboard()
     var cameraController:CameraViewController! = nil

@@ -10,9 +10,9 @@ import UIKit
 
 struct UserManager {
 
-    var clientId:String? = nil
-    var clientSecret:String? = nil
-    var clientDomain:String? = nil
+    var clientId:String?
+    var clientSecret:String?
+    var clientDomain:String?
     var credentials = KeychainCredentialsStore()
     
     init() {

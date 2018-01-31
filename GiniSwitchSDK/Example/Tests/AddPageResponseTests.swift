@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class AddPageResponseTests: XCTestCase {
+final class AddPageResponseTests: XCTestCase {
     
     let selfHref = "testLink"
     let testStatus = "processing"

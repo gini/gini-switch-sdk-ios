@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExtractionResources {
+struct ExtractionResources {
 
     var token:String = ""
     
@@ -31,7 +31,7 @@ class ExtractionResources {
         let fullUrl = baseUrl.appendingPathComponent(extractionOrderUrlExtension)
         let authHeaders = Token.bearerAuthHeadersDictWith(token: token)
         // currently the API doesn't accept empty bodies. Just add an empty json
-        let body = try! JSONSerialization.data(withJSONObject: [:], options: .prettyPrinted)
+        let body = try? JSONSerialization.data(withJSONObject: [:], options: .prettyPrinted)
         return Resource<CreateOrderResponse>(url: fullUrl, headers: authHeaders, method: .POST, body: body)
     }
     
@@ -42,7 +42,7 @@ class ExtractionResources {
 //            assertionFailure("Encountered a malformed url")
 //        }
         var fullUrl = URL(string:orderUrl)!
-        fullUrl = fullUrl.appendingPathComponent(addPageExtension)  // TODO: We might consider getting the full url as parameter
+        fullUrl = fullUrl.appendingPathComponent(addPageExtension)
         var authHeaders = Token.bearerAuthHeadersDictWith(token: token)
         authHeaders["Content-Type"] = "image/jpeg"
         let body = imageData

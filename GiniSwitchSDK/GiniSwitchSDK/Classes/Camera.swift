@@ -51,10 +51,15 @@ internal class Camera {
         }
     }
     
-    func focusWithMode(_ focusMode: AVCaptureDevice.FocusMode, exposeWithMode exposureMode: AVCaptureDevice.ExposureMode, atDevicePoint point: CGPoint, monitorSubjectAreaChange: Bool) {
+    func focusWithMode(_ focusMode: AVCaptureDevice.FocusMode,
+                       exposeWithMode exposureMode: AVCaptureDevice.ExposureMode,
+                       atDevicePoint point: CGPoint,
+                       monitorSubjectAreaChange: Bool) {
         sessionQueue.async {
             guard let device = self.videoDeviceInput?.device else { return }
-            guard case .some = try? device.lockForConfiguration() else { return print("Could not lock device for configuration") }
+            guard case .some = try? device.lockForConfiguration() else {
+                return print("Could not lock device for configuration")
+            }
             
             if device.isFocusPointOfInterestSupported && device.isFocusModeSupported(focusMode) {
                 device.focusPointOfInterest = point
@@ -78,9 +83,10 @@ internal class Camera {
                 return completion(Data())   // TODO return an error
             }
             self.videoDeviceInput?.device.setFlashModeSecurely(.on)
-            self.stillImageOutput?.captureStillImageAsynchronously(from: connection) { (imageDataSampleBuffer: CMSampleBuffer?, error: Error?) -> Void in
+            self.stillImageOutput?
+            .captureStillImageAsynchronously(from: connection) { (sampleBuffer: CMSampleBuffer?, error:Error?) in
                 guard error == nil else { return completion(Data()) }  // TODO return an error
-                let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer!)
+                let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer!)
                 guard let data = imageData else {
                     return completion(Data())   // TODO return an error
                 }
@@ -98,7 +104,7 @@ internal class Camera {
                 PHPhotoLibrary.shared().performChanges({
                     PHAssetCreationRequest.forAsset().addResource(with: .photo, data: data, options: nil)
                     },
-                    completionHandler: { (success: Bool, error: Error?) -> Void in
+                    completionHandler: { (success: Bool, _) -> Void in
                         guard success else { return print("Could not save image to photo library") }
                 })
             } else {
@@ -109,8 +115,10 @@ internal class Camera {
     
     func setupSession() throws {
         // Setup is not performed asynchronously because of KVOs
-        func deviceWithMediaType(_ mediaType: String, preferringPosition position: AVCaptureDevice.Position) -> AVCaptureDevice? {
-            let devices = AVCaptureDevice.devices(for: AVMediaType(rawValue: mediaType)).filter { $0.position == position }
+        func deviceWithMediaType(_ mediaType: String,
+                                 preferringPosition position: AVCaptureDevice.Position) -> AVCaptureDevice? {
+            let devices = AVCaptureDevice.devices(for: AVMediaType(rawValue: mediaType))
+                .filter { $0.position == position }
             guard let device = devices.first else { return nil }
             return device
         }
@@ -141,7 +149,7 @@ internal class Camera {
         
         let output = AVCaptureStillImageOutput()
         if self.session.canAddOutput(output) {
-            output.outputSettings = [ AVVideoCodecKey: AVVideoCodecJPEG ];
+            output.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
             self.session.addOutput(output)
             self.stillImageOutput = output
         } else {

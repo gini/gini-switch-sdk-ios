@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class MultiPageScanViewControllerTests: XCTestCase {
+final class MultiPageScanViewControllerTests: XCTestCase {
     
     let storyboard = switchStoryboard()
     var multiPageController:MultiPageScanViewController! = nil

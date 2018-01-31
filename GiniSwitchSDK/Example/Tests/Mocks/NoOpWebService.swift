@@ -9,7 +9,7 @@
 import UIKit
 @testable import GiniSwitchSDK
 
-class NoOpWebService: WebService {
+final class NoOpWebService: WebService {
     
     var resource:AnyObject? = nil       // TODO: use Resource as data type
     

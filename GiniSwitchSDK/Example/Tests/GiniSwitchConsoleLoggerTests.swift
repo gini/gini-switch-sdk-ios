@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class GiniSwitchConsoleLoggerTests: XCTestCase {
+final class GiniSwitchConsoleLoggerTests: XCTestCase {
     
     let logger = GiniSwitchConsoleLogger()
     

@@ -12,16 +12,16 @@ import UIKit
 
 typealias ExtractionServiceOrderCallback = (_ url:String?, _ error:Error?) -> Void
 typealias ExtractionServicePageCallback = (_ id:String?, _ error:Error?) -> Void
-typealias ExtractionServiceStatusCallback = (_ status:ExtractionStatusResponse?, _ error:Error?) -> Void    // TODO: should ExtractionStatusResponse be exposed?
+typealias ExtractionServiceStatusCallback = (_ status:ExtractionStatusResponse?, _ error:Error?) -> Void
 typealias ExtractionServiceExtractionsCallback = (_ collection:ExtractionCollection?, _ error:Error?) -> Void
 typealias ExtractionServiceFeedbackCallback = (_ error:Error?) -> Void
 
-class ExtractionService {
+final class ExtractionService {
     
     let token:String
     let resources:ExtractionResources
     var resourceLoader:WebService       // var so a new object can be injected
-    var orderUrl:String? = nil
+    var orderUrl:String?
     
     var hasExtractionOrder:Bool {
         return (orderUrl != nil)
@@ -55,7 +55,7 @@ class ExtractionService {
             // no extraction order yet
             return
         }
-        resourceLoader.load(resource: resources.deletePageWith(id: id, orderUrl: order)) { (deleted, error) in
+        resourceLoader.load(resource: resources.deletePageWith(id: id, orderUrl: order)) { (_, error) in
                 completion(id, error)
         }
     }
@@ -65,7 +65,9 @@ class ExtractionService {
             // no extraction order yet
             return
         }
-        resourceLoader.load(resource: resources.replacePageWith(id: id, orderUrl: order, imageData: newImageData)) { (response, error) in
+        resourceLoader.load(resource: resources.replacePageWith(id: id,
+                                                                orderUrl: order,
+                                                                imageData: newImageData)) { (_, error) in
             completion(id, error)
         }
     }
@@ -95,7 +97,7 @@ class ExtractionService {
             // no extraction order anymore
             return
         }
-        resourceLoader.load(resource: resources.feebackFor(orderUrl: order, feedback: feedback)) { (response, error) in
+        resourceLoader.load(resource: resources.feebackFor(orderUrl: order, feedback: feedback)) { (_, error) in
             completion(error)
         }
     }

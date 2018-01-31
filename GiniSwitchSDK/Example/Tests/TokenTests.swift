@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class TokenTests: XCTestCase {
+final class TokenTests: XCTestCase {
     
     let token = Token(accessToken: "access", refreshToken: "refresh", expiration: 100)
     

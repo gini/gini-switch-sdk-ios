@@ -9,7 +9,7 @@
 import XCTest
 @testable import GiniSwitchSDK
 
-class ExtractionValueTests: XCTestCase {
+final class ExtractionValueTests: XCTestCase {
     
     func testAddressProperties() {
         let extraction = createExtraction()
