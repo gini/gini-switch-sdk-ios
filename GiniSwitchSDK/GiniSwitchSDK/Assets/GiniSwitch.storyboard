@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kZJ-ii-hOy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kZJ-ii-hOy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHm-Kf-HpV">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="k01-wd-JZ3"/>
                                 </constraints>
@@ -35,10 +35,10 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKL-7t-ZRt">
-                                <rect key="frame" x="0.0" y="110" width="375" height="557"/>
+                                <rect key="frame" x="0.0" y="130" width="375" height="537"/>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLp-EP-i0R">
-                                <rect key="frame" x="0.0" y="110" width="375" height="477"/>
+                                <rect key="frame" x="0.0" y="130" width="375" height="457"/>
                                 <connections>
                                     <segue destination="1I9-D2-Sdm" kind="embed" identifier="CameraViewControllerEmbed" id="1r1-BM-raN"/>
                                 </connections>
@@ -58,11 +58,11 @@
                             <constraint firstAttribute="trailing" secondItem="EKL-7t-ZRt" secondAttribute="trailing" id="1Kw-8X-XS5"/>
                             <constraint firstItem="VLp-EP-i0R" firstAttribute="leading" secondItem="T1f-IY-wNz" secondAttribute="leading" id="9YQ-mq-Bqa"/>
                             <constraint firstAttribute="trailing" secondItem="dHm-Kf-HpV" secondAttribute="trailing" id="AhZ-eX-GuJ"/>
+                            <constraint firstItem="dHm-Kf-HpV" firstAttribute="top" secondItem="h69-L6-Y1H" secondAttribute="bottom" id="Au0-nf-Mjb"/>
                             <constraint firstItem="nfz-Bl-l5b" firstAttribute="top" secondItem="ztP-Ti-0ye" secondAttribute="bottom" id="JDm-m4-BO4"/>
                             <constraint firstAttribute="trailing" secondItem="ztP-Ti-0ye" secondAttribute="trailing" id="MDe-Jt-PNc"/>
                             <constraint firstItem="ztP-Ti-0ye" firstAttribute="top" secondItem="VLp-EP-i0R" secondAttribute="bottom" id="Omo-Ou-fEy"/>
                             <constraint firstItem="EKL-7t-ZRt" firstAttribute="leading" secondItem="T1f-IY-wNz" secondAttribute="leading" id="Yz3-yW-Z6H"/>
-                            <constraint firstItem="dHm-Kf-HpV" firstAttribute="top" secondItem="T1f-IY-wNz" secondAttribute="top" id="biK-ZH-boL"/>
                             <constraint firstItem="dHm-Kf-HpV" firstAttribute="leading" secondItem="T1f-IY-wNz" secondAttribute="leading" id="em0-Q8-2Wz"/>
                             <constraint firstItem="VLp-EP-i0R" firstAttribute="top" secondItem="dHm-Kf-HpV" secondAttribute="bottom" id="iFj-L2-weS"/>
                             <constraint firstItem="EKL-7t-ZRt" firstAttribute="top" secondItem="dHm-Kf-HpV" secondAttribute="bottom" id="kCI-h7-uZw"/>
@@ -92,18 +92,18 @@
                         <viewControllerLayoutGuide type="bottom" id="do6-Qk-TRG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="R7e-uW-Tlw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="477"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="457"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eb6-Ws-DUK" customClass="CameraPreviewView" customModule="GiniSwitchSDK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="477"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="457"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWE-22-XBD">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="477"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="457"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Um Dokumente zu fotografieren, erlaube Gini Pay den Zugriff auf die Kamera." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msR-yi-mcd">
-                                        <rect key="frame" x="30" y="218.5" width="316.5" height="41"/>
+                                        <rect key="frame" x="30" y="208.5" width="316.5" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -118,7 +118,6 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Eb6-Ws-DUK" secondAttribute="trailing" id="1FY-mS-lQH"/>
                             <constraint firstItem="Eb6-Ws-DUK" firstAttribute="top" secondItem="R7e-uW-Tlw" secondAttribute="top" id="7iY-6J-YAW"/>
@@ -252,10 +251,10 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beR-sF-2bk" customClass="ZoomableImageView" customModule="GiniSwitchSDK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="100" width="375" height="491"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="471"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vHu-9x-IEq">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Ist die Seite vollständig und in Leserichtung fotografiert?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4en-Sd-IAS">
                                         <rect key="frame" x="8" y="8" width="309" height="84"/>
@@ -264,7 +263,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uD9-DF-Tcd">
-                                        <rect key="frame" x="327" y="28" width="40" height="64"/>
+                                        <rect key="frame" x="327" y="8" width="40" height="84"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="f65-g4-1Qz"/>
                                         </constraints>
@@ -304,19 +303,19 @@
                         <constraints>
                             <constraint firstItem="pgY-vc-JHF" firstAttribute="width" secondItem="wVs-E1-4Ny" secondAttribute="width" multiplier="2.5:1" id="1Zm-BC-zoY"/>
                             <constraint firstItem="beR-sF-2bk" firstAttribute="leading" secondItem="M9p-eo-5ii" secondAttribute="leading" id="352-N2-3mP"/>
-                            <constraint firstItem="vHu-9x-IEq" firstAttribute="top" secondItem="M9p-eo-5ii" secondAttribute="top" id="4uw-K2-BY4"/>
+                            <constraint firstItem="vHu-9x-IEq" firstAttribute="top" secondItem="7DL-jz-J1n" secondAttribute="bottom" id="4uw-K2-BY4"/>
                             <constraint firstAttribute="trailing" secondItem="beR-sF-2bk" secondAttribute="trailing" id="ABK-Yf-5Hq"/>
                             <constraint firstItem="vHu-9x-IEq" firstAttribute="leading" secondItem="M9p-eo-5ii" secondAttribute="leading" id="LXd-tu-uZF"/>
+                            <constraint firstItem="uG4-Nv-2ZO" firstAttribute="top" secondItem="wVs-E1-4Ny" secondAttribute="bottom" constant="16" id="MVy-xo-FYu"/>
                             <constraint firstItem="wVs-E1-4Ny" firstAttribute="leading" secondItem="M9p-eo-5ii" secondAttribute="leadingMargin" id="S4p-mW-ejK"/>
-                            <constraint firstItem="uG4-Nv-2ZO" firstAttribute="top" secondItem="wVs-E1-4Ny" secondAttribute="bottom" constant="16" id="TeF-Au-ZJd"/>
                             <constraint firstAttribute="trailing" secondItem="vHu-9x-IEq" secondAttribute="trailing" id="c1E-d2-Whj"/>
+                            <constraint firstItem="uG4-Nv-2ZO" firstAttribute="top" secondItem="pgY-vc-JHF" secondAttribute="bottom" constant="16" id="d9b-Bm-cz7"/>
                             <constraint firstItem="wVs-E1-4Ny" firstAttribute="top" secondItem="beR-sF-2bk" secondAttribute="bottom" constant="16" id="fQS-56-Y8j"/>
                             <constraint firstItem="1IE-zQ-TSB" firstAttribute="centerX" secondItem="beR-sF-2bk" secondAttribute="centerX" id="fqK-5v-eaJ"/>
                             <constraint firstItem="pgY-vc-JHF" firstAttribute="height" secondItem="wVs-E1-4Ny" secondAttribute="height" id="fyW-vA-DKc"/>
                             <constraint firstItem="pgY-vc-JHF" firstAttribute="leading" secondItem="wVs-E1-4Ny" secondAttribute="trailing" constant="16" id="iG8-Yj-a5w"/>
                             <constraint firstItem="1IE-zQ-TSB" firstAttribute="bottom" secondItem="beR-sF-2bk" secondAttribute="bottom" constant="-10" id="lqK-CL-AC8"/>
                             <constraint firstItem="beR-sF-2bk" firstAttribute="top" secondItem="vHu-9x-IEq" secondAttribute="bottom" id="uM3-KR-X2Y"/>
-                            <constraint firstItem="uG4-Nv-2ZO" firstAttribute="top" secondItem="pgY-vc-JHF" secondAttribute="bottom" constant="16" id="yrE-4K-5tX"/>
                             <constraint firstItem="pgY-vc-JHF" firstAttribute="trailing" secondItem="M9p-eo-5ii" secondAttribute="trailingMargin" id="zfs-gq-1oG"/>
                         </constraints>
                     </view>
@@ -453,7 +452,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Onboarding" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLh-u4-yYB">
-                                <rect key="frame" x="124.5" y="428.5" width="128" height="30"/>
+                                <rect key="frame" x="123.5" y="428.5" width="128" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
